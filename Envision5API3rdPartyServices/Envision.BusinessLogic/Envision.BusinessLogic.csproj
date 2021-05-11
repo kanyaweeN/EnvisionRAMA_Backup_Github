@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.Database\Envision.Database.csproj" />
+    <ProjectReference Include="..\Envision.Entity\Envision.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

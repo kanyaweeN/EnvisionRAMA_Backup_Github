@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Popup"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="PopupNotify.designer.cs"
+   text-time="2008-10-22T11:53:02.218750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="62e1e7036f522905009f94f99af6bcb8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.984375Z"/>
+<entry
+   committed-rev="1"
+   name="PopupNotify.cs"
+   text-time="2008-10-22T11:53:02.234375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="64c39d069be6cb3b0b8fcdbf3b2b0e3c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:02.187500Z"/>
+<entry
+   committed-rev="1"
+   name="PopupNotify.resx"
+   text-time="2008-10-22T11:53:02.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="43dbe09fa7e75d1030d4d58a9156bd11"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:02.218750Z"/>
+</wc-entries>

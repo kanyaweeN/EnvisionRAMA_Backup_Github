@@ -1,0 +1,1057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>SDMC Appointment Data</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>18pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Left>0.375in</Left>
+        <Height>0.36in</Height>
+        <Width>5in</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix3">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>27.5425cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>2.97997cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle2">
+                      <ReportItems>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>HN</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>0.00001cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>0.80667cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>0.83313cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>0.35687cm</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!HN.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>1.33465cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.8175cm</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!PATIENT_NAME.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>6.35638cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>7.22692cm</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!AGE.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>15.49366cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.45251cm</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox17">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SESSION_NAME.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>22.36105cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.43146cm</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Tablix Name="Tablix1">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>3.09531cm</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>5.71469cm</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>8.06948cm</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>10.66301cm</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.6cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox7">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Time</Value>
+                                                <Style>
+                                                  <FontStyle>Normal</FontStyle>
+                                                  <FontFamily>Cambria</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <TextDecoration>None</TextDecoration>
+                                                  <Color>#000000</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox7</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightBlue</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox9">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Code</Value>
+                                                <Style>
+                                                  <FontStyle>Normal</FontStyle>
+                                                  <FontFamily>Cambria</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <TextDecoration>None</TextDecoration>
+                                                  <Color>#000000</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox9</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightBlue</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox11">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Exam Name</Value>
+                                                <Style>
+                                                  <FontStyle>Normal</FontStyle>
+                                                  <FontFamily>Cambria</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <TextDecoration>None</TextDecoration>
+                                                  <Color>#000000</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox11</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightBlue</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox13">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>Radiologist Name</Value>
+                                                <Style>
+                                                  <FontStyle>Normal</FontStyle>
+                                                  <FontFamily>Cambria</FontFamily>
+                                                  <FontSize>12pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                  <TextDecoration>None</TextDecoration>
+                                                  <Color>#000000</Color>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox13</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BackgroundColor>LightBlue</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.6cm</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="SCHEDULE_DATETIME">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Format(CDate(Fields!SCHEDULE_DATETIME.Value), "hh:mm")</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>SCHEDULE_DATETIME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="EXAM_UID">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!EXAM_UID.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>EXAM_UID</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="EXAM_NAME">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!EXAM_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>EXAM_NAME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="RADIOLOGIST_NAME">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!RADIOLOGIST_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>RADIOLOGIST_NAME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                              <TablixMember />
+                              <TablixMember />
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <KeepWithGroup>After</KeepWithGroup>
+                              </TablixMember>
+                              <TablixMember>
+                                <Group Name="Details" />
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>DataSet1</DataSetName>
+                          <Top>1.77997cm</Top>
+                          <Left>0.00001cm</Left>
+                          <Height>1.2cm</Height>
+                          <Width>27.54249cm</Width>
+                          <ZIndex>6</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Tablix>
+                        <Textbox Name="TYPE_NAME_ALIAS">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TYPE_NAME_ALIAS.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TYPE_NAME_ALIAS</rd:DefaultName>
+                          <Top>0cm</Top>
+                          <Left>0cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>3.47896cm</Width>
+                          <ZIndex>7</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Name</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>4.38675cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>1.44167cm</Width>
+                          <ZIndex>8</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>5.85487cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>0.35687cm</Width>
+                          <ZIndex>9</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox12">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Age</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>13.94736cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>1.07125cm</Width>
+                          <ZIndex>10</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>15.06623cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>0.35687cm</Width>
+                          <ZIndex>11</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Session Name</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>19.29075cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.60584cm</Width>
+                          <ZIndex>12</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>0.99155cm</Top>
+                          <Left>21.92304cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>0.35687cm</Width>
+                          <ZIndex>13</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Format(CDate(Parameters!StartTime.Value), "dd MMMM yyyy")</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Top>0cm</Top>
+                          <Left>3.65535cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>7.39479cm</Width>
+                          <ZIndex>14</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!HN.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>1.34266cm</Top>
+        <Left>0.92287cm</Left>
+        <Height>2.97997cm</Height>
+        <Width>27.5425cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>4.66287cm</Height>
+    <Style />
+  </Body>
+  <Width>29.5cm</Width>
+  <Page>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="EnvisionDataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=MIRACLE9;Initial Catalog=RIS_RAMA</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>0437a529-06c1-472b-aa45-8dbe1e7a1710</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>EnvisionDataSource</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@StartTime">
+            <Value>=Parameters!StartTime.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@EndTime">
+            <Value>=Parameters!EndTime.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@UnitId">
+            <Value>=Parameters!UnitId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@SessionId">
+            <Value>=Parameters!SessionId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>IF (@UnitId &lt;&gt; '' and @SessionId &lt;&gt; '')
+	begin
+		SELECT    
+				HR_UNIT.UNIT_ID	,
+				RIS_CLINICSESSION.SESSION_ID,
+				RIS_MODALITYTYPE.TYPE_NAME_ALIAS,
+				RIS_SCHEDULE.START_DATETIME AS SCHEDULE_DATETIME,
+				HIS_REGISTRATION.HN,
+				[dbo].[fnGetHISRegistrationFullName](RIS_SCHEDULE.REG_ID ,1) AS PATIENT_NAME,
+				[dbo].[fnGetAge](HIS_REGISTRATION.REG_ID,1) AS AGE,
+				RIS_CLINICSESSION.SESSION_NAME ,
+				RIS_EXAM.EXAM_UID ,
+				RIS_EXAM.EXAM_NAME,
+				[dbo].[fnGetEmpName](RIS_SCHEDULEDTL.RAD_ID,1) AS RADIOLOGIST_NAME				
+		FROM 
+				RIS_SCHEDULE INNER JOIN RIS_SCHEDULEDTL ON RIS_SCHEDULE.SCHEDULE_ID = RIS_SCHEDULEDTL.SCHEDULE_ID 
+								INNER JOIN HIS_REGISTRATION ON RIS_SCHEDULE.REG_ID                     = HIS_REGISTRATION.REG_ID
+								INNER JOIN RIS_MODALITY ON RIS_SCHEDULE.MODALITY_ID	            = RIS_MODALITY.MODALITY_ID 
+								INNER JOIN RIS_MODALITYTYPE ON RIS_MODALITY.MODALITY_TYPE = RIS_MODALITYTYPE.TYPE_ID
+								INNER JOIN RIS_CLINICSESSION ON RIS_SCHEDULE.SESSION_ID             = RIS_CLINICSESSION.SESSION_ID 
+								INNER JOIN RIS_EXAM ON RIS_SCHEDULEDTL.EXAM_ID	             = RIS_EXAM.EXAM_ID 
+								left  join HR_UNIT on RIS_SCHEDULE.REF_UNIT		             = HR_UNIT.UNIT_ID
+		WHERE        	RIS_SCHEDULE.schedule_status not in ('C' ,'P','W') and RIS_SCHEDULE.START_DATETIME between @StartTime and @EndTime and HR_UNIT.UNIT_ID IN ( @UnitId ) and RIS_CLINICSESSION.SESSION_ID in ( @SessionId )
+	end
+Else
+	begin
+		if (@UnitId &lt;&gt; '' and IsNull(@SessionId, '') = '')
+			begin 
+				SELECT    
+						HR_UNIT.UNIT_ID	,
+						RIS_CLINICSESSION.SESSION_ID,
+						RIS_MODALITYTYPE.TYPE_NAME_ALIAS,
+						RIS_SCHEDULE.START_DATETIME AS SCHEDULE_DATETIME,
+						HIS_REGISTRATION.HN,
+						[dbo].[fnGetHISRegistrationFullName](RIS_SCHEDULE.REG_ID ,1) AS PATIENT_NAME,
+						[dbo].[fnGetAge](HIS_REGISTRATION.REG_ID,1) AS AGE,
+						RIS_CLINICSESSION.SESSION_NAME ,
+						RIS_EXAM.EXAM_UID ,
+						RIS_EXAM.EXAM_NAME,
+						[dbo].[fnGetEmpName](RIS_SCHEDULEDTL.RAD_ID,1) AS RADIOLOGIST_NAME				
+				FROM 
+						RIS_SCHEDULE INNER JOIN RIS_SCHEDULEDTL ON RIS_SCHEDULE.SCHEDULE_ID = RIS_SCHEDULEDTL.SCHEDULE_ID 
+										INNER JOIN HIS_REGISTRATION ON RIS_SCHEDULE.REG_ID                     = HIS_REGISTRATION.REG_ID
+										INNER JOIN RIS_MODALITY ON RIS_SCHEDULE.MODALITY_ID	            = RIS_MODALITY.MODALITY_ID 
+										INNER JOIN RIS_MODALITYTYPE ON RIS_MODALITY.MODALITY_TYPE = RIS_MODALITYTYPE.TYPE_ID
+										INNER JOIN RIS_CLINICSESSION ON RIS_SCHEDULE.SESSION_ID             = RIS_CLINICSESSION.SESSION_ID 
+										INNER JOIN RIS_EXAM ON RIS_SCHEDULEDTL.EXAM_ID	             = RIS_EXAM.EXAM_ID 
+										left  join HR_UNIT on RIS_SCHEDULE.REF_UNIT		             = HR_UNIT.UNIT_ID
+				WHERE        	RIS_SCHEDULE.schedule_status not in ('C' ,'P','W') and RIS_SCHEDULE.START_DATETIME between @StartTime and @EndTime and HR_UNIT.UNIT_ID IN ( @UnitId ) 
+			end
+		else if (IsNull(@UnitId, '') = '' and @SessionId &lt;&gt; '')
+		begin
+			SELECT    
+					HR_UNIT.UNIT_ID	,
+					RIS_CLINICSESSION.SESSION_ID,
+					RIS_MODALITYTYPE.TYPE_NAME_ALIAS,
+					RIS_SCHEDULE.START_DATETIME AS SCHEDULE_DATETIME,
+					HIS_REGISTRATION.HN,
+					[dbo].[fnGetHISRegistrationFullName](RIS_SCHEDULE.REG_ID ,1) AS PATIENT_NAME,
+					[dbo].[fnGetAge](HIS_REGISTRATION.REG_ID,1) AS AGE,
+					RIS_CLINICSESSION.SESSION_NAME ,
+					RIS_EXAM.EXAM_UID ,
+					RIS_EXAM.EXAM_NAME,
+					[dbo].[fnGetEmpName](RIS_SCHEDULEDTL.RAD_ID,1) AS RADIOLOGIST_NAME				
+			FROM 
+					RIS_SCHEDULE INNER JOIN RIS_SCHEDULEDTL ON RIS_SCHEDULE.SCHEDULE_ID = RIS_SCHEDULEDTL.SCHEDULE_ID 
+									INNER JOIN HIS_REGISTRATION ON RIS_SCHEDULE.REG_ID                     = HIS_REGISTRATION.REG_ID
+									INNER JOIN RIS_MODALITY ON RIS_SCHEDULE.MODALITY_ID	            = RIS_MODALITY.MODALITY_ID 
+									INNER JOIN RIS_MODALITYTYPE ON RIS_MODALITY.MODALITY_TYPE = RIS_MODALITYTYPE.TYPE_ID
+									INNER JOIN RIS_CLINICSESSION ON RIS_SCHEDULE.SESSION_ID             = RIS_CLINICSESSION.SESSION_ID 
+									INNER JOIN RIS_EXAM ON RIS_SCHEDULEDTL.EXAM_ID	             = RIS_EXAM.EXAM_ID 
+									left  join HR_UNIT on RIS_SCHEDULE.REF_UNIT		             = HR_UNIT.UNIT_ID
+			WHERE        	RIS_SCHEDULE.schedule_status not in ('C' ,'P','W') and RIS_SCHEDULE.START_DATETIME between @StartTime and @EndTime and HR_UNIT.UNIT_ID IN ( @UnitId ) and RIS_CLINICSESSION.SESSION_ID in ( @SessionId )
+		end
+		else
+		begin
+			SELECT    
+					HR_UNIT.UNIT_ID	,
+					RIS_CLINICSESSION.SESSION_ID,
+					RIS_MODALITYTYPE.TYPE_NAME_ALIAS,
+					RIS_SCHEDULE.START_DATETIME AS SCHEDULE_DATETIME,
+					HIS_REGISTRATION.HN,
+					[dbo].[fnGetHISRegistrationFullName](RIS_SCHEDULE.REG_ID ,1) AS PATIENT_NAME,
+					[dbo].[fnGetAge](HIS_REGISTRATION.REG_ID,1) AS AGE,
+					RIS_CLINICSESSION.SESSION_NAME ,
+					RIS_EXAM.EXAM_UID ,
+					RIS_EXAM.EXAM_NAME,
+					[dbo].[fnGetEmpName](RIS_SCHEDULEDTL.RAD_ID,1) AS RADIOLOGIST_NAME				
+			FROM 
+					RIS_SCHEDULE INNER JOIN RIS_SCHEDULEDTL ON RIS_SCHEDULE.SCHEDULE_ID = RIS_SCHEDULEDTL.SCHEDULE_ID 
+									INNER JOIN HIS_REGISTRATION ON RIS_SCHEDULE.REG_ID                     = HIS_REGISTRATION.REG_ID
+									INNER JOIN RIS_MODALITY ON RIS_SCHEDULE.MODALITY_ID	            = RIS_MODALITY.MODALITY_ID 
+									INNER JOIN RIS_MODALITYTYPE ON RIS_MODALITY.MODALITY_TYPE = RIS_MODALITYTYPE.TYPE_ID
+									INNER JOIN RIS_CLINICSESSION ON RIS_SCHEDULE.SESSION_ID             = RIS_CLINICSESSION.SESSION_ID 
+									INNER JOIN RIS_EXAM ON RIS_SCHEDULEDTL.EXAM_ID	             = RIS_EXAM.EXAM_ID 
+									left  join HR_UNIT on RIS_SCHEDULE.REF_UNIT		             = HR_UNIT.UNIT_ID
+			WHERE        	RIS_SCHEDULE.schedule_status not in ('C' ,'P','W') and RIS_SCHEDULE.START_DATETIME between @StartTime and @EndTime 
+		end
+	end</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="SESSION_ID">
+          <DataField>SESSION_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TYPE_NAME_ALIAS">
+          <DataField>TYPE_NAME_ALIAS</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SCHEDULE_DATETIME">
+          <DataField>SCHEDULE_DATETIME</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="HN">
+          <DataField>HN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PATIENT_NAME">
+          <DataField>PATIENT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AGE">
+          <DataField>AGE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SESSION_NAME">
+          <DataField>SESSION_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_ID">
+          <DataField>UNIT_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="EXAM_UID">
+          <DataField>EXAM_UID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXAM_NAME">
+          <DataField>EXAM_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RADIOLOGIST_NAME">
+          <DataField>RADIOLOGIST_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="StartTime">
+      <DataType>String</DataType>
+      <Prompt>Start Time</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EndTime">
+      <DataType>String</DataType>
+      <Prompt>End Time</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="UnitId">
+      <DataType>String</DataType>
+      <Prompt>Unit Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SessionId">
+      <DataType>String</DataType>
+      <Prompt>Session Id</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>edf20820-bb66-4234-ae0c-826c501de3da</rd:ReportID>
+</Report>

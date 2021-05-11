@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="101"
+   name=""
+   committed-date="2008-09-23T04:44:10.885344Z"
+   url="svn://r300-demo/RIS/Forms"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   name="ResultEntry"
+   kind="dir"/>
+<entry
+   name="Technologist"
+   kind="dir"/>
+<entry
+   name="Popup"
+   kind="dir"/>
+<entry
+   name="Main"
+   kind="dir"/>
+<entry
+   name="Admin"
+   kind="dir"/>
+<entry
+   name="GBLMessage"
+   kind="dir"/>
+<entry
+   name="Lookup"
+   kind="dir"/>
+<entry
+   name="Order"
+   kind="dir"/>
+<entry
+   name="EmployeeSchedule"
+   kind="dir"/>
+<entry
+   name="Schedule"
+   kind="dir"/>
+</wc-entries>

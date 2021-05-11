@@ -1,0 +1,73 @@
+﻿2012-11-04
+	+ Added field at HL7->ORM^O01->PV1->Pre-AdmitNumber
+	+ Changed if third party send address more 100 characters. EnvisionIE just spilt insert at HIS_REGISTRATION.[ADDR1 - ADDR5]
+	+ Fix closed update flag RIS_HL7IELOG.IS_LOCK wait Msac discuss
+2012-12-11
+	+ Move some config from file to database
+	+ Added status "Sent" for send message bidirectional
+2012-12-18
+	+ Changed all method in class GenerateACK to static method
+	+ Added field MSH.SENDING_APPLICATION
+2013-01-07
+	+ Changed update HIS_REGISTRATION when new name is different old name or name of English is empty just update too
+2013-01-21
+	+ Added field about HL7 more
+	***
+		- Request update dll
+2013-01-23
+	+ Change suffix of radiologist from check at HR_EMP.IS_RESIDENT to get suffix at HR_JOBTITLE.JOB_TITLE_DESC
+		example : rad.FNAME_ENG	+ ' ' + rad.LNAME_ENG + ', M.D. ' + rad_title.JOB_TITLE_DESC
+2013-03-08
+	+ Fix when have 2 exams same EXAM_UID first exam IS_ACTIVE is false and second exam IS_ACTIVE is true but service seen first exam only
+	+ Changed if exists exam not mapping modality service add order use modality unknown first time
+2013-03-30
+	+ Added function group RIS_ORDER.REQUESTNO in the same RIS_ORDER.ORDER_ID
+2013-04-17
+	+ Added function HL7^Bidirectional case new order only to filter AETitleId for
+		1. Get ReferenceUnitId
+		2. Check IsAllowed to new order
+	***
+		- Check app.config of EnvisionIESync
+2013-05-09
+	+ Added function when new order detail check time from RIS_CLINICSESSION for get CLINIC_TYPE_ID
+	+ Remove function auto BP_ID from RIS_BPVIEW (Unsure logic)
+2013-05-23
+	+ Modify connect and listen socket
+		- if set local ip is empty then receive any ip (IPAddress.Any) *special for listen
+		- if set local ip is host name or ip (Dns.GetHostAddresses(address_host)[0])
+	+ Modality HL7 ORM^O01 when send cancel need ACCESSION_NO and Order Control only
+		Example :
+			MSH|^~\&||MI|||||ORM^O01|20130523235959|P|2.3
+			ORC|CA
+			OBR||20130523ACC0001
+2013-06-13
+	+ Added HR_EMP.ALIAS_NAME
+	+ Added function special HL7 Bidirectional receive data technician(X-Ray) at OBR-34
+2013-06-24 (Not finish)
+	+ Added HIS_REGISTRATION.EXT_HN
+	+ Added function HL7 ADT^ADT receive and sned data PatientId(ExternalId) at PID-2
+	+ Added function HL7 ORM^O01 receive and sned data PatientId(ExternalId) at PID-2
+	+ Added function HL7 ORU^R01 receive and sned data PatientId(ExternalId) at PID-2
+2013-08-27
+	+ Add FileSystemWatcherTimeout at app.config of EnvisionIEHelper
+	+ Modify time all config from millisecond to second
+2013-09-04
+	+ Fix GenerateORU 
+		default:
+			hl7_oru.OBSERVATION_VALUE = " ";
+		break;
+	+ Changed logic translate thai roman patient name
+2013-09-09
+	+ Added field RIS_ORDERDTL.WORK_STATION_ID
+	+ Added field RIS_HL7IELOG.SENDER_ID
+	+ Added field RIS_HL7IELOG.RECEIVER_ID
+	+ Added field RIS_HL7IELOG.IS_DELETED
+2013-09-19
+	+ Modify HL7 Last Name have XPN[2] + " " + XPN[3] + " " + XPN[4]
+2013-10-09
+	+ Modify check minimum data type datatime of ms sql
+2013-10-15
+	+ Modify receive MSMQ do not wait before process end
+	+ Add IDisposable in services class
+2014-04-17
+	+ Fix function HL7^Bidirectional send order control invalid

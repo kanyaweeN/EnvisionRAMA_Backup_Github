@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A46A17E9-0F4B-45DF-9641-0161BBA3C711}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnvisionOnline.DataAccess</RootNamespace>
+    <AssemblyName>EnvisionOnline.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccessBase.cs" />
+    <Compile Include="Delete\ONLDirectlyOrderDeleteData.cs" />
+    <Compile Include="Delete\ONLGroupDepartmentDeleteData.cs" />
+    <Compile Include="Delete\ONLGroupExamDeleteData.cs" />
+    <Compile Include="Delete\ONLGroupExamTypeDeleteData.cs" />
+    <Compile Include="Delete\RISClinicalIndicationDeleteData.cs" />
+    <Compile Include="Delete\RISClinicalIndicationFavoriteDeleteData.cs" />
+    <Compile Include="Delete\RISClinicalIndicationTypeDeleteData.cs" />
+    <Compile Include="Delete\RISClinicalIndicationTypeFavoriteDeleteData.cs" />
+    <Compile Include="Delete\RISClinicalIndicationWithUnitDeleteData.cs" />
+    <Compile Include="Delete\RISExamFavoriteDeleteData.cs" />
+    <Compile Include="Delete\RISOrderClinicalIndicationDeleteData.cs" />
+    <Compile Include="Delete\RISOrderClinicalIndicationTypeDeleteData.cs" />
+    <Compile Include="Delete\RISOrderDtlDeleteData.cs" />
+    <Compile Include="Delete\RisRiskIncidentsDelete.cs" />
+    <Compile Include="Delete\RIS_ORDERDeleteData.cs" />
+    <Compile Include="Delete\RIS_SCHEDULEDeleteData.cs" />
+    <Compile Include="Delete\XrayReqDeleteData.cs" />
+    <Compile Include="Delete\XrayReqdtlDeleteData.cs" />
+    <Compile Include="Insert\HISRegistrationInsertData.cs" />
+    <Compile Include="Insert\HREmpInsertData.cs" />
+    <Compile Include="Insert\ONLDirectlyOrderInsertData.cs" />
+    <Compile Include="Insert\ONLGroupDepartmentInsertData.cs" />
+    <Compile Include="Insert\ONLGroupExamInsertData.cs" />
+    <Compile Include="Insert\ONLGroupExamTypeInsertData.cs" />
+    <Compile Include="Insert\ONLHISlinklogInsertData.cs" />
+    <Compile Include="Insert\RISClinicalIndicationFavoriteInsertData.cs" />
+    <Compile Include="Insert\RISClinicalIndicationInsertData.cs" />
+    <Compile Include="Insert\RISClinicalIndicationTypeFavoriteInsertData.cs" />
+    <Compile Include="Insert\RISClinicalIndicationTypeInsertData.cs" />
+    <Compile Include="Insert\RISClinicalIndicationWithUnitInsertData.cs" />
+    <Compile Include="Insert\RISExamFavoriteInsertData.cs" />
+    <Compile Include="Insert\RISInsurancetypeInsertData.cs" />
+    <Compile Include="Insert\RISOrderClinicalindicationInsert.cs" />
+    <Compile Include="Insert\RISOrderClinicalindicationTypeInsert.cs" />
+    <Compile Include="Insert\RISOrderDtlInsertV2.cs" />
+    <Compile Include="Insert\RISOrderICDInsertData.cs" />
+    <Compile Include="Insert\RISOrderInsertV2.cs" />
+    <Compile Include="Insert\RisRiskIncidentsInsert.cs" />
+    <Compile Include="Insert\RISScheduleDtlInsertData.cs" />
+    <Compile Include="Insert\RISScheduleInsertData.cs" />
+    <Compile Include="Insert\RISScheduleLogsInsertData.cs" />
+    <Compile Include="Insert\RIS_ORDERInsertData.cs" />
+    <Compile Include="Insert\VNAWorklistInsertData.cs" />
+    <Compile Include="Insert\XrayreqdtlInsertData.cs" />
+    <Compile Include="Insert\XrayreqInsertData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select\HolidaySelectData.cs" />
+    <Compile Include="Select\ONLDirectlyOrderSelectData.cs" />
+    <Compile Include="Select\ONLExamCNMISelectData.cs" />
+    <Compile Include="Select\ONLExammapclinicSelectData.cs" />
+    <Compile Include="Select\ONLGroupDepartmentSelectData.cs" />
+    <Compile Include="Select\ONLGroupExamSelectData.cs" />
+    <Compile Include="Select\ONLGroupExamtypeSelectData.cs" />
+    <Compile Include="Select\RISBpviewMappingSelectData.cs" />
+    <Compile Include="Select\EnvSelectData.cs" />
+    <Compile Include="Select\GlobalAlertSelectData.cs" />
+    <Compile Include="Select\HISDoctorSelectData.cs" />
+    <Compile Include="Select\HisICDSelectData.cs" />
+    <Compile Include="Select\HISRegistrationSelectData.cs" />
+    <Compile Include="Select\HREmpSelectData.cs" />
+    <Compile Include="Select\HRUnitSelectData.cs" />
+    <Compile Include="Select\ONLClinicsessionSelectData.cs" />
+    <Compile Include="Select\ONLConflictExamSelectData.cs" />
+    <Compile Include="Select\ONLSearchMatchSelectData.cs" />
+    <Compile Include="Select\ONLWorklistSelectData.cs" />
+    <Compile Include="Select\PatientSelectData.cs" />
+    <Compile Include="Select\ResultEntryHNSelectData.cs" />
+    <Compile Include="Select\ResultEntyReportSelectData.cs" />
+    <Compile Include="Select\RISAuthlevelSelectData.cs" />
+    <Compile Include="Select\RISBpviewSelectData.cs" />
+    <Compile Include="Select\RISClinicalIndicationFavoriteSelectData.cs" />
+    <Compile Include="Select\RISClinicalIndicationSelectData.cs" />
+    <Compile Include="Select\RISClinicalIndicationTypeFavoriteSelectData.cs" />
+    <Compile Include="Select\RISClinicalIndicationTypeSelectData.cs" />
+    <Compile Include="Select\RISClinicalIndicationWithUnitSelectData.cs" />
+    <Compile Include="Select\RISClinicsessionSelectData.cs" />
+    <Compile Include="Select\RISClinictypeSelectData.cs" />
+    <Compile Include="Select\RisCreatinineSelect.cs" />
+    <Compile Include="Select\RISExamInstraction.cs" />
+    <Compile Include="Select\RISExamresultradsSelectData.cs" />
+    <Compile Include="Select\RISExamresultSelectData.cs" />
+    <Compile Include="Select\RISExamSelectData.cs" />
+    <Compile Include="Select\RISInsurancetypeSelectData.cs" />
+    <Compile Include="Select\RISModalityexamSelectData.cs" />
+    <Compile Include="Select\RISModalitySelectData.cs" />
+    <Compile Include="Select\RISModalitytypeSelectData.cs" />
+    <Compile Include="Select\RISOrderClinicalIndicationSelectData.cs" />
+    <Compile Include="Select\RISOrderClinicalIndicationTypeSelectData.cs" />
+    <Compile Include="Select\RISOrderdtlSelectData.cs" />
+    <Compile Include="Select\RISOrderGetAcceessionNo.cs" />
+    <Compile Include="Select\RISOrderGetReport.cs" />
+    <Compile Include="Select\RISOrderSelectData.cs" />
+    <Compile Include="Select\RISPatientinationSelectData.cs" />
+    <Compile Include="Select\RISPatstatusSelectData.cs" />
+    <Compile Include="Select\RisRiskCategoriseSelect.cs" />
+    <Compile Include="Select\RisRiskIncidentsSelect.cs" />
+    <Compile Include="Select\RISScheduleSelectData.cs" />
+    <Compile Include="Select\RISSessionAppCountSelectData.cs" />
+    <Compile Include="Select\RISSessionMaxappSelectData.cs" />
+    <Compile Include="Select\ScheduleReportSelectData.cs" />
+    <Compile Include="Select\VNAHrUnitSelectData.cs" />
+    <Compile Include="Select\VNAWorklistSelectData.cs" />
+    <Compile Include="Select\_LookUpSelect.cs" />
+    <Compile Include="StoredProcedure.cs" />
+    <Compile Include="Update\HREmpUpdateData.cs" />
+    <Compile Include="Update\ONLGroupDepartmentUpdateData.cs" />
+    <Compile Include="Update\ONLGroupExamTypeUpdateData.cs" />
+    <Compile Include="Update\PatientPhoneUpdateData.cs" />
+    <Compile Include="Update\RISExamConditionUpdateData.cs" />
+    <Compile Include="Update\RISExamFavoriteUpdateData.cs" />
+    <Compile Include="Update\RISOrderdtlUpdateData.cs" />
+    <Compile Include="Update\RISOrderUpdateData.cs" />
+    <Compile Include="Update\RISScheduleDtlUpdateData.cs" />
+    <Compile Include="Update\RISScheduleUpdateData.cs" />
+    <Compile Include="Update\XRAYREQDTLUpdateData.cs" />
+    <Compile Include="Update\XRAYREQUpdateData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvisionOnline.Common\EnvisionOnline.Common.csproj">
+      <Project>{A5CBC33E-667C-4EB9-B26B-D0AA6F3831BB}</Project>
+      <Name>EnvisionOnline.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,39 @@
+namespace Envision.Database
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class RIS_ORDERICD
+    {
+        [Key]
+        public int ORDER_ICD_ID { get; set; }
+
+        public int? ORDER_ID { get; set; }
+
+        public int? ICD_ID { get; set; }
+
+        public int? ORG_ID { get; set; }
+
+        public int? CREATED_BY { get; set; }
+
+        public DateTime? CREATED_ON { get; set; }
+
+        public int? LAST_MODIFIED_BY { get; set; }
+
+        public DateTime? LAST_MODIFIED_ON { get; set; }
+
+        public int? SCHEDULE_ID { get; set; }
+
+        [StringLength(1)]
+        public string IS_REQONLINE { get; set; }
+
+        public virtual GBL_ENV GBL_ENV { get; set; }
+
+        public virtual HIS_ICD HIS_ICD { get; set; }
+
+        public virtual RIS_SCHEDULE RIS_SCHEDULE { get; set; }
+    }
+}

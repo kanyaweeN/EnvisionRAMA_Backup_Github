@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D03AFB0-28C7-43CC-A25A-E10AE68931F5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnvisionOnline</RootNamespace>
+    <AssemblyName>EnvisionOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.1.Extensions, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.UI, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2012.1.215.40\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2012.1.215.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RCAJAX\2012.1.215.40\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="App_Data\RadCaptcha\0.wav" />
+    <Content Include="App_Data\RadCaptcha\1.wav" />
+    <Content Include="App_Data\RadCaptcha\2.wav" />
+    <Content Include="App_Data\RadCaptcha\3.wav" />
+    <Content Include="App_Data\RadCaptcha\4.wav" />
+    <Content Include="App_Data\RadCaptcha\5.wav" />
+    <Content Include="App_Data\RadCaptcha\6.wav" />
+    <Content Include="App_Data\RadCaptcha\7.wav" />
+    <Content Include="App_Data\RadCaptcha\8.wav" />
+    <Content Include="App_Data\RadCaptcha\9.wav" />
+    <Content Include="App_Data\RadCaptcha\A.wav" />
+    <Content Include="App_Data\RadCaptcha\B.wav" />
+    <Content Include="App_Data\RadCaptcha\C.wav" />
+    <Content Include="App_Data\RadCaptcha\D.wav" />
+    <Content Include="App_Data\RadCaptcha\E.wav" />
+    <Content Include="App_Data\RadCaptcha\F.wav" />
+    <Content Include="App_Data\RadCaptcha\G.wav" />
+    <Content Include="App_Data\RadCaptcha\H.wav" />
+    <Content Include="App_Data\RadCaptcha\I.wav" />
+    <Content Include="App_Data\RadCaptcha\J.wav" />
+    <Content Include="App_Data\RadCaptcha\K.wav" />
+    <Content Include="App_Data\RadCaptcha\L.wav" />
+    <Content Include="App_Data\RadCaptcha\M.wav" />
+    <Content Include="App_Data\RadCaptcha\N.wav" />
+    <Content Include="App_Data\RadCaptcha\O.wav" />
+    <Content Include="App_Data\RadCaptcha\P.wav" />
+    <Content Include="App_Data\RadCaptcha\Q.wav" />
+    <Content Include="App_Data\RadCaptcha\R.wav" />
+    <Content Include="App_Data\RadCaptcha\S.wav" />
+    <Content Include="App_Data\RadCaptcha\T.wav" />
+    <Content Include="App_Data\RadCaptcha\U.wav" />
+    <Content Include="App_Data\RadCaptcha\V.wav" />
+    <Content Include="App_Data\RadCaptcha\W.wav" />
+    <Content Include="App_Data\RadCaptcha\X.wav" />
+    <Content Include="App_Data\RadCaptcha\Y.wav" />
+    <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="CSS\adminStyle.css" />
+    <Content Include="CSS\background.jpg" />
+    <Content Include="CSS\indexStyle.css" />
+    <Content Include="CSS\masterStyle.css" />
+    <Content Include="CSS\OrderStyle.css" />
+    <Content Include="CSS\PlainFilmStyle.css" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamAdd.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTabHeader.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderDelete.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderEdit.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTypeAdd.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTypeDelete.aspx" />
+    <Content Include="Forms\Admin\dialogs\dialogGroupExamTypeEdit.aspx" />
+    <Content Include="Forms\Admin\frmFixOnlineData.aspx" />
+    <Content Include="Forms\Admin\frmManageExamOnline.aspx" />
+    <Content Include="Forms\Admin\frmManualParameter.aspx" />
+    <Content Include="Forms\Admin\frmManualParamterWinForm.aspx" />
+    <Content Include="Forms\Admin\frmPortableSetup.aspx" />
+    <Content Include="Forms\Admin\frmSetupCinicalIndicationWithUnit.aspx" />
+    <Content Include="Forms\Admin\frmSetupDirectlyOrder.aspx" />
+    <Content Include="Forms\Admin\frmSetupGroupExam.aspx" />
+    <Content Include="Forms\Dialogs\frmAllNextAppointment.aspx" />
+    <Content Include="Forms\Dialogs\frmBasicClinicalIndication.aspx" />
+    <Content Include="Forms\Dialogs\frmCovidDetail.aspx" />
+    <Content Include="Forms\Dialogs\frmRiskincedent.aspx" />
+    <Content Include="Forms\Dialogs\normalPageAllExam.aspx" />
+    <Content Include="Forms\Dialogs\normalPageAllExamGroup.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRBone.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRChestAndAbdomen.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRERTraumaSeries.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRHeadAndNeck.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRHipAndPelvis.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRLowerExtremity.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRRutineCase.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRShoulderAndClavicle.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRSpine.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCRUpperExtremity.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCT.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCTA.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCTMain.aspx" />
+    <Content Include="Forms\Dialogs\normalPageCTV.aspx" />
+    <Content Include="Forms\Dialogs\normalPageFavorit.aspx" />
+    <Content Include="Forms\Dialogs\normalPageFLU.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMammo.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMR.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMRA.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMRI.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMRS.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMRV.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMutiCT.aspx" />
+    <Content Include="Forms\Dialogs\normalPageMutiMR.aspx" />
+    <Content Include="Forms\Dialogs\normalPageOR.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORGen.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORHPB.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORNeuro.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORPed.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORPlastic.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORPulmoMed.aspx" />
+    <Content Include="Forms\Dialogs\normalPageORUro.aspx" />
+    <Content Include="Forms\Dialogs\normalPagePlainFilm.aspx" />
+    <Content Include="Forms\Dialogs\normalPageUS.aspx" />
+    <Content Include="Forms\Dialogs\OnlineAlertExam.aspx" />
+    <Content Include="Forms\Dialogs\OnlineAlertPatientPhone.aspx" />
+    <Content Include="Forms\Dialogs\OnlineClinicalIndicationPopup.aspx" />
+    <Content Include="Forms\Dialogs\OnlineCreateClinicalIndication.aspx" />
+    <Content Include="Forms\Dialogs\OnlineEditOrder.aspx" />
+    <Content Include="Forms\Dialogs\OnlineMessageBox.aspx" />
+    <Content Include="Forms\Dialogs\OnlineMessageBox2.aspx" />
+    <Content Include="Forms\Dialogs\OnlineMultiMessageBox.aspx" />
+    <Content Include="Forms\Dialogs\OnlineNewEmployee.aspx" />
+    <Content Include="Forms\Dialogs\OnlineOrderCancelForm.aspx" />
+    <Content Include="Forms\Dialogs\OnlinePopupDatetime.aspx" />
+    <Content Include="Forms\Errors\pageError.aspx" />
+    <Content Include="Forms\Errors\pageError403.aspx" />
+    <Content Include="Forms\Errors\pageError404.aspx" />
+    <Content Include="Forms\Errors\pagePatientError.aspx" />
+    <Content Include="Forms\Orders\frmEnvisionOrderNW.aspx" />
+    <Content Include="Forms\Orders\frmEnvisionOrderWL.aspx" />
+    <Content Include="Forms\Orders\frmEnvisionReprintReport.aspx" />
+    <Content Include="Forms\Orders\frmMasterNormalPages.aspx" />
+    <Content Include="Forms\Orders\frmQuickOrder.aspx" />
+    <Content Include="Forms\VNA\frmVNAWorklist.aspx" />
+    <Content Include="frmCheckParameterFromHIS.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="OnlineRequestPage.aspx" />
+    <Content Include="Forms\Dialogs\frmComments.aspx" />
+    <Content Include="ReportViewer\frmPreviewReport.aspx" />
+    <Content Include="ReportViewer\frmXtraReportViewer.aspx" />
+    <Content Include="Resources\background.jpg" />
+    <Content Include="Resources\ICON\Comment-add-icon16.png" />
+    <Content Include="Resources\ICON\Comment-add-icon16_gray.png" />
+    <Content Include="Resources\ICON\MessageBoxs\flag32.png" />
+    <Content Include="Resources\ICON\MessageBoxs\warning.png" />
+    <Content Include="Resources\ICON\upload-16.png" />
+    <Content Include="Resources\ICON\upload-32.png" />
+    <Content Include="Resources\ICON\vna.jpg" />
+    <Content Include="Resources\ICON\Actions-remove16.png" />
+    <Content Include="Resources\ICON\add2-16.png" />
+    <Content Include="Resources\ICON\adminstrator_16.png" />
+    <Content Include="Resources\ICON\adminstrator_grey_16.png" />
+    <Content Include="Resources\ICON\award-star-bronze-3-icon16.png" />
+    <Content Include="Resources\ICON\bellmmf.gif" />
+    <Content Include="Resources\ICON\browse_16.png" />
+    <Content Include="Resources\ICON\browse_32.png" />
+    <Content Include="Resources\ICON\calendar_2_16.png" />
+    <Content Include="Resources\ICON\chestIcon.jpg" />
+    <Content Include="Resources\ICON\chestIcon_resize.jpg" />
+    <Content Include="Resources\ICON\clear.png" />
+    <Content Include="Resources\ICON\clear_all_16.png" />
+    <Content Include="Resources\ICON\close3_16.png" />
+    <Content Include="Resources\ICON\CR16.jpg" />
+    <Content Include="Resources\ICON\CR32.png" />
+    <Content Include="Resources\ICON\CR48.png" />
+    <Content Include="Resources\ICON\CT16.jpg" />
+    <Content Include="Resources\ICON\CT32.png" />
+    <Content Include="Resources\ICON\CT48.png" />
+    <Content Include="Resources\ICON\ct_scan.jpg" />
+    <Content Include="Resources\ICON\delete.png" />
+    <Content Include="Resources\ICON\delete_grey.png" />
+    <Content Include="Resources\ICON\direction-folded-icon16.jpg" />
+    <Content Include="Resources\ICON\Envision.ico" />
+    <Content Include="Resources\ICON\ezgif.com-resize.gif" />
+    <Content Include="Resources\ICON\favorite.png" />
+    <Content Include="Resources\ICON\favorite_12.png" />
+    <Content Include="Resources\ICON\favorite_gray.png" />
+    <Content Include="Resources\ICON\favorite_gray_12.png" />
+    <Content Include="Resources\ICON\Help1.jpg" />
+    <Content Include="Resources\ICON\hospital_nurse.png" />
+    <Content Include="Resources\ICON\iso-strong-magnetic-field-symbol-is-2006_24.png" />
+    <Content Include="Resources\ICON\knee-icon2.png" />
+    <Content Include="Resources\ICON\knee-icon48.png" />
+    <Content Include="Resources\ICON\login.png" />
+    <Content Include="Resources\ICON\logout-icon300.png" />
+    <Content Include="Resources\ICON\Mammo16.jpg" />
+    <Content Include="Resources\ICON\Mammo32.png" />
+    <Content Include="Resources\ICON\Mammo48.png" />
+    <Content Include="Resources\ICON\MessageBoxs\help48.jpg" />
+    <Content Include="Resources\ICON\MessageBoxs\priority1_48.jpg" />
+    <Content Include="Resources\ICON\MR16.jpg" />
+    <Content Include="Resources\ICON\MR32.png" />
+    <Content Include="Resources\ICON\MR48.png" />
+    <Content Include="Resources\ICON\order_32.png" />
+    <Content Include="Resources\ICON\patient_walking_opd48.png" />
+    <Content Include="Resources\ICON\precaution24.png" />
+    <Content Include="Resources\ICON\preferences-desktop-peripherals-3_16.png" />
+    <Content Include="Resources\ICON\preferences-desktop-peripherals-3_G16.png" />
+    <Content Include="Resources\ICON\Preview-icon16.png" />
+    <Content Include="Resources\ICON\print-icon.png" />
+    <Content Include="Resources\ICON\printer.png" />
+    <Content Include="Resources\ICON\quickorder32.png" />
+    <Content Include="Resources\ICON\refresh32.png" />
+    <Content Include="Resources\ICON\report_16.png" />
+    <Content Include="Resources\ICON\report_grey_16.png" />
+    <Content Include="Resources\ICON\save.png" />
+    <Content Include="Resources\ICON\saveAndClose.png" />
+    <Content Include="Resources\ICON\saveLarge.png" />
+    <Content Include="Resources\ICON\syringe.png" />
+    <Content Include="Resources\ICON\syringe_32.png" />
+    <Content Include="Resources\ICON\text_file.png" />
+    <Content Include="Resources\ICON\Ultrasound.jpg" />
+    <Content Include="Resources\ICON\UltrasoundSS1.jpg" />
+    <Content Include="Resources\ICON\US_2_16.jpg" />
+    <Content Include="Resources\ICON\US_2_32.png" />
+    <Content Include="Resources\ICON\US_2_48.png" />
+    <Content Include="Resources\ICON\viewtree_24.png" />
+    <Content Include="Resources\ICON\vna_16.png" />
+    <Content Include="Resources\ICON\vna_32.png" />
+    <Content Include="Resources\ICON\xray.jpg" />
+    <Content Include="Resources\Logo\RAMA.JPG" />
+    <Content Include="Resources\Logo\synapse16.jpg" />
+    <Content Include="Resources\Logo\synapse16_gray.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamAdd.aspx.cs">
+      <DependentUpon>dialogGroupExamAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamAdd.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeader.aspx.cs">
+      <DependentUpon>dialogGroupExamTabHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeader.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTabHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderDelete.aspx.cs">
+      <DependentUpon>dialogGroupExamTabHeaderDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderDelete.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTabHeaderDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderEdit.aspx.cs">
+      <DependentUpon>dialogGroupExamTabHeaderEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTabHeaderEdit.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTabHeaderEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeAdd.aspx.cs">
+      <DependentUpon>dialogGroupExamTypeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeAdd.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTypeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeDelete.aspx.cs">
+      <DependentUpon>dialogGroupExamTypeDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeDelete.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTypeDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeEdit.aspx.cs">
+      <DependentUpon>dialogGroupExamTypeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\dialogs\dialogGroupExamTypeEdit.aspx.designer.cs">
+      <DependentUpon>dialogGroupExamTypeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmFixOnlineData.aspx.cs">
+      <DependentUpon>frmFixOnlineData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmFixOnlineData.aspx.designer.cs">
+      <DependentUpon>frmFixOnlineData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManageExamOnline.aspx.cs">
+      <DependentUpon>frmManageExamOnline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManageExamOnline.aspx.designer.cs">
+      <DependentUpon>frmManageExamOnline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManualParameter.aspx.cs">
+      <DependentUpon>frmManualParameter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManualParameter.aspx.designer.cs">
+      <DependentUpon>frmManualParameter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManualParamterWinForm.aspx.cs">
+      <DependentUpon>frmManualParamterWinForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmManualParamterWinForm.aspx.designer.cs">
+      <DependentUpon>frmManualParamterWinForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmPortableSetup.aspx.cs">
+      <DependentUpon>frmPortableSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmPortableSetup.aspx.designer.cs">
+      <DependentUpon>frmPortableSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupCinicalIndicationWithUnit.aspx.cs">
+      <DependentUpon>frmSetupCinicalIndicationWithUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupCinicalIndicationWithUnit.aspx.designer.cs">
+      <DependentUpon>frmSetupCinicalIndicationWithUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupDirectlyOrder.aspx.cs">
+      <DependentUpon>frmSetupDirectlyOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupDirectlyOrder.aspx.designer.cs">
+      <DependentUpon>frmSetupDirectlyOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupGroupExam.aspx.cs">
+      <DependentUpon>frmSetupGroupExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSetupGroupExam.aspx.designer.cs">
+      <DependentUpon>frmSetupGroupExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\masterAdmin.Master.cs">
+      <DependentUpon>masterAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\masterAdmin.Master.designer.cs">
+      <DependentUpon>masterAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmAllNextAppointment.aspx.cs">
+      <DependentUpon>frmAllNextAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmAllNextAppointment.aspx.designer.cs">
+      <DependentUpon>frmAllNextAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmBasicClinicalIndication.aspx.cs">
+      <DependentUpon>frmBasicClinicalIndication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmBasicClinicalIndication.aspx.designer.cs">
+      <DependentUpon>frmBasicClinicalIndication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmCovidDetail.aspx.cs">
+      <DependentUpon>frmCovidDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmCovidDetail.aspx.designer.cs">
+      <DependentUpon>frmCovidDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmRiskincedent.aspx.cs">
+      <DependentUpon>frmRiskincedent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmRiskincedent.aspx.designer.cs">
+      <DependentUpon>frmRiskincedent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageAllExam.aspx.cs">
+      <DependentUpon>normalPageAllExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageAllExam.aspx.designer.cs">
+      <DependentUpon>normalPageAllExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageAllExamGroup.aspx.cs">
+      <DependentUpon>normalPageAllExamGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageAllExamGroup.aspx.designer.cs">
+      <DependentUpon>normalPageAllExamGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRBone.aspx.cs">
+      <DependentUpon>normalPageCRBone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRBone.aspx.designer.cs">
+      <DependentUpon>normalPageCRBone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRChestAndAbdomen.aspx.cs">
+      <DependentUpon>normalPageCRChestAndAbdomen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRChestAndAbdomen.aspx.designer.cs">
+      <DependentUpon>normalPageCRChestAndAbdomen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRERTraumaSeries.aspx.cs">
+      <DependentUpon>normalPageCRERTraumaSeries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRERTraumaSeries.aspx.designer.cs">
+      <DependentUpon>normalPageCRERTraumaSeries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRHeadAndNeck.aspx.cs">
+      <DependentUpon>normalPageCRHeadAndNeck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRHeadAndNeck.aspx.designer.cs">
+      <DependentUpon>normalPageCRHeadAndNeck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRHipAndPelvis.aspx.cs">
+      <DependentUpon>normalPageCRHipAndPelvis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRHipAndPelvis.aspx.designer.cs">
+      <DependentUpon>normalPageCRHipAndPelvis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRLowerExtremity.aspx.cs">
+      <DependentUpon>normalPageCRLowerExtremity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRLowerExtremity.aspx.designer.cs">
+      <DependentUpon>normalPageCRLowerExtremity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRRutineCase.aspx.cs">
+      <DependentUpon>normalPageCRRutineCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRRutineCase.aspx.designer.cs">
+      <DependentUpon>normalPageCRRutineCase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRShoulderAndClavicle.aspx.cs">
+      <DependentUpon>normalPageCRShoulderAndClavicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRShoulderAndClavicle.aspx.designer.cs">
+      <DependentUpon>normalPageCRShoulderAndClavicle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRSpine.aspx.cs">
+      <DependentUpon>normalPageCRSpine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRSpine.aspx.designer.cs">
+      <DependentUpon>normalPageCRSpine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRUpperExtremity.aspx.cs">
+      <DependentUpon>normalPageCRUpperExtremity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCRUpperExtremity.aspx.designer.cs">
+      <DependentUpon>normalPageCRUpperExtremity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCT.aspx.cs">
+      <DependentUpon>normalPageCT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCT.aspx.designer.cs">
+      <DependentUpon>normalPageCT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTA.aspx.cs">
+      <DependentUpon>normalPageCTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTA.aspx.designer.cs">
+      <DependentUpon>normalPageCTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTMain.aspx.cs">
+      <DependentUpon>normalPageCTMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTMain.aspx.designer.cs">
+      <DependentUpon>normalPageCTMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTV.aspx.cs">
+      <DependentUpon>normalPageCTV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageCTV.aspx.designer.cs">
+      <DependentUpon>normalPageCTV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageFavorit.aspx.cs">
+      <DependentUpon>normalPageFavorit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageFavorit.aspx.designer.cs">
+      <DependentUpon>normalPageFavorit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageFLU.aspx.cs">
+      <DependentUpon>normalPageFLU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageFLU.aspx.designer.cs">
+      <DependentUpon>normalPageFLU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMammo.aspx.cs">
+      <DependentUpon>normalPageMammo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMammo.aspx.designer.cs">
+      <DependentUpon>normalPageMammo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMR.aspx.cs">
+      <DependentUpon>normalPageMR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMR.aspx.designer.cs">
+      <DependentUpon>normalPageMR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRA.aspx.cs">
+      <DependentUpon>normalPageMRA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRA.aspx.designer.cs">
+      <DependentUpon>normalPageMRA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRI.aspx.cs">
+      <DependentUpon>normalPageMRI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRI.aspx.designer.cs">
+      <DependentUpon>normalPageMRI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRS.aspx.cs">
+      <DependentUpon>normalPageMRS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRS.aspx.designer.cs">
+      <DependentUpon>normalPageMRS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRV.aspx.cs">
+      <DependentUpon>normalPageMRV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMRV.aspx.designer.cs">
+      <DependentUpon>normalPageMRV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMutiCT.aspx.cs">
+      <DependentUpon>normalPageMutiCT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMutiCT.aspx.designer.cs">
+      <DependentUpon>normalPageMutiCT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMutiMR.aspx.cs">
+      <DependentUpon>normalPageMutiMR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageMutiMR.aspx.designer.cs">
+      <DependentUpon>normalPageMutiMR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageOR.aspx.cs">
+      <DependentUpon>normalPageOR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageOR.aspx.designer.cs">
+      <DependentUpon>normalPageOR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORGen.aspx.cs">
+      <DependentUpon>normalPageORGen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORGen.aspx.designer.cs">
+      <DependentUpon>normalPageORGen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORHPB.aspx.cs">
+      <DependentUpon>normalPageORHPB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORHPB.aspx.designer.cs">
+      <DependentUpon>normalPageORHPB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORNeuro.aspx.cs">
+      <DependentUpon>normalPageORNeuro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORNeuro.aspx.designer.cs">
+      <DependentUpon>normalPageORNeuro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPed.aspx.cs">
+      <DependentUpon>normalPageORPed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPed.aspx.designer.cs">
+      <DependentUpon>normalPageORPed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPlastic.aspx.cs">
+      <DependentUpon>normalPageORPlastic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPlastic.aspx.designer.cs">
+      <DependentUpon>normalPageORPlastic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPulmoMed.aspx.cs">
+      <DependentUpon>normalPageORPulmoMed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORPulmoMed.aspx.designer.cs">
+      <DependentUpon>normalPageORPulmoMed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORUro.aspx.cs">
+      <DependentUpon>normalPageORUro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageORUro.aspx.designer.cs">
+      <DependentUpon>normalPageORUro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPagePlainFilm.aspx.cs">
+      <DependentUpon>normalPagePlainFilm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPagePlainFilm.aspx.designer.cs">
+      <DependentUpon>normalPagePlainFilm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageUS.aspx.cs">
+      <DependentUpon>normalPageUS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageUS.aspx.designer.cs">
+      <DependentUpon>normalPageUS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineAlertExam.aspx.cs">
+      <DependentUpon>OnlineAlertExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineAlertExam.aspx.designer.cs">
+      <DependentUpon>OnlineAlertExam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineAlertPatientPhone.aspx.cs">
+      <DependentUpon>OnlineAlertPatientPhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineAlertPatientPhone.aspx.designer.cs">
+      <DependentUpon>OnlineAlertPatientPhone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineClinicalIndicationPopup.aspx.cs">
+      <DependentUpon>OnlineClinicalIndicationPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineClinicalIndicationPopup.aspx.designer.cs">
+      <DependentUpon>OnlineClinicalIndicationPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineCreateClinicalIndication.aspx.cs">
+      <DependentUpon>OnlineCreateClinicalIndication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineCreateClinicalIndication.aspx.designer.cs">
+      <DependentUpon>OnlineCreateClinicalIndication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineEditOrder.aspx.cs">
+      <DependentUpon>OnlineEditOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineEditOrder.aspx.designer.cs">
+      <DependentUpon>OnlineEditOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBox.aspx.cs">
+      <DependentUpon>OnlineMessageBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBox.aspx.designer.cs">
+      <DependentUpon>OnlineMessageBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBox2.aspx.cs">
+      <DependentUpon>OnlineMessageBox2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBox2.aspx.designer.cs">
+      <DependentUpon>OnlineMessageBox2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMultiMessageBox.aspx.cs">
+      <DependentUpon>OnlineMultiMessageBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMultiMessageBox.aspx.designer.cs">
+      <DependentUpon>OnlineMultiMessageBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineNewEmployee.aspx.cs">
+      <DependentUpon>OnlineNewEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineNewEmployee.aspx.designer.cs">
+      <DependentUpon>OnlineNewEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineOrderCancelForm.aspx.cs">
+      <DependentUpon>OnlineOrderCancelForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineOrderCancelForm.aspx.designer.cs">
+      <DependentUpon>OnlineOrderCancelForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlinePopupDatetime.aspx.cs">
+      <DependentUpon>OnlinePopupDatetime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlinePopupDatetime.aspx.designer.cs">
+      <DependentUpon>OnlinePopupDatetime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Errors\masterErrorpage.Master.cs">
+      <DependentUpon>masterErrorpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Errors\masterErrorpage.Master.designer.cs">
+      <DependentUpon>masterErrorpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError.aspx.cs">
+      <DependentUpon>pageError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError.aspx.designer.cs">
+      <DependentUpon>pageError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError403.aspx.cs">
+      <DependentUpon>pageError403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError403.aspx.designer.cs">
+      <DependentUpon>pageError403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError404.aspx.cs">
+      <DependentUpon>pageError404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Errors\pageError404.aspx.designer.cs">
+      <DependentUpon>pageError404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Errors\pagePatientError.aspx.cs">
+      <DependentUpon>pagePatientError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Errors\pagePatientError.aspx.designer.cs">
+      <DependentUpon>pagePatientError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionOrderNW.aspx.cs">
+      <DependentUpon>frmEnvisionOrderNW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionOrderNW.aspx.designer.cs">
+      <DependentUpon>frmEnvisionOrderNW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionOrderWL.aspx.cs">
+      <DependentUpon>frmEnvisionOrderWL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionOrderWL.aspx.designer.cs">
+      <DependentUpon>frmEnvisionOrderWL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionReprintReport.aspx.cs">
+      <DependentUpon>frmEnvisionReprintReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders\frmEnvisionReprintReport.aspx.designer.cs">
+      <DependentUpon>frmEnvisionReprintReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders\frmMasterNormalPages.aspx.cs">
+      <DependentUpon>frmMasterNormalPages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders\frmMasterNormalPages.aspx.designer.cs">
+      <DependentUpon>frmMasterNormalPages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders\frmQuickOrder.aspx.cs">
+      <DependentUpon>frmQuickOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders\frmQuickOrder.aspx.designer.cs">
+      <DependentUpon>frmQuickOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VNA\frmVNAWorklist.aspx.cs">
+      <DependentUpon>frmVNAWorklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VNA\frmVNAWorklist.aspx.designer.cs">
+      <DependentUpon>frmVNAWorklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckParameterFromHIS.aspx.cs">
+      <DependentUpon>frmCheckParameterFromHIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCheckParameterFromHIS.aspx.designer.cs">
+      <DependentUpon>frmCheckParameterFromHIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineRequestPage.aspx.cs">
+      <DependentUpon>OnlineRequestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OnlineRequestPage.aspx.designer.cs">
+      <DependentUpon>OnlineRequestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViewer\Data\dataBilling.cs">
+      <DependentUpon>dataBilling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dataBilling.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataBilling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsReport.cs">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsScheduleData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsScheduleReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsScheduleReportAIMC.cs">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Data\dsScheduleReportAIMC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmComments.aspx.cs">
+      <DependentUpon>frmComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmComments.aspx.designer.cs">
+      <DependentUpon>frmComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\frmPreviewReport.aspx.cs">
+      <DependentUpon>frmPreviewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\frmPreviewReport.aspx.designer.cs">
+      <DependentUpon>frmPreviewReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\frmXtraReportViewer.aspx.cs">
+      <DependentUpon>frmXtraReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\frmXtraReportViewer.aspx.designer.cs">
+      <DependentUpon>frmXtraReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportAIMC.designer.cs">
+      <DependentUpon>xrptScheduleReportAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportAIMCNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportAIMCNew.Designer.cs">
+      <DependentUpon>xrptScheduleReportAIMCNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSDMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSDMC.designer.cs">
+      <DependentUpon>xrptScheduleReportSDMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptNavigatorApplication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptNavigatorApplication.Designer.cs">
+      <DependentUpon>xrptNavigatorApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReport.designer.cs">
+      <DependentUpon>xrptOrderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\Exam2SubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\Exam2SubReport.designer.cs">
+      <DependentUpon>Exam2SubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\ExamSubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\ExamSubReport.designer.cs">
+      <DependentUpon>ExamSubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\OrderExamParameters.cs" />
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\OrderReportParameters.cs" />
+    <Compile Include="ReportViewer\Reports\xrptOrderReportComponent\PatientDemographicParameters.cs" />
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvision.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvision.designer.cs">
+      <DependentUpon>xrptResultReportEnvision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvisionAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvisionAIMC.designer.cs">
+      <DependentUpon>xrptResultReportEnvisionAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvisionSDMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptResultReportEnvisionSDMC.designer.cs">
+      <DependentUpon>xrptResultReportEnvisionSDMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReport.designer.cs">
+      <DependentUpon>xrptScheduleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubExam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubExam.designer.cs">
+      <DependentUpon>xrptScheduleReportSubExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubIns.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubIns.designer.cs">
+      <DependentUpon>xrptScheduleReportSubIns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubIns2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xrptScheduleReportSubIns2.Designer.cs">
+      <DependentUpon>xrptScheduleReportSubIns2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xtraReportScreening.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Reports\xtraReportScreening.Designer.cs">
+      <DependentUpon>xtraReportScreening.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App_Data\RadSpell\de-DE.tdf" />
+    <None Include="App_Data\RadSpell\en-US.tdf" />
+    <None Include="App_Data\RadSpell\fr-FR.tdf" />
+    <Content Include="Forms\Errors\masterErrorpage.Master" />
+    <Content Include="Forms\Admin\masterAdmin.Master" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ReportViewer\Data\dataBilling.xsc">
+      <DependentUpon>dataBilling.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dataBilling.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataBilling.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportViewer\Data\dataBilling.xss">
+      <DependentUpon>dataBilling.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsReport.xsc">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportViewer\Data\dsReport.xss">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleData.xsc">
+      <DependentUpon>dsScheduleData.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleData.xss">
+      <DependentUpon>dsScheduleData.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReport.xsc">
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReport.xss">
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReportAIMC.xsc">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReportAIMC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleReportAIMC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportViewer\Data\dsScheduleReportAIMC.xss">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\ICON\Thumbs.db" />
+    <Content Include="Resources\PDF\ManualOnlineRequest.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvisionOnline.BusinessLogic\EnvisionOnline.BusinessLogic.csproj">
+      <Project>{170F5EA0-DB31-4149-BD1F-4607E20F3E40}</Project>
+      <Name>EnvisionOnline.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionOnline.Common\EnvisionOnline.Common.csproj">
+      <Project>{A5CBC33E-667C-4EB9-B26B-D0AA6F3831BB}</Project>
+      <Name>EnvisionOnline.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionOnline.Operational\EnvisionOnline.Operational.csproj">
+      <Project>{4075BEB5-CDEF-4444-A5AC-39F8A7878133}</Project>
+      <Name>EnvisionOnline.Operational</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionOnline.Webservice\EnvisionOnline.Webservice.csproj">
+      <Project>{7B78002B-2C0E-450D-903D-534A7694C204}</Project>
+      <Name>EnvisionOnline.Webservice</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportAIMC.resx">
+      <DependentUpon>xrptScheduleReportAIMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportAIMCNew.resx">
+      <DependentUpon>xrptScheduleReportAIMCNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportSDMC.resx">
+      <DependentUpon>xrptScheduleReportSDMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptNavigatorApplication.resx">
+      <DependentUpon>xrptNavigatorApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptOrderReport.resx">
+      <DependentUpon>xrptOrderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptOrderReportComponent\Exam2SubReport.resx">
+      <DependentUpon>Exam2SubReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptOrderReportComponent\ExamSubReport.resx">
+      <DependentUpon>ExamSubReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptResultReportEnvision.resx">
+      <DependentUpon>xrptResultReportEnvision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptResultReportEnvisionAIMC.resx">
+      <DependentUpon>xrptResultReportEnvisionAIMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptResultReportEnvisionSDMC.resx">
+      <DependentUpon>xrptResultReportEnvisionSDMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReport.resx">
+      <DependentUpon>xrptScheduleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportSubExam.resx">
+      <DependentUpon>xrptScheduleReportSubExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportSubIns.resx">
+      <DependentUpon>xrptScheduleReportSubIns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xrptScheduleReportSubIns2.resx">
+      <DependentUpon>xrptScheduleReportSubIns2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewer\Reports\xtraReportScreening.resx">
+      <DependentUpon>xtraReportScreening.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>37503</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

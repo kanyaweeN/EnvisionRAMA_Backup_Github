@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="101"
+   name=""
+   committed-date="2008-09-23T04:44:10.885344Z"
+   url="svn://r300-demo/RIS/Forms/Admin"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="GBL_AF01.cs"
+   text-time="2008-10-22T11:53:06.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="120b5500226a38c221276f1a9b02a3d9"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.312500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF13.resx"
+   text-time="2008-10-22T11:53:06.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ffae9fdcc381db2ea77054c71252f3fb"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.312500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF05.resx"
+   text-time="2008-10-22T11:53:06.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c86d78530d01b69faf3ee0e535111c2f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.343750Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF09.resx"
+   text-time="2008-10-22T11:53:06.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="455a80e3c7096e9935bc59c09793e861"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.343750Z"/>
+<entry
+   committed-rev="32"
+   name="RisvPatienForm.resx"
+   text-time="2008-10-22T11:53:06.281250Z"
+   committed-date="2008-08-13T10:33:49.484375Z"
+   checksum="5d8e64c4c37315a1120a3a088c914130"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.359375Z"/>
+<entry
+   committed-rev="1"
+   name="userPrivilege.cs"
+   text-time="2008-10-22T11:53:06.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a9d05c7c5b0b05ecf94122b9b81bd396"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.390625Z"/>
+<entry
+   committed-rev="1"
+   name="employeeInformation.cs"
+   text-time="2008-10-22T11:53:06.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="75f83b069d13fd8a7cfa904d6c49e9d6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.375000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_LF01.Designer.cs"
+   text-time="2008-10-22T11:53:06.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d5cc3e0b70f2e3dee34f8a4830f44986"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.375000Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF02.Designer.cs"
+   text-time="2008-10-22T11:53:06.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2b1cd8a2f9dc57e45d109948b460e79a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.390625Z"/>
+<entry
+   committed-rev="80"
+   name="RIS_SF04.Designer.cs"
+   text-time="2008-10-22T11:53:06.296875Z"
+   committed-date="2008-08-28T06:53:27.453125Z"
+   checksum="a9bb302638b3add2e4c41d2e4be6ac98"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.406250Z"/>
+<entry
+   committed-rev="101"
+   name="RIS_SF06.Designer.cs"
+   text-time="2008-10-22T11:53:06.328125Z"
+   committed-date="2008-09-23T04:44:10.885344Z"
+   checksum="5cadafb5185a41a58c5fa5f9cd362827"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.406250Z"/>
+<entry
+   committed-rev="82"
+   name="RIS_SF07.Designer.cs"
+   text-time="2008-10-22T11:53:06.328125Z"
+   committed-date="2008-08-29T03:30:23.250000Z"
+   checksum="810abfc5d583042d769312c400fbe448"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.406250Z"/>
+<entry
+   committed-rev="96"
+   name="RIS_SF07.cs"
+   text-time="2008-10-22T11:53:06.531250Z"
+   committed-date="2008-09-18T05:33:24.590250Z"
+   checksum="e025c298ab043c8192f9fd13a532a7a0"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.421875Z"/>
+<entry
+   committed-rev="77"
+   name="RIS_SF08.Designer.cs"
+   text-time="2008-10-22T11:53:06.328125Z"
+   committed-date="2008-08-28T04:41:40.203125Z"
+   checksum="3655a8111d0f58fd5de5c31361520359"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.421875Z"/>
+<entry
+   committed-rev="83"
+   name="RIS_SF09.Designer.cs"
+   text-time="2008-10-22T11:53:06.656250Z"
+   committed-date="2008-09-02T04:38:44.796875Z"
+   checksum="98fea6d62ef05b90cdc7be61c05ef850"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.437500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF01.cs"
+   text-time="2008-10-22T11:53:06.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a2a29b961531b886e7ba061bef9eab83"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.437500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF11.cs"
+   text-time="2008-10-22T11:53:06.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="24376cfb0aab260d740a62375ce06cff"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.453125Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF05.cs"
+   text-time="2008-10-22T11:53:06.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6c520d9d36aa933d1804832b16951fb8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.484375Z"/>
+<entry
+   committed-rev="84"
+   name="RIS_SF10.resx"
+   text-time="2008-10-22T11:53:06.687500Z"
+   committed-date="2008-09-02T04:51:14.437500Z"
+   checksum="7d0038f71657d6c55f4a7f00daea0fcc"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.484375Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF02.resx"
+   text-time="2008-10-22T11:53:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b46beafc9fc1f1f394a53185227c3e78"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.484375Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF09.cs"
+   text-time="2008-10-22T11:53:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d445e3fef011a386842b8b4561135f1f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.515625Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF06.resx"
+   text-time="2008-10-22T11:53:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a8d76bcbd1b506c3ae50a1469e3f273a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.546875Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF02.resx"
+   text-time="2008-10-22T11:53:06.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="986918b51c6bc0a1efde1568d65a8e4a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.546875Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF06.resx"
+   text-time="2008-10-22T11:53:06.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="91da4d3c506734c5119921cda0ad5f00"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.562500Z"/>
+<entry
+   committed-rev="1"
+   name="editProfile.resx"
+   text-time="2008-10-22T11:53:06.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.578125Z"/>
+<entry
+   committed-rev="84"
+   name="RIS_SF10.Designer.cs"
+   text-time="2008-10-22T11:53:06.718750Z"
+   committed-date="2008-09-02T04:51:14.437500Z"
+   checksum="a42f38ea420402441894287094b54f69"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.578125Z"/>
+<entry
+   committed-rev="1"
+   name="menuEntry.designer.cs"
+   text-time="2008-10-22T11:53:06.734375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d39821d60e2446e46e4016cd1d6e6707"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.593750Z"/>
+<entry
+   committed-rev="96"
+   name="RIS_SF11.Designer.cs"
+   text-time="2008-10-22T11:53:06.750000Z"
+   committed-date="2008-09-18T05:33:24.590250Z"
+   checksum="288cb8268af84b259fa88d6d28ff97b1"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.609375Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF02.cs"
+   text-time="2008-10-22T11:53:06.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="24211b1dfc5a1b2884941b87c3172dc3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.671875Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF12.Designer.cs"
+   text-time="2008-10-22T11:53:06.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e02e9bd5a2ec3b57071133573a9cae9e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.703125Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF12.cs"
+   text-time="2008-10-22T11:53:06.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5077d6fb32da3aa5ab6dc06bf5dd2daf"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.734375Z"/>
+<entry
+   committed-rev="101"
+   name="RIS_SF06.cs"
+   text-time="2008-10-22T11:53:06.781250Z"
+   committed-date="2008-09-23T04:44:10.885344Z"
+   checksum="7489898b2b4507e4dad4519e6906903c"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.750000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF01.Designer.cs"
+   text-time="2008-10-22T11:53:06.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bc94103a4f8bda2a75a2c443d51a8186"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.765625Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF02.Designer.cs"
+   text-time="2008-10-22T11:53:07.203125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="008ff87902724d0203990e89dd579f84"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.812500Z"/>
+<entry
+   committed-rev="92"
+   name="GBL_SF04.Designer.cs"
+   text-time="2008-10-22T11:53:07.234375Z"
+   committed-date="2008-09-18T05:15:49.012125Z"
+   checksum="36216f1554ae572a496cd2ebcf708ffa"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.828125Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF05.Designer.cs"
+   text-time="2008-10-22T11:53:07.250000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6aab35a239f4535a1eaeff16459ac1f7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.859375Z"/>
+<entry
+   committed-rev="97"
+   name="GBL_SF04.cs"
+   text-time="2008-10-22T11:53:07.250000Z"
+   committed-date="2008-09-18T05:34:25.543375Z"
+   checksum="22d795743478422afa6b5a517fdc08e3"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.843750Z"/>
+<entry
+   committed-rev="81"
+   name="GBL_SF06.Designer.cs"
+   text-time="2008-10-22T11:53:07.250000Z"
+   committed-date="2008-08-29T03:30:11.796875Z"
+   checksum="ae66ac5312f14ed25705d9bbf3f59cf4"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:04.875000Z"/>
+<entry
+   name="backup"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF07.Designer.cs"
+   text-time="2008-10-22T11:53:07.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="50ed384005cc3e547581930608eaeba8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.718750Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF11.resx"
+   text-time="2008-10-22T11:53:07.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9649c6170b3b5af1d64d85617902f764"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.734375Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF08.Designer.cs"
+   text-time="2008-10-22T11:53:07.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6606ddae31120cff0da429140f23f053"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.734375Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF08.cs"
+   text-time="2008-10-22T11:53:07.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5550f2438111c6bd92d45a054fe45096"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.750000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF09.Designer.cs"
+   text-time="2008-10-22T11:53:07.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="54a0ea307c19e4d2c60b4a15c8e7ad4c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.734375Z"/>
+<entry
+   committed-rev="82"
+   name="RIS_SF07.resx"
+   text-time="2008-10-22T11:53:07.296875Z"
+   committed-date="2008-08-29T03:30:23.250000Z"
+   checksum="717ecf4ecb5c99aa7263c645f48aca53"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.750000Z"/>
+<entry
+   committed-rev="78"
+   name="ExamSetup.Designer.cs"
+   text-time="2008-10-22T11:53:07.312500Z"
+   committed-date="2008-08-28T04:47:40.453125Z"
+   checksum="c77fa72f5af95fb986cf8e1a6b3a17ca"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.765625Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF11.resx"
+   text-time="2008-10-22T11:53:07.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="76092140893f7823e85f2d0f2e4738c1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.750000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF03.resx"
+   text-time="2008-10-22T11:53:07.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3569a26d8118f660391ceff7dbba451c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.781250Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF07.resx"
+   text-time="2008-10-22T11:53:07.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5a970ee5f54dee6dfdc5b85a34c1be74"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.796875Z"/>
+<entry
+   committed-rev="1"
+   name="Form1.Designer.cs"
+   text-time="2008-10-22T11:53:07.359375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6aff0a79d376bf279c32944d310f468c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.828125Z"/>
+<entry
+   committed-rev="1"
+   name="userPrivilege.designer.cs"
+   text-time="2008-10-22T11:53:07.734375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7c51e3806d8724959f15cbefc932a328"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.859375Z"/>
+<entry
+   committed-rev="1"
+   name="employeeInformation.designer.cs"
+   text-time="2008-10-22T11:53:07.390625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="94c80e763bdb1e61a0c3532e42df2932"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.859375Z"/>
+<entry
+   committed-rev="1"
+   name="Form1.cs"
+   text-time="2008-10-22T11:53:07.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a23b921af54abcecd6d0c92005c80d16"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.828125Z"/>
+<entry
+   committed-rev="1"
+   name="menuEntry.cs"
+   text-time="2008-10-22T11:53:07.921875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9d28a237480b64d8cb9a1a2b67f2f391"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.875000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_LF01.cs"
+   text-time="2008-10-22T11:53:07.921875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3e06365252e65c72bf7a4b6a2ce7f935"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.875000Z"/>
+<entry
+   committed-rev="96"
+   name="RIS_SF11.cs"
+   text-time="2008-10-22T11:53:08.015625Z"
+   committed-date="2008-09-18T05:33:24.590250Z"
+   checksum="accb1e7d5f647bcb67d58ceeb62f61b5"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.906250Z"/>
+<entry
+   committed-rev="52"
+   name="ExamSetup.resx"
+   text-time="2008-10-22T11:53:08.015625Z"
+   committed-date="2008-08-25T06:45:23.515625Z"
+   checksum="9649c6170b3b5af1d64d85617902f764"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.890625Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF11.Designer.cs"
+   text-time="2008-10-22T11:53:08.078125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9475b47aafe50d6582d0fa7e778d4c92"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.921875Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF03.designer.cs"
+   text-time="2008-10-22T11:53:08.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="85f422219eaeea8a87ac25f529b8703d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.953125Z"/>
+<entry
+   committed-rev="96"
+   name="RIS_SF09.cs"
+   text-time="2008-10-22T11:53:08.109375Z"
+   committed-date="2008-09-18T05:33:24.590250Z"
+   checksum="f6f8fc7ad6964ff57af7c9365e0a90fc"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.937500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF03.cs"
+   text-time="2008-10-22T11:53:08.140625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e5ed078519b28adfeae2dc152433df37"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF13.Designer.cs"
+   text-time="2008-10-22T11:53:08.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="45b3370e8cef2cb7cc13980796ad7efd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:05.953125Z"/>
+<entry
+   committed-rev="64"
+   name="GBL_SF13.cs"
+   text-time="2008-10-22T11:53:08.156250Z"
+   committed-date="2008-08-27T05:29:22.156250Z"
+   checksum="2e1e5730f1f564ba101bf441b3484ebf"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF07.cs"
+   text-time="2008-10-22T11:53:08.187500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c69958151582e3d81c339c09beb67077"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF12.resx"
+   text-time="2008-10-22T11:53:08.187500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c057ec9bd7a724a176a3e9553dbf3db8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.015625Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF04.resx"
+   text-time="2008-10-22T11:53:08.203125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2481d5500966ae525272b1b72f39ace5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.031250Z"/>
+<entry
+   committed-rev="1"
+   name="editProfile.designer.cs"
+   text-time="2008-10-22T11:53:08.218750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6ad6f2f505fd838155684bbaae11ade6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.046875Z"/>
+<entry
+   committed-rev="32"
+   name="RisvPatienForm.cs"
+   text-time="2008-10-22T11:53:08.250000Z"
+   committed-date="2008-08-13T10:33:49.484375Z"
+   checksum="b83f86e2825248022b9171540924171a"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.046875Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF08.resx"
+   text-time="2008-10-22T11:53:08.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9f36d4ec0f0c62df5fe84c4724e2ca77"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.062500Z"/>
+<entry
+   committed-rev="72"
+   name="ExamSetup.cs"
+   text-time="2008-10-22T11:53:08.265625Z"
+   committed-date="2008-08-27T08:57:29.078125Z"
+   checksum="fca907059edbbdb1d387a99c378a1814"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.062500Z"/>
+<entry
+   committed-rev="35"
+   name="GBL_SF04.resx"
+   text-time="2008-10-22T11:53:08.734375Z"
+   committed-date="2008-08-14T05:55:30.781250Z"
+   checksum="34e663f5f85795b9d06650975f39cc8a"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.078125Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF08.resx"
+   text-time="2008-10-22T11:53:08.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5a98f7e01bb232bec2c9c002c9cd0532"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.093750Z"/>
+<entry
+   committed-rev="96"
+   name="RIS_SF10.cs"
+   text-time="2008-10-22T11:53:08.765625Z"
+   committed-date="2008-09-18T05:33:24.590250Z"
+   checksum="2e8b4777179a877218c4847764fd4651"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.093750Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_AF01.resx"
+   text-time="2008-10-22T11:53:08.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.109375Z"/>
+<entry
+   committed-rev="80"
+   name="RIS_SF04.cs"
+   text-time="2008-10-22T11:53:08.781250Z"
+   committed-date="2008-08-28T06:53:27.453125Z"
+   checksum="d4982d5fc796e96e0d38195871718a3d"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.109375Z"/>
+<entry
+   committed-rev="79"
+   name="RIS_SF08.cs"
+   text-time="2008-10-22T11:53:08.796875Z"
+   committed-date="2008-08-28T06:53:11.406250Z"
+   checksum="54c7d3dafd5f6834a53b6e4a9504b1f7"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.125000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF02.cs"
+   text-time="2008-10-22T11:53:08.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a536d48eaff3643a61a89566d7728a2e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.125000Z"/>
+<entry
+   committed-rev="1"
+   name="Form1.resx"
+   text-time="2008-10-22T11:53:08.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.125000Z"/>
+<entry
+   committed-rev="1"
+   name="employeeInformation.resx"
+   text-time="2008-10-22T11:53:08.828125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="f37c7de635dc1ad606db28a936702c7d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.171875Z"/>
+<entry
+   committed-rev="1"
+   name="userPrivilege.resx"
+   text-time="2008-10-22T11:53:08.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="65d71bb23852deb6bdba4c840a895525"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.171875Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_LF01.resx"
+   text-time="2008-10-22T11:53:08.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="94eb55fb0c0fd9aee9987b627aa540b0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.187500Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF06.cs"
+   text-time="2008-10-22T11:53:08.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c58e60f832e49a9bcfe323b1fe7dd324"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.203125Z"/>
+<entry
+   committed-rev="1"
+   name="menuEntry.resx"
+   text-time="2008-10-22T11:53:08.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="034b7f35e5ae2fc39e91f416fb0adea7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.203125Z"/>
+<entry
+   committed-rev="1"
+   name="editProfile.cs"
+   text-time="2008-10-22T11:53:08.921875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9b39539f47321ba84ea8c308822f2417"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.203125Z"/>
+<entry
+   committed-rev="32"
+   name="RisvPatienForm.designer.cs"
+   text-time="2008-10-22T11:53:09.328125Z"
+   committed-date="2008-08-13T10:33:49.484375Z"
+   checksum="95702ec5d60f9c350f1155f1ecf669c1"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.250000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_SF01.resx"
+   text-time="2008-10-22T11:53:09.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8aff7ddb2d1bb5ac39ae400524219a89"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.250000Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF09.resx"
+   text-time="2008-10-22T11:53:09.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a2ac64d45fecdb91ffa6c3b082ed62cd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.250000Z"/>
+<entry
+   committed-rev="1"
+   name="GBL_AF01.designer.cs"
+   text-time="2008-10-22T11:53:09.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2e63e79ff2f0976f4adef2424adff63b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:06.250000Z"/>
+</wc-entries>

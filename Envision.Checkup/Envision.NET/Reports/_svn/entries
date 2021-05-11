@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="85"
+   name=""
+   committed-date="2008-09-09T04:42:18.442761Z"
+   url="svn://r300-demo/RIS/Reports"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   name="ReportParameter"
+   kind="dir"/>
+<entry
+   name="ReportViewer"
+   kind="dir"/>
+</wc-entries>

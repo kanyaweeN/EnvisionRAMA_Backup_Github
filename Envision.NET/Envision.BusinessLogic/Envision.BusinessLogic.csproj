@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55D7CD05-F615-45A1-A469-F30ADA257E7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.BusinessLogic</RootNamespace>
+    <AssemblyName>Envision.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcademicManagement.cs" />
+    <Compile Include="BillingManagement.cs" />
+    <Compile Include="CommentManagement.cs" />
+    <Compile Include="EncounterManagement.cs" />
+    <Compile Include="Financial.cs" />
+    <Compile Include="FinancialBilling.cs" />
+    <Compile Include="Exam.cs" />
+    <Compile Include="IBusinessLogic.cs" />
+    <Compile Include="InsuranceManagement.cs" />
+    <Compile Include="InventoryManagement.cs" />
+    <Compile Include="InventoryRequest.cs" />
+    <Compile Include="InventoryStockMan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPatient.cs" />
+    <Compile Include="IsolatedStorateManagement.cs" />
+    <Compile Include="LookUpSelect.cs" />
+    <Compile Include="MessageConversationManagement.cs" />
+    <Compile Include="OrderManagement.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="PascManagement.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="PatientDestinationInfo.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACFinalizePrivilege.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLErrorLogs.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLNotification.cs" />
+    <Compile Include="ProcessCreate\ProcessAddHRUnit_forExcel.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISBillinglogWithHIS.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISBpviewMapping.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISCommentEmpGroup.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISCommentsystemAlert.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExaminstructionsClinicSession.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultFilterRad.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultFilterworklist.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultseverityLog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRisExamresultStatReport.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrderexamflag.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrderimages.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISScheduleLogs.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISScheduleLogsDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibrary.cs" />
+    <Compile Include="ProcessCreate\ManageGroupsInsertData.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACAssignment.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACClass.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACEnrollment.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACEvaluation.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACGrade.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACReportingLanguage.cs" />
+    <Compile Include="ProcessCreate\ProcessAddACYear.cs" />
+    <Compile Include="ProcessCreate\ProcessAddAddendum.cs" />
+    <Compile Include="ProcessCreate\ProcessAddExamResult.cs" />
+    <Compile Include="ProcessCreate\ProcessAddExamResultFor.cs" />
+    <Compile Include="ProcessCreate\ProcessAddFINInvoice.cs" />
+    <Compile Include="ProcessCreate\ProcessAddFINInvoicedtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddFINPayment.cs" />
+    <Compile Include="ProcessCreate\ProcessAddFINPaymentdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLAlert.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLBISettings.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLEmployee.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLEmpSchedule.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLExceptionLog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLGrantRole.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLGrantRoleByEmployee.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLGrantRoleByRole.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLHospital.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLMenu.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLMessage.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLMessageRecipient.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLQuicktext.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLRadexperience.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLRole.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLSubMenu.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLSubMenuObjectLabel.cs" />
+    <Compile Include="ProcessCreate\ProcessAddGBLSubMenuObjects.cs" />
+    <Compile Include="ProcessCreate\ProcessAddHISRegistration.cs" />
+    <Compile Include="ProcessCreate\ProcessAddHREmp.cs" />
+    <Compile Include="ProcessCreate\ProcessAddHRUnit.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvAuthoriser.cs" />
+    <Compile Include="ProcessCreate\ProcessAddINVAuthorization.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvCategory.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvItem.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvItemstatus.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvItemtype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvPo.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvPodtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddINVPr.cs" />
+    <Compile Include="ProcessCreate\ProcessAddINVPrdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvRequisition.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvRequisitionDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvRoomStockReduce.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvSettings.cs" />
+    <Compile Include="ProcessCreate\ProcessAddINVTransaction.cs" />
+    <Compile Include="ProcessCreate\ProcessAddINVTransactiondtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvTransactionType.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvTxnunit.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvUnit.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvUnitReOrderLevel.cs" />
+    <Compile Include="ProcessCreate\ProcessAddInvVendor.cs" />
+    <Compile Include="ProcessCreate\ProcessAddManageGroups.cs" />
+    <Compile Include="ProcessCreate\ProcessAddManageGroupsDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastExamResult.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastMark.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastMarkDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastMarkTemplate.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastMassDetails.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGBreastUSMassDetails.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGMassDominantCyst.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMGPatientHistoryComparison.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMISAsessmenttype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMISBiopsyresult.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMISLesiontype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMISTechniquetype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddMyMenu.cs" />
+    <Compile Include="ProcessCreate\ProcessAddOrderImages.cs" />
+    <Compile Include="ProcessCreate\ProcessAddPatientRegistration.cs" />
+    <Compile Include="ProcessCreate\ProcessAddResultStatusChangeLog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISAutoMergeExam.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISBillingtransactionlog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISBillingtransactionlogdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISBpview.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISCommentsOnPatient.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISCommentsOnPatientDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExam.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamDF.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExaminstructions.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultKeyimage.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultrads.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresultseverity.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamresulttime.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISExamtransferlog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISFilmtracker.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISInsurancetype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISLoadmedia.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISLoadmediadtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModality.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModalityclinictype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModalityexam.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModalitymaintenanceschedule.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModalityMaintenanceType.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISModalitytype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISNursesData.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISNursesDataDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOpnoteitem.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOpnoteitemtemplate.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrder.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrderdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrderDtlV2.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISOrderV2.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISPaticd.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISPatstatus.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISPatstatusN.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISQareason.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISQaworks.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISRadstudygroup.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISReleasemedia.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRisRiskCategorise.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRisRiskIncidents.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRisRiskIncidentUsers.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISSchedule.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISScheduleDefaultDestination.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISScheduleDefaultModality.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISScheduleDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISServicetype.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISSF02.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISSF09.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryACR.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryBodyPart.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryConference.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryCPT.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryICD.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryShareWith.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISStudyLibraryTags.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISTechconsumption.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISTechworks.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISTechworksdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISUserorgmap.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSession.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSessionLog.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSplitOrder.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionDetailChilds.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionDetails.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestions.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionsAnswer.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionsAnswerDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionsAnswerDtlChild.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionsDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRQuestionsDtlChild.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRTemplate.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRTemplateAnswersPart.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRTemplatePart.cs" />
+    <Compile Include="ProcessCreate\ProcessAddSRUserPreference.cs" />
+    <Compile Include="ProcessCreate\ProcessAddTemplate.cs" />
+    <Compile Include="ProcessCreate\ProcessAddXrayreqdtl.cs" />
+    <Compile Include="ProcessCreate\ProcessInsertGBLLanguage.cs" />
+    <Compile Include="ProcessCreate\ProcessInsertGrantObject.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLGeneralDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLNotification.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteHRUnit_forExcel.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISBPViewMapping.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISCommentAlert.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISCommentEmpGroup.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamresultFilterRad.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamresultFilterworklist.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISStudyLibraryConference.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISStudyLibrarydtlDelete.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACAssignment.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACClass.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACEnrollment.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACGrade.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACReportingLanguage.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteACYear.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteComment.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteFINInvoice.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteFINInvoicedtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteFINPayment.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteFINPaymentdtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBAlert.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLBISettings.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLEmployee.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLEmpSchedule.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLGrantRole.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLHospital.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLLanguage.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLMenu.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLQuicktext.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLRadexperience.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLRole.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLSubMenu.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLSubMenuObjectLabel.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGBLSubMenuObjects.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteGrantObject.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteHREmp.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvAuthoriser.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteINVAuthorization.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvCategory.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvItem.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvItemstatus.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvItemtype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvPo.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvPoDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteINVPr.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteINVPrdtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteINVRequisition.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteINVRequisitiondtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvSettings.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvTransactionType.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvTxnunit.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvUnit.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteInvVendor.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteManageGroups.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteManageGroupsDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastExamResult.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastMark.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastMarkDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastMarkTemplate.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastMassDetails.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGBreastUSMassDetails.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGMassDominantCyst.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMGPatientHistoryComparison.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMISAsessmenttype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMISBiopsyresult.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMISLesiontype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteMISTechniquetype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeletePatient.cs" />
+    <Compile Include="ProcessDelete\ProcessDeletePatientRegistration.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISAutoMergeConfig.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISBpview.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExam.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExaminstructions.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamresultKeyimage.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamresultrads.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamresultseverity.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISExamtransferlog.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISFilmtracker.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISLoadmedia.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISLoadmediadtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModality.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModalityclinictype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModalityexam.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModalitymaintenanceschedule.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModalityMaintenanceType.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISModalitytype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISNursesData.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISNursesDtlData.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISOpnoteitem.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISOpnoteitemtemplate.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISOrder.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISOrderdtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISPaticd.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISPatstatus.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISQareason.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISRadstudygroup.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISReleasemedia.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRisRiskCategorise.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRisRiskIncidents.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRisRiskIncidentUsers.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISSchedule.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISScheduleDefaultDestination.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISScheduleDefaultModality.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISScheduleDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISServicetype.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISTechconsumption.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteRISUserorgmap.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSF02.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSF09.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRQuestionDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRQuestions.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRQuestionsAnswers.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRQuestionsDtl.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRQuestionsDtlChild.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRTemplate.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRTemplatePart.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteSRUserpreference.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteXRAYREQ.cs" />
+    <Compile Include="ProcessRead\ProcessGetACFinalizePrivilege.cs" />
+    <Compile Include="ProcessRead\ProcessGetClinicalIndicationType.cs" />
+    <Compile Include="ProcessRead\ProcessGetCountHRUnit.cs" />
+    <Compile Include="ProcessRead\ProcessGetCreatinine.cs" />
+    <Compile Include="ProcessRead\ProcessGetDistribution.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLBISettings.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLNotification.cs" />
+    <Compile Include="ProcessRead\ProcessGetHRTitle.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISBillinglogWithHIS.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISBpviewMapping.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISClinicalindicationtype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISCommentAlert.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISCommentEmpGroup.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamDF.cs" />
+    <Compile Include="ProcessRead\ProcessCheckExam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessCheckSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetACAssignment.cs" />
+    <Compile Include="ProcessRead\ProcessGetACClass.cs" />
+    <Compile Include="ProcessRead\ProcessGetACEnrollment.cs" />
+    <Compile Include="ProcessRead\ProcessGetACEvaluation.cs" />
+    <Compile Include="ProcessRead\ProcessGetACGrade.cs" />
+    <Compile Include="ProcessRead\ProcessGetACReportingLanguage.cs" />
+    <Compile Include="ProcessRead\ProcessGetACYear.cs" />
+    <Compile Include="ProcessRead\ProcessGetAlert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetComment.cs" />
+    <Compile Include="ProcessRead\ProcessGetDistributeNew.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetDistributionChannel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetEmployee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetFINInvoice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetFINInvoicedtl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetFINPayment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetFINPaymentdtl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetFormAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLEnv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLEnvlog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLFavourite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLGrantRole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLGrantRoleByEmployee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLGrantRoleByRole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLMenu.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLMessage.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLMessageRecipient.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLMymenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessRead\ProcessGetGBLProduct.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLQuicktext.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLRadexperience.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLRole.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLSequences.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLSessionViewer.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLSubMenu.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLSubMenuObjectLabel.cs" />
+    <Compile Include="ProcessRead\ProcessGetGBLSubMenuObjects.cs" />
+    <Compile Include="ProcessRead\ProcessGetGlobalAlert.cs" />
+    <Compile Include="ProcessRead\ProcessGetGrantObject.cs" />
+    <Compile Include="ProcessRead\ProcessGetHISDepartment.cs" />
+    <Compile Include="ProcessRead\ProcessGetHISDoctor.cs" />
+    <Compile Include="ProcessRead\ProcessGetHisICD.cs" />
+    <Compile Include="ProcessRead\ProcessGetHISRegistration.cs" />
+    <Compile Include="ProcessRead\ProcessGetHistory.cs" />
+    <Compile Include="ProcessRead\ProcessGetHL7Monitoring.cs" />
+    <Compile Include="ProcessRead\ProcessGetHRAccount.cs" />
+    <Compile Include="ProcessRead\ProcessGetHREmp.cs" />
+    <Compile Include="ProcessRead\ProcessGetHRJobtitle.cs" />
+    <Compile Include="ProcessRead\ProcessGetHRRoom.cs" />
+    <Compile Include="ProcessRead\ProcessGetHRUnit.cs" />
+    <Compile Include="ProcessRead\ProcessGetInherit.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvAuthorisation.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvAuthoriser.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvCategory.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvItem.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvItemstatus.cs" />
+    <Compile Include="ProcessRead\ProcessGetINVItemstock.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvItemtype.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvPo.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvPodtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetINVPr.cs" />
+    <Compile Include="ProcessRead\ProcessGetINVPrdtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvRequisition.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvRequisitionDtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvRoomStockReduce.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvSettings.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvTransactionType.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvTxnunit.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvUnit.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvUnitReOrderLevel.cs" />
+    <Compile Include="ProcessRead\ProcessGetInvVendor.cs" />
+    <Compile Include="ProcessRead\ProcessGetLanguage.cs" />
+    <Compile Include="ProcessRead\ProcessGetManageGroups.cs" />
+    <Compile Include="ProcessRead\ProcessGetManageGroupsTable.cs" />
+    <Compile Include="ProcessRead\ProcessGetManageGroupsTableDtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGBreastExamResult.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGBreastMark.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGBreastMassDetail.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGBreastUSMassDetail.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGMassDominantCyst.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGPatientHistoryComparison.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGResultHistory.cs" />
+    <Compile Include="ProcessRead\ProcessGetMGStructuredReportSearch.cs" />
+    <Compile Include="ProcessRead\ProcessGetMISAsessmenttype.cs" />
+    <Compile Include="ProcessRead\ProcessGetMISBiopsyresult.cs" />
+    <Compile Include="ProcessRead\ProcessGetMISLesiontype.cs" />
+    <Compile Include="ProcessRead\ProcessGetMISTechniquetype.cs" />
+    <Compile Include="ProcessRead\ProcessGetPatientReg.cs" />
+    <Compile Include="ProcessRead\ProcessGetPatientRegistration.cs" />
+    <Compile Include="ProcessRead\ProcessGetRadiologistAuthLevel.cs" />
+    <Compile Include="ProcessRead\ProcessGetReportStatusChange.cs" />
+    <Compile Include="ProcessRead\ProcessGetResultEntryWorkList.cs" />
+    <Compile Include="ProcessRead\ProcessGetResultICD.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISAcr.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISAuthlevel.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISAutoMergeConfig.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISBillingMessage.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISBpview.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISClinicsession.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISClinictype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExam.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamInstructionClinicSession.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExaminstructions.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamlog.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultFilterworklist.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultKeyimage.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultlegacy.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultlocks.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultlog.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultrads.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresultseverity.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresulttemplatelog.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamresulttime.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamResultWorkListByAccessionNo.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamtransferlog.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISExamType.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISFilmtracker.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISHL7MonitoringNew.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISInsurancetype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISIntegrationConfig.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISIntegrationServers.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISInterfaceMonitoring.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISLoadmedia.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISLoadmediadtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModality.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModalityclinictype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModalityexam.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModalitymaintenanceschedule.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModalityMaintenanceType.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISModalitytype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISMPPS.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISNursesData.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISNursesDataDtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOnlineArrivalWorklist.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOpnoteitem.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOpnoteitemtemplate.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrder.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderCaseInfo.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderdtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderexamflag.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderForOrderSummary.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderGenAccessionNo.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderimageName.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderimages.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISOrderLast3Orders.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPaticd.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPatientDestination.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPatientPreparation.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPatstatus.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPatstatusN.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPRGrade.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISPRStudies.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISQareason.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISQAWorks.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISRadstudygroup.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISReleasemedia.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISReleasemediaNew.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisRiskCategorise.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisRiskIncidents.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisRiskIncidentUsers.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisRptRiskSystemReport.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSchedule.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisScheduleConfig.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISScheduleDefaultDestination.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISScheduledtl.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISScheduleInfo.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSchedulelog.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISScheduleReason.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSearchEngine.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISServicetype.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSessionAppCount.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSessionMaxapp.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSF02.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISSF09.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISStudyLibrary.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISTechconsumption.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISTechConsumptionForOrderSummary.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISTechWorkForOrderSummary.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISTechworks.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISUnlocked.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISUserorgmap.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisvPatien.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisvPatienDate.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptBiopsyResult.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptCancellation.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptComparing1.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptComparing2.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptInvoice.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptOrder.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptOrderReport.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptScheduleCountAppoint.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptService.cs" />
+    <Compile Include="ProcessRead\ProcessGetRptWorkload.cs" />
+    <Compile Include="ProcessRead\ProcessGetRSS_StatOnline.cs" />
+    <Compile Include="ProcessRead\ProcessGetScheduleCatagory.cs" />
+    <Compile Include="ProcessRead\ProcessGetSRQuestionsAnswers.cs" />
+    <Compile Include="ProcessRead\ProcessGetSRQuestionType.cs" />
+    <Compile Include="ProcessRead\ProcessGetSRTemplate.cs" />
+    <Compile Include="ProcessRead\ProcessGetSRUserPreference.cs" />
+    <Compile Include="ProcessRead\ProcessGetXrayAndRISScheduleSummary.cs" />
+    <Compile Include="ProcessRead\ProcessGetXrayAndScheduleArrivalWorkList.cs" />
+    <Compile Include="ProcessRead\ProcessGetXrayOrderInfo.cs" />
+    <Compile Include="ProcessRead\ProcessGetXRAYREQ.cs" />
+    <Compile Include="ProcessRead\ProcessLoadTreeGrantRole.cs" />
+    <Compile Include="ProcessRead\ProcessMGGetDemographic.cs" />
+    <Compile Include="ProcessRead\ProcessModalityLoad.cs" />
+    <Compile Include="ProcessRead\ProcessGetOrderReport.cs" />
+    <Compile Include="ProcessRead\ProcessResultEntryReport.cs" />
+    <Compile Include="ProcessRead\ProcessScheduleReport.cs" />
+    <Compile Include="ProcessRead\ProcessSelectGBLLanguage.cs" />
+    <Compile Include="ProcessRead\ProcessSelectMGBreastMarkTemplate.cs" />
+    <Compile Include="ProcessRead\RISExaminstructionsSelectData.cs" />
+    <Compile Include="ProcessRead\RISModalitymaintenancetypeSelectData.cs" />
+    <Compile Include="ProcessRisPrAlgorithm.cs" />
+    <Compile Include="ProcessRisPrGroup.cs" />
+    <Compile Include="ProcessRisPrStudies.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACClass.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACEnrollment.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACEvaluation.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACGrade.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACReportingLanguage.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateACYear.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateComment.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateFINPaymentdtl_UpdateStatus.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLBISettings.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLErrorLogs.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLGeneralDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLMessage.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLMessageRecipient.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLNotification.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateHISRegistrationByConfirmArrival.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateHRUnit_forExcel.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGBreastExamResult.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGBreastMark.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGBreastMarkTemplate.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGBreastMassDetails.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGBreastUSMassDetails.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMGPatientHistoryComparison.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISClinicType.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISCommentEmpGroup.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISCommentOnPatient.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISCommentOnPatientDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamDF.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamresultFilterworklist.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISIntegrationConfig.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderClinicalIndication.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderDtlHisSync.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderEncounter.cs" />
+    <Compile Include="ProcessUpdate\ProcessCloseSession.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateDistributionNew.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateEmpSchedule.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateExamResult.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateExamResultFor.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateFINInvoice.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateFINInvoicedtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateFINPayment.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateFINPaymentdtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLAlert.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLEmployee.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLEnv.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLGrantRole.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLGrantRoleISDeleted.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLGrantRoleISUpdated.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLHospital.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLLanguage.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLMenu.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLProduct.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLQuicktext.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLRadexperience.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLRole.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLSubMenu.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLSubMenuObjectLabel.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBLSubMenuObjects.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGBSessionView.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateGrantObject.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateHISRegistration.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateHRAccount.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateHREmp.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvAuthoriser.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateINVAuthorization.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvCategory.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvItem.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvItemstatus.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvItemtype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvPo.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvPodtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateINVPr.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateINVPrdtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvRequisition.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvRequisitionDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvSettings.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvTransactionType.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvTxnunit.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvUnit.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateInvVendor.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateManageGroups.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateManageGroupsDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMISAsessmenttype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMISBiopsyresult.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMISLesiontype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMISTechniquetype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateMyMenu.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdatePatientRegistration.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISAutoMergeConfig.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISBpview.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExam.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExaminstructions.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamresultKeyimage.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamresultlocks.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamresultrads.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamresultseverity.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISExamtransferlog.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISFilmtracker.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISLoadmedia.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISLoadmediadtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModality.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalityclinictype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalityexam.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalitymaintenanceschedule.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalitymaintenancescheduleChangeStatus.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalityMaintenanceType.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISModalitytype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISNursesData.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISNursesDataDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOpnoteitem.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOpnoteitemtemplate.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrder.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderdtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderexamflag.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISOrderimages.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISPaticd.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISPatstatus.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISQareason.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISRadstudygroup.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISReleasemedia.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRisRiskCategorise.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRisRiskIncidents.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISSchedule.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISScheduledtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISScheduleSentToOrder.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISServicetype.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISSessionAppCount.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISSessionmaxapp.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISSF02.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISSF09.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISTechworks.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISUnlockedCase.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateRISUserorgmap.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestions.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestionsAnswers.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestionsAnswersDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestionsAnswersDtlChild.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestionsDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRQuestionsDtlChild.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRTemplate.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateSRTemplatePart.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateXRAYREQ.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateXrayReqSendToOrder.cs" />
+    <Compile Include="ProcessUpdate\RISModalitymaintenancetypeUpdateData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultEntry.cs" />
+    <Compile Include="RISBaseData.cs" />
+    <Compile Include="ScanImage.cs" />
+    <Compile Include="ScanImages.cs" />
+    <Compile Include="ScheduleInfo.cs" />
+    <Compile Include="Technologist.cs" />
+    <Compile Include="ViewPerformance.cs" />
+    <Compile Include="_InputLogMultiOrder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+      <Project>{7646549E-3644-4690-AEC4-8D20FDD157C3}</Project>
+      <Name>Envision.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.DataAccess\Envision.DataAccess.csproj">
+      <Project>{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}</Project>
+      <Name>Envision.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.Operational\Envision.Operational.csproj">
+      <Project>{36F75CC2-3873-41B8-A76F-6042690DEE06}</Project>
+      <Name>Envision.Operational</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.WebService\Envision.WebService.csproj">
+      <Project>{AEAA3524-2432-47D6-B379-6F5BA644099A}</Project>
+      <Name>Envision.WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Miracle\Miracle.csproj">
+      <Project>{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}</Project>
+      <Name>Miracle %28Miracle\Miracle%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_backup\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

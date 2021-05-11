@@ -1,0 +1,281 @@
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\New\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\New\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\New\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\New\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.Website\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\EnvisionRAMA&&Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online\EnvisionOnline_230758\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo_Favorite\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Envision_Online_Demo_Favorite - Copy\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Backup_Envision\RAMA\Envision_Online\EnvisionOnline\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionOnline\EnvisionOnline RAMA\EnvisionOnline2010\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+C:\#Work\#JF-Miracle\Envision.NET\@RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+C:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\2WORKS\JFMiracle\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+C:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\2Works\Envision.NET\RAMA\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+E:\Projects\00.GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb

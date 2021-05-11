@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterAdmin.master.cs" Inherits="Synvision.Net.Forms.Admin.masterAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <meta http-equiv="x-ua-compatible" content="IE=8" />
+    <link href="../../CSS/masterStyle.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-image:url(../../Resources/background.jpg);">
+    <form id="form1" runat="server">
+    <div id="idPage" class="page">
+        <div id="idHearder" class="header">
+            <div class="title">
+                <h1>
+                    Envision Online Setup
+                </h1>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmManualParameter.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmFixOnlineData.aspx" Text="Fix Online Data"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmSetupCinicalIndicationWithUnit.aspx" Text="Setup Clinical Indication with Unit"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmSetupDirectlyOrder.aspx" Text="Setup Directly Order"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmManageExamOnline.aspx" Text="Setup Exam"/>
+                        <asp:MenuItem NavigateUrl="~/Forms/Admin/frmSetupGroupExam.aspx" Text="Setup Group Exam"/>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div id="idMain" class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div id="idFooter">
+        </div>
+    </div>
+    </form>
+</body>
+</html>

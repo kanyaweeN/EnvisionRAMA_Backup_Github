@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49107B7A-E8B5-4469-9942-07ADA7CFF19D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleTestService</RootNamespace>
+    <AssemblyName>ConsoleTestService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvisionIEHelper\EnvisionIEHelper.csproj">
+      <Project>{F7E2C992-34E9-446F-9FFB-56BCAE2A37A9}</Project>
+      <Name>EnvisionIEHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionIEReceiver\EnvisionIEReceiver.csproj">
+      <Project>{9E820180-8D93-4380-ABF1-E931F0018AAA}</Project>
+      <Name>EnvisionIEReceiver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionIESender\EnvisionIESender.csproj">
+      <Project>{AA0EAE38-47BD-4CF0-9872-1756151AB970}</Project>
+      <Name>EnvisionIESender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionIESync\EnvisionIESync.csproj">
+      <Project>{FB90C407-0C7C-4961-A2CA-80C2DF252DB4}</Project>
+      <Name>EnvisionIESync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Common\EnvisionInterfaceEngine.Common.csproj">
+      <Project>{871B652D-6ED7-429D-818A-E67460382435}</Project>
+      <Name>EnvisionInterfaceEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Connection\EnvisionInterfaceEngine.Connection.csproj">
+      <Project>{E27EEC46-443F-4AF9-B5B9-A77B6B795E5E}</Project>
+      <Name>EnvisionInterfaceEngine.Connection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Operational\EnvisionInterfaceEngine.Operational.csproj">
+      <Project>{DCACCCDB-7B15-40B8-8750-975FB521119B}</Project>
+      <Name>EnvisionInterfaceEngine.Operational</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.WebService\EnvisionInterfaceEngine.WebService.csproj">
+      <Project>{1EE2AC69-071D-4CB8-B6C3-DC7E1851CE72}</Project>
+      <Name>EnvisionInterfaceEngine.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UpdateLog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,234 @@
+<div *ngIf="isLoading" style="position:fixed; top: 50%; left: 50%">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s">
+    </p-progressSpinner>
+    <h5>{{lblLoadingText}}</h5>
+</div>
+<div *ngIf="!isLoading">
+    <p-messages [(value)]="msgs"></p-messages>
+    <button pButton type="button" class="ui-button-danger" label="< < Back to Worklist" (click)="backPeerreview()"></button>
+    <p-panel [toggleable]="true">
+        <p-header>
+            Selected Study :
+        </p-header>
+        <table>
+            <tr>
+                <td>
+                    <b>HN</b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sTxtHN}}
+                </td>
+                <td>
+                    <b>Name </b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sTxtPATIENTNAME}}
+                </td>
+                <td>
+                    <b>Accession </b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sTxtACCESSIONNO}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Exam </b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sTxtEXAMNAME}}
+                </td>
+                <td>
+                    <b>Modality </b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sTxtTYPENAMEALIAS}}
+                </td>
+                <td>
+                    <b>Study Date </b>
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    {{sDateORDERDT | date:'MM/dd/yyyy'}}
+                </td>
+            </tr>
+        </table>
+    </p-panel>
+    <p-tabView (onChange)="changeTab($event.index)">
+        <p-tabPanel header={{reportTab}} [selected]="selectedTab === 0">
+            <button pButton type="button" class="ui-button-warning" label="Save as draft" [disabled]="ifFinal"
+                (click)="saveAsDraft(study.ASSIGNMENT_ID)"></button>
+            <button pButton type="button" class="ui-button-success" label="Save as final" [disabled]="ifFinal"
+                (click)="saveAsFinal(study.ASSIGNMENT_ID)"></button>
+            <p-editor [(ngModel)]="myReport" [style]="{'height':'320px'}" (readOnly)="true">
+                <p-header>
+                    <span class="ql-formats">
+                        <button class="ql-bold" aria-label="Bold"></button>
+                        <button class="ql-italic" aria-label="Italic"></button>
+                        <button class="ql-underline" aria-label="Underline"></button>
+                    </span>
+                </p-header>
+            </p-editor>
+            <button *ngIf="skipHide" pButton type="button" class="ui-button-danger" label="Skip >>" [disabled]="ifFinal"
+                (click)="skipToFinalReport()"></button>
+        </p-tabPanel>
+        <p-tabPanel header="Finalized Report" [selected]="selectedTab === 1" [disabled]="tabDisable">
+            <p-editor [(ngModel)]="finalizeReport" [style]="{'height':'300px'}" (readOnly)="true">
+                <p-header>
+                    <span class="ql-formats">
+                        <button class="ql-bold" aria-label="Bold"></button>
+                        <button class="ql-italic" aria-label="Italic"></button>
+                        <button class="ql-underline" aria-label="Underline"></button>
+                    </span>
+                </p-header>
+            </p-editor>
+        </p-tabPanel>
+        <p-tabPanel header="Scoring" [selected]="selectedTab === 2" [disabled]="tabDisable">
+            <table>
+                <tr>
+                    <td>
+                        <p-panel [toggleable]="true">
+                            <p-header>
+                                Score:
+                            </p-header>
+                            <table width>
+                                <tr>
+                                    <td>
+                                        1. Concur with interpretation
+                                    </td>
+                                </tr>
+                                <div>
+                                    <hr style="background: green; border: none; height: 2px;" />
+                                </div>
+                                <tr>
+                                    <td>
+                                        2. Discrepancy in Interpretation/not <br>
+                                        ordinarily expected to be <br>
+                                        made (understandable miss)
+                                    </td>
+                                </tr>
+                                <div>
+                                    <hr style="background: green; border: none; height: 2px;" />
+                                </div>
+                                <tr>
+                                    <td>
+                                        3. Discrepancy in Interpretation/ should <br>
+                                        be made most of the time
+                                    </td>
+                                </tr>
+                                <!-- <div>
+                            <hr style="background: green; border: none; height: 2px;" />
+                        </div>
+                        <tr>
+                            <td>
+                                4. Discrepancy in Interpretation/ should be<br>
+                                made almost every time – misinterpretation <br>
+                                of finding
+                            </td>
+                        </tr> -->
+
+                            </table>
+                        </p-panel>
+                    </td>
+                    <td>
+                        <p-panel [toggleable]="true">
+                            <p-header>
+                                Clinical Significance:
+                            </p-header>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p-radioButton name="groupname" value="1" [(ngModel)]="scoreValue" label="">
+                                        </p-radioButton>
+                                    </td>
+                                </tr>
+                                <div>
+                                    <hr style="background: green; border: none; height: 2px;" />
+                                </div>
+
+                                <tr>
+                                    <td>
+                                        <p-radioButton name="groupname" value="2a" [(ngModel)]="scoreValue"
+                                            label="2a. Unlikely to be clinically significant">
+                                        </p-radioButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p-radioButton name="groupname" value="2b" [(ngModel)]="scoreValue"
+                                            label="2b. Likely to be clinically significant">
+                                        </p-radioButton>
+                                    </td>
+                                </tr>
+                                <div>
+                                    <hr style="background: green; border: none; height: 2px;" />
+                                </div>
+                                <tr>
+                                    <td>
+                                        <p-radioButton name="groupname" value="3a" [(ngModel)]="scoreValue"
+                                            label="3a. Unlikely to be clinically significant">
+                                        </p-radioButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p-radioButton name="groupname" value="3b" [(ngModel)]="scoreValue"
+                                            label="3b. Likely to be clinically significant">
+                                        </p-radioButton>
+                                    </td>
+                                </tr>
+                                <!-- <div>
+                            <hr style="background: green; border: none; height: 2px;" />
+                        </div>
+                        <tr>
+                            <td>
+                                <p-radioButton name="groupname" value="4a" [(ngModel)]="scoreValue"
+                                    label="4a. Unlikely to be clinically significant"></p-radioButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p-radioButton name="groupname" value="4b" [(ngModel)]="scoreValue"
+                                    label="4b. Likely to be clinically significant"></p-radioButton>
+                            </td>
+                        </tr> -->
+                                <br>
+                            </table>
+
+                        </p-panel>
+                    </td>
+                </tr>
+            </table>
+            <h3 class="first">Comments</h3>
+            <textarea rows="10" cols="90" pInputTextarea [(ngModel)]="myComment"></textarea>
+            <table>
+                <tr>
+                    <td>
+                        <button pButton type="button" class="ui-button-success" label="Save Changes"
+                            (click)="saveScore(study.ASSIGNMENT_ID)"></button>
+                    </td>
+                    <td>
+                        <button pButton type="button" class="ui-button-warning" label="Reset"></button>
+                    </td>
+                </tr>
+            </table>
+        </p-tabPanel>
+    </p-tabView>
+</div>

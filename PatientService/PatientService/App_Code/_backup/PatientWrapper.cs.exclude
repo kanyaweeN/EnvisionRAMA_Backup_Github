@@ -1,0 +1,411 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Xml;
+using System.IO;
+using System.Data.SqlClient;
+using RAMA.WSDLService;
+
+public class PatientWrapper
+{
+    private patientservice pt;
+    private string conn = @"server=MIRACLE9;database=ris_rama;uid=sa;pwd=mira001";
+	
+    public PatientWrapper()
+	{
+        pt = new patientservice();
+
+        SqlDataAdapter da = new SqlDataAdapter("select * from gbl_env", conn);
+        DataTable dtt = new DataTable();
+        da.Fill(dtt);
+        if(dtt!=null)
+            if (dtt.Rows.Count > 0) 
+                pt.Url = dtt.Rows[0]["WS_IP"].ToString();
+	}
+
+    private DataTable XMLParser(string xmlcontent, string xmlpath)
+    {
+        try
+        {
+            XmlDataDocument doc = new XmlDataDocument();
+            doc.DataSet.ReadXml(new StringReader(xmlcontent));
+            DataSet ds = doc.DataSet;
+            return ds.Tables[0];
+        }
+        catch (Exception ex)
+        {
+            DataTable dt = new DataTable("Error");
+            dt.Rows.Add(xmlcontent);
+            dt.Rows.Add(ex.Message);
+            return dt;
+        }
+    }
+    private DataTable XMLParser(string xmlcontent)
+    {
+        try
+        {
+            XmlDataDocument doc = new XmlDataDocument();
+            doc.DataSet.ReadXml(new StringReader(xmlcontent));
+            DataSet ds = doc.DataSet;
+            return ds.Tables[0];
+        }
+        catch (Exception ex)
+        {
+            DataTable dt = new DataTable("Error");
+            dt.Rows.Add(xmlcontent);
+            dt.Rows.Add(ex.Message);
+            return dt;
+        }
+    }
+
+    #region Get Method.
+    public DataTable Get_demographic_long(string hn)
+    {
+        string xmlresult = pt.Get_demographic_long(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_demographic_long_outsidepatient(string DeptCode, string refMrn)
+    {
+        string xmlresult = pt.Get_demographic_long_outsidepatient(DeptCode, refMrn);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_demographic_short(string hn)
+    {
+        string xmlresult = pt.Get_demographic_short(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_demographic_shortByName(string cName)
+    {
+        string xmlresult = pt.Get_demographic_shortByName(cName.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_ForeignDemographic(string pFHn)
+    {
+        string xmlresult = pt.Get_ForeignDemographic(pFHn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_Adr(string hn)
+    {
+        string xmlresult = pt.Get_Adr(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_ipd_detail(string hn)
+    {
+        string xmlresult = pt.Get_ipd_detail(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_appointment(string hn)
+    {
+        string xmlresult = pt.Get_appointment(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_appointment_detail(string hn)
+    {
+        string xmlresult = pt.Get_appointment_detail(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_Claim_Amt(string hn, string accession_No)
+    {
+        string xmlresult = pt.Get_Claim_Amt(hn.ToUpper().Trim(), accession_No.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_insurance_detail(string hn)
+    {
+        string xmlresult = pt.Get_insurance_detail(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_ForeignXrayOrder(string pFHn)
+    {
+        string xmlresult = pt.Get_ForeignXrayOrder(pFHn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    
+    public DataTable Get_Lab_order(string hn)
+    {
+        string xmlresult = pt.Get_Lab_order(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_Lab_OrderFull(string pHn)
+    {
+       
+        string xmlresult = pt.Get_Lab_OrderFull(pHn).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_Lab_OrderRegisted(string pHn)
+    {
+        string xmlresult = pt.Get_Lab_OrderRegisted(pHn).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_data(string hn)
+    {
+        string xmlresult = pt.Get_lab_data(hn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_data_researchall(string pHn)
+    {
+        string xmlresult = pt.Get_lab_data_researchall(pHn);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_data_researchbydate(string pHn, string pStartDate, string pEndDate)
+    {
+        string xmlresult = pt.Get_lab_data_researchbydate(pHn, pStartDate, pEndDate);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_datachem_outside(string pReqname)
+    {
+        string xmlresult = pt.Get_lab_datachem_outside(pReqname).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_datahemato_outside(string pReqname)
+    {
+        string xmlresult = pt.Get_lab_datahemato_outside(pReqname).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_dataimmuno_outside(string pReqname)
+    {
+        string xmlresult = pt.Get_lab_dataimmuno_outside(pReqname).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_dataua_outside(string pReqname)
+    {
+        string xmlresult = pt.Get_lab_dataua_outside(pReqname).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_lab_datavirus_outside(string pReqname)
+    {
+        string xmlresult = pt.Get_lab_datavirus_outside(pReqname).Trim();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_MedPatient(string hn, string an)
+    {
+        string xmlresult = pt.Get_MedPatient(hn.ToUpper().Trim(), an.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_Payment_Status(string hn, string an, string accNo)
+    {
+        string xmlresult = pt.Get_Payment_Status(hn.ToUpper().Trim(), an.ToUpper().Trim(), accNo.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_payment_status_outsidepatient(string refMrn, string accession_No, string dept_Code)
+    {
+        //object ob = pt.Get_payment_status_outsidepatient(refMrn.ToUpper().Trim(), accession_No.ToUpper().Trim(), dept_Code.ToUpper().Trim());
+        //DataTable retTable = XMLParser(ob.ToString());
+        //return retTable;
+        return null;
+    }
+    
+    public DataTable Get_XrayOrder(string pHn)
+    {
+        string xmlresult = pt.Get_XrayOrder(pHn.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_all_exam(string exam_code)
+    {
+        string xmlresult = pt.Get_all_exam(exam_code.ToUpper().Trim());
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_Org_detail(string pOrgID)
+    {
+        string xmlresult = pt.Get_Org_detail(pOrgID);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_Place_detail(string pPlaceID)
+    {
+        string xmlresult = pt.Get_Place_detail(pPlaceID);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_sdloc_all()
+    {
+        string xmlresult = pt.Get_sdloc_all();
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_sdloc_detail(string pSrc)
+    {
+        string xmlresult = pt.Get_sdloc_detail(pSrc);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_staff_detail(string user_id,string password_id)
+    {
+        string xmlresult = pt.Get_staff_detail(user_id, password_id);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public DataTable Get_staff_fulldetail(string sCode)
+    {
+        string xmlresult = pt.Get_staff_fulldetail(sCode);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+
+    public DataTable Get_TubeID(string pHn, string pSpecimenType)
+    {
+        string xmlresult = pt.Get_TubeID(pHn, pSpecimenType);
+        DataTable retTable = XMLParser(xmlresult);
+        return retTable;
+    }
+    public object Get_Version()
+    {
+        //string xmlresult = pt.Get_Version();
+        //DataTable retTable = XMLParser(xmlresult);
+        //return retTable;
+
+        object obj = pt.Get_Version();
+        return obj;
+    }
+    #endregion
+
+    #region Set Method.
+    public string Set_Billing(string xString)
+    {
+        //patientservice pt42 = new patientservice();
+        ////patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_Billing(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        string xmlresult = pt.Set_Billing(xString);
+       
+        //DataTable retTable = XMLParser(xmlresult);
+        return xmlresult;
+    }
+    public DataTable Set_Billing_OutsidePatient(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_Billing_OutsidePatient(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_ConfirmTube(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_ConfirmTube(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_Demographic_Long_OutsidePatient(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //string xmlresult = pt42.Set_Demographic_Long_OutsidePatient(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(xmlresult, path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_OR(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_OR(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_PAE(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_PAE(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_StaffPayroll(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_StaffPayroll(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_Ward2Xray(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_Ward2Xray(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    public DataTable Set_WorkStaff(string xString)
+    {
+        //patients_v42 pt42 = new patients_v42();
+        //pt42.Url = "http://192.168.0.247/WebService/Patients_v42.WSDL";
+        //object ob = pt42.Set_WorkStaff(xString);
+        //string path = "/VFPDataSet/all_exam";
+        //DataTable retTable = XMLParser(ob.ToString(), path);
+        //return retTable;
+        return null;
+    }
+    #endregion 
+
+    #region Cancel Method.
+    public string Cancel_Billing(string hn, string accession_No, string an, string iseq)
+    {
+        //pt.Cancel_Billing(
+        string xmlresult = pt.Cancel_Billing(hn.ToUpper().Trim(), accession_No.ToUpper().Trim(), an.ToUpper().Trim(), iseq.ToUpper().Trim());
+        //DataTable retTable = XMLParser(xmlresult,);
+        return xmlresult;
+    }
+    #endregion 
+    
+}

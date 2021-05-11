@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Technologist/Dialog"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="QAConfirm.resx"
+   text-time="2008-10-22T11:53:00.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.343750Z"/>
+<entry
+   committed-rev="1"
+   name="ImageOrder.Designer.cs"
+   text-time="2008-10-22T11:53:00.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="12aef65454e7479ae3666214416de529"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.359375Z"/>
+<entry
+   committed-rev="1"
+   name="ImageOrder.cs"
+   text-time="2008-10-22T11:53:00.828125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="75b41b232c85e8d375473a71d74f5ced"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.375000Z"/>
+<entry
+   committed-rev="1"
+   name="QAConfirm.Designer.cs"
+   text-time="2008-10-22T11:53:00.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e057a22b27894ea6ec1e11be886e211d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.421875Z"/>
+<entry
+   committed-rev="1"
+   name="QAConfirm.cs"
+   text-time="2008-10-22T11:53:00.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="424b666836f10707664e35007ae6c0dc"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.421875Z"/>
+<entry
+   committed-rev="1"
+   name="PerformUsr.resx"
+   text-time="2008-10-22T11:53:00.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.453125Z"/>
+<entry
+   committed-rev="1"
+   name="PerformUsr.Designer.cs"
+   text-time="2008-10-22T11:53:00.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c8e56918a20935435cdf7bc9701cf992"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.453125Z"/>
+<entry
+   committed-rev="1"
+   name="Reason.resx"
+   text-time="2008-10-22T11:53:00.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.468750Z"/>
+<entry
+   committed-rev="1"
+   name="PerformUsr.cs"
+   text-time="2008-10-22T11:53:00.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5608aa9373c90167b6d7aad54ab7d3af"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.484375Z"/>
+<entry
+   committed-rev="1"
+   name="Reason.Designer.cs"
+   text-time="2008-10-22T11:53:00.875000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="045bdde9a9f186daecbe715e91045aea"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.500000Z"/>
+<entry
+   committed-rev="1"
+   name="Reason.cs"
+   text-time="2008-10-22T11:53:01.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5af3de07cb08c84e6a6a190418dc4068"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.500000Z"/>
+<entry
+   committed-rev="1"
+   name="ImageOrder.resx"
+   text-time="2008-10-22T11:53:01.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:00.515625Z"/>
+</wc-entries>

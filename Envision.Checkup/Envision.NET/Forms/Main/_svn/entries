@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="41"
+   name=""
+   committed-date="2008-08-18T09:02:59.640625Z"
+   url="svn://r300-demo/RIS/Forms/Main"
+   last-author="rbus"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="frmMainTab.resx"
+   text-time="2008-10-22T11:53:03.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9834d7108c4fa53075679469e21393b7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:02.375000Z"/>
+<entry
+   name="Trees"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="frmMainTab.Designer.cs"
+   text-time="2008-10-22T11:53:03.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="46212a4e504cb7594248ef94f4229d66"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.546875Z"/>
+<entry
+   committed-rev="1"
+   name="frmMainTab.cs"
+   text-time="2008-10-22T11:53:03.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d4e99e97b8d0a4cd93413a3044f8ca72"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.562500Z"/>
+<entry
+   committed-rev="1"
+   name="frmMain.resx"
+   text-time="2008-10-22T11:53:03.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9cb4e4e47ee6e6afd00df806c6695a90"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.625000Z"/>
+<entry
+   committed-rev="41"
+   name="frmMain.designer.cs"
+   text-time="2008-10-22T11:53:03.781250Z"
+   committed-date="2008-08-18T09:02:59.640625Z"
+   checksum="01a8be637823217d821d99a7140f4464"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.625000Z"/>
+<entry
+   committed-rev="41"
+   name="frmMain.cs"
+   text-time="2008-10-22T11:53:03.781250Z"
+   committed-date="2008-08-18T09:02:59.640625Z"
+   checksum="7a6bfbf7fcc1c7775799fecc8cf529be"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.640625Z"/>
+</wc-entries>

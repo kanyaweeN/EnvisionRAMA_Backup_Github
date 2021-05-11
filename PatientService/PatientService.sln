@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PatientService", "PatientService\", "{F84EDF3F-2EEE-4828-9B4A-FDACCD39756D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/PatientService"
+		Debug.AspNetCompiler.PhysicalPath = "PatientService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PatientService\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PatientService"
+		Release.AspNetCompiler.PhysicalPath = "PatientService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PatientService\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "6035"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F84EDF3F-2EEE-4828-9B4A-FDACCD39756D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84EDF3F-2EEE-4828-9B4A-FDACCD39756D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

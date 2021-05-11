@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Order/WaitDialog"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="frmDocInstruction.Designer.cs"
+   text-time="2008-10-22T11:53:10.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7c0bb9ca8f2dee5f45b41336ce7ba326"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.687500Z"/>
+<entry
+   committed-rev="1"
+   name="frmDocInstruction.cs"
+   text-time="2008-10-22T11:53:11.000000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="617f9b75733e81327ef6f18f9172d795"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.703125Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.resx"
+   text-time="2008-10-22T11:53:11.000000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.812500Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.Designer.cs"
+   text-time="2008-10-22T11:53:11.000000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8037c2b0ca20cfcb0ebf73e51f68d529"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.937500Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.cs"
+   text-time="2008-10-22T11:53:11.015625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="158254c1c28cd284bf602a381d28ce6f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.968750Z"/>
+<entry
+   committed-rev="1"
+   name="frmWaitDialog.resx"
+   text-time="2008-10-22T11:53:11.015625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bd6ef137aaaf5c24ffba4d6c4663267d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.968750Z"/>
+<entry
+   committed-rev="1"
+   name="frmDocInstruction.resx"
+   text-time="2008-10-22T11:53:11.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b42bf3ba45fda664d00bec6d5b816a5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.968750Z"/>
+<entry
+   committed-rev="1"
+   name="frmWaitDialog.designer.cs"
+   text-time="2008-10-22T11:53:11.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c12cb38f5331a62320f548a01d1f10ca"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.984375Z"/>
+<entry
+   committed-rev="1"
+   name="frmWaitDialog.cs"
+   text-time="2008-10-22T11:53:11.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e9b9199df0812a390ede2bb8542129d1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.984375Z"/>
+</wc-entries>

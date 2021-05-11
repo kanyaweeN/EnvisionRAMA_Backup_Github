@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="94"
+   name=""
+   committed-date="2008-09-18T05:16:31.965250Z"
+   url="svn://r300-demo/RIS.DataAccess/Insert"
+   last-author="rbus"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsInsertDataDtl.cs"
+   text-time="2008-10-22T11:52:10.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bf79eac96c0a6fe3bb122dd7b0c6be5c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.500000Z"/>
+<entry
+   committed-rev="1"
+   name="GBLAlertInsertData.cs"
+   text-time="2008-10-22T11:52:10.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="499c1114d6394522f03f1d0c2fa0d0a3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.500000Z"/>
+<entry
+   committed-rev="1"
+   name="RISExaminstructionsInsertData.cs"
+   text-time="2008-10-22T11:52:10.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4c915f1413c7055f7c2576bcea23c2ef"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.500000Z"/>
+<entry
+   committed-rev="67"
+   name="RISModalityInsertData.cs"
+   text-time="2008-10-22T11:52:10.031250Z"
+   committed-date="2008-08-27T05:29:58.796875Z"
+   checksum="b576c6f2eb93c3b1406dc5a95fa7da3b"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.500000Z"/>
+<entry
+   committed-rev="1"
+   name="ExamResultForInsertData.cs"
+   text-time="2008-10-22T11:52:10.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9a703137846a551fa7873cd6c2e7a673"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.515625Z"/>
+<entry
+   committed-rev="1"
+   name="RISTechconsumptionInsertData.cs"
+   text-time="2008-10-22T11:52:10.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="cb0c876b2fe756ab02ad5ab64f2abbb2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.515625Z"/>
+<entry
+   committed-rev="1"
+   name="OrderImagesInsertData.cs"
+   text-time="2008-10-22T11:52:10.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7d461dba7e68692c145b0b5faf0d8e08"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.531250Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalitytypeInsertData.cs"
+   text-time="2008-10-22T11:52:10.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="f7ebd23240e310ba885ea5e2a0880c28"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.531250Z"/>
+<entry
+   committed-rev="94"
+   name="GBLEmployeeInsertData.cs"
+   text-time="2008-10-22T11:52:10.062500Z"
+   committed-date="2008-09-18T05:16:31.965250Z"
+   checksum="d302a57df605ece4d03dc35f7c407882"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.546875Z"/>
+<entry
+   committed-rev="1"
+   name="RISQaworksInsertData.cs"
+   text-time="2008-10-22T11:52:10.062500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e1617a4935a9a5a1eef41e4a255e6d33"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.546875Z"/>
+<entry
+   committed-rev="1"
+   name="GBLLanguageInsertData.cs"
+   text-time="2008-10-22T11:52:10.062500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="93780af2b913017206975c1f2a64097e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.562500Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalityexamInsertData.cs"
+   text-time="2008-10-22T11:52:10.078125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="315cb445d98a255f41b07d7e9758c642"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.562500Z"/>
+<entry
+   committed-rev="1"
+   name="TemplateInsertData.cs"
+   text-time="2008-10-22T11:52:10.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="77679befb70c137f018c8d2fcb79e974"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.578125Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectsInsertData.cs"
+   text-time="2008-10-22T11:52:10.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bb39d5eecffba308b1da0ae190a61a3f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.578125Z"/>
+<entry
+   committed-rev="1"
+   name="AddendumInsertData.cs"
+   text-time="2008-10-22T11:52:10.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2ebf7f115153c4f4a263173e2054bd35"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.593750Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleInsertData.cs"
+   text-time="2008-10-22T11:52:10.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="086c8738c1e4d9633357eef6fa595006"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.609375Z"/>
+<entry
+   committed-rev="1"
+   name="RISPaticdInsertData.cs"
+   text-time="2008-10-22T11:52:10.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7778bd1b283d17ce27a03e7ad95e44be"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.609375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLExceptionLogInsertData.cs"
+   text-time="2008-10-22T11:52:10.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="cf0767e692906cd6d2b7749f9cfa0c39"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.609375Z"/>
+<entry
+   committed-rev="1"
+   name="RISTechworksInsertData.cs"
+   text-time="2008-10-22T11:52:10.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6aedcf4a0300ff7e59651d1c5c7c69b1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.640625Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsInsertData.cs"
+   text-time="2008-10-22T11:52:10.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="02aecc31f151c9d71b3f29457bfaab91"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.640625Z"/>
+<entry
+   committed-rev="1"
+   name="ExamResultInsertData.cs"
+   text-time="2008-10-22T11:52:10.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0754bbb64aeaf6a29a2bf4d1faf87f4b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.640625Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderInsertData.cs"
+   text-time="2008-10-22T11:52:10.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1b9b441d1d9da8b36063045cb929aaf5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.640625Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectLabelInsertData.cs"
+   text-time="2008-10-22T11:52:10.578125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="16f5f16b678ed0b9f3a0f7db1021c84d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.671875Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderdtlInsertData.cs"
+   text-time="2008-10-22T11:52:10.609375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="094cbc98f8854d2d25eaeac36c381e1e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.671875Z"/>
+<entry
+   committed-rev="1"
+   name="RISSF09InsertData.cs"
+   text-time="2008-10-22T11:52:10.609375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c79ff9b3fb4f4c4ce0b416012f51c70f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.671875Z"/>
+<entry
+   committed-rev="11"
+   name="PatientRegistrationInsertData.cs"
+   text-time="2008-10-22T11:52:10.609375Z"
+   committed-date="2008-08-13T06:16:16.421875Z"
+   checksum="514d042a253fc5fb0d4c7622412a4a8c"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.671875Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuInsertData.cs"
+   text-time="2008-10-22T11:52:10.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9af802c68e0ff6d716fcc56540b09895"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.703125Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleInsertDataRole.cs"
+   text-time="2008-10-22T11:52:10.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9d2470d31c2d76c6a03752cb4cc59753"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.703125Z"/>
+<entry
+   committed-rev="1"
+   name="PatientInsertData.cs"
+   text-time="2008-10-22T11:52:10.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="64d7af506ad5832cbc3bf8f66e7e886e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.703125Z"/>
+<entry
+   committed-rev="73"
+   name="RISExamInsertData.cs"
+   text-time="2008-10-22T11:52:10.640625Z"
+   committed-date="2008-08-27T08:57:49.718750Z"
+   checksum="d8accea2190af7525a08cc5e34ea4cfc"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.718750Z"/>
+<entry
+   committed-rev="1"
+   name="MyMenuInsertData.cs"
+   text-time="2008-10-22T11:52:10.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="16c43db3da5d27da9fd6862f5d0d4778"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.718750Z"/>
+<entry
+   committed-rev="1"
+   name="HISRegistrationInsertData.cs"
+   text-time="2008-10-22T11:52:10.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3ab2c861146baa38f29eaae4230e9e49"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.718750Z"/>
+<entry
+   committed-rev="1"
+   name="RISServicetypeInsertData.cs"
+   text-time="2008-10-22T11:52:10.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d46302c7259a1745f36092cf34358ed6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.750000Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleInsertDataEmployee.cs"
+   text-time="2008-10-22T11:52:10.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="38b283cfff1dab69f062fb0cdd0bbfcc"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.765625Z"/>
+<entry
+   committed-rev="1"
+   name="SessionInsertData.cs"
+   text-time="2008-10-22T11:52:10.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2f9059658bae3a0978e84295d2828839"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.765625Z"/>
+<entry
+   committed-rev="1"
+   name="SessionLogInsertData.cs"
+   text-time="2008-10-22T11:52:10.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="515baa6748744fe248f709546f9f660d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.781250Z"/>
+<entry
+   committed-rev="1"
+   name="GBLRoleInsertData.cs"
+   text-time="2008-10-22T11:52:10.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5b02f992e42476e465db535e27a38234"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.781250Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantObjectInsertData.cs"
+   text-time="2008-10-22T11:52:10.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2042dc8a36e64f09b1cb26117dd964d6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.796875Z"/>
+<entry
+   committed-rev="1"
+   name="SplitOrderInsertData.cs"
+   text-time="2008-10-22T11:52:10.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e2f8976ffd54cb660b549d44fdd98345"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.812500Z"/>
+<entry
+   committed-rev="1"
+   name="RISSF02InsertData.cs"
+   text-time="2008-10-22T11:52:10.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="40c9bcdf50fc1b015f38cb0a5ef38830"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.812500Z"/>
+<entry
+   committed-rev="1"
+   name="ResultStatusChangeInsertData.cs"
+   text-time="2008-10-22T11:52:10.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c1c60c1be45b7b39d4634278381d5a4c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.812500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLMenuInsertData.cs"
+   text-time="2008-10-22T11:52:10.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a8d88128bb940ebc131c65115604905b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:09.843750Z"/>
+</wc-entries>

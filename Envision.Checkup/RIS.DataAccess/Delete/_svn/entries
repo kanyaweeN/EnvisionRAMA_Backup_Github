@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2008-08-13T06:16:03.671875Z"
+   url="svn://r300-demo/RIS.DataAccess/Delete"
+   last-author="rbus"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="RISSF09DeleteData.cs"
+   text-time="2008-10-22T11:52:07.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6d3813c922c0dc2e07ff7b9c1921056e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.031250Z"/>
+<entry
+   committed-rev="10"
+   name="PatientRegistrationDeleteData.cs"
+   text-time="2008-10-22T11:52:07.250000Z"
+   committed-date="2008-08-13T06:16:03.671875Z"
+   checksum="2b649b78cfe7a7497f43b8e229afd35c"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.031250Z"/>
+<entry
+   committed-rev="1"
+   name="RISTechconsumptionDeleteData.cs"
+   text-time="2008-10-22T11:52:07.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="caa30c9a396334cceb2649d4dc5eb55b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.046875Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalityDeleteData.cs"
+   text-time="2008-10-22T11:52:07.406250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6884e7988ddb82d72ee180092488eca6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.046875Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalitytypeDeleteData.cs"
+   text-time="2008-10-22T11:52:07.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3eee08976107ddcd0522309512c1b4f4"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.046875Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuDeleteData.cs"
+   text-time="2008-10-22T11:52:07.765625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="384932e05ec494b4961fd88c599ba3f0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.062500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLEmployeeDeleteData.cs"
+   text-time="2008-10-22T11:52:07.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="44f566e302c614255ac2527a45b729de"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.062500Z"/>
+<entry
+   committed-rev="1"
+   name="PatientDeleteData.cs"
+   text-time="2008-10-22T11:52:07.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="55bc2a5f923352987120115e6f4e3c0e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.062500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLLanguageDeleteData.cs"
+   text-time="2008-10-22T11:52:07.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3b6add0881c0c2c4055d53a4b3c969af"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.078125Z"/>
+<entry
+   committed-rev="1"
+   name="RISExamDeleteData.cs"
+   text-time="2008-10-22T11:52:07.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3cdb6eb7d2c997a9ef28bb8e75165e81"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.078125Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalityexamDeleteData.cs"
+   text-time="2008-10-22T11:52:07.875000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6af985d12d952c2bde51d676ddda4ead"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.078125Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectsDeleteData.cs"
+   text-time="2008-10-22T11:52:07.890625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3c9acc6d469429a88811e975f3314cdd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.093750Z"/>
+<entry
+   committed-rev="1"
+   name="RISServicetypeDeleteData.cs"
+   text-time="2008-10-22T11:52:07.890625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="179b59d4a8eaf3a04374e4f1bb02b80d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.093750Z"/>
+<entry
+   committed-rev="1"
+   name="RISPaticdDeleteData.cs"
+   text-time="2008-10-22T11:52:07.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0142135b5b7f0272a95a8db272f8ed5f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.109375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleDeleteData.cs"
+   text-time="2008-10-22T11:52:07.890625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="360eb202b53e3a3b070f5ba70ab383a1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.093750Z"/>
+<entry
+   committed-rev="1"
+   name="GBLRoleDeleteData.cs"
+   text-time="2008-10-22T11:52:07.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1ac38250f7cb903a0895711a816dcd26"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.109375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantObjectDeleteData.cs"
+   text-time="2008-10-22T11:52:07.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b835cfcb07dd09dcae44e2a53bc9e7af"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.125000Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsDeleteData.cs"
+   text-time="2008-10-22T11:52:07.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d37325ae80b5b68e3c47f46df760692b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.125000Z"/>
+<entry
+   committed-rev="1"
+   name="RISSF02DeleteData.cs"
+   text-time="2008-10-22T11:52:07.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="305ca66aa7807d39f497d212e7fc599e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.140625Z"/>
+<entry
+   committed-rev="1"
+   name="GBLMenuDeleteData.cs"
+   text-time="2008-10-22T11:52:07.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="003e2c88d8389f8d63250b4a652bb330"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.171875Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderDeleteData.cs"
+   text-time="2008-10-22T11:52:07.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d4884cef1aabbf6de9e791780c4a6be5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.187500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectLabelDeleteData.cs"
+   text-time="2008-10-22T11:52:07.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="885f4cc63c4f398f24756c86fbb606b6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.203125Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsDeleteDataDtl.cs"
+   text-time="2008-10-22T11:52:07.968750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7533eb5e1e2b996f88784ec312529cfd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.218750Z"/>
+<entry
+   committed-rev="1"
+   name="GBLAlertDeleteData.cs"
+   text-time="2008-10-22T11:52:07.968750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a405a8d62003830e0508fb10a30ad4e3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.218750Z"/>
+<entry
+   committed-rev="1"
+   name="RISExaminstructionsDeleteData.cs"
+   text-time="2008-10-22T11:52:07.968750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b5ae7f12e9df69498448b98773c4656d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderdtlDeleteData.cs"
+   text-time="2008-10-22T11:52:08.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1cb1216d850573df58833b4a7f27df67"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:07.234375Z"/>
+</wc-entries>

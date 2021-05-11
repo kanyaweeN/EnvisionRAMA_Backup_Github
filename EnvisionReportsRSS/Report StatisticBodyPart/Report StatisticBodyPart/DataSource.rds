@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=MIRACLE9;Initial Catalog=RIS_RAMA</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>468229ca-2e4a-41e0-a3ac-35a5856b0a52</DataSourceID>
+</RptDataSource>

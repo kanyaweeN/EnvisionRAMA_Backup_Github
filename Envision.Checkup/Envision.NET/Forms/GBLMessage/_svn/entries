@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/GBLMessage"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="MyMessageBox.resx"
+   text-time="2008-10-22T11:53:09.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:09.625000Z"/>
+<entry
+   committed-rev="1"
+   name="MyMessageBox.designer.cs"
+   text-time="2008-10-22T11:53:09.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="085dbb4f0c46a91381e212e031b71805"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:09.625000Z"/>
+<entry
+   committed-rev="1"
+   name="MyMessageBox.cs"
+   text-time="2008-10-22T11:53:09.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7e93cbe7b839e6fcbe8b8624d3f1d7b7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:09.625000Z"/>
+</wc-entries>

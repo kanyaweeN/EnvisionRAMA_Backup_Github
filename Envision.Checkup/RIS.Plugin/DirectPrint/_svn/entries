@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="91"
+   name=""
+   committed-date="2008-09-10T03:22:17.270625Z"
+   url="svn://r300-demo/RIS.Operational/DirectPrint"
+   last-author="del"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="91"
+   name="DirectPrint.cs"
+   text-time="2008-10-22T11:52:21.140625Z"
+   committed-date="2008-09-10T03:22:17.270625Z"
+   checksum="5d83547499866a5947b4ee3c9ede76cf"
+   last-author="del"
+   kind="file"
+   prop-time="2008-10-22T11:52:21.125000Z"/>
+</wc-entries>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D334493-4050-46A5-B26D-F1ED67AB5268}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.Entity</RootNamespace>
+    <AssemblyName>Envision.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="Common\ACR.cs" />
+    <Compile Include="Common\Alert.cs" />
+    <Compile Include="Common\AlertItem.cs" />
+    <Compile Include="Common\BIReports.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\BISettings.cs" />
+    <Compile Include="Common\CPT.cs" />
+    <Compile Include="Common\Env.cs" />
+    <Compile Include="Common\ExceptionLog.cs" />
+    <Compile Include="Common\General.cs" />
+    <Compile Include="Common\GeneralItem.cs" />
+    <Compile Include="Common\Group.cs" />
+    <Compile Include="Common\GroupItem.cs" />
+    <Compile Include="Common\ICD.cs" />
+    <Compile Include="Common\Language.cs" />
+    <Compile Include="Common\Patient.cs" />
+    <Compile Include="Common\Product.cs" />
+    <Compile Include="Common\Room.cs" />
+    <Compile Include="Common\Sequences.cs" />
+    <Compile Include="Common\Session.cs" />
+    <Compile Include="Common\SessionLog.cs" />
+    <Compile Include="Common\Unit.cs" />
+    <Compile Include="Common\UserForm\Menu.cs" />
+    <Compile Include="Common\UserForm\Module.cs" />
+    <Compile Include="Common\UserForm\Form.cs" />
+    <Compile Include="Common\User\JobTitle.cs" />
+    <Compile Include="Common\User\Occupation.cs" />
+    <Compile Include="Common\User\Role.cs" />
+    <Compile Include="Common\User\RoleItem.cs" />
+    <Compile Include="Common\User\UserGroup.cs" />
+    <Compile Include="Common\User\UserGroupItem.cs" />
+    <Compile Include="Common\User\UserInfo.cs" />
+    <Compile Include="Common\User\GrantRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result\PeerReview\PEER_ALGORITHM_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_GBLENV_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_RADIOLOGIST_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_REVIEW_ASSIGNMENT_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_REVIEW_HISTORY_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_REVIEW_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_REVIEW_SCORE_MODEL.cs" />
+    <Compile Include="Result\PeerReview\PEER_REVIEW_WORKLIST_MODEL.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRALGORITHM.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRASSIGNMENT.cs" />
+    <Compile Include="Result\PeerReview\RIS_PREXAMMAPPING.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRRADMAPPING.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRREPORTING.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRREVIEW.cs" />
+    <Compile Include="Result\PeerReview\RIS_PRSUBSPECIALTY.cs" />
+    <Compile Include="SearchFilter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Academic\" />
+    <Folder Include="Communicate\IM\" />
+    <Folder Include="Financial\" />
+    <Folder Include="Inventory\" />
+    <Folder Include="Order\" />
+    <Folder Include="PatientSchedule\" />
+    <Folder Include="Result\Mammogram\" />
+    <Folder Include="Result\StructureReport\" />
+    <Folder Include="Tech\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

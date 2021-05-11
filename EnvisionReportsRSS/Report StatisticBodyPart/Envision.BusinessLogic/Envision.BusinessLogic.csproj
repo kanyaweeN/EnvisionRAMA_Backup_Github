@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{670FD233-E199-47FE-8183-CEDD08009B75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.BusinessLogic</RootNamespace>
+    <AssemblyName>Envision.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exam.cs" />
+    <Compile Include="HrUnit.cs" />
+    <Compile Include="Modality.cs" />
+    <Compile Include="OrderDtl.cs" />
+    <Compile Include="ProcessCreate\ProcessAddExam.cs" />
+    <Compile Include="ProcessDelete\ProcessDeleteExam.cs" />
+    <Compile Include="ProcessRead\ProcessGetHrUnit.cs" />
+    <Compile Include="ProcessRead\ProcessGetRisClinicSession.cs" />
+    <Compile Include="ProcessRead\ProcessReadExam.cs" />
+    <Compile Include="ProcessRead\ProcessReadModality.cs" />
+    <Compile Include="ProcessRead\ProcessReadOrderDtl.cs" />
+    <Compile Include="ProcessUpdate\ProcessUpdateExam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RisClinicSession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+      <Project>{4c43272a-e7a2-44be-85a3-dfe5a46c3cae}</Project>
+      <Name>Envision.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.DataAccess\Envision.DataAccess.csproj">
+      <Project>{9fc37aa8-ee2b-4a9a-83a2-9e9d5a10e64a}</Project>
+      <Name>Envision.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

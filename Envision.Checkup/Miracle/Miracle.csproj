@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35611988-B35A-4B05-8FFB-C64A0FB2B66F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Miracle</RootNamespace>
+    <AssemblyName>Miracle</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
+    <Reference Include="NationalIdCardSdk4NET, Version=1.0.2347.32104, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\NationalIdCardSdk4NET.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Base, Version=2.0.2.0, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\NHapi.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V23, Version=2.0.2.0, Culture=neutral, PublicKeyToken=81484ee3e2938800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\NHapi.Model.V23.dll</HintPath>
+    </Reference>
+    <Reference Include="NRtfTree, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\NRtfTree.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UULibrary, Version=1.7.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Envision.NET\dll\UULibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="HL7\ADT\GenerateADT.cs" />
+    <Compile Include="HL7\ORM\GenerateORM.cs" />
+    <Compile Include="HL7\ORU\GenerateORU.cs" />
+    <Compile Include="HL7\PatientHL7.cs" />
+    <Compile Include="NationalIDCard\NationalID.cs" />
+    <Compile Include="PACS\IECompatible.cs" />
+    <Compile Include="PACS\SendToPacs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScannerNew\EditImageOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScannerNew\EditImageOrder.designer.cs">
+      <DependentUpon>EditImageOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScannerNew\Libraries\PointerStruc.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\AreaSettings.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Capability.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\CapabilityResult.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\DataSource.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\DataSourceManager.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Diagnostics.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\FeederEmptyException.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\IWindowsMessageHook.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\PageSettings.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\ResolutionSettings.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\RotationSettings.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\ScanningCompleteEventArgs.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\ScanSettings.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TransferImageEventArgs.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Twain.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainException.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\AutoSize.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Capabilities.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\CapabilityArrayValue.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\CapabilityEnumValue.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\CapabilityOneValue.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Command.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Compression.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ConditionCode.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ContainerType.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Country.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\DataArgumentType.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\DataGroup.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Duplex.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Event.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Fix32.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\FlipRotation.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Frame.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Identity.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ImageFileFormat.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ImageInfo.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ImageLayout.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Language.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Message.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Orientation.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\PageType.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\PendingXfers.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\PixelType.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Status.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TransferMechanism.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Twain32Native.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TwainCapability.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TwainConstants.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TwainResult.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TwainType.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TwainVersion.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Units.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\TwainNative\UserInterface.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\BitmapInfoHeader.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\BitmapRenderer.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\Gdi32Native.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\Kernel32Native.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\User32Native.cs" />
+    <Compile Include="ScannerNew\Libraries\TwainDotNet\Win32\WindowsMessage.cs" />
+    <Compile Include="ScannerNew\Libraries\WinFormsWindowMessageHook.cs" />
+    <Compile Include="ScannerNew\NewScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScannerNew\NewScan.designer.cs">
+      <DependentUpon>NewScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScannerNew\PictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScannerNew\PictureForm.designer.cs">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScannerNew\XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScannerNew\XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Utilities.cs" />
+    <Compile Include="WebCam\Capture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\SHDOCVW.DLL" />
+    <None Include="Resources\Envision.ico" />
+    <None Include="Resources\bullet.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\envision04.png" />
+    <Content Include="ScannerNew\Libraries\dll\log4net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="myTTranslite_TypeLib">
+      <Guid>{BCFB140F-9CC7-437E-BAF2-AED3305A003F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScannerNew\EditImageOrder.resx">
+      <DependentUpon>EditImageOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScannerNew\NewScan.resx">
+      <DependentUpon>NewScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScannerNew\PictureForm.resx">
+      <DependentUpon>PictureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScannerNew\XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScannerNew\Libraries\TwainDotNet\TwainNative\Capabilities.cs.bak" />
+    <None Include="ScannerNew\Libraries\TwainDotNet\TwainNative\ImageInfo.cs.bak" />
+    <None Include="ScannerNew\Libraries\TwainDotNet\TwainNative\TransferMechanism.cs.bak" />
+    <None Include="ScannerNew\Libraries\TwainDotNet\TwainNative\UserInterface.cs.bak" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

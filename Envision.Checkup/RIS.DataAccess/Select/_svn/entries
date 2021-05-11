@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="88"
+   name=""
+   committed-date="2008-09-09T04:47:47.583386Z"
+   url="svn://r300-demo/RIS.DataAccess/Select"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="FormAccessSelectData.cs"
+   text-time="2008-10-22T11:52:05.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="033b1ff69d6a04d5f1760640753ec558"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.140625Z"/>
+<entry
+   committed-rev="1"
+   name="HRAccountSelectData.cs"
+   text-time="2008-10-22T11:52:05.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3b269de2507c430d18f398e9d164a2f0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.156250Z"/>
+<entry
+   committed-rev="1"
+   name="GBLRoleSelectData.cs"
+   text-time="2008-10-22T11:52:05.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e11406840dcb50db9a5d5e1e3cc460a0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.140625Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_SF02SelectData.cs"
+   text-time="2008-10-22T11:52:05.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="aa3358e5a16b90f9f26ceeab57518342"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.171875Z"/>
+<entry
+   committed-rev="1"
+   name="EnvSelectData.cs"
+   text-time="2008-10-22T11:52:05.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="223d77c2528a87360b52efa77cb1da26"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.187500Z"/>
+<entry
+   committed-rev="1"
+   name="RISSF02SelectData.cs"
+   text-time="2008-10-22T11:52:05.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b92fb29253fe255b111745f03b4e767d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.171875Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderimageNameSelectData.cs"
+   text-time="2008-10-22T11:52:05.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e46401f6531b76d859224f55f623131b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.187500Z"/>
+<entry
+   committed-rev="1"
+   name="HISDoctorSelectData.cs"
+   text-time="2008-10-22T11:52:05.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="36efea0fa4808b07444dfa5a5854c93f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.187500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleSelectDataByRole.cs"
+   text-time="2008-10-22T11:52:05.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a81d5bfd1b5a82b8038a56b120f51d60"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.187500Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsTableSelectData.cs"
+   text-time="2008-10-22T11:52:05.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c016688ae4d942a3d1f737438478efb0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.203125Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalitySelectData.cs"
+   text-time="2008-10-22T11:52:05.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="671cdbd7485964ebfab9a88ce12bd806"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.187500Z"/>
+<entry
+   committed-rev="1"
+   name="HistorySelectData.cs"
+   text-time="2008-10-22T11:52:05.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ea86dd2bf8c6123489d326b1a1348403"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.203125Z"/>
+<entry
+   committed-rev="1"
+   name="PatientRegSelectData.cs"
+   text-time="2008-10-22T11:52:05.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="eff1e3b4ed65293fb2df34515a362a65"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.203125Z"/>
+<entry
+   committed-rev="1"
+   name="GBLEmployeeSelectData.cs"
+   text-time="2008-10-22T11:52:05.968750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2948de5bd4e3b13c99163ee7945fcdc9"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.218750Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsTableDtlSelectData.cs"
+   text-time="2008-10-22T11:52:05.953125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ecd7c41778d0173796c8c0a9382346e1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.203125Z"/>
+<entry
+   committed-rev="1"
+   name="RISInsurancetypeSelectData.cs"
+   text-time="2008-10-22T11:52:05.968750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7cc9ab1b4ef53d45e1e6a99964c8653c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RISAuthlevelSelectData.cs"
+   text-time="2008-10-22T11:52:05.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="861f0a84a3b7ee7c73a6eb0bbcb53c92"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.234375Z"/>
+<entry
+   committed-rev="1"
+   name="HisICD.cs"
+   text-time="2008-10-22T11:52:05.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ecdd488399c368fc2f83a1608048cca9"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RISExamTypeSelectData.cs"
+   text-time="2008-10-22T11:52:05.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b9bf843201fa4745d3350709ee60c12d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalityexamSelectData.cs"
+   text-time="2008-10-22T11:52:05.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1151e3d1e2a100cb456452114443240a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.234375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleSelectDataByEmployee.cs"
+   text-time="2008-10-22T11:52:05.984375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d17ab1222259e08b6875877333e33e8d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.250000Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectsSelectData.cs"
+   text-time="2008-10-22T11:52:06.000000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="43ec9dde590068a6a51879103f80e512"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.250000Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptOrderSelectData.cs"
+   text-time="2008-10-22T11:52:06.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bad871c8a1718b42a3a8508f9c84a39d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.250000Z"/>
+<entry
+   committed-rev="1"
+   name="ProductSelectData.cs"
+   text-time="2008-10-22T11:52:06.031250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="fff6539a6b6ed4b28721af9e64ca9b76"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.250000Z"/>
+<entry
+   committed-rev="1"
+   name="RISPaticdSelectData.cs"
+   text-time="2008-10-22T11:52:06.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="fe73e895f68359d0f5a5cccfb8d4d539"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.250000Z"/>
+<entry
+   committed-rev="1"
+   name="ModalityLoadSelectData.cs"
+   text-time="2008-10-22T11:52:06.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c99da5f506a2545d7217e1ac94057655"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.265625Z"/>
+<entry
+   committed-rev="1"
+   name="RisvPatienSelectDataDate.cs"
+   text-time="2008-10-22T11:52:06.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a8b33d7146bd6ecd1f21aaecf8424122"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.265625Z"/>
+<entry
+   committed-rev="1"
+   name="RisvPatienSelectData.cs"
+   text-time="2008-10-22T11:52:06.046875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e6f931e14eea7336e2413f72454fbfe3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.265625Z"/>
+<entry
+   committed-rev="1"
+   name="ScheduleCatagorySelectData.cs"
+   text-time="2008-10-22T11:52:06.062500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3a9e75f5fd62a54dbe09fdcb494cafcd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.265625Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderConfliction.cs"
+   text-time="2008-10-22T11:52:06.062500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1e9e620e30d7124d0bd6c184a9e2f3fb"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.281250Z"/>
+<entry
+   committed-rev="88"
+   name="ScheduleReportSelectData.cs"
+   text-time="2008-10-22T11:52:06.093750Z"
+   committed-date="2008-09-09T04:47:47.583386Z"
+   checksum="1411ace7fd8dde529eba84d2e18ff007"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.281250Z"/>
+<entry
+   committed-rev="1"
+   name="ManageGroupsSelectData.cs"
+   text-time="2008-10-22T11:52:06.093750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d51aa847b6dc070d4f57b15949d63617"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.281250Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderSelectData.cs"
+   text-time="2008-10-22T11:52:06.093750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8fadf8b63283459a5e3bf1c3edc630d6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.281250Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuObjectLabelSelectData.cs"
+   text-time="2008-10-22T11:52:06.328125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7bf2a7380ed46ffa68f0a3f5775f310c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.281250Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderdtlSelectData.cs"
+   text-time="2008-10-22T11:52:06.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="34e20cb938654a185c034f5a3e7ab813"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.296875Z"/>
+<entry
+   committed-rev="1"
+   name="GBLLookupSelectData.cs"
+   text-time="2008-10-22T11:52:06.359375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4669f8f81cda19234234e0e45ac22115"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.296875Z"/>
+<entry
+   committed-rev="1"
+   name="PatientSelectData.cs"
+   text-time="2008-10-22T11:52:06.359375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1d452e26a732a7edea2de7498e2765c2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.296875Z"/>
+<entry
+   committed-rev="1"
+   name="HISDepartmentSelectData.cs"
+   text-time="2008-10-22T11:52:06.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a1fae7a1e692905fd5a713df058c85cd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.312500Z"/>
+<entry
+   committed-rev="1"
+   name="AlertSelectData.cs"
+   text-time="2008-10-22T11:52:06.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4ebe0e66e7330469f7316359df3068df"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.296875Z"/>
+<entry
+   committed-rev="1"
+   name="FormLanguageSelectData.cs"
+   text-time="2008-10-22T11:52:06.359375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="f582070b6d66e5a633feba8532704dc6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.296875Z"/>
+<entry
+   committed-rev="1"
+   name="DistributionChannelSelectData.cs"
+   text-time="2008-10-22T11:52:06.390625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ad8fcce94f2e3704e5f81c8b69fae26c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.312500Z"/>
+<entry
+   committed-rev="1"
+   name="HRUnitSelectData.cs"
+   text-time="2008-10-22T11:52:06.390625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c0e658aba4663680349bb524ed57b1cb"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.328125Z"/>
+<entry
+   committed-rev="1"
+   name="ResultEntyReportSelectData.cs"
+   text-time="2008-10-22T11:52:06.390625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0953183967f85e24e07aec7efbc85708"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.328125Z"/>
+<entry
+   committed-rev="1"
+   name="RISOrderimagesSelectData.cs"
+   text-time="2008-10-22T11:52:06.406250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7874212f13678857f25d025d4ed4a69b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.343750Z"/>
+<entry
+   committed-rev="1"
+   name="RISServicetypeSelectData.cs"
+   text-time="2008-10-22T11:52:06.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8ebfd8acddd54d7670f4726a02e612e9"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.359375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantObjectSelectInherit.cs"
+   text-time="2008-10-22T11:52:06.406250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9356a4bbe0e4a018657096b20b1fc6bc"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.343750Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_ACR_SelectData.cs"
+   text-time="2008-10-22T11:52:06.578125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c58d6d7313ac1407b342b61e83d8cd0a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.375000Z"/>
+<entry
+   committed-rev="1"
+   name="RISClinictypeSelectData.cs"
+   text-time="2008-10-22T11:52:06.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="49db5496b5de315d85a6efbc8bc548a4"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.375000Z"/>
+<entry
+   committed-rev="1"
+   name="SessionSelectData.cs"
+   text-time="2008-10-22T11:52:06.578125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6b33c8b047edd30fe9d435c200f6b62d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.375000Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantObjectSelectData.cs"
+   text-time="2008-10-22T11:52:06.578125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3ef0b4ced81fcf03e7013befe4a41319"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.406250Z"/>
+<entry
+   committed-rev="1"
+   name="GBLMenuSelectData.cs"
+   text-time="2008-10-22T11:52:06.593750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="83c43f5e43eb13d5272667ee2aa958f5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.406250Z"/>
+<entry
+   committed-rev="1"
+   name="RISExaminstructionsSelectData.cs"
+   text-time="2008-10-22T11:52:06.593750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7a7beb7e15562a45891c0701a7663eb9"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.406250Z"/>
+<entry
+   committed-rev="1"
+   name="ResultICDSelectData.cs"
+   text-time="2008-10-22T11:52:06.609375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="be976b0397b2c2acf829d0d0c81352ef"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.406250Z"/>
+<entry
+   committed-rev="1"
+   name="ResultEntryWorkListSelectData.cs"
+   text-time="2008-10-22T11:52:06.609375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="48e4a4d7cedc75b12bef643fc64ee32d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.437500Z"/>
+<entry
+   committed-rev="1"
+   name="RISTechconsumptionSelectData.cs"
+   text-time="2008-10-22T11:52:06.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="89f425c5b0cd4ed214ce832b0343f008"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.437500Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptCancellationSelectData.cs"
+   text-time="2008-10-22T11:52:06.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a4605725c5b8cff79371cec6b203f767"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.437500Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleLoadTreeData.cs"
+   text-time="2008-10-22T11:52:06.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c07b5553c6253c4b5603e67c668fb9e5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.468750Z"/>
+<entry
+   committed-rev="1"
+   name="RISModalitytypeSelectData.cs"
+   text-time="2008-10-22T11:52:06.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="49c80870597fe393c6f9e46efc6347e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.437500Z"/>
+<entry
+   committed-rev="1"
+   name="FavouriteSelectData.cs"
+   text-time="2008-10-22T11:52:06.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="306e2c1a402f5cb24753f403b13a2470"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.484375Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptComparing1SelectData.cs"
+   text-time="2008-10-22T11:52:06.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1087da18d8e5dcacae607679bdd788d8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.468750Z"/>
+<entry
+   committed-rev="1"
+   name="RISQAWorksSelectData.cs"
+   text-time="2008-10-22T11:52:06.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ea7ed4d079cf915d77e278d12d8ee1bd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.484375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLLanguageSelectData.cs"
+   text-time="2008-10-22T11:52:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3205a12e8742630928a6e56d5a069874"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.500000Z"/>
+<entry
+   committed-rev="1"
+   name="RISScheduledtlSelectData.cs"
+   text-time="2008-10-22T11:52:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a8ec39d9255f2b6304f6c2bdae75dfff"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.515625Z"/>
+<entry
+   committed-rev="1"
+   name="ReportStatusSelectData.cs"
+   text-time="2008-10-22T11:52:06.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="801e396cda7b3bba6fcf81588facb270"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.515625Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSequencesSelectData.cs"
+   text-time="2008-10-22T11:52:06.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d7f4bc9e3155c17b9b0af5cd4163d2fa"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.515625Z"/>
+<entry
+   committed-rev="1"
+   name="GBLGrantRoleSelectData.cs"
+   text-time="2008-10-22T11:52:06.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="796c1142a891591059ac30e9f6b8e60f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.531250Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptWorkloadSelectData.cs"
+   text-time="2008-10-22T11:52:06.734375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a5832e50040a3ccba734fe43e2ddbef2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.531250Z"/>
+<entry
+   committed-rev="1"
+   name="RISTechworksSelectData.cs"
+   text-time="2008-10-22T11:52:06.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2d1aedb4782b0cf1a032b4a29bf2462b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.546875Z"/>
+<entry
+   committed-rev="1"
+   name="GlobalAlertSelectData.cs"
+   text-time="2008-10-22T11:52:06.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="67957159c30f6343cbf0f269351f054e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.546875Z"/>
+<entry
+   committed-rev="1"
+   name="ExamResultSelectData.cs"
+   text-time="2008-10-22T11:52:06.781250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="86baa32022071741eef3fab4a8fdcff0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.546875Z"/>
+<entry
+   committed-rev="1"
+   name="AuthLevelSelectData.cs"
+   text-time="2008-10-22T11:52:06.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6685d6dfdcc1c574353d91946a74024e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.562500Z"/>
+<entry
+   committed-rev="12"
+   name="PatientRegistrationSelectData.cs"
+   text-time="2008-10-22T11:52:06.828125Z"
+   committed-date="2008-08-13T06:16:28.031250Z"
+   checksum="888f22f8ec0207ccf1a898fc131efbb9"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.562500Z"/>
+<entry
+   committed-rev="1"
+   name="RISSF09SelectData.cs"
+   text-time="2008-10-22T11:52:06.828125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="f3e443f9e96f676e8110d08c09af1d56"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.578125Z"/>
+<entry
+   committed-rev="1"
+   name="HL7MonitoringSelectData.cs"
+   text-time="2008-10-22T11:52:06.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5d389b5de9a222b18113524f49f042b5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.578125Z"/>
+<entry
+   committed-rev="1"
+   name="GBLSubMenuSelectData.cs"
+   text-time="2008-10-22T11:52:06.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e6be1c10f327bdaeb23efc824668499e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.578125Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptServiceSelectData.cs"
+   text-time="2008-10-22T11:52:06.843750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8b7433905ddde17a25e0e757e95e47c6"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.593750Z"/>
+<entry
+   committed-rev="1"
+   name="RISRptComparing2SelectData.cs"
+   text-time="2008-10-22T11:52:06.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="260c7572c8449d48d2c89e87912c8347"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.593750Z"/>
+<entry
+   committed-rev="1"
+   name="RISPatstatusSelectData.cs"
+   text-time="2008-10-22T11:52:06.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="09936ae83f9fc24d395d350a89652cfb"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.593750Z"/>
+<entry
+   committed-rev="1"
+   name="RISExamSelectData.cs"
+   text-time="2008-10-22T11:52:06.921875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="034ee9c3cb37141b7ab520b48e7d5cb2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.609375Z"/>
+<entry
+   committed-rev="1"
+   name="RISScheduleSelectData.cs"
+   text-time="2008-10-22T11:52:06.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8a77c1fdccec9e8c39e94484b626e47d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.609375Z"/>
+<entry
+   committed-rev="1"
+   name="HISRegistrationSelectData.cs"
+   text-time="2008-10-22T11:52:06.937500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="37983216662b79e3d4a14a1f878e2df4"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:05.609375Z"/>
+</wc-entries>

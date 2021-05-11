@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="85"
+   name=""
+   committed-date="2008-09-09T04:42:18.442761Z"
+   url="svn://r300-demo/RIS/Reports/ReportParameter"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="RPT_QAWorks.Designer.cs"
+   text-time="2008-10-22T11:53:18.484375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e144d2f26f0ef509bb569f007129c4b7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.031250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_QAWorks.cs"
+   text-time="2008-10-22T11:53:18.500000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9c12da2b8db32f37d3c49204569820d1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.046875Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST01.cs"
+   text-time="2008-10-22T11:53:18.500000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="33d9deb2a46ad55963e249dabdab9a6b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.062500Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST03.Designer.cs"
+   text-time="2008-10-22T11:53:18.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="745bc18b5692917623c15614762ca26b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.062500Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_2.resx"
+   text-time="2008-10-22T11:53:18.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.093750Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST04.Designer.cs"
+   text-time="2008-10-22T11:53:18.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="20489ab63787bce169a0ec78793bd39d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.093750Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST03.cs"
+   text-time="2008-10-22T11:53:18.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="315801f17788f8824832b4e14c5aa449"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.109375Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_OrderDTL.resx"
+   text-time="2008-10-22T11:53:18.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d7c1c4bf4af3afce0faeea3eff522b25"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.109375Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST06.Designer.cs"
+   text-time="2008-10-22T11:53:18.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0be7e14912e61e09d8ffbcc926e8384b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.140625Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ModalityExam.Designer.cs"
+   text-time="2008-10-22T11:53:18.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b758bdb9b2137c217ca23a3f5ab403ed"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.140625Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ModalityExam.cs"
+   text-time="2008-10-22T11:53:18.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="71ece2fe75c7cf65ee526e0f73322119"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.140625Z"/>
+<entry
+   committed-rev="1"
+   name="ParamExamResult.resx"
+   text-time="2008-10-22T11:53:18.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.156250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST02.resx"
+   text-time="2008-10-22T11:53:18.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.156250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST04.resx"
+   text-time="2008-10-22T11:53:18.562500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.156250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST06.resx"
+   text-time="2008-10-22T11:53:18.593750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.171875Z"/>
+<entry
+   committed-rev="85"
+   name="RPT_AppointDate.cs"
+   text-time="2008-10-22T11:53:18.593750Z"
+   committed-date="2008-09-09T04:42:18.442761Z"
+   checksum="a6164ee09b912a781de76ab5d1259a8e"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.156250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_2.cs"
+   text-time="2008-10-22T11:53:18.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d915d89fa9e62bffe566fad519c4668c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.187500Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_OrderDTL.Designer.cs"
+   text-time="2008-10-22T11:53:19.203125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="28a36d633bff19289b199d0c18cca193"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.187500Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_OrderDTL.cs"
+   text-time="2008-10-22T11:53:19.343750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="53acee04b830ab63c946ce8214e95d52"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.203125Z"/>
+<entry
+   committed-rev="1"
+   name="ParamExamResult.cs"
+   text-time="2008-10-22T11:53:19.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8a201db2d1c51fae9e8d501568e7ab8c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.218750Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST01.designer.cs"
+   text-time="2008-10-22T11:53:19.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="fa054bd5cb5a83b0eae91dcf9ef4a104"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST02.designer.cs"
+   text-time="2008-10-22T11:53:19.421875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="73b8f71079ab797934b1faf4a02c5a7b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.250000Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_1.resx"
+   text-time="2008-10-22T11:53:19.390625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST02.cs"
+   text-time="2008-10-22T11:53:19.437500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2d9b9e8627b72caa21de1ab0c2bae5c5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.265625Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST04.cs"
+   text-time="2008-10-22T11:53:19.453125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c7197c386d980aec7016ad1a72a14c7e"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.281250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST06.cs"
+   text-time="2008-10-22T11:53:19.468750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="572d322ffa12fc5a0f589d9b7cfbc6cd"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.281250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_QAWorks.resx"
+   text-time="2008-10-22T11:53:19.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.296875Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST01.resx"
+   text-time="2008-10-22T11:53:19.500000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.296875Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST03.resx"
+   text-time="2008-10-22T11:53:19.515625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.328125Z"/>
+<entry
+   committed-rev="85"
+   name="RPT_AppointDate.Designer.cs"
+   text-time="2008-10-22T11:53:19.531250Z"
+   committed-date="2008-09-09T04:42:18.442761Z"
+   checksum="3f770f79ded560032be11da494b268d3"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.343750Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ModalityExam.resx"
+   text-time="2008-10-22T11:53:19.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.359375Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_1.Designer.cs"
+   text-time="2008-10-22T11:53:19.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d4d4140d6ec44e3cbebb12a2ee4a2104"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.375000Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_2.Designer.cs"
+   text-time="2008-10-22T11:53:19.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4df876abe03f67708bca9b0317957c01"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.406250Z"/>
+<entry
+   committed-rev="1"
+   name="RPT_ST05_1.cs"
+   text-time="2008-10-22T11:53:19.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c022d9f5e599c724b15cf3ddc0b3e70d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.421875Z"/>
+<entry
+   committed-rev="1"
+   name="ParamExamResult.designer.cs"
+   text-time="2008-10-22T11:53:19.578125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6c6117b7da9b10bdce127e0b0c59412d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.437500Z"/>
+<entry
+   committed-rev="85"
+   name="RPT_AppointDate.resx"
+   text-time="2008-10-22T11:53:19.671875Z"
+   committed-date="2008-09-09T04:42:18.442761Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:53:18.453125Z"/>
+</wc-entries>

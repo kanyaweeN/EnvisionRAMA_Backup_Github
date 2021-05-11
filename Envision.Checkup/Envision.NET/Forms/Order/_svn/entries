@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="71"
+   name=""
+   committed-date="2008-08-27T08:57:20.609375Z"
+   url="svn://r300-demo/RIS/Forms/Order"
+   last-author="rbus"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="frmViewPerformance.resx"
+   text-time="2008-10-22T11:53:11.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="cd6897f60c17dabec5fa08f069980823"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.515625Z"/>
+<entry
+   committed-rev="49"
+   name="GBL_SF14.resx"
+   text-time="2008-10-22T11:53:11.281250Z"
+   committed-date="2008-08-20T04:36:59.062500Z"
+   checksum="109c3cf32142e6e2cae2e3fa4be335d7"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.515625Z"/>
+<entry
+   committed-rev="1"
+   name="frmOrders.resx"
+   text-time="2008-10-22T11:53:11.375000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d6f37b69048fb0ee8dedf57b98d9aa35"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.546875Z"/>
+<entry
+   committed-rev="1"
+   name="frmArrivalWorkList.resx"
+   text-time="2008-10-22T11:53:11.421875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4b7b7b25c1c2fa2122ec8e5e8cecf45b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.562500Z"/>
+<entry
+   name="WaitDialog"
+   kind="dir"/>
+<entry
+   committed-rev="29"
+   name="RisvPatienForm.resx"
+   text-time="2008-10-22T11:53:11.421875Z"
+   committed-date="2008-08-13T10:30:34.125000Z"
+   checksum="5d8e64c4c37315a1120a3a088c914130"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.046875Z"/>
+<entry
+   committed-rev="1"
+   name="frmWorkLoad.designer.cs"
+   text-time="2008-10-22T11:53:11.421875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ab6e453c30e53f7c10ccaa314ea67b7b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.046875Z"/>
+<entry
+   committed-rev="1"
+   name="frmWorkLoad.cs"
+   text-time="2008-10-22T11:53:11.484375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="cbb6b6ec4953cd83fe76f70d57a98c1d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.062500Z"/>
+<entry
+   committed-rev="1"
+   name="frmReprint.Designer.cs"
+   text-time="2008-10-22T11:53:11.468750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="88f77301359859d73abc770ce23a2977"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.046875Z"/>
+<entry
+   committed-rev="1"
+   name="frmReprint.cs"
+   text-time="2008-10-22T11:53:12.078125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ba55f08e06901373e46622f8c4f70415"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.062500Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_TF05.Designer.cs"
+   text-time="2008-10-22T11:53:12.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2a7992b87054c5121e2b165b1516df15"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.078125Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_TF05.cs"
+   text-time="2008-10-22T11:53:12.171875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="03fb14d51c6d10d3b8f6b823ee6bfe31"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.093750Z"/>
+<entry
+   committed-rev="1"
+   name="frmViewPerformance.Designer.cs"
+   text-time="2008-10-22T11:53:12.187500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8f1fc549923a5286981c9c963910e5d3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.125000Z"/>
+<entry
+   committed-rev="71"
+   name="GBL_SF14.Designer.cs"
+   text-time="2008-10-22T11:53:12.171875Z"
+   committed-date="2008-08-27T08:57:20.609375Z"
+   checksum="65c96853267c488f4e88008f59cc0cd6"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.093750Z"/>
+<entry
+   committed-rev="71"
+   name="GBL_SF14.cs"
+   text-time="2008-10-22T11:53:12.187500Z"
+   committed-date="2008-08-27T08:57:20.609375Z"
+   checksum="8ec16919e41f9312087c7d996d070e40"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.140625Z"/>
+<entry
+   committed-rev="1"
+   name="frmViewPerformance.cs"
+   text-time="2008-10-22T11:53:12.234375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9f05ccf4a42c003576e305a682743aa5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.156250Z"/>
+<entry
+   committed-rev="1"
+   name="frmOrders.Designer.cs"
+   text-time="2008-10-22T11:53:12.250000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="187fed82468c29f0d95fb97e7334480c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.171875Z"/>
+<entry
+   committed-rev="1"
+   name="frmOrders.cs"
+   text-time="2008-10-22T11:53:12.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b60135d2788cbdfb49e1d23b8ca677a4"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.187500Z"/>
+<entry
+   committed-rev="1"
+   name="frmArrivalWorkList.Designer.cs"
+   text-time="2008-10-22T11:53:12.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b45250116e2b5dbebb564514e7ba5ca5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.203125Z"/>
+<entry
+   committed-rev="1"
+   name="frmArrivalWorkList.cs"
+   text-time="2008-10-22T11:53:12.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c348554b39a6c6f56c88ee01e69da8d3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.203125Z"/>
+<entry
+   committed-rev="1"
+   name="frmReprint.resx"
+   text-time="2008-10-22T11:53:12.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e55976a36329accf76a138b609003e4d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.218750Z"/>
+<entry
+   committed-rev="31"
+   name="RisvPatienForm.designer.cs"
+   text-time="2008-10-22T11:53:12.296875Z"
+   committed-date="2008-08-13T10:33:28.328125Z"
+   checksum="64415afda3a942dd9596094eedb1954a"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.234375Z"/>
+<entry
+   committed-rev="1"
+   name="RIS_TF05.resx"
+   text-time="2008-10-22T11:53:12.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.265625Z"/>
+<entry
+   committed-rev="31"
+   name="RisvPatienForm.cs"
+   text-time="2008-10-22T11:53:12.312500Z"
+   committed-date="2008-08-13T10:33:28.328125Z"
+   checksum="34dca8f8d83f6b7244812ea268145878"
+   last-author="rbus"
+   kind="file"
+   prop-time="2008-10-22T11:53:11.265625Z"/>
+</wc-entries>

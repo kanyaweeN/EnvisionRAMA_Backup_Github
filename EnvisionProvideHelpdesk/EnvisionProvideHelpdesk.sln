@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvisionProvideHelpdesk", "EnvisionProvideHelpdesk\EnvisionProvideHelpdesk.csproj", "{B4DFFAF4-B799-458D-B11C-2061F15887D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvisionHelpdesk.DataAccess", "EnvisionHelpdesk.DataAccess\EnvisionHelpdesk.DataAccess.csproj", "{6923D7AB-61E3-44A8-99F2-5674CD99B30F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvisionHelpdesk.Common", "EnvisionHelpdesk.Common\EnvisionHelpdesk.Common.csproj", "{BF26A3BC-3E83-4799-ABBC-821DF1B30DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvisionHelpdesk.BusinessLogic", "EnvisionHelpdesk.BusinessLogic\EnvisionHelpdesk.BusinessLogic.csproj", "{DC0F0171-7EBE-4BAD-BD29-EAFF4F255095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4DFFAF4-B799-458D-B11C-2061F15887D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DFFAF4-B799-458D-B11C-2061F15887D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DFFAF4-B799-458D-B11C-2061F15887D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DFFAF4-B799-458D-B11C-2061F15887D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6923D7AB-61E3-44A8-99F2-5674CD99B30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6923D7AB-61E3-44A8-99F2-5674CD99B30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6923D7AB-61E3-44A8-99F2-5674CD99B30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6923D7AB-61E3-44A8-99F2-5674CD99B30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF26A3BC-3E83-4799-ABBC-821DF1B30DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF26A3BC-3E83-4799-ABBC-821DF1B30DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF26A3BC-3E83-4799-ABBC-821DF1B30DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF26A3BC-3E83-4799-ABBC-821DF1B30DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC0F0171-7EBE-4BAD-BD29-EAFF4F255095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC0F0171-7EBE-4BAD-BD29-EAFF4F255095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC0F0171-7EBE-4BAD-BD29-EAFF4F255095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC0F0171-7EBE-4BAD-BD29-EAFF4F255095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

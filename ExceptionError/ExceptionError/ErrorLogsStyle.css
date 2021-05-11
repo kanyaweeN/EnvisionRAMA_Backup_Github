@@ -1,0 +1,32 @@
+﻿body 
+{
+    
+    
+}
+
+         .mainSearch
+        {
+            width: 200px; margin-left: 0px; text-align:right;
+        }
+        
+         .mainTxtSearch
+        {
+            width: 277px; 
+margin-left: 0px; text-align:center;
+        }
+        
+        
+        .mainTableStyle
+        {
+            width: 200px; margin-left: 0px; height: 20px;padding: 5px; text-align:left; 
+        }
+        
+        .styleTable
+        {
+            width: 125px; margin-left: 0px; height: 20px;padding: 5px; text-align:left;
+        }
+
+        .styleTableRight
+        {
+            width: 400px; margin-left: 0px; height: 20px;padding: 5px; text-align:left;
+        }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Reports/ReportViewer"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="frmReportViewer.resx"
+   text-time="2008-10-22T11:53:19.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:19.796875Z"/>
+<entry
+   committed-rev="1"
+   name="frmReportViewer.Designer.cs"
+   text-time="2008-10-22T11:53:19.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a5279d073ce62bcc0d739a634fbd219f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:19.796875Z"/>
+<entry
+   committed-rev="1"
+   name="frmReportViewer.cs"
+   text-time="2008-10-22T11:53:19.875000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="934069d09dee2101b2182838a8a2eed3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:19.812500Z"/>
+</wc-entries>

@@ -1,0 +1,26 @@
+﻿body 
+{
+    font-family:MS Sans Serif;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    position:fixed;
+    margin:0 0 0 0;
+    padding:0;
+}
+.tableMargin
+        {
+	        margin: 0 0 0 0;
+	        width:100%;
+	        border-style:none;
+        }
+        div.combocss .rcbInputCell .rcbInput
+        {
+          padding-left: 24px !important;
+          background-image: url('../../Resources/ICON/viewtree_24.png');
+          background-repeat: no-repeat;
+        }
+        .labelText
+        {
+        	font-size:smaller;
+        	}

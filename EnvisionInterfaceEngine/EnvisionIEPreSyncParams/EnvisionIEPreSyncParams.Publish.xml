@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\MAT\Deploy\EnvisionIEPreSyncParams" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Miracle" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/EnvisionInterfaceEngine.Common.dll" publishTime="08/01/2014 09:14:07" />
+    <file relUrl="bin/EnvisionInterfaceEngine.Operational.dll" publishTime="08/01/2014 09:14:08" />
+    <file relUrl="bin/NHapi.Model.V23.dll" publishTime="10/23/2008 08:54:16" />
+    <file relUrl="bin/EnvisionInterfaceEngine.Common.pdb" publishTime="08/01/2014 09:14:07" />
+    <file relUrl="Service.asmx" publishTime="07/13/2012 16:44:41" />
+    <file relUrl="web.config" publishTime="10/12/2012 00:26:44" />
+    <file relUrl="bin/EnvisionInterfaceEngine.WebService.pdb" publishTime="08/01/2014 09:14:07" />
+    <file relUrl="bin/EnvisionInterfaceEngine.WebService.dll" publishTime="08/01/2014 09:14:07" />
+    <file relUrl="bin/EnvisionInterfaceEngine.Operational.pdb" publishTime="08/01/2014 09:14:08" />
+    <file relUrl="bin/EnvisionIEPreSyncParams.dll" publishTime="08/01/2014 09:14:39" />
+    <file relUrl="bin/EnvisionIEPreSyncParams.pdb" publishTime="08/01/2014 09:14:39" />
+    <file relUrl="bin/NHapi.Base.dll" publishTime="10/23/2008 08:54:16" />
+  </publishProfile>
+</publishData>

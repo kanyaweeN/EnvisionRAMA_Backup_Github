@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="87"
+   name=""
+   committed-date="2008-09-09T04:47:26.880261Z"
+   url="svn://r300-demo/RIS.Operational/ReportManager"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="FRE3OF9X.TTF"
+   text-time="2008-10-22T11:52:23.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="45d094f7db82c6168b1b107a6bcddbda"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:23.640625Z"/>
+<entry
+   committed-rev="87"
+   name="ReportMangager.cs"
+   text-time="2008-10-22T11:52:23.656250Z"
+   committed-date="2008-09-09T04:47:26.880261Z"
+   checksum="30c38c4820424a413f6600763955663d"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:52:23.640625Z"/>
+</wc-entries>

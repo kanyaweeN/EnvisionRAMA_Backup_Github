@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="75"
+   name=""
+   committed-date="2008-08-28T01:59:45.234375Z"
+   url="svn://r300-demo/RIS/Forms/ResultEntry"
+   last-author="sitti"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="Merge.resx"
+   text-time="2008-10-22T11:52:59.093750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.171875Z"/>
+<entry
+   committed-rev="1"
+   name="ResultEntry.resx"
+   text-time="2008-10-22T11:52:59.093750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="aa0bb662068e94f631aa5d7ea763cf26"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.750000Z"/>
+<entry
+   committed-rev="1"
+   name="History.resx"
+   text-time="2008-10-22T11:52:59.093750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.781250Z"/>
+<entry
+   committed-rev="1"
+   name="BrowseArchive.resx"
+   text-time="2008-10-22T11:52:59.109375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.781250Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.resx"
+   text-time="2008-10-22T11:52:59.109375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.796875Z"/>
+<entry
+   committed-rev="1"
+   name="Addendum.cs"
+   text-time="2008-10-22T11:52:59.109375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="756c1445d43a71ffb9a4e99ced7b039f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.796875Z"/>
+<entry
+   committed-rev="1"
+   name="Transfer.designer.cs"
+   text-time="2008-10-22T11:52:59.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="50de04d9ac7493ae69a38d45e9761050"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.828125Z"/>
+<entry
+   committed-rev="1"
+   name="Transfer.cs"
+   text-time="2008-10-22T11:52:59.125000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d764f743737f46e4ad2387ba96e34edf"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.843750Z"/>
+<entry
+   committed-rev="1"
+   name="frmReprint.Designer.cs"
+   text-time="2008-10-22T11:52:59.140625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="25581407c4b1e11f384647a52c83d88c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.843750Z"/>
+<entry
+   committed-rev="18"
+   name="frmReprint.cs"
+   text-time="2008-10-22T11:52:59.140625Z"
+   committed-date="2008-08-13T09:46:06.812500Z"
+   checksum="f8104ac70ca5f2c7cde9466ecbd3b3df"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.859375Z"/>
+<entry
+   committed-rev="1"
+   name="SaveTemplate.Designer.cs"
+   text-time="2008-10-22T11:52:59.156250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7bcde8ea1b545c75d81c3f606dfaa46a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.859375Z"/>
+<entry
+   committed-rev="1"
+   name="SaveTemplate.cs"
+   text-time="2008-10-22T11:52:59.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="e0b5a93b1a4e82cc47a31cb859acbbb3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.875000Z"/>
+<entry
+   committed-rev="1"
+   name="OpenTemplate.Designer.cs"
+   text-time="2008-10-22T11:52:59.671875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c73e8d1919421d1920bd1d224d8a4818"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.890625Z"/>
+<entry
+   committed-rev="1"
+   name="Addendum.resx"
+   text-time="2008-10-22T11:52:59.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="68d14f057a9c0ca604964cc8b239772f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.906250Z"/>
+<entry
+   committed-rev="1"
+   name="OpenTemplate.cs"
+   text-time="2008-10-22T11:52:59.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="471082e333767f5b5ac2e55b15ffef3c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.890625Z"/>
+<entry
+   committed-rev="1"
+   name="Merge.designer.cs"
+   text-time="2008-10-22T11:52:59.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="003c2afaa99f4e8785d1fe110701d2a7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.921875Z"/>
+<entry
+   committed-rev="1"
+   name="Merge.cs"
+   text-time="2008-10-22T11:52:59.750000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="bdd7634fda9d238947b55d398ccfa957"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:58.968750Z"/>
+<entry
+   committed-rev="75"
+   name="ResultEntry.cs"
+   text-time="2008-10-22T11:52:59.781250Z"
+   committed-date="2008-08-28T01:59:45.234375Z"
+   checksum="90bc86091556591e98f4833cc725be6c"
+   last-author="sitti"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.031250Z"/>
+<entry
+   committed-rev="1"
+   name="History.Designer.cs"
+   text-time="2008-10-22T11:52:59.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="b960ea770af83fa1ba99ca09d7a1ab3c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.031250Z"/>
+<entry
+   committed-rev="1"
+   name="Transfer.resx"
+   text-time="2008-10-22T11:52:59.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.031250Z"/>
+<entry
+   committed-rev="1"
+   name="History.cs"
+   text-time="2008-10-22T11:52:59.796875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="f7fb78ef6d76b0d16c88249b270f2dd0"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.046875Z"/>
+<entry
+   committed-rev="1"
+   name="BrowseArchive.designer.cs"
+   text-time="2008-10-22T11:52:59.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0081052c7cfdddc3decfb7ceffd2095b"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.046875Z"/>
+<entry
+   committed-rev="1"
+   name="BrowseArchive.cs"
+   text-time="2008-10-22T11:52:59.812500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="ea8ff5badc7802dd6c9ec90d109237c1"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.046875Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.Designer.cs"
+   text-time="2008-10-22T11:52:59.828125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d48cd9e249b9da039f08d3ae504f8b3f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.046875Z"/>
+<entry
+   committed-rev="1"
+   name="frmICD.cs"
+   text-time="2008-10-22T11:52:59.828125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9d5adcc1abf4be97443fd25236f9e524"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.062500Z"/>
+<entry
+   committed-rev="1"
+   name="frmReprint.resx"
+   text-time="2008-10-22T11:53:00.109375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.062500Z"/>
+<entry
+   committed-rev="1"
+   name="SaveTemplate.resx"
+   text-time="2008-10-22T11:53:00.156250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.078125Z"/>
+<entry
+   committed-rev="1"
+   name="OpenTemplate.resx"
+   text-time="2008-10-22T11:53:00.156250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:52:59.078125Z"/>
+</wc-entries>

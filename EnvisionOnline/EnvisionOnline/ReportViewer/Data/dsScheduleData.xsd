@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsScheduleData" targetNamespace="http://tempuri.org/dsScheduleData.xsd" xmlns:mstns="http://tempuri.org/dsScheduleData.xsd" xmlns="http://tempuri.org/dsScheduleData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="RIS_RAMAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="RIS_RAMAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.RIS_RAMAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ScheduleReportTableAdapter" GeneratorDataComponentClassName="ScheduleReportTableAdapter" Name="ScheduleReport" UserDataComponentName="ScheduleReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RIS_RAMAConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT	top  2	RIS_SCHEDULE.ORG_ID
+			, HIS_REGISTRATION.HN
+			, dbo.fnGetHISRegistrationFullName(RIS_SCHEDULE.REG_ID,1) AS PAT_THAI_NAME
+			, dbo.fnGetHISRegistrationFullName(RIS_SCHEDULE.REG_ID,0) AS PAT_ENG_NAME
+					, HIS_REGISTRATION.PHONE1
+					, HIS_REGISTRATION.DOB
+					, RIS_EXAM.EXAM_UID
+					, RIS_EXAM.EXAM_NAME
+					, RIS_SCHEDULE.START_DATETIME as APPOINT_DT
+					, CASE isnull(RIS_SCHEDULEDTL.QTY,0)
+							WHEN 0 THEN 1*RIS_SCHEDULEDTL.RATE
+							ELSE
+								RIS_SCHEDULEDTL.QTY * RIS_SCHEDULEDTL.RATE
+					  END as RATE 
+					, 'Clinic : '+RIS_CLINICTYPE.CLINIC_TYPE_TEXT + ' Ward : '+dbo.fnGetUnitUID(RIS_SCHEDULE.REF_UNIT) as [CLINIC_TYPE_TEXT]
+					, RIS_MODALITY.MODALITY_NAME
+					, dbo.fnGetEmpThaiName(RIS_SCHEDULE.CREATED_BY) AS CREATED_BY
+					, RIS_SCHEDULE.CREATED_ON
+					
+					, RIS_MODALITY.MODALITY_ID
+					--, RIS_EXAMINSTRUCTIONS.INS_TEXT
+					,CASE 
+						when RIS_SCHEDULEDTL.EXAM_ID in (967,968,969,985) then dbo.fnGetScheduleReportWithClinicSession(RIS_SCHEDULEDTL.EXAM_ID,RIS_SCHEDULE.SESSION_ID,DATEDIFF(YEAR,DOB,RIS_SCHEDULE.START_DATETIME))
+						else RIS_EXAMINSTRUCTIONS.INS_TEXT
+					END as [INS_TEXT]	
+					, CASE isnull(datediff(yyyy, getdate(), HIS_REGISTRATION.DOB), 0) 
+										  WHEN 0 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 1 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 2 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID
+										   WHEN 3 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 4 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 5 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID
+										   WHEN 6 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 7 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 8 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID
+										   WHEN 9 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 10 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID WHEN 11 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID
+										   WHEN 12 THEN RIS_EXAMTYPE.EXAM_TYPE_INS_KID ELSE RIS_EXAMTYPE.EXAM_TYPE_INS END AS EXAM_TYPE_INS
+					, HR_UNIT_EXAM.UNIT_INS AS HR_UNIT_INS
+					, HR_UNIT.UNIT_NAME AS UNIT_TITLE
+					, dbo.fnGetUnitUID(RIS_SCHEDULE.REF_UNIT) AS [UNIT_NAME]
+					, N'อายุ : '+dbo.fnGetAge(HIS_REGISTRATION.DOB, 1) AS [AGE]
+					, N'เพศ : '+ case when HIS_REGISTRATION.GENDER='M' then N'ช'
+									 when HIS_REGISTRATION.GENDER='F' then N'ญ'
+									 else N'อื่นๆ' end as [GENDER]
+					, RIS_EXAM.CLAIMABLE_AMT
+					, RIS_EXAM.NONCLAIMABLE_AMT
+					, HR_ROOM.ROOM_UID
+					, dbo.fnGetInsuranceTypeName(RIS_SCHEDULE.INSURANCE_TYPE_ID) AS INSURANCE_TYPE_DESC
+--SELECT     *
+FROM         HR_ROOM INNER JOIN
+                      RIS_SCHEDULE INNER JOIN
+                      RIS_SCHEDULEDTL ON RIS_SCHEDULE.SCHEDULE_ID = RIS_SCHEDULEDTL.SCHEDULE_ID INNER JOIN
+                      RIS_EXAM ON RIS_SCHEDULEDTL.EXAM_ID = RIS_EXAM.EXAM_ID INNER JOIN
+                      HIS_REGISTRATION ON RIS_SCHEDULE.REG_ID = HIS_REGISTRATION.REG_ID LEFT OUTER JOIN
+                      HR_UNIT ON RIS_SCHEDULE.REF_UNIT = HR_UNIT.UNIT_ID INNER JOIN
+                      RIS_MODALITY ON RIS_SCHEDULE.MODALITY_ID = RIS_MODALITY.MODALITY_ID ON HR_ROOM.ROOM_ID = RIS_MODALITY.ROOM_ID LEFT OUTER JOIN
+                      HR_UNIT AS HR_UNIT_EXAM ON RIS_EXAM.UNIT_ID = HR_UNIT_EXAM.UNIT_ID LEFT OUTER JOIN
+                      RIS_CLINICSESSION RIGHT OUTER JOIN
+                      RIS_CLINICTYPE ON RIS_CLINICSESSION.CLINIC_TYPE_ID = RIS_CLINICTYPE.CLINIC_TYPE_ID ON 
+                      RIS_SCHEDULE.SESSION_ID = RIS_CLINICSESSION.SESSION_ID LEFT OUTER JOIN
+                      RIS_EXAMTYPE ON RIS_EXAM.EXAM_TYPE = RIS_EXAMTYPE.EXAM_TYPE_ID LEFT OUTER JOIN
+                      RIS_EXAMINSTRUCTIONS ON RIS_EXAM.EXAM_ID = RIS_EXAMINSTRUCTIONS.EXAM_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ORG_ID" DataSetColumn="ORG_ID" />
+              <Mapping SourceColumn="HN" DataSetColumn="HN" />
+              <Mapping SourceColumn="PAT_THAI_NAME" DataSetColumn="PAT_THAI_NAME" />
+              <Mapping SourceColumn="PAT_ENG_NAME" DataSetColumn="PAT_ENG_NAME" />
+              <Mapping SourceColumn="PHONE1" DataSetColumn="PHONE1" />
+              <Mapping SourceColumn="DOB" DataSetColumn="DOB" />
+              <Mapping SourceColumn="EXAM_UID" DataSetColumn="EXAM_UID" />
+              <Mapping SourceColumn="EXAM_NAME" DataSetColumn="EXAM_NAME" />
+              <Mapping SourceColumn="APPOINT_DT" DataSetColumn="APPOINT_DT" />
+              <Mapping SourceColumn="RATE" DataSetColumn="RATE" />
+              <Mapping SourceColumn="CLINIC_TYPE_TEXT" DataSetColumn="CLINIC_TYPE_TEXT" />
+              <Mapping SourceColumn="MODALITY_NAME" DataSetColumn="MODALITY_NAME" />
+              <Mapping SourceColumn="CREATED_BY" DataSetColumn="CREATED_BY" />
+              <Mapping SourceColumn="CREATED_ON" DataSetColumn="CREATED_ON" />
+              <Mapping SourceColumn="MODALITY_ID" DataSetColumn="MODALITY_ID" />
+              <Mapping SourceColumn="INS_TEXT" DataSetColumn="INS_TEXT" />
+              <Mapping SourceColumn="EXAM_TYPE_INS" DataSetColumn="EXAM_TYPE_INS" />
+              <Mapping SourceColumn="HR_UNIT_INS" DataSetColumn="HR_UNIT_INS" />
+              <Mapping SourceColumn="UNIT_TITLE" DataSetColumn="UNIT_TITLE" />
+              <Mapping SourceColumn="UNIT_NAME" DataSetColumn="UNIT_NAME" />
+              <Mapping SourceColumn="AGE" DataSetColumn="AGE" />
+              <Mapping SourceColumn="GENDER" DataSetColumn="GENDER" />
+              <Mapping SourceColumn="CLAIMABLE_AMT" DataSetColumn="CLAIMABLE_AMT" />
+              <Mapping SourceColumn="NONCLAIMABLE_AMT" DataSetColumn="NONCLAIMABLE_AMT" />
+              <Mapping SourceColumn="ROOM_UID" DataSetColumn="ROOM_UID" />
+              <Mapping SourceColumn="INSURANCE_TYPE_DESC" DataSetColumn="INSURANCE_TYPE_DESC" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RIS_EXAMTableAdapter" GeneratorDataComponentClassName="RIS_EXAMTableAdapter" Name="RIS_EXAM" UserDataComponentName="RIS_EXAMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RIS_RAMAConnectionString (Web.config)" DbObjectName="RIS_RAMA.dbo.RIS_EXAM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [ris_exam] WHERE (([EXAM_ID] = @Original_EXAM_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EXAM_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EXAM_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [ris_exam] ([EXAM_UID], [GOVT_ID], [EXAM_NAME], [REPORT_HEADER], [REQ_SAMPLE], [RATE], [GOVT_RATE], [EXAM_TYPE], [SERVICE_TYPE], [CLAIMABLE_AMT], [NONCLAIMABLE_AMT], [FREE_AMT], [SPECIAL_CLINIC], [SPECIAL_RATE], [VAT_APPLICABLE], [VAT_RATE], [UNIT_ID], [REV_HEAD_ID], [IS_ACTIVE], [AVG_REQ_HRS], [MIN_REQ_HRS], [COST_PRICE], [RELEASE_AUTH_LEVEL], [FINALIZE_AUTH_LEVEL], [PREPARATION_FLAG], [PREPARATION_TAT], [REPEAT_FLAG], [ICD_ID], [ACR_ID], [CPT_ID], [DEF_CAPTURE], [DEF_IMAGES], [IS_STRUCTURED_REPORT], [QA_REQUIRED], [IS_UPDATED], [IS_DELETED], [ORG_ID], [CREATED_BY], [CREATED_ON], [LAST_MODIFIED_BY], [LAST_MODIFIED_ON], [BP_ID], [STAT_POSSIBLE], [STAT_TAT_MIN], [URGENT_POSSIBLE], [URGENT_TAT_MIN], [DEFER_HIS_RECONCILE], [IS_CHECKUP], [VIP_RATE], [DF_RAD], [DF_TECH], [EXAM_BARCODE], [CAN_REQONLINE], [AVG_REQ_MIN], [IS_BIRAD_REPORT], [NEED_SCHEDULE], [NEED_APPROVE], [NEED_SIDE], [IS_CONSULT_CASE], [IS_PORTABLE], [IS_COMMENTS]) VALUES (@EXAM_UID, @GOVT_ID, @EXAM_NAME, @REPORT_HEADER, @REQ_SAMPLE, @RATE, @GOVT_RATE, @EXAM_TYPE, @SERVICE_TYPE, @CLAIMABLE_AMT, @NONCLAIMABLE_AMT, @FREE_AMT, @SPECIAL_CLINIC, @SPECIAL_RATE, @VAT_APPLICABLE, @VAT_RATE, @UNIT_ID, @REV_HEAD_ID, @IS_ACTIVE, @AVG_REQ_HRS, @MIN_REQ_HRS, @COST_PRICE, @RELEASE_AUTH_LEVEL, @FINALIZE_AUTH_LEVEL, @PREPARATION_FLAG, @PREPARATION_TAT, @REPEAT_FLAG, @ICD_ID, @ACR_ID, @CPT_ID, @DEF_CAPTURE, @DEF_IMAGES, @IS_STRUCTURED_REPORT, @QA_REQUIRED, @IS_UPDATED, @IS_DELETED, @ORG_ID, @CREATED_BY, @CREATED_ON, @LAST_MODIFIED_BY, @LAST_MODIFIED_ON, @BP_ID, @STAT_POSSIBLE, @STAT_TAT_MIN, @URGENT_POSSIBLE, @URGENT_TAT_MIN, @DEFER_HIS_RECONCILE, @IS_CHECKUP, @VIP_RATE, @DF_RAD, @DF_TECH, @EXAM_BARCODE, @CAN_REQONLINE, @AVG_REQ_MIN, @IS_BIRAD_REPORT, @NEED_SCHEDULE, @NEED_APPROVE, @NEED_SIDE, @IS_CONSULT_CASE, @IS_PORTABLE, @IS_COMMENTS)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_UID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_UID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GOVT_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOVT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REPORT_HEADER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REPORT_HEADER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REQ_SAMPLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REQ_SAMPLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RATE" Precision="13" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GOVT_RATE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GOVT_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EXAM_TYPE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EXAM_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SERVICE_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SERVICE_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@CLAIMABLE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CLAIMABLE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NONCLAIMABLE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NONCLAIMABLE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@FREE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="FREE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SPECIAL_CLINIC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SPECIAL_CLINIC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@SPECIAL_RATE" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="SPECIAL_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VAT_APPLICABLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VAT_APPLICABLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@VAT_RATE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="VAT_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@UNIT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UNIT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@REV_HEAD_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="REV_HEAD_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_ACTIVE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_ACTIVE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AVG_REQ_HRS" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AVG_REQ_HRS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MIN_REQ_HRS" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="MIN_REQ_HRS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@COST_PRICE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="COST_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@RELEASE_AUTH_LEVEL" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="RELEASE_AUTH_LEVEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@FINALIZE_AUTH_LEVEL" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="FINALIZE_AUTH_LEVEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PREPARATION_FLAG" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PREPARATION_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PREPARATION_TAT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="PREPARATION_TAT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REPEAT_FLAG" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REPEAT_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ICD_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ICD_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ACR_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ACR_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CPT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CPT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@DEF_CAPTURE" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="DEF_CAPTURE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@DEF_IMAGES" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="DEF_IMAGES" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_STRUCTURED_REPORT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_STRUCTURED_REPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@QA_REQUIRED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QA_REQUIRED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_UPDATED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_UPDATED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_DELETED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_DELETED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ORG_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ORG_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CREATED_BY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CREATED_BY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CREATED_ON" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATED_ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LAST_MODIFIED_BY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LAST_MODIFIED_BY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@LAST_MODIFIED_ON" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="LAST_MODIFIED_ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BP_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BP_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@STAT_POSSIBLE" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="STAT_POSSIBLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@STAT_TAT_MIN" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="STAT_TAT_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@URGENT_POSSIBLE" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="URGENT_POSSIBLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@URGENT_TAT_MIN" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="URGENT_TAT_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DEFER_HIS_RECONCILE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DEFER_HIS_RECONCILE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_CHECKUP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_CHECKUP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@VIP_RATE" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="VIP_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DF_RAD" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DF_RAD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DF_TECH" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DF_TECH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_BARCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_BARCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CAN_REQONLINE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CAN_REQONLINE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@AVG_REQ_MIN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AVG_REQ_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_BIRAD_REPORT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_BIRAD_REPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_SCHEDULE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_SCHEDULE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_APPROVE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_APPROVE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_SIDE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_CONSULT_CASE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_CONSULT_CASE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_PORTABLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_PORTABLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_COMMENTS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_COMMENTS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from ris_exam</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [ris_exam] SET [EXAM_UID] = @EXAM_UID, [GOVT_ID] = @GOVT_ID, [EXAM_NAME] = @EXAM_NAME, [REPORT_HEADER] = @REPORT_HEADER, [REQ_SAMPLE] = @REQ_SAMPLE, [RATE] = @RATE, [GOVT_RATE] = @GOVT_RATE, [EXAM_TYPE] = @EXAM_TYPE, [SERVICE_TYPE] = @SERVICE_TYPE, [CLAIMABLE_AMT] = @CLAIMABLE_AMT, [NONCLAIMABLE_AMT] = @NONCLAIMABLE_AMT, [FREE_AMT] = @FREE_AMT, [SPECIAL_CLINIC] = @SPECIAL_CLINIC, [SPECIAL_RATE] = @SPECIAL_RATE, [VAT_APPLICABLE] = @VAT_APPLICABLE, [VAT_RATE] = @VAT_RATE, [UNIT_ID] = @UNIT_ID, [REV_HEAD_ID] = @REV_HEAD_ID, [IS_ACTIVE] = @IS_ACTIVE, [AVG_REQ_HRS] = @AVG_REQ_HRS, [MIN_REQ_HRS] = @MIN_REQ_HRS, [COST_PRICE] = @COST_PRICE, [RELEASE_AUTH_LEVEL] = @RELEASE_AUTH_LEVEL, [FINALIZE_AUTH_LEVEL] = @FINALIZE_AUTH_LEVEL, [PREPARATION_FLAG] = @PREPARATION_FLAG, [PREPARATION_TAT] = @PREPARATION_TAT, [REPEAT_FLAG] = @REPEAT_FLAG, [ICD_ID] = @ICD_ID, [ACR_ID] = @ACR_ID, [CPT_ID] = @CPT_ID, [DEF_CAPTURE] = @DEF_CAPTURE, [DEF_IMAGES] = @DEF_IMAGES, [IS_STRUCTURED_REPORT] = @IS_STRUCTURED_REPORT, [QA_REQUIRED] = @QA_REQUIRED, [IS_UPDATED] = @IS_UPDATED, [IS_DELETED] = @IS_DELETED, [ORG_ID] = @ORG_ID, [CREATED_BY] = @CREATED_BY, [CREATED_ON] = @CREATED_ON, [LAST_MODIFIED_BY] = @LAST_MODIFIED_BY, [LAST_MODIFIED_ON] = @LAST_MODIFIED_ON, [BP_ID] = @BP_ID, [STAT_POSSIBLE] = @STAT_POSSIBLE, [STAT_TAT_MIN] = @STAT_TAT_MIN, [URGENT_POSSIBLE] = @URGENT_POSSIBLE, [URGENT_TAT_MIN] = @URGENT_TAT_MIN, [DEFER_HIS_RECONCILE] = @DEFER_HIS_RECONCILE, [IS_CHECKUP] = @IS_CHECKUP, [VIP_RATE] = @VIP_RATE, [DF_RAD] = @DF_RAD, [DF_TECH] = @DF_TECH, [EXAM_BARCODE] = @EXAM_BARCODE, [CAN_REQONLINE] = @CAN_REQONLINE, [AVG_REQ_MIN] = @AVG_REQ_MIN, [IS_BIRAD_REPORT] = @IS_BIRAD_REPORT, [NEED_SCHEDULE] = @NEED_SCHEDULE, [NEED_APPROVE] = @NEED_APPROVE, [NEED_SIDE] = @NEED_SIDE, [IS_CONSULT_CASE] = @IS_CONSULT_CASE, [IS_PORTABLE] = @IS_PORTABLE, [IS_COMMENTS] = @IS_COMMENTS WHERE (([EXAM_ID] = @Original_EXAM_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_UID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_UID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GOVT_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GOVT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REPORT_HEADER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REPORT_HEADER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REQ_SAMPLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REQ_SAMPLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RATE" Precision="13" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GOVT_RATE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="GOVT_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@EXAM_TYPE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EXAM_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SERVICE_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SERVICE_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@CLAIMABLE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="CLAIMABLE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@NONCLAIMABLE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="NONCLAIMABLE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@FREE_AMT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="FREE_AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SPECIAL_CLINIC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SPECIAL_CLINIC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@SPECIAL_RATE" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="SPECIAL_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@VAT_APPLICABLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="VAT_APPLICABLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@VAT_RATE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="VAT_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@UNIT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="UNIT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@REV_HEAD_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="REV_HEAD_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_ACTIVE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_ACTIVE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AVG_REQ_HRS" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AVG_REQ_HRS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MIN_REQ_HRS" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="MIN_REQ_HRS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@COST_PRICE" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="COST_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@RELEASE_AUTH_LEVEL" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="RELEASE_AUTH_LEVEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@FINALIZE_AUTH_LEVEL" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="FINALIZE_AUTH_LEVEL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PREPARATION_FLAG" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PREPARATION_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PREPARATION_TAT" Precision="7" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="PREPARATION_TAT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@REPEAT_FLAG" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="REPEAT_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ICD_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ICD_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ACR_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ACR_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CPT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CPT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@DEF_CAPTURE" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="DEF_CAPTURE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@DEF_IMAGES" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="DEF_IMAGES" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_STRUCTURED_REPORT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_STRUCTURED_REPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@QA_REQUIRED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QA_REQUIRED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_UPDATED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_UPDATED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_DELETED" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_DELETED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ORG_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ORG_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CREATED_BY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CREATED_BY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@CREATED_ON" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="CREATED_ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LAST_MODIFIED_BY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LAST_MODIFIED_BY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@LAST_MODIFIED_ON" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="LAST_MODIFIED_ON" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BP_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BP_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@STAT_POSSIBLE" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="STAT_POSSIBLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@STAT_TAT_MIN" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="STAT_TAT_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@URGENT_POSSIBLE" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="URGENT_POSSIBLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@URGENT_TAT_MIN" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="URGENT_TAT_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DEFER_HIS_RECONCILE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DEFER_HIS_RECONCILE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_CHECKUP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_CHECKUP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@VIP_RATE" Precision="18" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="VIP_RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DF_RAD" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DF_RAD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@DF_TECH" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="DF_TECH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@EXAM_BARCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="EXAM_BARCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CAN_REQONLINE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CAN_REQONLINE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@AVG_REQ_MIN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AVG_REQ_MIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_BIRAD_REPORT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_BIRAD_REPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_SCHEDULE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_SCHEDULE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_APPROVE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_APPROVE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NEED_SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NEED_SIDE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_CONSULT_CASE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_CONSULT_CASE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_PORTABLE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_PORTABLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IS_COMMENTS" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="IS_COMMENTS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_EXAM_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="EXAM_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EXAM_ID" DataSetColumn="EXAM_ID" />
+              <Mapping SourceColumn="EXAM_UID" DataSetColumn="EXAM_UID" />
+              <Mapping SourceColumn="GOVT_ID" DataSetColumn="GOVT_ID" />
+              <Mapping SourceColumn="EXAM_NAME" DataSetColumn="EXAM_NAME" />
+              <Mapping SourceColumn="REPORT_HEADER" DataSetColumn="REPORT_HEADER" />
+              <Mapping SourceColumn="REQ_SAMPLE" DataSetColumn="REQ_SAMPLE" />
+              <Mapping SourceColumn="RATE" DataSetColumn="RATE" />
+              <Mapping SourceColumn="GOVT_RATE" DataSetColumn="GOVT_RATE" />
+              <Mapping SourceColumn="EXAM_TYPE" DataSetColumn="EXAM_TYPE" />
+              <Mapping SourceColumn="SERVICE_TYPE" DataSetColumn="SERVICE_TYPE" />
+              <Mapping SourceColumn="CLAIMABLE_AMT" DataSetColumn="CLAIMABLE_AMT" />
+              <Mapping SourceColumn="NONCLAIMABLE_AMT" DataSetColumn="NONCLAIMABLE_AMT" />
+              <Mapping SourceColumn="FREE_AMT" DataSetColumn="FREE_AMT" />
+              <Mapping SourceColumn="SPECIAL_CLINIC" DataSetColumn="SPECIAL_CLINIC" />
+              <Mapping SourceColumn="SPECIAL_RATE" DataSetColumn="SPECIAL_RATE" />
+              <Mapping SourceColumn="VAT_APPLICABLE" DataSetColumn="VAT_APPLICABLE" />
+              <Mapping SourceColumn="VAT_RATE" DataSetColumn="VAT_RATE" />
+              <Mapping SourceColumn="UNIT_ID" DataSetColumn="UNIT_ID" />
+              <Mapping SourceColumn="REV_HEAD_ID" DataSetColumn="REV_HEAD_ID" />
+              <Mapping SourceColumn="IS_ACTIVE" DataSetColumn="IS_ACTIVE" />
+              <Mapping SourceColumn="AVG_REQ_HRS" DataSetColumn="AVG_REQ_HRS" />
+              <Mapping SourceColumn="MIN_REQ_HRS" DataSetColumn="MIN_REQ_HRS" />
+              <Mapping SourceColumn="COST_PRICE" DataSetColumn="COST_PRICE" />
+              <Mapping SourceColumn="RELEASE_AUTH_LEVEL" DataSetColumn="RELEASE_AUTH_LEVEL" />
+              <Mapping SourceColumn="FINALIZE_AUTH_LEVEL" DataSetColumn="FINALIZE_AUTH_LEVEL" />
+              <Mapping SourceColumn="PREPARATION_FLAG" DataSetColumn="PREPARATION_FLAG" />
+              <Mapping SourceColumn="PREPARATION_TAT" DataSetColumn="PREPARATION_TAT" />
+              <Mapping SourceColumn="REPEAT_FLAG" DataSetColumn="REPEAT_FLAG" />
+              <Mapping SourceColumn="ICD_ID" DataSetColumn="ICD_ID" />
+              <Mapping SourceColumn="ACR_ID" DataSetColumn="ACR_ID" />
+              <Mapping SourceColumn="CPT_ID" DataSetColumn="CPT_ID" />
+              <Mapping SourceColumn="DEF_CAPTURE" DataSetColumn="DEF_CAPTURE" />
+              <Mapping SourceColumn="DEF_IMAGES" DataSetColumn="DEF_IMAGES" />
+              <Mapping SourceColumn="IS_STRUCTURED_REPORT" DataSetColumn="IS_STRUCTURED_REPORT" />
+              <Mapping SourceColumn="QA_REQUIRED" DataSetColumn="QA_REQUIRED" />
+              <Mapping SourceColumn="IS_UPDATED" DataSetColumn="IS_UPDATED" />
+              <Mapping SourceColumn="IS_DELETED" DataSetColumn="IS_DELETED" />
+              <Mapping SourceColumn="ORG_ID" DataSetColumn="ORG_ID" />
+              <Mapping SourceColumn="CREATED_BY" DataSetColumn="CREATED_BY" />
+              <Mapping SourceColumn="CREATED_ON" DataSetColumn="CREATED_ON" />
+              <Mapping SourceColumn="LAST_MODIFIED_BY" DataSetColumn="LAST_MODIFIED_BY" />
+              <Mapping SourceColumn="LAST_MODIFIED_ON" DataSetColumn="LAST_MODIFIED_ON" />
+              <Mapping SourceColumn="BP_ID" DataSetColumn="BP_ID" />
+              <Mapping SourceColumn="STAT_POSSIBLE" DataSetColumn="STAT_POSSIBLE" />
+              <Mapping SourceColumn="STAT_TAT_MIN" DataSetColumn="STAT_TAT_MIN" />
+              <Mapping SourceColumn="URGENT_POSSIBLE" DataSetColumn="URGENT_POSSIBLE" />
+              <Mapping SourceColumn="URGENT_TAT_MIN" DataSetColumn="URGENT_TAT_MIN" />
+              <Mapping SourceColumn="DEFER_HIS_RECONCILE" DataSetColumn="DEFER_HIS_RECONCILE" />
+              <Mapping SourceColumn="IS_CHECKUP" DataSetColumn="IS_CHECKUP" />
+              <Mapping SourceColumn="VIP_RATE" DataSetColumn="VIP_RATE" />
+              <Mapping SourceColumn="DF_RAD" DataSetColumn="DF_RAD" />
+              <Mapping SourceColumn="DF_TECH" DataSetColumn="DF_TECH" />
+              <Mapping SourceColumn="EXAM_BARCODE" DataSetColumn="EXAM_BARCODE" />
+              <Mapping SourceColumn="CAN_REQONLINE" DataSetColumn="CAN_REQONLINE" />
+              <Mapping SourceColumn="AVG_REQ_MIN" DataSetColumn="AVG_REQ_MIN" />
+              <Mapping SourceColumn="IS_BIRAD_REPORT" DataSetColumn="IS_BIRAD_REPORT" />
+              <Mapping SourceColumn="NEED_SCHEDULE" DataSetColumn="NEED_SCHEDULE" />
+              <Mapping SourceColumn="NEED_APPROVE" DataSetColumn="NEED_APPROVE" />
+              <Mapping SourceColumn="NEED_SIDE" DataSetColumn="NEED_SIDE" />
+              <Mapping SourceColumn="IS_CONSULT_CASE" DataSetColumn="IS_CONSULT_CASE" />
+              <Mapping SourceColumn="IS_PORTABLE" DataSetColumn="IS_PORTABLE" />
+              <Mapping SourceColumn="IS_COMMENTS" DataSetColumn="IS_COMMENTS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsScheduleData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsScheduleData" msprop:Generator_UserDSName="dsScheduleData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ScheduleReport" msprop:Generator_TableClassName="ScheduleReportDataTable" msprop:Generator_TableVarName="tableScheduleReport" msprop:Generator_TablePropName="ScheduleReport" msprop:Generator_RowDeletingName="ScheduleReportRowDeleting" msprop:Generator_RowChangingName="ScheduleReportRowChanging" msprop:Generator_RowEvHandlerName="ScheduleReportRowChangeEventHandler" msprop:Generator_RowDeletedName="ScheduleReportRowDeleted" msprop:Generator_UserTableName="ScheduleReport" msprop:Generator_RowChangedName="ScheduleReportRowChanged" msprop:Generator_RowEvArgName="ScheduleReportRowChangeEvent" msprop:Generator_RowClassName="ScheduleReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ORG_ID" msprop:Generator_ColumnVarNameInTable="columnORG_ID" msprop:Generator_ColumnPropNameInRow="ORG_ID" msprop:Generator_ColumnPropNameInTable="ORG_IDColumn" msprop:Generator_UserColumnName="ORG_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="HN" msprop:Generator_ColumnVarNameInTable="columnHN" msprop:Generator_ColumnPropNameInRow="HN" msprop:Generator_ColumnPropNameInTable="HNColumn" msprop:Generator_UserColumnName="HN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAT_THAI_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAT_THAI_NAME" msprop:Generator_ColumnPropNameInRow="PAT_THAI_NAME" msprop:Generator_ColumnPropNameInTable="PAT_THAI_NAMEColumn" msprop:Generator_UserColumnName="PAT_THAI_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAT_ENG_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPAT_ENG_NAME" msprop:Generator_ColumnPropNameInRow="PAT_ENG_NAME" msprop:Generator_ColumnPropNameInTable="PAT_ENG_NAMEColumn" msprop:Generator_UserColumnName="PAT_ENG_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE1" msprop:Generator_ColumnVarNameInTable="columnPHONE1" msprop:Generator_ColumnPropNameInRow="PHONE1" msprop:Generator_ColumnPropNameInTable="PHONE1Column" msprop:Generator_UserColumnName="PHONE1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOB" msprop:Generator_ColumnVarNameInTable="columnDOB" msprop:Generator_ColumnPropNameInRow="DOB" msprop:Generator_ColumnPropNameInTable="DOBColumn" msprop:Generator_UserColumnName="DOB" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EXAM_UID" msprop:Generator_ColumnVarNameInTable="columnEXAM_UID" msprop:Generator_ColumnPropNameInRow="EXAM_UID" msprop:Generator_ColumnPropNameInTable="EXAM_UIDColumn" msprop:Generator_UserColumnName="EXAM_UID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXAM_NAME" msprop:Generator_ColumnVarNameInTable="columnEXAM_NAME" msprop:Generator_ColumnPropNameInRow="EXAM_NAME" msprop:Generator_ColumnPropNameInTable="EXAM_NAMEColumn" msprop:Generator_UserColumnName="EXAM_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APPOINT_DT" msprop:Generator_ColumnVarNameInTable="columnAPPOINT_DT" msprop:Generator_ColumnPropNameInRow="APPOINT_DT" msprop:Generator_ColumnPropNameInTable="APPOINT_DTColumn" msprop:Generator_UserColumnName="APPOINT_DT" type="xs:dateTime" />
+              <xs:element name="RATE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CLINIC_TYPE_TEXT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCLINIC_TYPE_TEXT" msprop:Generator_ColumnPropNameInRow="CLINIC_TYPE_TEXT" msprop:Generator_ColumnPropNameInTable="CLINIC_TYPE_TEXTColumn" msprop:Generator_UserColumnName="CLINIC_TYPE_TEXT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MODALITY_NAME" msprop:Generator_ColumnVarNameInTable="columnMODALITY_NAME" msprop:Generator_ColumnPropNameInRow="MODALITY_NAME" msprop:Generator_ColumnPropNameInTable="MODALITY_NAMEColumn" msprop:Generator_UserColumnName="MODALITY_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CREATED_BY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_UserColumnName="CREATED_BY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CREATED_ON" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_UserColumnName="CREATED_ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MODALITY_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMODALITY_ID" msprop:Generator_ColumnPropNameInRow="MODALITY_ID" msprop:Generator_ColumnPropNameInTable="MODALITY_IDColumn" msprop:Generator_UserColumnName="MODALITY_ID" type="xs:int" />
+              <xs:element name="INS_TEXT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnINS_TEXT" msprop:Generator_ColumnPropNameInRow="INS_TEXT" msprop:Generator_ColumnPropNameInTable="INS_TEXTColumn" msprop:Generator_UserColumnName="INS_TEXT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXAM_TYPE_INS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEXAM_TYPE_INS" msprop:Generator_ColumnPropNameInRow="EXAM_TYPE_INS" msprop:Generator_ColumnPropNameInTable="EXAM_TYPE_INSColumn" msprop:Generator_UserColumnName="EXAM_TYPE_INS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HR_UNIT_INS" msprop:Generator_ColumnVarNameInTable="columnHR_UNIT_INS" msprop:Generator_ColumnPropNameInRow="HR_UNIT_INS" msprop:Generator_ColumnPropNameInTable="HR_UNIT_INSColumn" msprop:Generator_UserColumnName="HR_UNIT_INS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNIT_TITLE" msprop:Generator_ColumnVarNameInTable="columnUNIT_TITLE" msprop:Generator_ColumnPropNameInRow="UNIT_TITLE" msprop:Generator_ColumnPropNameInTable="UNIT_TITLEColumn" msprop:Generator_UserColumnName="UNIT_TITLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNIT_NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUNIT_NAME" msprop:Generator_ColumnPropNameInRow="UNIT_NAME" msprop:Generator_ColumnPropNameInTable="UNIT_NAMEColumn" msprop:Generator_UserColumnName="UNIT_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAGE" msprop:Generator_ColumnPropNameInRow="AGE" msprop:Generator_ColumnPropNameInTable="AGEColumn" msprop:Generator_UserColumnName="AGE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GENDER" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGENDER" msprop:Generator_ColumnPropNameInRow="GENDER" msprop:Generator_ColumnPropNameInTable="GENDERColumn" msprop:Generator_UserColumnName="GENDER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLAIMABLE_AMT" msprop:Generator_ColumnVarNameInTable="columnCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInRow="CLAIMABLE_AMT" msprop:Generator_ColumnPropNameInTable="CLAIMABLE_AMTColumn" msprop:Generator_UserColumnName="CLAIMABLE_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NONCLAIMABLE_AMT" msprop:Generator_ColumnVarNameInTable="columnNONCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInRow="NONCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInTable="NONCLAIMABLE_AMTColumn" msprop:Generator_UserColumnName="NONCLAIMABLE_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ROOM_UID" msprop:Generator_ColumnVarNameInTable="columnROOM_UID" msprop:Generator_ColumnPropNameInRow="ROOM_UID" msprop:Generator_ColumnPropNameInTable="ROOM_UIDColumn" msprop:Generator_UserColumnName="ROOM_UID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INSURANCE_TYPE_DESC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnINSURANCE_TYPE_DESC" msprop:Generator_ColumnPropNameInRow="INSURANCE_TYPE_DESC" msprop:Generator_ColumnPropNameInTable="INSURANCE_TYPE_DESCColumn" msprop:Generator_UserColumnName="INSURANCE_TYPE_DESC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RIS_EXAM" msprop:Generator_TableClassName="RIS_EXAMDataTable" msprop:Generator_TableVarName="tableRIS_EXAM" msprop:Generator_RowChangedName="RIS_EXAMRowChanged" msprop:Generator_TablePropName="RIS_EXAM" msprop:Generator_RowDeletingName="RIS_EXAMRowDeleting" msprop:Generator_RowChangingName="RIS_EXAMRowChanging" msprop:Generator_RowEvHandlerName="RIS_EXAMRowChangeEventHandler" msprop:Generator_RowDeletedName="RIS_EXAMRowDeleted" msprop:Generator_RowClassName="RIS_EXAMRow" msprop:Generator_UserTableName="RIS_EXAM" msprop:Generator_RowEvArgName="RIS_EXAMRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EXAM_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEXAM_ID" msprop:Generator_ColumnPropNameInRow="EXAM_ID" msprop:Generator_ColumnPropNameInTable="EXAM_IDColumn" msprop:Generator_UserColumnName="EXAM_ID" type="xs:int" />
+              <xs:element name="EXAM_UID" msprop:Generator_ColumnVarNameInTable="columnEXAM_UID" msprop:Generator_ColumnPropNameInRow="EXAM_UID" msprop:Generator_ColumnPropNameInTable="EXAM_UIDColumn" msprop:Generator_UserColumnName="EXAM_UID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GOVT_ID" msprop:Generator_ColumnVarNameInTable="columnGOVT_ID" msprop:Generator_ColumnPropNameInRow="GOVT_ID" msprop:Generator_ColumnPropNameInTable="GOVT_IDColumn" msprop:Generator_UserColumnName="GOVT_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXAM_NAME" msprop:Generator_ColumnVarNameInTable="columnEXAM_NAME" msprop:Generator_ColumnPropNameInRow="EXAM_NAME" msprop:Generator_ColumnPropNameInTable="EXAM_NAMEColumn" msprop:Generator_UserColumnName="EXAM_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REPORT_HEADER" msprop:Generator_ColumnVarNameInTable="columnREPORT_HEADER" msprop:Generator_ColumnPropNameInRow="REPORT_HEADER" msprop:Generator_ColumnPropNameInTable="REPORT_HEADERColumn" msprop:Generator_UserColumnName="REPORT_HEADER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REQ_SAMPLE" msprop:Generator_ColumnVarNameInTable="columnREQ_SAMPLE" msprop:Generator_ColumnPropNameInRow="REQ_SAMPLE" msprop:Generator_ColumnPropNameInTable="REQ_SAMPLEColumn" msprop:Generator_UserColumnName="REQ_SAMPLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GOVT_RATE" msprop:Generator_ColumnVarNameInTable="columnGOVT_RATE" msprop:Generator_ColumnPropNameInRow="GOVT_RATE" msprop:Generator_ColumnPropNameInTable="GOVT_RATEColumn" msprop:Generator_UserColumnName="GOVT_RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EXAM_TYPE" msprop:Generator_ColumnVarNameInTable="columnEXAM_TYPE" msprop:Generator_ColumnPropNameInRow="EXAM_TYPE" msprop:Generator_ColumnPropNameInTable="EXAM_TYPEColumn" msprop:Generator_UserColumnName="EXAM_TYPE" type="xs:int" minOccurs="0" />
+              <xs:element name="SERVICE_TYPE" msprop:Generator_ColumnVarNameInTable="columnSERVICE_TYPE" msprop:Generator_ColumnPropNameInRow="SERVICE_TYPE" msprop:Generator_ColumnPropNameInTable="SERVICE_TYPEColumn" msprop:Generator_UserColumnName="SERVICE_TYPE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLAIMABLE_AMT" msprop:Generator_ColumnVarNameInTable="columnCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInRow="CLAIMABLE_AMT" msprop:Generator_ColumnPropNameInTable="CLAIMABLE_AMTColumn" msprop:Generator_UserColumnName="CLAIMABLE_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NONCLAIMABLE_AMT" msprop:Generator_ColumnVarNameInTable="columnNONCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInRow="NONCLAIMABLE_AMT" msprop:Generator_ColumnPropNameInTable="NONCLAIMABLE_AMTColumn" msprop:Generator_UserColumnName="NONCLAIMABLE_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FREE_AMT" msprop:Generator_ColumnVarNameInTable="columnFREE_AMT" msprop:Generator_ColumnPropNameInRow="FREE_AMT" msprop:Generator_ColumnPropNameInTable="FREE_AMTColumn" msprop:Generator_UserColumnName="FREE_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SPECIAL_CLINIC" msprop:Generator_ColumnVarNameInTable="columnSPECIAL_CLINIC" msprop:Generator_ColumnPropNameInRow="SPECIAL_CLINIC" msprop:Generator_ColumnPropNameInTable="SPECIAL_CLINICColumn" msprop:Generator_UserColumnName="SPECIAL_CLINIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SPECIAL_RATE" msprop:Generator_ColumnVarNameInTable="columnSPECIAL_RATE" msprop:Generator_ColumnPropNameInRow="SPECIAL_RATE" msprop:Generator_ColumnPropNameInTable="SPECIAL_RATEColumn" msprop:Generator_UserColumnName="SPECIAL_RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VAT_APPLICABLE" msprop:Generator_ColumnVarNameInTable="columnVAT_APPLICABLE" msprop:Generator_ColumnPropNameInRow="VAT_APPLICABLE" msprop:Generator_ColumnPropNameInTable="VAT_APPLICABLEColumn" msprop:Generator_UserColumnName="VAT_APPLICABLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VAT_RATE" msprop:Generator_ColumnVarNameInTable="columnVAT_RATE" msprop:Generator_ColumnPropNameInRow="VAT_RATE" msprop:Generator_ColumnPropNameInTable="VAT_RATEColumn" msprop:Generator_UserColumnName="VAT_RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UNIT_ID" msprop:Generator_ColumnVarNameInTable="columnUNIT_ID" msprop:Generator_ColumnPropNameInRow="UNIT_ID" msprop:Generator_ColumnPropNameInTable="UNIT_IDColumn" msprop:Generator_UserColumnName="UNIT_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="REV_HEAD_ID" msprop:Generator_ColumnVarNameInTable="columnREV_HEAD_ID" msprop:Generator_ColumnPropNameInRow="REV_HEAD_ID" msprop:Generator_ColumnPropNameInTable="REV_HEAD_IDColumn" msprop:Generator_UserColumnName="REV_HEAD_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="IS_ACTIVE" msprop:Generator_ColumnVarNameInTable="columnIS_ACTIVE" msprop:Generator_ColumnPropNameInRow="IS_ACTIVE" msprop:Generator_ColumnPropNameInTable="IS_ACTIVEColumn" msprop:Generator_UserColumnName="IS_ACTIVE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AVG_REQ_HRS" msprop:Generator_ColumnVarNameInTable="columnAVG_REQ_HRS" msprop:Generator_ColumnPropNameInRow="AVG_REQ_HRS" msprop:Generator_ColumnPropNameInTable="AVG_REQ_HRSColumn" msprop:Generator_UserColumnName="AVG_REQ_HRS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MIN_REQ_HRS" msprop:Generator_ColumnVarNameInTable="columnMIN_REQ_HRS" msprop:Generator_ColumnPropNameInRow="MIN_REQ_HRS" msprop:Generator_ColumnPropNameInTable="MIN_REQ_HRSColumn" msprop:Generator_UserColumnName="MIN_REQ_HRS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COST_PRICE" msprop:Generator_ColumnVarNameInTable="columnCOST_PRICE" msprop:Generator_ColumnPropNameInRow="COST_PRICE" msprop:Generator_ColumnPropNameInTable="COST_PRICEColumn" msprop:Generator_UserColumnName="COST_PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RELEASE_AUTH_LEVEL" msprop:Generator_ColumnVarNameInTable="columnRELEASE_AUTH_LEVEL" msprop:Generator_ColumnPropNameInRow="RELEASE_AUTH_LEVEL" msprop:Generator_ColumnPropNameInTable="RELEASE_AUTH_LEVELColumn" msprop:Generator_UserColumnName="RELEASE_AUTH_LEVEL" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="FINALIZE_AUTH_LEVEL" msprop:Generator_ColumnVarNameInTable="columnFINALIZE_AUTH_LEVEL" msprop:Generator_ColumnPropNameInRow="FINALIZE_AUTH_LEVEL" msprop:Generator_ColumnPropNameInTable="FINALIZE_AUTH_LEVELColumn" msprop:Generator_UserColumnName="FINALIZE_AUTH_LEVEL" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="PREPARATION_FLAG" msprop:Generator_ColumnVarNameInTable="columnPREPARATION_FLAG" msprop:Generator_ColumnPropNameInRow="PREPARATION_FLAG" msprop:Generator_ColumnPropNameInTable="PREPARATION_FLAGColumn" msprop:Generator_UserColumnName="PREPARATION_FLAG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PREPARATION_TAT" msprop:Generator_ColumnVarNameInTable="columnPREPARATION_TAT" msprop:Generator_ColumnPropNameInRow="PREPARATION_TAT" msprop:Generator_ColumnPropNameInTable="PREPARATION_TATColumn" msprop:Generator_UserColumnName="PREPARATION_TAT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REPEAT_FLAG" msprop:Generator_ColumnVarNameInTable="columnREPEAT_FLAG" msprop:Generator_ColumnPropNameInRow="REPEAT_FLAG" msprop:Generator_ColumnPropNameInTable="REPEAT_FLAGColumn" msprop:Generator_UserColumnName="REPEAT_FLAG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ICD_ID" msprop:Generator_ColumnVarNameInTable="columnICD_ID" msprop:Generator_ColumnPropNameInRow="ICD_ID" msprop:Generator_ColumnPropNameInTable="ICD_IDColumn" msprop:Generator_UserColumnName="ICD_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="ACR_ID" msprop:Generator_ColumnVarNameInTable="columnACR_ID" msprop:Generator_ColumnPropNameInRow="ACR_ID" msprop:Generator_ColumnPropNameInTable="ACR_IDColumn" msprop:Generator_UserColumnName="ACR_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="CPT_ID" msprop:Generator_ColumnVarNameInTable="columnCPT_ID" msprop:Generator_ColumnPropNameInRow="CPT_ID" msprop:Generator_ColumnPropNameInTable="CPT_IDColumn" msprop:Generator_UserColumnName="CPT_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="DEF_CAPTURE" msprop:Generator_ColumnVarNameInTable="columnDEF_CAPTURE" msprop:Generator_ColumnPropNameInRow="DEF_CAPTURE" msprop:Generator_ColumnPropNameInTable="DEF_CAPTUREColumn" msprop:Generator_UserColumnName="DEF_CAPTURE" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="DEF_IMAGES" msprop:Generator_ColumnVarNameInTable="columnDEF_IMAGES" msprop:Generator_ColumnPropNameInRow="DEF_IMAGES" msprop:Generator_ColumnPropNameInTable="DEF_IMAGESColumn" msprop:Generator_UserColumnName="DEF_IMAGES" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="IS_STRUCTURED_REPORT" msprop:Generator_ColumnVarNameInTable="columnIS_STRUCTURED_REPORT" msprop:Generator_ColumnPropNameInRow="IS_STRUCTURED_REPORT" msprop:Generator_ColumnPropNameInTable="IS_STRUCTURED_REPORTColumn" msprop:Generator_UserColumnName="IS_STRUCTURED_REPORT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QA_REQUIRED" msprop:Generator_ColumnVarNameInTable="columnQA_REQUIRED" msprop:Generator_ColumnPropNameInRow="QA_REQUIRED" msprop:Generator_ColumnPropNameInTable="QA_REQUIREDColumn" msprop:Generator_UserColumnName="QA_REQUIRED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_UPDATED" msprop:Generator_ColumnVarNameInTable="columnIS_UPDATED" msprop:Generator_ColumnPropNameInRow="IS_UPDATED" msprop:Generator_ColumnPropNameInTable="IS_UPDATEDColumn" msprop:Generator_UserColumnName="IS_UPDATED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_DELETED" msprop:Generator_ColumnVarNameInTable="columnIS_DELETED" msprop:Generator_ColumnPropNameInRow="IS_DELETED" msprop:Generator_ColumnPropNameInTable="IS_DELETEDColumn" msprop:Generator_UserColumnName="IS_DELETED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ORG_ID" msprop:Generator_ColumnVarNameInTable="columnORG_ID" msprop:Generator_ColumnPropNameInRow="ORG_ID" msprop:Generator_ColumnPropNameInTable="ORG_IDColumn" msprop:Generator_UserColumnName="ORG_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="CREATED_BY" msprop:Generator_ColumnVarNameInTable="columnCREATED_BY" msprop:Generator_ColumnPropNameInRow="CREATED_BY" msprop:Generator_ColumnPropNameInTable="CREATED_BYColumn" msprop:Generator_UserColumnName="CREATED_BY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CREATED_ON" msprop:Generator_ColumnVarNameInTable="columnCREATED_ON" msprop:Generator_ColumnPropNameInRow="CREATED_ON" msprop:Generator_ColumnPropNameInTable="CREATED_ONColumn" msprop:Generator_UserColumnName="CREATED_ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAST_MODIFIED_BY" msprop:Generator_ColumnVarNameInTable="columnLAST_MODIFIED_BY" msprop:Generator_ColumnPropNameInRow="LAST_MODIFIED_BY" msprop:Generator_ColumnPropNameInTable="LAST_MODIFIED_BYColumn" msprop:Generator_UserColumnName="LAST_MODIFIED_BY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LAST_MODIFIED_ON" msprop:Generator_ColumnVarNameInTable="columnLAST_MODIFIED_ON" msprop:Generator_ColumnPropNameInRow="LAST_MODIFIED_ON" msprop:Generator_ColumnPropNameInTable="LAST_MODIFIED_ONColumn" msprop:Generator_UserColumnName="LAST_MODIFIED_ON" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BP_ID" msprop:Generator_ColumnVarNameInTable="columnBP_ID" msprop:Generator_ColumnPropNameInRow="BP_ID" msprop:Generator_ColumnPropNameInTable="BP_IDColumn" msprop:Generator_UserColumnName="BP_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="STAT_POSSIBLE" msprop:Generator_ColumnVarNameInTable="columnSTAT_POSSIBLE" msprop:Generator_ColumnPropNameInRow="STAT_POSSIBLE" msprop:Generator_ColumnPropNameInTable="STAT_POSSIBLEColumn" msprop:Generator_UserColumnName="STAT_POSSIBLE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="STAT_TAT_MIN" msprop:Generator_ColumnVarNameInTable="columnSTAT_TAT_MIN" msprop:Generator_ColumnPropNameInRow="STAT_TAT_MIN" msprop:Generator_ColumnPropNameInTable="STAT_TAT_MINColumn" msprop:Generator_UserColumnName="STAT_TAT_MIN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="URGENT_POSSIBLE" msprop:Generator_ColumnVarNameInTable="columnURGENT_POSSIBLE" msprop:Generator_ColumnPropNameInRow="URGENT_POSSIBLE" msprop:Generator_ColumnPropNameInTable="URGENT_POSSIBLEColumn" msprop:Generator_UserColumnName="URGENT_POSSIBLE" type="xs:boolean" minOccurs="0" />
+              <xs:element name="URGENT_TAT_MIN" msprop:Generator_ColumnVarNameInTable="columnURGENT_TAT_MIN" msprop:Generator_ColumnPropNameInRow="URGENT_TAT_MIN" msprop:Generator_ColumnPropNameInTable="URGENT_TAT_MINColumn" msprop:Generator_UserColumnName="URGENT_TAT_MIN" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="DEFER_HIS_RECONCILE" msprop:Generator_ColumnVarNameInTable="columnDEFER_HIS_RECONCILE" msprop:Generator_ColumnPropNameInRow="DEFER_HIS_RECONCILE" msprop:Generator_ColumnPropNameInTable="DEFER_HIS_RECONCILEColumn" msprop:Generator_UserColumnName="DEFER_HIS_RECONCILE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_CHECKUP" msprop:Generator_ColumnVarNameInTable="columnIS_CHECKUP" msprop:Generator_ColumnPropNameInRow="IS_CHECKUP" msprop:Generator_ColumnPropNameInTable="IS_CHECKUPColumn" msprop:Generator_UserColumnName="IS_CHECKUP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VIP_RATE" msprop:Generator_ColumnVarNameInTable="columnVIP_RATE" msprop:Generator_ColumnPropNameInRow="VIP_RATE" msprop:Generator_ColumnPropNameInTable="VIP_RATEColumn" msprop:Generator_UserColumnName="VIP_RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DF_RAD" msprop:Generator_ColumnVarNameInTable="columnDF_RAD" msprop:Generator_ColumnPropNameInRow="DF_RAD" msprop:Generator_ColumnPropNameInTable="DF_RADColumn" msprop:Generator_UserColumnName="DF_RAD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DF_TECH" msprop:Generator_ColumnVarNameInTable="columnDF_TECH" msprop:Generator_ColumnPropNameInRow="DF_TECH" msprop:Generator_ColumnPropNameInTable="DF_TECHColumn" msprop:Generator_UserColumnName="DF_TECH" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EXAM_BARCODE" msprop:Generator_ColumnVarNameInTable="columnEXAM_BARCODE" msprop:Generator_ColumnPropNameInRow="EXAM_BARCODE" msprop:Generator_ColumnPropNameInTable="EXAM_BARCODEColumn" msprop:Generator_UserColumnName="EXAM_BARCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CAN_REQONLINE" msprop:Generator_ColumnVarNameInTable="columnCAN_REQONLINE" msprop:Generator_ColumnPropNameInRow="CAN_REQONLINE" msprop:Generator_ColumnPropNameInTable="CAN_REQONLINEColumn" msprop:Generator_UserColumnName="CAN_REQONLINE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AVG_REQ_MIN" msprop:Generator_ColumnVarNameInTable="columnAVG_REQ_MIN" msprop:Generator_ColumnPropNameInRow="AVG_REQ_MIN" msprop:Generator_ColumnPropNameInTable="AVG_REQ_MINColumn" msprop:Generator_UserColumnName="AVG_REQ_MIN" type="xs:int" minOccurs="0" />
+              <xs:element name="IS_BIRAD_REPORT" msprop:Generator_ColumnVarNameInTable="columnIS_BIRAD_REPORT" msprop:Generator_ColumnPropNameInRow="IS_BIRAD_REPORT" msprop:Generator_ColumnPropNameInTable="IS_BIRAD_REPORTColumn" msprop:Generator_UserColumnName="IS_BIRAD_REPORT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NEED_SCHEDULE" msprop:Generator_ColumnVarNameInTable="columnNEED_SCHEDULE" msprop:Generator_ColumnPropNameInRow="NEED_SCHEDULE" msprop:Generator_ColumnPropNameInTable="NEED_SCHEDULEColumn" msprop:Generator_UserColumnName="NEED_SCHEDULE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NEED_APPROVE" msprop:Generator_ColumnVarNameInTable="columnNEED_APPROVE" msprop:Generator_ColumnPropNameInRow="NEED_APPROVE" msprop:Generator_ColumnPropNameInTable="NEED_APPROVEColumn" msprop:Generator_UserColumnName="NEED_APPROVE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NEED_SIDE" msprop:Generator_ColumnVarNameInTable="columnNEED_SIDE" msprop:Generator_ColumnPropNameInRow="NEED_SIDE" msprop:Generator_ColumnPropNameInTable="NEED_SIDEColumn" msprop:Generator_UserColumnName="NEED_SIDE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_CONSULT_CASE" msprop:Generator_ColumnVarNameInTable="columnIS_CONSULT_CASE" msprop:Generator_ColumnPropNameInRow="IS_CONSULT_CASE" msprop:Generator_ColumnPropNameInTable="IS_CONSULT_CASEColumn" msprop:Generator_UserColumnName="IS_CONSULT_CASE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_PORTABLE" msprop:Generator_ColumnVarNameInTable="columnIS_PORTABLE" msprop:Generator_ColumnPropNameInRow="IS_PORTABLE" msprop:Generator_ColumnPropNameInTable="IS_PORTABLEColumn" msprop:Generator_UserColumnName="IS_PORTABLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_COMMENTS" msprop:Generator_ColumnVarNameInTable="columnIS_COMMENTS" msprop:Generator_ColumnPropNameInRow="IS_COMMENTS" msprop:Generator_ColumnPropNameInTable="IS_COMMENTSColumn" msprop:Generator_UserColumnName="IS_COMMENTS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ScheduleReport" />
+      <xs:field xpath="mstns:MODALITY_ID" />
+    </xs:unique>
+    <xs:unique name="RIS_EXAM_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RIS_EXAM" />
+      <xs:field xpath="mstns:EXAM_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

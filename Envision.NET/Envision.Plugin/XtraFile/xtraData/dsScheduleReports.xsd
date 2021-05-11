@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsScheduleReports" targetNamespace="http://tempuri.org/dsScheduleReports.xsd" xmlns:mstns="http://tempuri.org/dsScheduleReports.xsd" xmlns="http://tempuri.org/dsScheduleReports.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=localhost;Initial Catalog=RIS_AYH;User ID=sa;Password=mira001" IsAppSettingsProperty="false" Modifier="Assembly" Name="orcas.RIS_AYH.dbo1" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RPT_SCHEDULE_COUNTwithSESSIONTableAdapter" GeneratorDataComponentClassName="RPT_SCHEDULE_COUNTwithSESSIONTableAdapter" Name="RPT_SCHEDULE_COUNTwithSESSION" UserDataComponentName="RPT_SCHEDULE_COUNTwithSESSIONTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="orcas.RIS_AYH.dbo1" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     
+0 as SCHEDULE_ID,
+0 as RAD_ID,
+'' as RAD_NAME, 
+GETDATE() as SCHEDULE_DT, 
+'' as EMP_NAME, 
+GETDATE() as UPDATE_DT, 
+0 as EXAM_ID, 
+'' as EXAM_UID, 
+'' as EXAM_NAME,
+'' as PATIENT_NAME,
+'' AS HN,
+'' AS REASON</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RAD_ID" DataSetColumn="RAD_ID" />
+              <Mapping SourceColumn="RAD_NAME" DataSetColumn="RAD_NAME" />
+              <Mapping SourceColumn="SCHEDULE_DT" DataSetColumn="SCHEDULE_DT" />
+              <Mapping SourceColumn="EMP_NAME" DataSetColumn="EMP_NAME" />
+              <Mapping SourceColumn="UPDATE_DT" DataSetColumn="UPDATE_DT" />
+              <Mapping SourceColumn="EXAM_ID" DataSetColumn="EXAM_ID" />
+              <Mapping SourceColumn="EXAM_UID" DataSetColumn="EXAM_UID" />
+              <Mapping SourceColumn="EXAM_NAME" DataSetColumn="EXAM_NAME" />
+              <Mapping SourceColumn="PATIENT_NAME" DataSetColumn="PATIENT_NAME" />
+              <Mapping SourceColumn="HN" DataSetColumn="HN" />
+              <Mapping SourceColumn="REASON" DataSetColumn="REASON" />
+              <Mapping SourceColumn="SCHEDULE_ID" DataSetColumn="SCHEDULE_ID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsScheduleReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsScheduleReports" msprop:Generator_DataSetName="dsScheduleReports" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RPT_SCHEDULE_COUNTwithSESSION" msprop:Generator_UserTableName="RPT_SCHEDULE_COUNTwithSESSION" msprop:Generator_RowDeletedName="RPT_SCHEDULE_COUNTwithSESSIONRowDeleted" msprop:Generator_RowChangedName="RPT_SCHEDULE_COUNTwithSESSIONRowChanged" msprop:Generator_RowClassName="RPT_SCHEDULE_COUNTwithSESSIONRow" msprop:Generator_RowChangingName="RPT_SCHEDULE_COUNTwithSESSIONRowChanging" msprop:Generator_RowEvArgName="RPT_SCHEDULE_COUNTwithSESSIONRowChangeEvent" msprop:Generator_RowEvHandlerName="RPT_SCHEDULE_COUNTwithSESSIONRowChangeEventHandler" msprop:Generator_TableClassName="RPT_SCHEDULE_COUNTwithSESSIONDataTable" msprop:Generator_TableVarName="tableRPT_SCHEDULE_COUNTwithSESSION" msprop:Generator_RowDeletingName="RPT_SCHEDULE_COUNTwithSESSIONRowDeleting" msprop:Generator_TablePropName="RPT_SCHEDULE_COUNTwithSESSION">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RAD_ID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="RAD_ID" msprop:Generator_ColumnVarNameInTable="columnRAD_ID" msprop:Generator_ColumnPropNameInRow="RAD_ID" msprop:Generator_ColumnPropNameInTable="RAD_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="RAD_NAME" msdata:ReadOnly="true" msprop:Generator_UserColumnName="RAD_NAME" msprop:Generator_ColumnVarNameInTable="columnRAD_NAME" msprop:Generator_ColumnPropNameInRow="RAD_NAME" msprop:Generator_ColumnPropNameInTable="RAD_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SCHEDULE_DT" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SCHEDULE_DT" msprop:Generator_ColumnVarNameInTable="columnSCHEDULE_DT" msprop:Generator_ColumnPropNameInRow="SCHEDULE_DT" msprop:Generator_ColumnPropNameInTable="SCHEDULE_DTColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EMP_NAME" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EMP_NAME" msprop:Generator_ColumnVarNameInTable="columnEMP_NAME" msprop:Generator_ColumnPropNameInRow="EMP_NAME" msprop:Generator_ColumnPropNameInTable="EMP_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UPDATE_DT" msdata:ReadOnly="true" msprop:Generator_UserColumnName="UPDATE_DT" msprop:Generator_ColumnVarNameInTable="columnUPDATE_DT" msprop:Generator_ColumnPropNameInRow="UPDATE_DT" msprop:Generator_ColumnPropNameInTable="UPDATE_DTColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EXAM_ID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EXAM_ID" msprop:Generator_ColumnVarNameInTable="columnEXAM_ID" msprop:Generator_ColumnPropNameInRow="EXAM_ID" msprop:Generator_ColumnPropNameInTable="EXAM_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="EXAM_UID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EXAM_UID" msprop:Generator_ColumnVarNameInTable="columnEXAM_UID" msprop:Generator_ColumnPropNameInRow="EXAM_UID" msprop:Generator_ColumnPropNameInTable="EXAM_UIDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXAM_NAME" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EXAM_NAME" msprop:Generator_ColumnVarNameInTable="columnEXAM_NAME" msprop:Generator_ColumnPropNameInRow="EXAM_NAME" msprop:Generator_ColumnPropNameInTable="EXAM_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PATIENT_NAME" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PATIENT_NAME" msprop:Generator_ColumnVarNameInTable="columnPATIENT_NAME" msprop:Generator_ColumnPropNameInRow="PATIENT_NAME" msprop:Generator_ColumnPropNameInTable="PATIENT_NAMEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HN" msdata:ReadOnly="true" msprop:Generator_UserColumnName="HN" msprop:Generator_ColumnVarNameInTable="columnHN" msprop:Generator_ColumnPropNameInRow="HN" msprop:Generator_ColumnPropNameInTable="HNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REASON" msdata:ReadOnly="true" msprop:Generator_UserColumnName="REASON" msprop:Generator_ColumnVarNameInTable="columnREASON" msprop:Generator_ColumnPropNameInRow="REASON" msprop:Generator_ColumnPropNameInTable="REASONColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SCHEDULE_ID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SCHEDULE_ID" msprop:Generator_ColumnPropNameInRow="SCHEDULE_ID" msprop:Generator_ColumnVarNameInTable="columnSCHEDULE_ID" msprop:Generator_ColumnPropNameInTable="SCHEDULE_IDColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

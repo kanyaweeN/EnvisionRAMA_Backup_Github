@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9A1C35E-278F-4984-9740-56A37A7EA5F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RIS.DataAccess</RootNamespace>
+    <AssemblyName>RIS.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccessBase.cs" />
+    <Compile Include="DataBaseHelper.cs" />
+    <Compile Include="Delete\FINInvoiceDeleteData.cs" />
+    <Compile Include="Delete\FINInvoicedtlDeleteData.cs" />
+    <Compile Include="Delete\FINPaymentDeleteData.cs" />
+    <Compile Include="Delete\FINPaymentdtlDeleteData.cs" />
+    <Compile Include="Delete\GBLAlertDeleteData.cs" />
+    <Compile Include="Delete\GBLBISettingsDeleteData.cs" />
+    <Compile Include="Delete\GBLEmployeeDeleteData.cs" />
+    <Compile Include="Delete\GBLGrantObjectDeleteData.cs" />
+    <Compile Include="Delete\GBLGrantRoleDeleteData.cs" />
+    <Compile Include="Delete\GBLHospitalDeleteData.cs" />
+    <Compile Include="Delete\GBLLanguageDeleteData.cs" />
+    <Compile Include="Delete\GBLMenuDeleteData.cs" />
+    <Compile Include="Delete\GBLRadexperienceDeleteData.cs" />
+    <Compile Include="Delete\GBLRoleDeleteData.cs" />
+    <Compile Include="Delete\GBLSubMenuDeleteData.cs" />
+    <Compile Include="Delete\GBLSubMenuObjectLabelDeleteData.cs" />
+    <Compile Include="Delete\GBLSubMenuObjectsDeleteData.cs" />
+    <Compile Include="Delete\HREmpDeleteData.cs" />
+    <Compile Include="Delete\InvAuthoriserDeleteData.cs" />
+    <Compile Include="Delete\INVAuthorizationDeleteData.cs" />
+    <Compile Include="Delete\InvCategoryDeleteData.cs" />
+    <Compile Include="Delete\InvItemDeleteData.cs" />
+    <Compile Include="Delete\InvItemstatusDeleteData.cs" />
+    <Compile Include="Delete\InvItemtypeDeleteData.cs" />
+    <Compile Include="Delete\InvPoDeleteData.cs" />
+    <Compile Include="Delete\INVPodtlDeleteData.cs" />
+    <Compile Include="Delete\INVPrDeleteData.cs" />
+    <Compile Include="Delete\INVPrdtlDeleteData.cs" />
+    <Compile Include="Delete\INVRequisitionDeleteData.cs" />
+    <Compile Include="Delete\INVRequisitiondtlDeleteData.cs" />
+    <Compile Include="Delete\InvSettingsDeleteData.cs" />
+    <Compile Include="Delete\InvTransactionTypeDeleteData.cs" />
+    <Compile Include="Delete\InvTxnunitDeleteData.cs" />
+    <Compile Include="Delete\InvUnitDeleteData.cs" />
+    <Compile Include="Delete\InvVendorDeleteData.cs" />
+    <Compile Include="Delete\ManageGroupsDeleteData.cs" />
+    <Compile Include="Delete\ManageGroupsDeleteDataDtl.cs" />
+    <Compile Include="Delete\MISAsessmenttypeDeleteData.cs" />
+    <Compile Include="Delete\MISBiopsyresultDeleteData.cs" />
+    <Compile Include="Delete\MISLesiontypeDeleteData.cs" />
+    <Compile Include="Delete\MISTechniquetypeDeleteData.cs" />
+    <Compile Include="Delete\PatientDeleteData.cs" />
+    <Compile Include="Delete\PatientRegistrationDeleteData.cs" />
+    <Compile Include="Delete\RISAutoMergeConfigDelete.cs" />
+    <Compile Include="Delete\RISBpviewDeleteData.cs" />
+    <Compile Include="Delete\RISExamDeleteData.cs" />
+    <Compile Include="Delete\RISExamhospitalDeleteData.cs" />
+    <Compile Include="Delete\RISExaminstructionsDeleteData.cs" />
+    <Compile Include="Delete\RISExamresultseverityDeleteData.cs" />
+    <Compile Include="Delete\RISExamresulttemplateDeleteData.cs" />
+    <Compile Include="Delete\RISExamtransferlogDeleteData.cs" />
+    <Compile Include="Delete\RISLoadmediaDeleteData.cs" />
+    <Compile Include="Delete\RISLoadmediadtlDeleteData.cs" />
+    <Compile Include="Delete\RISModalityclinictypeDeleteData.cs" />
+    <Compile Include="Delete\RISModalityDeleteData.cs" />
+    <Compile Include="Delete\RISModalityexamDeleteData.cs" />
+    <Compile Include="Delete\RISModalitytypeDeleteData.cs" />
+    <Compile Include="Delete\RISNursesDeleteData.cs" />
+    <Compile Include="Delete\RISNursesDtlDeleteData.cs" />
+    <Compile Include="Delete\RISOpnoteitemDeleteData.cs" />
+    <Compile Include="Delete\RISOpnoteitemtemplateDeleteData.cs" />
+    <Compile Include="Delete\RISOrderDeleteData.cs" />
+    <Compile Include="Delete\RISOrderdtlDeleteData.cs" />
+    <Compile Include="Delete\RISPaticdDeleteData.cs" />
+    <Compile Include="Delete\RISPatStatusDeleteData.cs" />
+    <Compile Include="Delete\RISQareasonDeleteData.cs" />
+    <Compile Include="Delete\RISRadstudygroupDeleteData.cs" />
+    <Compile Include="Delete\RISReleasemediaDeleteData.cs" />
+    <Compile Include="Delete\RISScheduleDeleteData.cs" />
+    <Compile Include="Delete\RISServicetypeDeleteData.cs" />
+    <Compile Include="Delete\RISSF02DeleteData.cs" />
+    <Compile Include="Delete\RISSF09DeleteData.cs" />
+    <Compile Include="Delete\RISTechconsumptionDeleteData.cs" />
+    <Compile Include="Delete\RISUserorgmapDeleteData.cs" />
+    <Compile Include="Insert\AddendumInsertData.cs" />
+    <Compile Include="Insert\ExamResultForInsertData.cs" />
+    <Compile Include="Insert\ExamResultInsertData.cs" />
+    <Compile Include="Insert\FINInvoicedtlInsertData.cs" />
+    <Compile Include="Insert\FINInvoiceInsertData.cs" />
+    <Compile Include="Insert\FINPaymentdtlInsertData.cs" />
+    <Compile Include="Insert\FINPaymentInsertData.cs" />
+    <Compile Include="Insert\GBLAlertInsertData.cs" />
+    <Compile Include="Insert\GBLBISettingsInsertData.cs" />
+    <Compile Include="Insert\GBLEmployeeInsertData.cs" />
+    <Compile Include="Insert\GBLExceptionLogInsertData.cs" />
+    <Compile Include="Insert\GBLGrantObjectInsertData.cs" />
+    <Compile Include="Insert\GBLGrantRoleInsertData.cs" />
+    <Compile Include="Insert\GBLGrantRoleInsertDataEmployee.cs" />
+    <Compile Include="Insert\GBLGrantRoleInsertDataRole.cs" />
+    <Compile Include="Insert\GBLHospitalInsertData.cs" />
+    <Compile Include="Insert\GBLLanguageInsertData.cs" />
+    <Compile Include="Insert\GBLMenuInsertData.cs" />
+    <Compile Include="Insert\GBLRadexperienceInsertData.cs" />
+    <Compile Include="Insert\GBLRoleInsertData.cs" />
+    <Compile Include="Insert\GBLSubMenuInsertData.cs" />
+    <Compile Include="Insert\GBLSubMenuObjectLabelInsertData.cs" />
+    <Compile Include="Insert\GBLSubMenuObjectsInsertData.cs" />
+    <Compile Include="Insert\HISRegistrationInsertData.cs" />
+    <Compile Include="Insert\HREmpInsertData.cs" />
+    <Compile Include="Insert\HRUnitInsertData.cs" />
+    <Compile Include="Insert\InvAuthorisationInsertData.cs" />
+    <Compile Include="Insert\InvAuthoriserInsertData.cs" />
+    <Compile Include="Insert\INVAuthorizationInsertData.cs" />
+    <Compile Include="Insert\InvCategoryInsertData.cs" />
+    <Compile Include="Insert\InvItemInsertData.cs" />
+    <Compile Include="Insert\InvItemstatusInsertData.cs" />
+    <Compile Include="Insert\InvItemtypeInsertData.cs" />
+    <Compile Include="Insert\InvPodtlInsertData.cs" />
+    <Compile Include="Insert\InvPoInsertData.cs" />
+    <Compile Include="Insert\INVPrdtlInsertData.cs" />
+    <Compile Include="Insert\INVPrInsertData.cs" />
+    <Compile Include="Insert\InvRequisitionDtlInsertData.cs" />
+    <Compile Include="Insert\InvRequisitionInsertData.cs" />
+    <Compile Include="Insert\InvRoomStockReduceInsertData.cs" />
+    <Compile Include="Insert\InvSettingsInsertData.cs" />
+    <Compile Include="Insert\INVTransactionInsertData.cs" />
+    <Compile Include="Insert\InvTransactionTypeInsertData.cs" />
+    <Compile Include="Insert\InvTxnunitInsertData.cs" />
+    <Compile Include="Insert\InvUnitInsertData.cs" />
+    <Compile Include="Insert\InvUnitReOrderLevelInsertData.cs" />
+    <Compile Include="Insert\InvVendorInsertData.cs" />
+    <Compile Include="Insert\ManageGroupsInsertData.cs" />
+    <Compile Include="Insert\ManageGroupsInsertDataDtl.cs" />
+    <Compile Include="Insert\MISAsessmenttypeInsertData.cs" />
+    <Compile Include="Insert\MISBiopsyresultInsertData.cs" />
+    <Compile Include="Insert\MISLesiontypeInsertData.cs" />
+    <Compile Include="Insert\MISTechniquetypeInsertData.cs" />
+    <Compile Include="Insert\MyMenuInsertData.cs" />
+    <Compile Include="Insert\OrderImagesInsertData.cs" />
+    <Compile Include="Insert\PatientInsertData.cs" />
+    <Compile Include="Insert\PatientRegistrationInsertData.cs" />
+    <Compile Include="Insert\ResultStatusChangeInsertData.cs" />
+    <Compile Include="Insert\RISBpviewInsertData.cs" />
+    <Compile Include="Insert\RISExamhospitalInsertData.cs" />
+    <Compile Include="Insert\RISExamInsertData.cs" />
+    <Compile Include="Insert\RISExaminstructionsInsertData.cs" />
+    <Compile Include="Insert\RISExamresultInsertData.cs" />
+    <Compile Include="Insert\RISExamresultseverityInsertData.cs" />
+    <Compile Include="Insert\RISExamresulttemplateInsertData.cs" />
+    <Compile Include="Insert\RISExamtemplateshareInsertData.cs" />
+    <Compile Include="Insert\RISExamtransferlogInsertData.cs" />
+    <Compile Include="Insert\RISInsurancetypeInsertData.cs" />
+    <Compile Include="Insert\RISLoadmediadtlInsertData.cs" />
+    <Compile Include="Insert\RISLoadMediaInsertData.cs" />
+    <Compile Include="Insert\RISModalityclinictypeInsertData.cs" />
+    <Compile Include="Insert\RISModalityexamInsertData.cs" />
+    <Compile Include="Insert\RISModalityInsertData.cs" />
+    <Compile Include="Insert\RISModalitytypeInsertData.cs" />
+    <Compile Include="Insert\RISNursesDataDtlInsertData.cs" />
+    <Compile Include="Insert\RISNursesDataInsertData.cs" />
+    <Compile Include="Insert\RISOpnoteitemInsertData.cs" />
+    <Compile Include="Insert\RISOpnoteitemtemplateInsertData.cs" />
+    <Compile Include="Insert\RISOrderdtlInsertData.cs" />
+    <Compile Include="Insert\RISOrderInsertData.cs" />
+    <Compile Include="Insert\RISPaticdInsertData.cs" />
+    <Compile Include="Insert\RISPatstatusInsertDataN.cs" />
+    <Compile Include="Insert\RISQareasonInsertData.cs" />
+    <Compile Include="Insert\RISQaworksInsertData.cs" />
+    <Compile Include="Insert\RISRadstudygroupInsertData.cs" />
+    <Compile Include="Insert\RISReleasemediaInsertData.cs" />
+    <Compile Include="Insert\RISScheduleInsertData.cs" />
+    <Compile Include="Insert\RISServicetypeInsertData.cs" />
+    <Compile Include="Insert\RISSF02InsertData.cs" />
+    <Compile Include="Insert\RISSF09InsertData.cs" />
+    <Compile Include="Insert\RISTechconsumptionInsertData.cs" />
+    <Compile Include="Insert\RISTechworksInsertData.cs" />
+    <Compile Include="Insert\RISUserorgmapInsertData.cs" />
+    <Compile Include="Insert\RIS_AutoMergeExam_Insert.cs" />
+    <Compile Include="Insert\SessionInsertData.cs" />
+    <Compile Include="Insert\SessionLogInsertData.cs" />
+    <Compile Include="Insert\SplitOrderInsertData.cs" />
+    <Compile Include="Insert\TemplateInsertData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select\AlertSelectData.cs" />
+    <Compile Include="Select\AuthLevelSelectData.cs" />
+    <Compile Include="Select\DistributionChannelSelectData.cs" />
+    <Compile Include="Select\DistributionNewSelect.cs" />
+    <Compile Include="Select\EnvSelectData.cs" />
+    <Compile Include="Select\ExamResultSelectData.cs" />
+    <Compile Include="Select\FavouriteSelectData.cs" />
+    <Compile Include="Select\FINInvoicedtlSelectData.cs" />
+    <Compile Include="Select\FINInvoiceSelectData.cs" />
+    <Compile Include="Select\FINPaymentdtlSelectData.cs" />
+    <Compile Include="Select\FINPaymentSelectData.cs" />
+    <Compile Include="Select\FormAccessSelectData.cs" />
+    <Compile Include="Select\FormLanguageSelectData.cs" />
+    <Compile Include="Select\GBLBISettingsSelectData.cs" />
+    <Compile Include="Select\GBLEmployeeSelectData.cs" />
+    <Compile Include="Select\GBLEnvlogSelectData.cs" />
+    <Compile Include="Select\GBLGrantObjectSelectData.cs" />
+    <Compile Include="Select\GBLGrantObjectSelectInherit.cs" />
+    <Compile Include="Select\GBLGrantRoleLoadTreeData.cs" />
+    <Compile Include="Select\GBLGrantRoleSelectData.cs" />
+    <Compile Include="Select\GBLGrantRoleSelectDataByEmployee.cs" />
+    <Compile Include="Select\GBLGrantRoleSelectDataByRole.cs" />
+    <Compile Include="Select\GBLHospitalSelectData.cs" />
+    <Compile Include="Select\GBLLanguageSelectData.cs" />
+    <Compile Include="Select\GBLLookupSelectData.cs" />
+    <Compile Include="Select\GBLMenuSelectData.cs" />
+    <Compile Include="Select\GBLMymenuSelectData.cs" />
+    <Compile Include="Select\GBLRadexperienceSelectData.cs" />
+    <Compile Include="Select\GBLRoleSelectData.cs" />
+    <Compile Include="Select\GBLSequencesSelectData.cs" />
+    <Compile Include="Select\GBLSessionViewerSelect.cs" />
+    <Compile Include="Select\GBLSubMenuObjectLabelSelectData.cs" />
+    <Compile Include="Select\GBLSubMenuObjectsSelectData.cs" />
+    <Compile Include="Select\GBLSubMenuSelectData.cs" />
+    <Compile Include="Select\GlobalAlertSelectData.cs" />
+    <Compile Include="Select\HISDepartmentSelectData.cs" />
+    <Compile Include="Select\HISDoctorSelectData.cs" />
+    <Compile Include="Select\HisICD.cs" />
+    <Compile Include="Select\HISRegistrationSelectData.cs" />
+    <Compile Include="Select\HistorySelectData.cs" />
+    <Compile Include="Select\HL7MonitoringSelectData.cs" />
+    <Compile Include="Select\HRAccountSelectData.cs" />
+    <Compile Include="Select\HREmpSelectData.cs" />
+    <Compile Include="Select\HRRoomSelectData.cs" />
+    <Compile Include="Select\HRUnitSelectData.cs" />
+    <Compile Include="Select\InvAuthorisationSelectData.cs" />
+    <Compile Include="Select\InvAuthoriserSelectData.cs" />
+    <Compile Include="Select\INVAuthorizationSelectData.cs" />
+    <Compile Include="Select\InvCategorySelectData.cs" />
+    <Compile Include="Select\InvItemSelectData.cs" />
+    <Compile Include="Select\InvItemstatusSelectData.cs" />
+    <Compile Include="Select\InvItemtypeSelectData.cs" />
+    <Compile Include="Select\InvPodtlSelectData.cs" />
+    <Compile Include="Select\InvPoSelectData.cs" />
+    <Compile Include="Select\INVPrdtlSelectData.cs" />
+    <Compile Include="Select\INVPrSelectData.cs" />
+    <Compile Include="Select\InvRequisitionDtlSelectData.cs" />
+    <Compile Include="Select\InvRequisitionSelectData.cs" />
+    <Compile Include="Select\InvRoomStockReduceSelectData.cs" />
+    <Compile Include="Select\InvSettingsSelectData.cs" />
+    <Compile Include="Select\InvTransactionTypeSelectData.cs" />
+    <Compile Include="Select\InvTxnunitSelectData.cs" />
+    <Compile Include="Select\InvUnitReOrderLevelSelectData.cs" />
+    <Compile Include="Select\InvUnitSelectData.cs" />
+    <Compile Include="Select\InvVendorSelectData.cs" />
+    <Compile Include="Select\ManageGroupsSelectData.cs" />
+    <Compile Include="Select\ManageGroupsTableDtlSelectData.cs" />
+    <Compile Include="Select\ManageGroupsTableSelectData.cs" />
+    <Compile Include="Select\MISAsessmenttypeSelectData.cs" />
+    <Compile Include="Select\MISBiopsyresultSelectData.cs" />
+    <Compile Include="Select\MISLesiontypeSelectData.cs" />
+    <Compile Include="Select\MISTechniquetypeSelectData.cs" />
+    <Compile Include="Select\ModalityLoadSelectData.cs" />
+    <Compile Include="Select\PatientRegistrationSelectData.cs" />
+    <Compile Include="Select\PatientRegSelectData.cs" />
+    <Compile Include="Select\PatientSelectData.cs" />
+    <Compile Include="Select\ProductSelectData.cs" />
+    <Compile Include="Select\ReportStatusSelectData.cs" />
+    <Compile Include="Select\ResultEntryWorkListSelectData.cs" />
+    <Compile Include="Select\ResultEntyReportSelectData.cs" />
+    <Compile Include="Select\ResultICDSelectData.cs" />
+    <Compile Include="Select\RISAuthlevelSelectData.cs" />
+    <Compile Include="Select\RISAutoMergeConfigSelect.cs" />
+    <Compile Include="Select\RISBpviewSelectData.cs" />
+    <Compile Include="Select\RISClinicsessionSelectData.cs" />
+    <Compile Include="Select\RISClinictypeSelectData.cs" />
+    <Compile Include="Select\RISExamhospitalSelectData.cs" />
+    <Compile Include="Select\RISExaminstructionsSelectData.cs" />
+    <Compile Include="Select\RISExamlogSelectData.cs" />
+    <Compile Include="Select\RISExamresultlegacySelectData.cs" />
+    <Compile Include="Select\RISExamresultlocksSelectData.cs" />
+    <Compile Include="Select\RISExamresultlogSelectData.cs" />
+    <Compile Include="Select\RISExamresultSelectData.cs" />
+    <Compile Include="Select\RISExamresultseveritySelectData.cs" />
+    <Compile Include="Select\RISExamresulttemplatelogSelectData.cs" />
+    <Compile Include="Select\RISExamresulttemplateSelectData.cs" />
+    <Compile Include="Select\RISExamSelectData.cs" />
+    <Compile Include="Select\RISExamtransferlogSelectData.cs" />
+    <Compile Include="Select\RISExamTypeSelectData.cs" />
+    <Compile Include="Select\RISHL7MonitoringSelectDataNew.cs" />
+    <Compile Include="Select\RISInsurancetypeSelectData.cs" />
+    <Compile Include="Select\RISIntegrationConfigSelectData.cs" />
+    <Compile Include="Select\RISIntegrationServersSelectData.cs" />
+    <Compile Include="Select\RISInterfaceMonitoringSelectData.cs" />
+    <Compile Include="Select\RISLoadmediadtlSelectData.cs" />
+    <Compile Include="Select\RISLoadmediaSelectData.cs" />
+    <Compile Include="Select\RISModalityclinictypeSelectData.cs" />
+    <Compile Include="Select\RISModalityexamSelectData.cs" />
+    <Compile Include="Select\RISModalitySelectData.cs" />
+    <Compile Include="Select\RISModalitytypeSelectData.cs" />
+    <Compile Include="Select\RISNursesDataDtlSelectData.cs" />
+    <Compile Include="Select\RISNursesDataSelectData.cs" />
+    <Compile Include="Select\RISOpnoteitemSelectData.cs" />
+    <Compile Include="Select\RISOpnoteitemtemplateSelectData.cs" />
+    <Compile Include="Select\RISOrderConfliction.cs" />
+    <Compile Include="Select\RISOrderdtlSelectData.cs" />
+    <Compile Include="Select\RISOrderGetReport.cs" />
+    <Compile Include="Select\RISOrderimageNameSelectData.cs" />
+    <Compile Include="Select\RISOrderimagesSelectData.cs" />
+    <Compile Include="Select\RISOrderSelectData.cs" />
+    <Compile Include="Select\RISPaticdSelectData.cs" />
+    <Compile Include="Select\RISPatstatusSelectData.cs" />
+    <Compile Include="Select\RISPatstatusSeleteDataN.cs" />
+    <Compile Include="Select\RISQareasonSelectData.cs" />
+    <Compile Include="Select\RISQAWorksSelectData.cs" />
+    <Compile Include="Select\RISRadstudygroupSelectData.cs" />
+    <Compile Include="Select\RISReleasemediaSelectData.cs" />
+    <Compile Include="Select\RISReleasemediaSelectDataNew.cs" />
+    <Compile Include="Select\RISRptBiopsySelectData.cs" />
+    <Compile Include="Select\RISRptCancellationSelectData.cs" />
+    <Compile Include="Select\RISRptComparing1SelectData.cs" />
+    <Compile Include="Select\RISRptComparing2SelectData.cs" />
+    <Compile Include="Select\RISRptOrderSelectData.cs" />
+    <Compile Include="Select\RISRptServiceSelectData.cs" />
+    <Compile Include="Select\RISRptWorkloadSelectData.cs" />
+    <Compile Include="Select\RISScheduledtlSelectData.cs" />
+    <Compile Include="Select\RISSchedulelogSelectData.cs" />
+    <Compile Include="Select\RISScheduleSelectData.cs" />
+    <Compile Include="Select\RISSearchEngineSelectData.cs" />
+    <Compile Include="Select\RISServicetypeSelectData.cs" />
+    <Compile Include="Select\RISSF02SelectData.cs" />
+    <Compile Include="Select\RISSF09SelectData.cs" />
+    <Compile Include="Select\RISTechconsumptionSelectData.cs" />
+    <Compile Include="Select\RISTechworksSelectData.cs" />
+    <Compile Include="Select\RISUserorgmapSelectData.cs" />
+    <Compile Include="Select\RisvFreqUsedExam.cs" />
+    <Compile Include="Select\RisvPatienSelectData.cs" />
+    <Compile Include="Select\RisvPatienSelectDataDate.cs" />
+    <Compile Include="Select\RIS_ACR_SelectData.cs" />
+    <Compile Include="Select\RIS_SF02SelectData.cs" />
+    <Compile Include="Select\ScheduleCatagorySelectData.cs" />
+    <Compile Include="Select\ScheduleReportSelectData.cs" />
+    <Compile Include="Select\SessionSelectData.cs" />
+    <Compile Include="Select\XRAYREQSelectData.cs" />
+    <Compile Include="Select\_LookUpSelect.cs" />
+    <Compile Include="SQLHelper.cs" />
+    <Compile Include="StoredProcedure.cs" />
+    <Compile Include="Update\DistributionNewUpdateData.cs" />
+    <Compile Include="Update\ExamResultForUpdateData.cs" />
+    <Compile Include="Update\ExamResultUpdateData.cs" />
+    <Compile Include="Update\FINInvoicedtlUpdateData.cs" />
+    <Compile Include="Update\FINInvoiceUpdateData.cs" />
+    <Compile Include="Update\FINPaymentdtlUpdateData.cs" />
+    <Compile Include="Update\FINPaymentUpdateData.cs" />
+    <Compile Include="Update\GBLAlertUpdateData.cs" />
+    <Compile Include="Update\GBLBISettingsUpdateData.cs" />
+    <Compile Include="Update\GBLEmployeeUpdateData.cs" />
+    <Compile Include="Update\GBLEnvUpdateData.cs" />
+    <Compile Include="Update\GBLGrantObjectUpdateData.cs" />
+    <Compile Include="Update\GBLGrantRoleUpdateData.cs" />
+    <Compile Include="Update\GBLGrantRoleUpdateDataISDeleted.cs" />
+    <Compile Include="Update\GBLGrantRoleUpdateDataISUpdated.cs" />
+    <Compile Include="Update\GBLHospitalUpdateData.cs" />
+    <Compile Include="Update\GBLLanguageUpdateData.cs" />
+    <Compile Include="Update\GBLMenuUpdateData.cs" />
+    <Compile Include="Update\GBLProductUpdateData.cs" />
+    <Compile Include="Update\GBLRadexperienceUpdateData.cs" />
+    <Compile Include="Update\GBLRoleUpdateData.cs" />
+    <Compile Include="Update\GBLSessionViewerUpdate.cs" />
+    <Compile Include="Update\GBLSubMenuObjectLabelUpdateData.cs" />
+    <Compile Include="Update\GBLSubMenuObjectsUpdateData.cs" />
+    <Compile Include="Update\GBLSubMenuUpdateData.cs" />
+    <Compile Include="Update\HISRegistrationUpdateData.cs" />
+    <Compile Include="Update\HRAccountUpdateData.cs" />
+    <Compile Include="Update\HREmpUpdateData.cs" />
+    <Compile Include="Update\InvAuthoriserUpdateData.cs" />
+    <Compile Include="Update\INVAuthorizationUpdateData.cs" />
+    <Compile Include="Update\InvCategoryUpdateData.cs" />
+    <Compile Include="Update\InvItemstatusUpdateData.cs" />
+    <Compile Include="Update\InvItemtypeUpdateData.cs" />
+    <Compile Include="Update\InvItemUpdateData.cs" />
+    <Compile Include="Update\InvPodtlUpdateData.cs" />
+    <Compile Include="Update\InvPoUpdateData.cs" />
+    <Compile Include="Update\INVPrdtlUpdateData.cs" />
+    <Compile Include="Update\INVPrUpdateData.cs" />
+    <Compile Include="Update\InvRequisitionDtlUpdateData.cs" />
+    <Compile Include="Update\InvRequisitionUpdateData.cs" />
+    <Compile Include="Update\InvSettingsUpdateData.cs" />
+    <Compile Include="Update\InvTransactionTypeUpdateData.cs" />
+    <Compile Include="Update\InvTxnunitUpdateData.cs" />
+    <Compile Include="Update\InvUnitUpdateData.cs" />
+    <Compile Include="Update\InvVendorUpdateData.cs" />
+    <Compile Include="Update\ManageGroupsUpdateData.cs" />
+    <Compile Include="Update\ManageGroupsUpdateDataDtl.cs" />
+    <Compile Include="Update\MISAsessmenttypeUpdateData.cs" />
+    <Compile Include="Update\MISBiopsyresultUpdateData.cs" />
+    <Compile Include="Update\MISLesiontypeUpdateData.cs" />
+    <Compile Include="Update\MISTechniquetypeUpdateData.cs" />
+    <Compile Include="Update\MyMenuUpdateData.cs" />
+    <Compile Include="Update\PatientRegistrationUpdateData.cs" />
+    <Compile Include="Update\PatientUpdateData.cs" />
+    <Compile Include="Update\RISAutoMergeConfigUpdate.cs" />
+    <Compile Include="Update\RISBpviewUpdateData.cs" />
+    <Compile Include="Update\RISExamhospitalUpdateData.cs" />
+    <Compile Include="Update\RISExaminstructionsUpdateData.cs" />
+    <Compile Include="Update\RISExamresultlocksUpdateData.cs" />
+    <Compile Include="Update\RISExamresultseverityUpdateData.cs" />
+    <Compile Include="Update\RISExamtransferlogUpdateData.cs" />
+    <Compile Include="Update\RISExamUpdateData.cs" />
+    <Compile Include="Update\RISIntegrationConfigUpdateData.cs" />
+    <Compile Include="Update\RISLoadmediadtlUpdateData.cs" />
+    <Compile Include="Update\RISLoadmediaUpdateData.cs" />
+    <Compile Include="Update\RISModalityclinictypeUpdateData.cs" />
+    <Compile Include="Update\RISModalityexamUpdateData.cs" />
+    <Compile Include="Update\RISModalitytypeUpdateData.cs" />
+    <Compile Include="Update\RISModalityUpdateData.cs" />
+    <Compile Include="Update\RISNurseDataDtlUpdateData.cs" />
+    <Compile Include="Update\RISNurseDataUpdateData.cs" />
+    <Compile Include="Update\RISOpnoteitemtemplateUpdateData.cs" />
+    <Compile Include="Update\RISOpnoteitemUpdateData.cs" />
+    <Compile Include="Update\RISOrderdtlUpdateData.cs" />
+    <Compile Include="Update\RISOrderimagesUpdateData.cs" />
+    <Compile Include="Update\RISOrderUpdateData.cs" />
+    <Compile Include="Update\RISPaticdUpdateData.cs" />
+    <Compile Include="Update\RISPatstatusUpdateData.cs" />
+    <Compile Include="Update\RISQareasonUpdateData.cs" />
+    <Compile Include="Update\RISRadstudygroupUpdateData.cs" />
+    <Compile Include="Update\RISReleasemediaUpdateData.cs" />
+    <Compile Include="Update\RISScheduleDtlUpdateData.cs" />
+    <Compile Include="Update\RISScheduleUpdateData.cs" />
+    <Compile Include="Update\RISServicetypeUpdateData.cs" />
+    <Compile Include="Update\RISSF02UpdateData.cs" />
+    <Compile Include="Update\RISSF09UpdateData.cs" />
+    <Compile Include="Update\RISTechworksUpdateData.cs" />
+    <Compile Include="Update\RISUserorgmapUpdateData.cs" />
+    <Compile Include="Update\UpdateSessionData.cs" />
+    <Compile Include="Update\XRAYREQUpdateData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RIS.Common\RIS.Common.csproj">
+      <Project>{4125D990-7016-45FD-836C-62433901A7CA}</Project>
+      <Name>RIS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transaction\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

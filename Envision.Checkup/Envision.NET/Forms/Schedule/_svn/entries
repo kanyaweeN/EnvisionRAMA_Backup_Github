@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Schedule"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="frmOwner.resx"
+   text-time="2008-10-22T11:53:14.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.328125Z"/>
+<entry
+   committed-rev="1"
+   name="frmScheduleWorkList.resx"
+   text-time="2008-10-22T11:53:14.546875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="7518db4baa35a5e9ce92fd23f3a570a3"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.343750Z"/>
+<entry
+   committed-rev="1"
+   name="frmOwner.cs"
+   text-time="2008-10-22T11:53:14.625000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="eaf961eecb4e14e861e68a76c4931128"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.390625Z"/>
+<entry
+   committed-rev="1"
+   name="frmScheduleWorkList.Designer.cs"
+   text-time="2008-10-22T11:53:14.640625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="70840126dccf14a4838821a19cd6e69a"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.453125Z"/>
+<entry
+   committed-rev="1"
+   name="frmScheduleWorkList.cs"
+   text-time="2008-10-22T11:53:14.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="5519ac3bd17eb2417eae379034710208"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.468750Z"/>
+<entry
+   committed-rev="1"
+   name="DatabaseSupport.cs"
+   text-time="2008-10-22T11:53:14.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="29bb6884520db7aeee97874aa8e860ab"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.484375Z"/>
+<entry
+   committed-rev="1"
+   name="frmMain.resx"
+   text-time="2008-10-22T11:53:14.687500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4e5fc152594ece5aad0aede528fe1bf8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.500000Z"/>
+<entry
+   committed-rev="1"
+   name="frmQuery.resx"
+   text-time="2008-10-22T11:53:14.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9c0397621fec1c0cf8ac9ad9ee9cddc2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.515625Z"/>
+<entry
+   committed-rev="1"
+   name="Common.cs"
+   text-time="2008-10-22T11:53:14.703125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3426aa80b38aad6b34d21f75ff075653"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.531250Z"/>
+<entry
+   committed-rev="1"
+   name="frmMain.cs"
+   text-time="2008-10-22T11:53:14.718750Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="8b53ccc621c418898267f24ab02f212d"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.531250Z"/>
+<entry
+   committed-rev="1"
+   name="frmQuery.cs"
+   text-time="2008-10-22T11:53:14.859375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="efba25f9bb765b2924e0b9b56b2e3955"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:14.546875Z"/>
+</wc-entries>

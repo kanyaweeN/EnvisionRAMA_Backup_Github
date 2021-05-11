@@ -1,0 +1,121 @@
+﻿
+
+#example .demo-container
+{
+    width: 435px;
+    height: 483px;
+    background: transparent url(background.jpg) no-repeat left top;
+    position:relative;
+}
+ 
+.demo-container .RadTabStripVertical .rtsLink
+{
+    text-align:left;
+}
+ 
+.demo-container .RadTabStripVertical .firstTab
+{
+    background: transparent url(background.jpg) no-repeat left top;
+    width: 76px;
+    padding-left: 13px !important;
+    height: 36px;
+    text-decoration:none;
+    font: 11px/36px Arial;
+    color: #4b9800 !important;
+}
+ 
+.demo-container .RadTabStripVertical .secondTab
+{
+    background: transparent url(background.jpg) no-repeat left top;
+    width: 76px;
+    padding-left: 13px !important;
+    height: 36px;
+    text-decoration:none;
+    font: 11px/36px Arial;
+    color: #4b9800 !important;
+}
+     
+.demo-container .RadTabStripVertical .thirdTab
+{
+    background: transparent url(background.jpg) no-repeat left top;
+    width: 76px;
+    padding-left: 13px !important;
+    height: 36px;
+    text-decoration:none;
+    font: 11px/36px Arial;
+    color: #ac4500 !important;
+}
+ 
+.demo-container .RadTabStripVertical .fourthTab
+{
+    background: transparent url(background.jpg) no-repeat left top;
+    width: 76px;
+    padding-left: 13px !important;
+    height: 36px;
+    text-decoration:none;
+    font: 11px/36px Arial;
+    color: #737373 !important;
+}
+.demo-container .RadTabStripVertical .firstTabSelected
+{
+    background: transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .secondTabSelected
+{
+    background: transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .thirdTabSelected
+{
+    background: transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .fourthTabSelected
+{
+    background:transparent url(background.jpg) no-repeat 0 0 !important;
+}
+ 
+.demo-container .RadTabStripVertical .firstTabHovered
+{
+    background:transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .secondTabHovered
+{
+    background:transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .thirdTabHovered
+{
+    background:transparent url(background.jpg) no-repeat 0 0 !important;
+}
+.demo-container .RadTabStripVertical .fourthTabHovered
+{
+    background:transparent url(background.jpg) no-repeat 0 0 !important;
+}
+ 
+.demo-container .RadTabStripVertical .rtsImg 
+{
+    float:right;
+    margin-top: 10px !important;
+    margin-right: 5px !important;
+}
+ 
+ 
+.time,
+.status
+{
+    color:#9b9b9b;
+}
+ 
+.chat
+{
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+.chat li
+{
+    padding: 5px 0px;
+}
+ 
+.demo-container .RadTabStripVerticalVertical .rtsUL
+{
+    width: 89px;
+}

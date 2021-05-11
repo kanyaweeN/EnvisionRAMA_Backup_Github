@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Lookup"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="ValueUpdatedEventArgs.cs"
+   text-time="2008-10-22T11:53:10.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="1d693f7c7e457aa4be02b4f2432fa246"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.250000Z"/>
+<entry
+   committed-rev="1"
+   name="Lookup.resx"
+   text-time="2008-10-22T11:53:10.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="32a9f8db6987c2d0d6bb55fc487be5e8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.250000Z"/>
+<entry
+   committed-rev="1"
+   name="Lookup.designer.cs"
+   text-time="2008-10-22T11:53:10.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="935cf0d7f5fe8477400d5bbb46940183"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.250000Z"/>
+<entry
+   committed-rev="1"
+   name="Lookup.cs"
+   text-time="2008-10-22T11:53:10.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="267d59b6b45d4ff195c39fa1e735d386"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:10.265625Z"/>
+</wc-entries>

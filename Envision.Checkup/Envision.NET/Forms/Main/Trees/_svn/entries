@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Main/Trees"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="SubMenuTree.designer.cs"
+   text-time="2008-10-22T11:53:03.484375Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="305b4915662759ef7b2ff1989d0a9b85"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.203125Z"/>
+<entry
+   committed-rev="1"
+   name="SubMenuTree.cs"
+   text-time="2008-10-22T11:53:03.500000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="030be6d4311ecd1ee816b2e27c57a393"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.218750Z"/>
+<entry
+   committed-rev="1"
+   name="SubMenuTree.resx"
+   text-time="2008-10-22T11:53:03.531250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2dac045eaf76b9ed91d0b180b01dda70"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:03.218750Z"/>
+</wc-entries>

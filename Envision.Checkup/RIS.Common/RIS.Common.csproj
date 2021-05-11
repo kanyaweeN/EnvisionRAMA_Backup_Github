@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4125D990-7016-45FD-836C-62433901A7CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RIS.Common</RootNamespace>
+    <AssemblyName>RIS.Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMergeExam.cs" />
+    <Compile Include="CheckExamResult.cs" />
+    <Compile Include="Common\GBLEnvVariable.cs" />
+    <Compile Include="Common\Utility\Helper.cs" />
+    <Compile Include="DistributionNew.cs" />
+    <Compile Include="EmpScheduleCatagory.cs" />
+    <Compile Include="ExamAddendum.cs" />
+    <Compile Include="ExamResultSave.cs" />
+    <Compile Include="ExamResultTemplate.cs" />
+    <Compile Include="ExamResultUpdate.cs" />
+    <Compile Include="FINInvoice.cs" />
+    <Compile Include="FINInvoicedtl.cs" />
+    <Compile Include="FINPayment.cs" />
+    <Compile Include="FINPaymentdtl.cs" />
+    <Compile Include="FormLanguage.cs" />
+    <Compile Include="GBLAlert.cs" />
+    <Compile Include="GBLEmployee.cs" />
+    <Compile Include="GBLEnv.cs" />
+    <Compile Include="GBLEnvlog.cs" />
+    <Compile Include="GBLException.cs" />
+    <Compile Include="GBLGrantObject.cs" />
+    <Compile Include="GBLGrantRole.cs" />
+    <Compile Include="GBLHospital.cs" />
+    <Compile Include="GBLLanguage.cs" />
+    <Compile Include="GBLMenu.cs" />
+    <Compile Include="GBLMymenu.cs" />
+    <Compile Include="GBLProduct.cs" />
+    <Compile Include="GBLRadexperience.cs" />
+    <Compile Include="GBLRole.cs" />
+    <Compile Include="GBLSequences.cs" />
+    <Compile Include="GBLSession.cs" />
+    <Compile Include="GBLSessionLog.cs" />
+    <Compile Include="GBLSessionViewer.cs" />
+    <Compile Include="GBLSubMenu.cs" />
+    <Compile Include="GBLSubMenuObjectLabel.cs" />
+    <Compile Include="GBLSubMenuObjects.cs" />
+    <Compile Include="GBL_BISETTINGS.cs" />
+    <Compile Include="HISDepartment.cs" />
+    <Compile Include="HISDoctor.cs" />
+    <Compile Include="HISRegistration.cs" />
+    <Compile Include="HL7Monitoring.cs" />
+    <Compile Include="HL7MonitoringNew.cs" />
+    <Compile Include="HRAccount.cs" />
+    <Compile Include="HREmp.cs" />
+    <Compile Include="HRUnit.cs" />
+    <Compile Include="INVAuthorization.cs" />
+    <Compile Include="INVPo.cs" />
+    <Compile Include="INVPodtl.cs" />
+    <Compile Include="INVPr.cs" />
+    <Compile Include="INVPrdtl.cs" />
+    <Compile Include="INVRequisition.cs" />
+    <Compile Include="INVRequisitiondtl.cs" />
+    <Compile Include="INVTransaction.cs" />
+    <Compile Include="INV_AUTHORISATION.cs" />
+    <Compile Include="INV_AUTHORISER.cs" />
+    <Compile Include="INV_CATEGORY.cs" />
+    <Compile Include="INV_ITEM.cs" />
+    <Compile Include="INV_ITEMSTATUS.cs" />
+    <Compile Include="INV_ITEMTYPE.cs" />
+    <Compile Include="INV_PO.cs" />
+    <Compile Include="INV_PODTL.cs" />
+    <Compile Include="INV_REQUISITION.cs" />
+    <Compile Include="INV_REQUISITIONDTL.cs" />
+    <Compile Include="INV_ROOMSTOCKREDUCE.cs" />
+    <Compile Include="INV_SETTINGS.cs" />
+    <Compile Include="INV_TRANSACTIONTYPE.cs" />
+    <Compile Include="INV_TXNUNIT.cs" />
+    <Compile Include="INV_UNIT.cs" />
+    <Compile Include="INV_UNITREORDERLEVEL.cs" />
+    <Compile Include="INV_VENDOR.cs" />
+    <Compile Include="ManageGroups.cs" />
+    <Compile Include="MISAsessmenttype.cs" />
+    <Compile Include="MISBiopsyresult.cs" />
+    <Compile Include="MISLesiontype.cs" />
+    <Compile Include="MISTechniquetype.cs" />
+    <Compile Include="OrderImages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportParameters.cs" />
+    <Compile Include="ResultEntryICD.cs" />
+    <Compile Include="ResultEntryWorkList.cs" />
+    <Compile Include="RISAuthlevel.cs" />
+    <Compile Include="RISBpview.cs" />
+    <Compile Include="RISClinicsession.cs" />
+    <Compile Include="RISClinictype.cs" />
+    <Compile Include="RISExam.cs" />
+    <Compile Include="RISExamhospital.cs" />
+    <Compile Include="RISExaminstructions.cs" />
+    <Compile Include="RISExamlog.cs" />
+    <Compile Include="RISExamresult.cs" />
+    <Compile Include="RISExamresultlegacy.cs" />
+    <Compile Include="RISExamresultlocks.cs" />
+    <Compile Include="RISExamresultlog.cs" />
+    <Compile Include="RISExamresultseverity.cs" />
+    <Compile Include="RISExamresulttemplate.cs" />
+    <Compile Include="RISExamresulttemplatelog.cs" />
+    <Compile Include="RISExamtemplateshare.cs" />
+    <Compile Include="RISExamtransferlog.cs" />
+    <Compile Include="RISInsurancetype.cs" />
+    <Compile Include="RISLoadmedia.cs" />
+    <Compile Include="RISLoadmediadtl.cs" />
+    <Compile Include="RISModality.cs" />
+    <Compile Include="RISModalityclinictype.cs" />
+    <Compile Include="RISModalityexam.cs" />
+    <Compile Include="RISModalitytype.cs" />
+    <Compile Include="RISNursesData.cs" />
+    <Compile Include="RISNursesDataDtl.cs" />
+    <Compile Include="RISOpnoteitem.cs" />
+    <Compile Include="RISOpnoteitemtemplate.cs" />
+    <Compile Include="RISOrder.cs" />
+    <Compile Include="RISOrderdtl.cs" />
+    <Compile Include="RISOrderimages.cs" />
+    <Compile Include="RISPaticd.cs" />
+    <Compile Include="RISPatstatus.cs" />
+    <Compile Include="RISQareason.cs" />
+    <Compile Include="RISQaworks.cs" />
+    <Compile Include="RISRadstudygroup.cs" />
+    <Compile Include="RISReleasemedia.cs" />
+    <Compile Include="RISSchedule.cs" />
+    <Compile Include="RISScheduledtl.cs" />
+    <Compile Include="RISSchedulelog.cs" />
+    <Compile Include="RISSearchEngine.cs" />
+    <Compile Include="RISServicetype.cs" />
+    <Compile Include="RISSF02Data.cs" />
+    <Compile Include="RISSF09Data.cs" />
+    <Compile Include="RISTechconsumption.cs" />
+    <Compile Include="RISTechworks.cs" />
+    <Compile Include="RISUserorgmap.cs" />
+    <Compile Include="RIS_HL7IELOG.cs" />
+    <Compile Include="RIS_INTEGRATIONCONFIG.cs" />
+    <Compile Include="RIS_INTEGRATIONSERVERS.cs" />
+    <Compile Include="RIS_ORDERIMAGES.cs" />
+    <Compile Include="SplitOrder.cs" />
+    <Compile Include="XRAYREQ.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Miracle\Miracle.csproj">
+      <Project>{35611988-B35A-4B05-8FFB-C64A0FB2B66F}</Project>
+      <Name>Miracle %28Miracle\Miracle%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_backup\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

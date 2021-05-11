@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E820180-8D93-4380-ABF1-E931F0018AAA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnvisionIEReceiver</RootNamespace>
+    <AssemblyName>EnvisionIEReceiver</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ConfigService.cs" />
+    <Compile Include="Receiver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Common\EnvisionInterfaceEngine.Common.csproj">
+      <Project>{871B652D-6ED7-429D-818A-E67460382435}</Project>
+      <Name>EnvisionInterfaceEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Connection\EnvisionInterfaceEngine.Connection.csproj">
+      <Project>{E27EEC46-443F-4AF9-B5B9-A77B6B795E5E}</Project>
+      <Name>EnvisionInterfaceEngine.Connection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.Operational\EnvisionInterfaceEngine.Operational.csproj">
+      <Project>{DCACCCDB-7B15-40B8-8750-975FB521119B}</Project>
+      <Name>EnvisionInterfaceEngine.Operational</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvisionInterfaceEngine.WebService\EnvisionInterfaceEngine.WebService.csproj">
+      <Project>{1EE2AC69-071D-4CB8-B6C3-DC7E1851CE72}</Project>
+      <Name>EnvisionInterfaceEngine.WebService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

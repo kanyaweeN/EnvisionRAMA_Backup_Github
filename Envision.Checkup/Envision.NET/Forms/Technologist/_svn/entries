@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Forms/Technologist"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   name="Dialog"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="frmTechWork.cs"
+   text-time="2008-10-22T11:53:01.281250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3b8f4ee7ad51bd6dcafddb2623b7cff2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.140625Z"/>
+<entry
+   committed-rev="1"
+   name="TF05.Designer.cs"
+   text-time="2008-10-22T11:53:01.296875Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="9a4c063f3e425dbb7d37ae256d0c3fa7"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.140625Z"/>
+<entry
+   committed-rev="1"
+   name="TF05.cs"
+   text-time="2008-10-22T11:53:01.312500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3d0df71547dc5349fa0f0a803bc23089"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.140625Z"/>
+<entry
+   committed-rev="1"
+   name="frmPatientData.resx"
+   text-time="2008-10-22T11:53:01.312500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="547044d75673cc6cfe8ab237b15a20d8"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.171875Z"/>
+<entry
+   committed-rev="1"
+   name="frmPatientData.Designer.cs"
+   text-time="2008-10-22T11:53:01.328125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="3992e2f8f4a92ca22c80bf87708fc5bc"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.187500Z"/>
+<entry
+   committed-rev="1"
+   name="frmPatientData.cs"
+   text-time="2008-10-22T11:53:01.328125Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="d05905ffa2f9b67bdf742784674ffc63"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.218750Z"/>
+<entry
+   committed-rev="1"
+   name="frmTechWork.resx"
+   text-time="2008-10-22T11:53:01.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="4e984c88e4dbba930f53b2d6797a81ec"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.218750Z"/>
+<entry
+   committed-rev="1"
+   name="TF05.resx"
+   text-time="2008-10-22T11:53:01.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="98471aae6653810ed6635fee17c223bc"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.234375Z"/>
+<entry
+   committed-rev="1"
+   name="frmTechWork.Designer.cs"
+   text-time="2008-10-22T11:53:01.656250Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="a69fa9b5354dc418be122431e912ffb5"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:01.250000Z"/>
+</wc-entries>

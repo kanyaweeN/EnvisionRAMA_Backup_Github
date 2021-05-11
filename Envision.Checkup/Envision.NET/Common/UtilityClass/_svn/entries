@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2008-08-13T05:05:06.781250Z"
+   url="svn://r300-demo/RIS/Common/UtilityClass"
+   last-author="Administrator"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="1"
+   name="DataConnect.cs"
+   text-time="2008-10-22T11:53:16.187500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="6ca48db791117fa15e0602dc0b73e276"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:15.921875Z"/>
+<entry
+   committed-rev="1"
+   name="DefaultSettings.cs"
+   text-time="2008-10-22T11:53:16.187500Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="c5fa3f547009835101798a70101fb537"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:15.984375Z"/>
+<entry
+   committed-rev="1"
+   name="GBLExceptionLog.cs"
+   text-time="2008-10-22T11:53:16.250000Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="0b21816d5376e686865b6ff5b38f208c"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:16.046875Z"/>
+<entry
+   committed-rev="1"
+   name="DatabaseUtility.cs"
+   text-time="2008-10-22T11:53:16.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="141bffa80ef56932bc64d0ed5ff2dcf2"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:16.140625Z"/>
+<entry
+   committed-rev="1"
+   name="DBUtility.cs"
+   text-time="2008-10-22T11:53:16.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="cadadef248b34e2376cf40720afff97f"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:16.156250Z"/>
+<entry
+   committed-rev="1"
+   name="displayForm.cs"
+   text-time="2008-10-22T11:53:16.265625Z"
+   committed-date="2008-08-13T05:05:06.781250Z"
+   checksum="2dec9e6c622432cbfdc1b6d400eb9c53"
+   last-author="Administrator"
+   kind="file"
+   prop-time="2008-10-22T11:53:16.187500Z"/>
+</wc-entries>

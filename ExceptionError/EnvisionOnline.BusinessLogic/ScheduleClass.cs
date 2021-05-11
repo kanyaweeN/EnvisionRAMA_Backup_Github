@@ -1,0 +1,525 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using EnvisionOnline.BusinessLogic.ProcessRead;
+using EnvisionOnline.Common.Common;
+using EnvisionOnline.BusinessLogic.ProcessCreate;
+using EnvisionOnline.BusinessLogic.ProcessDelete;
+using EnvisionOnline.BusinessLogic.ProcessUpdate;
+
+namespace EnvisionOnline.BusinessLogic
+{
+    public class ScheduleClass
+    {
+        public ScheduleClass() { 
+        }
+        public DataSet get_SessionMaxapp(int modality_id , byte weekdays)
+        {
+            ProcessGetRISSessionMaxapp maxapp = new ProcessGetRISSessionMaxapp();
+            maxapp.RIS_SESSIONMAXAPP.MODALITY_ID = modality_id;
+            maxapp.RIS_SESSIONMAXAPP.WEEKDAY = weekdays;
+            maxapp.Invoke();
+            return maxapp.ResultSet;
+        }
+        
+        public DataTable get_SessionTimeAll()
+        {
+            ProcessGetRISClinicsession session = new ProcessGetRISClinicsession();
+            return session.getSessionTimeAll();
+        }
+        public int get_SessionID_ByAppointDate(DateTime appointDate)
+        {
+            ProcessGetRISClinicsession session = new ProcessGetRISClinicsession();
+            return session.getSessionIDByAppintDate(appointDate);
+        }
+        public DataSet get_ScheduleCountInSession(DateTime start_time,DateTime end_time,int modality_id)
+        {
+            ProcessGetRISClinicsession session = new ProcessGetRISClinicsession();
+            session.RIS_CLINICSESSION.START_TIME = start_time;
+            session.RIS_CLINICSESSION.END_TIME = end_time;
+            session.RIS_CLINICSESSION.MODALITY_ID = modality_id;
+            return session.getScheduleCountInSession();
+        }
+        public DataTable get_ScheduleApp(DateTime start_time, DateTime end_time, int modality_id)
+        {
+            ProcessGetRISSchedule sch = new ProcessGetRISSchedule();
+            return sch.GetScheduleApp(start_time,end_time, modality_id);
+        }
+        public DataTable get_ScheduleAppCount(string query, DateTime date_start, DateTime date_end)
+        {
+            DataTable dt = new DataTable();
+            ProcessGetRISSessionAppCount sessionApp = new ProcessGetRISSessionAppCount(query,date_start,date_end);
+            sessionApp.Invoke();
+            dt = sessionApp.Result.Tables[0];
+            return dt;
+        }
+        
+        public List<int> check_ONLSchedule(DataTable dtSch, DataTable dtTemp, DataTable dtDelete, GBLEnvVariable env)
+        {
+            OrderClass ord = new OrderClass();
+            int order_id = 0;
+            int schedule_id = 0;
+            #region Check Delete Order
+            foreach (DataRow drDel in dtDelete.Rows)
+            {
+                if (!string.IsNullOrEmpty(drDel["SCHEDULE_ID"].ToString()))
+                    schedule_id = Convert.ToInt32(drDel["SCHEDULE_ID"]) > 0 ? Convert.ToInt32(drDel["SCHEDULE_ID"]) : schedule_id; //กรณี delete case เก่า
+                if (Convert.ToInt32(drDel["SCHEDULE_ID"]) == 0)
+                {
+                    ProcessDeleteXrayreqdtl del = new ProcessDeleteXrayreqdtl();
+                    del.XRAYREQ.ORDER_ID = order_id;
+                    del.XRAYREQ.EXAM_ID = Convert.ToInt32(drDel["EXAM_ID"]);
+                    del.XRAYREQ.LAST_MODIFIED_BY = env.UserID;
+                    del.Invoke();
+                }
+                else
+                {
+                    ProcessDeleteRISSchedule del = new ProcessDeleteRISSchedule();
+                    del.RIS_SCHEDULE.SCHEDULE_ID = Convert.ToInt32(drDel["SCHEDULE_ID"]);
+                    del.RIS_SCHEDULE.REASON = "Modified Data";
+                    del.RIS_SCHEDULE.LAST_MODIFIED_BY = env.UserID;
+                    del.Invoke();
+                }
+            }
+            #endregion
+
+            foreach (DataRow drChkScheduleID in dtSch.Rows)
+            {
+                if (!string.IsNullOrEmpty(drChkScheduleID["ORDER_ID"].ToString()))
+                    order_id = Convert.ToInt32(drChkScheduleID["ORDER_ID"]) > 0 ? Convert.ToInt32(drChkScheduleID["ORDER_ID"]) : order_id;
+
+                if (order_id != 0)
+                {
+                    ProcessDeleteXrayreqdtl del = new ProcessDeleteXrayreqdtl();
+                    del.XRAYREQ.ORDER_ID = order_id;
+                    del.XRAYREQ.EXAM_ID = Convert.ToInt32(drChkScheduleID["EXAM_ID"]);
+                    del.XRAYREQ.LAST_MODIFIED_BY = env.UserID;
+                    del.Invoke();
+                }
+            }
+
+            return set_ONLSchedule_Update(dtSch, dtTemp, env);
+        }
+        public DataSet check_ScheduleBlock(DateTime start_time,int modality_id)
+        {
+            ProcessGetRISSchedule sch = new ProcessGetRISSchedule();
+            return sch.CheckBlockcase(start_time, modality_id);
+        }
+        public DataSet check_NavigationInstruction(int exam_id)
+        {
+            ProcessGetRISExamInstruction nav = new ProcessGetRISExamInstruction();
+            return nav.getNavigation(exam_id);
+        }
+
+        public List<int> set_ONLSchedule_Update(DataTable dtSch, DataTable dtTemp, GBLEnvVariable env)
+        {
+            List<int> list = new List<int>();
+            RISBaseClass baseMange = new RISBaseClass();
+            DataSet dsSch = new DataSet();
+            DataTable dtt = new DataTable();
+            DataView dvSch = dtSch.DefaultView;
+            int schedule_id = 0;
+            dvSch.Sort = "SCHEDULE_ID DESC";
+            dtt = dvSch.ToTable();
+            schedule_id = schedule_id = string.IsNullOrEmpty(dtt.Rows[0]["SCHEDULE_ID"].ToString()) ? 0 : Convert.ToInt32(dtt.Rows[0]["SCHEDULE_ID"].ToString());
+            if (schedule_id == 0)
+            {
+                #region Separate Table
+                int dtCount = 0;
+                dvSch.Sort = "IS_PORTABLE_VALUE DESC";
+                dtt = dvSch.ToTable();
+                while (dtt.Rows.Count > 0)
+                {
+                    dtCount++;
+                    DataTable dttTemp = new DataTable(dtCount.ToString());
+                    dttTemp = dtt.Clone();
+
+                    if (!string.IsNullOrEmpty(dtt.Rows[0]["IS_PORTABLE_VALUE"].ToString()))
+                    {
+                        DataTable dttClinic = baseMange.get_RIS_ClinicType();
+                        DataTable dttExam = baseMange.get_Ris_ExamAll();
+
+                        DataTable dtPanelPortable = new DataTable();
+                        dtPanelPortable = baseMange.get_ExamPortable_Panel(Convert.ToInt32(dtt.Rows[0]["EXAM_ID"]), Convert.ToInt32(dtt.Rows[0]["CLINIC_TYPE"]));
+                        if (dtPanelPortable.Rows.Count > 0)
+                        {
+                            DataRow[] chkPort = dtt.Select("EXAM_ID=" + dtPanelPortable.Rows[0]["AUTO_EXAM_ID"].ToString());
+                            if (chkPort.Length > 0)
+                            {
+
+                                chkPort[0]["QTY"] = 1;
+                                chkPort[0]["SESSION_ID"] = dtt.Rows[0]["SESSION_ID"];
+                                chkPort[0]["START_DATETIME"] = dtt.Rows[0]["START_DATETIME"];
+                                chkPort[0]["END_DATETIME"] = dtt.Rows[0]["END_DATETIME"];
+                                DataRow[] rowsClinic = dttClinic.Select("CLINIC_TYPE_ID=" + chkPort[0]["CLINIC_TYPE"].ToString());
+                                DataRow[] rowsExam = dttExam.Select("EXAM_ID=" + chkPort[0]["EXAM_ID"].ToString());
+                                switch (rowsClinic[0]["CLINIC_TYPE_UID"].ToString())
+                                {
+                                    case "Normal": chkPort[0]["RATE"] = rowsExam[0]["RATE"].ToString(); break;
+                                    case "Special": chkPort[0]["RATE"] = rowsExam[0]["SPECIAL_RATE"].ToString(); break;
+                                    case "VIP": chkPort[0]["RATE"] = rowsExam[0]["VIP_RATE"].ToString(); break;
+                                    default: chkPort[0]["RATE"] = rowsExam[0]["RATE"].ToString(); break;
+                                }
+
+
+                                dttTemp.ImportRow(chkPort[0]);
+                                dttTemp.ImportRow(dtt.Rows[0]);
+                                dttTemp.AcceptChanges();
+
+                                dtt.Rows.Remove(chkPort[0]);
+                                dtt.Rows.Remove(dtt.Rows[0]);
+                                dtt.AcceptChanges();
+                            }
+                            else
+                            {
+                                foreach (DataTable dtCheck in dsSch.Tables)
+                                {
+                                    chkPort = dtCheck.Select("EXAM_ID=" + dtPanelPortable.Rows[0]["AUTO_EXAM_ID"].ToString());
+                                    if (chkPort.Length > 0)
+                                    {
+                                        chkPort[0]["QTY"] = 1;
+                                        chkPort[0]["SESSION_ID"] = dtt.Rows[0]["SESSION_ID"];
+                                        chkPort[0]["START_DATETIME"] = dtt.Rows[0]["START_DATETIME"];
+                                        chkPort[0]["END_DATETIME"] = dtt.Rows[0]["END_DATETIME"];
+                                        DataRow[] rowsClinic = dttClinic.Select("CLINIC_TYPE_ID=" + chkPort[0]["CLINIC_TYPE"].ToString());
+                                        DataRow[] rowsExam = dttExam.Select("EXAM_ID=" + chkPort[0]["EXAM_ID"].ToString());
+                                        switch (rowsClinic[0]["CLINIC_TYPE_UID"].ToString())
+                                        {
+                                            case "Normal": chkPort[0]["RATE"] = rowsExam[0]["RATE"].ToString(); break;
+                                            case "Special": chkPort[0]["RATE"] = rowsExam[0]["SPECIAL_RATE"].ToString(); break;
+                                            case "VIP": chkPort[0]["RATE"] = rowsExam[0]["VIP_RATE"].ToString(); break;
+                                            default: chkPort[0]["RATE"] = rowsExam[0]["RATE"].ToString(); break;
+                                        }
+
+                                        dtCheck.ImportRow(dtt.Rows[0]);
+                                        dtCheck.AcceptChanges();
+
+                                        dtt.Rows.Remove(dtt.Rows[0]);
+                                        dtt.AcceptChanges();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DataTable dtPanel = baseMange.get_Exam_Panel();
+                        DataRow[] chkPanel = dtPanel.Select("EXAM_ID=" + dtt.Rows[0]["EXAM_ID"].ToString());
+                        if (chkPanel.Length > 0)
+                        {
+                            DataRow[] rowCheck = dtt.Select("EXAM_ID=" + chkPanel[0]["AUTO_EXAM_ID"].ToString());
+                            if (rowCheck.Length > 0)
+                            {
+                                dttTemp.Rows.Add(dtt.Rows[0].ItemArray);
+                                dttTemp.Rows.Add(rowCheck[0]);
+                                dttTemp.AcceptChanges();
+
+                                dtt.Rows.Remove(rowCheck[0]);
+                                dtt.AcceptChanges();
+                            }
+                            else
+                            {
+                                foreach (DataTable dtCheck in dsSch.Tables)
+                                {
+                                    rowCheck = dtCheck.Select("EXAM_ID=" + chkPanel[0]["AUTO_EXAM_ID"].ToString());
+                                    if (rowCheck.Length > 0)
+                                    {
+                                        dtCheck.Rows.Add(dtt.Rows[0].ItemArray);
+                                        dtCheck.AcceptChanges();
+
+                                        dtt.Rows.Remove(dtt.Rows[0]);
+                                        dtt.AcceptChanges();
+                                    }
+                                }
+                                if (dsSch.Tables.Count <= 0)
+                                {
+                                    dttTemp.Rows.Add(dtt.Rows[0].ItemArray);
+                                    dttTemp.AcceptChanges();
+
+                                    dtt.Rows.Remove(dtt.Rows[0]);
+                                    dtt.AcceptChanges();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            dttTemp.Rows.Add(dtt.Rows[0].ItemArray);
+                            dttTemp.AcceptChanges();
+
+                            dtt.Rows.Remove(dtt.Rows[0]);
+                            dtt.AcceptChanges();
+                        }
+                    }
+                        
+                    
+                    dsSch.Tables.Add(dttTemp.Copy());
+                    dsSch.Tables[dtCount - 1].TableName = dtCount.ToString();
+                    dsSch.AcceptChanges();
+                }
+                #endregion
+            }
+            else
+            {
+                dsSch.Tables.Add(dtt.Copy());
+                dsSch.AcceptChanges();
+            }
+            for (int z = 0; z < dsSch.Tables.Count; z++)
+            {
+                if (dsSch.Tables[z].Rows.Count > 0)
+                {
+                    #region Check Parameter
+                    schedule_id = string.IsNullOrEmpty(dsSch.Tables[z].Rows[0]["SCHEDULE_ID"].ToString()) ? 0 : Convert.ToInt32(dsSch.Tables[z].Rows[0]["SCHEDULE_ID"].ToString());
+                    int avg_time = 5;
+                    if (string.IsNullOrEmpty(dsSch.Tables[z].Rows[0]["AVG_INV_TIME"].ToString()))
+                    {
+                        RISBaseClass risbase = new RISBaseClass();
+                        DataRow[] drModality = risbase.get_Ris_Modality().Select("MODALITY_ID=" + dsSch.Tables[z].Rows[0]["MODALITY_ID"].ToString());
+                        avg_time = Convert.ToInt32(drModality[0]["AVG_INV_TIME"]);
+                    }
+                    else
+                    {
+                        avg_time = Convert.ToInt32(dsSch.Tables[z].Rows[0]["AVG_INV_TIME"]);
+                    }
+                    string strBP_ID = string.IsNullOrEmpty(dsSch.Tables[z].Rows[0]["BPVIEW_ID"].ToString()) ? "5" : dsSch.Tables[z].Rows[0]["BPVIEW_ID"].ToString();
+                    #endregion
+
+                    if (schedule_id == 0)
+                    {
+                        #region Insert Schedule
+                        ProcessAddRISSchedule sch = new ProcessAddRISSchedule();
+                        sch.RIS_SCHEDULE.SCHEDULE_ID = 0;
+                        sch.RIS_SCHEDULE.HN = dsSch.Tables[z].Rows[0]["HN"].ToString();
+                        sch.RIS_SCHEDULE.REG_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["REG_ID"]);
+                        sch.RIS_SCHEDULE.SCHEDULE_DT = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["EXAM_DT"]);
+                        sch.RIS_SCHEDULE.MODALITY_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["MODALITY_ID"]);
+                        sch.RIS_SCHEDULE.SCHEDULE_DATA = get_ScheduleData(dsSch.Tables[z], dtTemp);
+                        sch.RIS_SCHEDULE.SESSION_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["SESSION_ID"]);
+                        sch.RIS_SCHEDULE.START_DATETIME = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["START_DATETIME"]);
+                        sch.RIS_SCHEDULE.END_DATETIME = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["END_DATETIME"]);
+                        sch.RIS_SCHEDULE.REF_UNIT = Convert.ToInt32(dtTemp.Rows[0]["REF_UNIT_ID"]);
+                        sch.RIS_SCHEDULE.REF_DOC = Convert.ToInt32(dtTemp.Rows[0]["REF_DOC_ID"]);
+                        sch.RIS_SCHEDULE.REF_DOC_INSTRUCTION = dsSch.Tables[z].Rows[0]["REF_DOC_INSTRUCTION"].ToString();
+                        sch.RIS_SCHEDULE.CLINICAL_INSTRUCTION = dtTemp.Rows[0]["txtEditor"].ToString();
+                        sch.RIS_SCHEDULE.PAT_STATUS = Convert.ToInt32(dtTemp.Rows[0]["PAT_STATUS"]);
+                        sch.RIS_SCHEDULE.SCHEDULE_STATUS = dsSch.Tables[z].Rows[0]["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0 ? 'W' : 'S';
+                        sch.RIS_SCHEDULE.IS_BLOCKED = 'N';//drChk["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0 ? 'Y' : 'N';
+                        sch.RIS_SCHEDULE.COMMENTS = dsSch.Tables[z].Rows[0]["COMMENTS"].ToString();
+                        sch.RIS_SCHEDULE.ORG_ID = env.OrgID;
+                        sch.RIS_SCHEDULE.CREATED_BY = env.UserID;
+                        sch.RIS_SCHEDULE.INSURANCE_TYPE_ID = Convert.ToInt32(dtTemp.Rows[0]["INSURANCE_TYPE_ID"]);
+                        sch.RIS_SCHEDULE.ENC_TYPE = dtTemp.Rows[0]["ENC_TYPE"].ToString();
+                        sch.RIS_SCHEDULE.ENC_CLINIC = dtTemp.Rows[0]["ENC_CLINIC"].ToString();
+                        sch.Invoke();
+                        schedule_id = sch.RIS_SCHEDULE.SCHEDULE_ID;
+                        foreach (DataRow drChk in dsSch.Tables[z].Rows)
+                        {
+                            ProcessAddRISScheduleDtl schdtl = new ProcessAddRISScheduleDtl();
+                            schdtl.RIS_SCHEDULEDTL.SCHEDULE_ID = schedule_id;
+                            schdtl.RIS_SCHEDULEDTL.EXAM_ID = Convert.ToInt32(drChk["EXAM_ID"]);
+                            schdtl.RIS_SCHEDULEDTL.QTY = string.IsNullOrEmpty(drChk["QTY"].ToString()) ? 1 : Convert.ToInt32(drChk["QTY"]);
+                            schdtl.RIS_SCHEDULEDTL.RATE = Convert.ToDecimal(drChk["RATE"]);
+                            schdtl.RIS_SCHEDULEDTL.RAD_ID = string.IsNullOrEmpty(drChk["ASSIGNED_TO"].ToString()) ? 0 : Convert.ToInt32(drChk["ASSIGNED_TO"].ToString());
+                            schdtl.RIS_SCHEDULEDTL.BPVIEW_ID = Convert.ToInt32(strBP_ID);
+                            schdtl.RIS_SCHEDULEDTL.AVG_REQ_MIN = avg_time;
+                            schdtl.RIS_SCHEDULEDTL.ORG_ID = env.OrgID;
+                            schdtl.RIS_SCHEDULEDTL.CREATED_BY = env.UserID;
+                            schdtl.RIS_SCHEDULEDTL.PAT_DEST_ID = Convert.ToInt32(drChk["PAT_DEST_ID"]);
+                            schdtl.Invoke();
+                        }
+                        #endregion
+                    }
+                    else
+                    {
+                        #region Update Schedule
+                        ProcessUpdateRISSchedule upd = new ProcessUpdateRISSchedule();
+                        upd.RIS_SCHEDULE.SCHEDULE_ID = schedule_id;
+                        upd.RIS_SCHEDULE.HN = dsSch.Tables[z].Rows[0]["HN"].ToString();
+                        upd.RIS_SCHEDULE.REG_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["REG_ID"]);
+                        upd.RIS_SCHEDULE.SCHEDULE_DT = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["EXAM_DT"]);
+                        upd.RIS_SCHEDULE.MODALITY_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["MODALITY_ID"]);
+                        upd.RIS_SCHEDULE.SCHEDULE_DATA = get_ScheduleData(dsSch.Tables[z], dtTemp);
+                        upd.RIS_SCHEDULE.SESSION_ID = Convert.ToInt32(dsSch.Tables[z].Rows[0]["SESSION_ID"]);
+                        upd.RIS_SCHEDULE.START_DATETIME = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["START_DATETIME"]);
+                        upd.RIS_SCHEDULE.END_DATETIME = Convert.ToDateTime(dsSch.Tables[z].Rows[0]["END_DATETIME"]);
+                        upd.RIS_SCHEDULE.REF_UNIT = Convert.ToInt32(dtTemp.Rows[0]["REF_UNIT_ID"]);
+                        upd.RIS_SCHEDULE.REF_DOC = Convert.ToInt32(dtTemp.Rows[0]["REF_DOC_ID"]);
+                        upd.RIS_SCHEDULE.REF_DOC_INSTRUCTION = dsSch.Tables[z].Rows[0]["REF_DOC_INSTRUCTION"].ToString();
+                        upd.RIS_SCHEDULE.CLINICAL_INSTRUCTION = dtTemp.Rows[0]["txtEditor"].ToString();
+                        upd.RIS_SCHEDULE.PAT_STATUS = Convert.ToInt32(dtTemp.Rows[0]["PAT_STATUS"]);
+                        upd.RIS_SCHEDULE.SCHEDULE_STATUS = dsSch.Tables[z].Rows[0]["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0 ? 'W' : 'S';
+                        upd.RIS_SCHEDULE.IS_BLOCKED = 'N';//drChk["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0 ? 'Y' : 'N';
+                        upd.RIS_SCHEDULE.COMMENTS = dsSch.Tables[z].Rows[0]["COMMENTS"].ToString();
+                        upd.RIS_SCHEDULE.ORG_ID = env.OrgID;
+                        upd.RIS_SCHEDULE.CREATED_BY = env.UserID;
+                        upd.RIS_SCHEDULE.INSURANCE_TYPE_ID = Convert.ToInt32(dtTemp.Rows[0]["INSURANCE_TYPE_ID"]);
+                        upd.RIS_SCHEDULE.ENC_TYPE = dtTemp.Rows[0]["ENC_TYPE"].ToString();
+                        upd.RIS_SCHEDULE.ENC_CLINIC = dtTemp.Rows[0]["ENC_CLINIC"].ToString();
+                        upd.Invoke();
+                        foreach (DataRow drChk in dsSch.Tables[z].Rows)
+                        {
+                            if (string.IsNullOrEmpty(drChk["SCHEDULE_ID"].ToString()))
+                            {
+                                ProcessAddRISScheduleDtl schdtl = new ProcessAddRISScheduleDtl();
+                                schdtl.RIS_SCHEDULEDTL.SCHEDULE_ID = schedule_id;
+                                schdtl.RIS_SCHEDULEDTL.EXAM_ID = Convert.ToInt32(drChk["EXAM_ID"]);
+                                schdtl.RIS_SCHEDULEDTL.QTY = string.IsNullOrEmpty(drChk["QTY"].ToString()) ? 1 : Convert.ToInt32(drChk["QTY"]);
+                                schdtl.RIS_SCHEDULEDTL.RATE = Convert.ToDecimal(drChk["RATE"]);
+                                schdtl.RIS_SCHEDULEDTL.RAD_ID = string.IsNullOrEmpty(drChk["ASSIGNED_TO"].ToString()) ? 0 : Convert.ToInt32(drChk["ASSIGNED_TO"].ToString());
+                                schdtl.RIS_SCHEDULEDTL.BPVIEW_ID = Convert.ToInt32(strBP_ID);
+                                schdtl.RIS_SCHEDULEDTL.AVG_REQ_MIN = avg_time;
+                                schdtl.RIS_SCHEDULEDTL.ORG_ID = env.OrgID;
+                                schdtl.RIS_SCHEDULEDTL.CREATED_BY = env.UserID;
+                                schdtl.RIS_SCHEDULEDTL.PAT_DEST_ID = Convert.ToInt32(drChk["PAT_DEST_ID"]);
+                                schdtl.Invoke();
+                            }
+                            else
+                            {
+                                ProcessUpdateRISScheduledtl upddtl = new ProcessUpdateRISScheduledtl();
+                                upddtl.RIS_SCHEDULEDTL.SCHEDULE_ID = schedule_id;
+                                upddtl.RIS_SCHEDULEDTL.EXAM_ID = Convert.ToInt32(drChk["EXAM_ID"]);
+                                upddtl.RIS_SCHEDULEDTL.QTY = string.IsNullOrEmpty(drChk["QTY"].ToString()) ? 1 : Convert.ToInt32(drChk["QTY"]);
+                                upddtl.RIS_SCHEDULEDTL.RATE = Convert.ToDecimal(drChk["RATE"]);
+                                upddtl.RIS_SCHEDULEDTL.RAD_ID = string.IsNullOrEmpty(drChk["ASSIGNED_TO"].ToString()) ? 0 : Convert.ToInt32(drChk["ASSIGNED_TO"].ToString());
+                                upddtl.RIS_SCHEDULEDTL.BPVIEW_ID = Convert.ToInt32(strBP_ID);
+                                upddtl.RIS_SCHEDULEDTL.AVG_REQ_MIN = avg_time;
+                                upddtl.RIS_SCHEDULEDTL.ORG_ID = env.OrgID;
+                                upddtl.RIS_SCHEDULEDTL.CREATED_BY = env.UserID;
+                                upddtl.RIS_SCHEDULEDTL.PAT_DEST_ID = Convert.ToInt32(drChk["PAT_DEST_ID"]);
+                                upddtl.Invoke();
+                            }
+                        }
+                        #endregion
+                    }
+                    list.Add(schedule_id);
+                }
+            }
+            return list;
+        }
+        public bool set_ONLSchedule_Delete(int schedule_id,string reason,int last_modified_by)
+        {
+            ProcessDeleteRISSchedule del = new ProcessDeleteRISSchedule();
+            del.RIS_SCHEDULE.SCHEDULE_ID = schedule_id;
+            del.RIS_SCHEDULE.REASON = reason;
+            del.RIS_SCHEDULE.LAST_MODIFIED_BY = last_modified_by;
+            del.Invoke();
+            return true;
+        }
+        private string get_ScheduleData(DataTable dtsch, DataTable dtTemp)
+        {
+            RISBaseClass risbase = new RISBaseClass();
+            DataTable dtExam = risbase.get_Ris_Exam();
+            string schedule_data = "";
+            schedule_data += "HN : " + dtsch.Rows[0]["HN"].ToString();
+            schedule_data += " " + dtTemp.Rows[0]["FULLNAME_PAT"].ToString() +"\r\n";
+            foreach (DataRow dr in dtsch.Rows)
+            {
+                DataRow[] rowExam = dtExam.Select("EXAM_ID=" + dr["EXAM_ID"].ToString());
+                if (rowExam.Length > 0)
+                    schedule_data += " " + rowExam[0]["EXAM_NAME"].ToString() +";";
+            }
+            foreach (DataRow drr in dtsch.Rows)
+                schedule_data += " " + drr["COMMENTS"].ToString();
+
+            return schedule_data;
+        }
+        private int get_CIID_ClinicalIndication(string strFullPath)
+        {
+            ProcessGetRISClinicalIndication indication = new ProcessGetRISClinicalIndication();
+            string[] splFullPath = strFullPath.Split('/');
+            int ciid = 0;
+            if (splFullPath.Length > 1)
+            {
+                int i = splFullPath.Length - 1;
+                ciid = indication.get_CI_ID(splFullPath[i], splFullPath[i - 1], "Multi"); ;
+            }
+            else
+                ciid = indication.get_CI_ID(splFullPath[0], "", "Single");
+
+            return ciid;
+        }
+        private int get_CITypeID_ClinicalIndicationType(string strFullPath)
+        {
+            string[] splFullPath = strFullPath.Split('/');
+            int ciid = 0;
+            ProcessGetRISClinicalIndicationType indication = new ProcessGetRISClinicalIndicationType();
+            if (splFullPath.Length > 1)
+            {
+                int i = splFullPath.Length - 1;
+                ciid = indication.get_CI_TYPE_ID(splFullPath[i], splFullPath[i - 1], "Multi");
+            }
+            else
+                ciid = indication.get_CI_TYPE_ID(splFullPath[0], "", "Single");
+            return ciid;
+        }
+
+        public bool set_RIS_ORDERCLINICALINDICATION(List<string> listFullpath, int schedule_id, bool is_delete,GBLEnvVariable env)
+        {
+            if (is_delete)
+            {
+                ProcessDeleteRISOrderClinicalIndication del = new ProcessDeleteRISOrderClinicalIndication();
+                del.RIS_ORDERCLINICALINDICATION.ORDER_ID = 0;
+                del.RIS_ORDERCLINICALINDICATION.SCHEDULE_ID = schedule_id;
+                del.Invoke();
+            }
+            else
+            {
+                foreach (string strFullPath in listFullpath)
+                {
+                    int ciid = get_CIID_ClinicalIndication(strFullPath);
+
+                    ProcessAddRISOrderClinicalindication addOrdIndication = new ProcessAddRISOrderClinicalindication();
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.SCHEDULE_ID = schedule_id;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.IS_REQONLINE = "Y";
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.CI_ID = ciid;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.ORG_ID = env.OrgID;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.CREATED_BY = env.UserID;
+                    addOrdIndication.Invoke();
+                }
+            }
+            return true;
+        }
+        public bool set_RIS_ORDERCLINICALINDICATIONTYPE(List<string> listFullpath, int schedule_id, bool is_delete,GBLEnvVariable env)
+        {
+
+            if (is_delete)
+            {
+                ProcessDeleteRISOrderClinicalIndicationType del = new ProcessDeleteRISOrderClinicalIndicationType();
+                del.RIS_ORDERCLINICALINDICATIONTYPE.ORDER_ID = 0;
+                del.RIS_ORDERCLINICALINDICATIONTYPE.SCHEDULE_ID = schedule_id;
+                del.Invoke();
+            }
+            else
+            {
+                foreach (string strFullPath in listFullpath)
+                {
+                    int ciid = get_CITypeID_ClinicalIndicationType(strFullPath);
+                    ProcessAddRISOrderClinicalindicationType addOrdIndication = new ProcessAddRISOrderClinicalindicationType();
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.SCHEDULE_ID = schedule_id;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.IS_REQONLINE = "Y";
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.CI_ID = ciid;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.ORG_ID = env.OrgID;
+                    addOrdIndication.RIS_ORDERCLINICALINDICATION.CREATED_BY = env.UserID;
+                    addOrdIndication.Invoke();
+                }
+            }
+            return true;
+        }
+        
+        public bool set_RIS_ORDERICD(DataTable dt, int schedule_id, bool is_update,GBLEnvVariable env)
+        {
+            foreach (DataRow dr in dt.Rows)
+            {
+                ProcessAddRISOrderICD addICD = new ProcessAddRISOrderICD();
+                addICD.RIS_ORDERICD.SCHEDULE_ID = schedule_id;
+                addICD.RIS_ORDERICD.ICD_ID = Convert.ToInt32(dr["ICD_ID"]);
+                addICD.RIS_ORDERICD.ORG_ID = env.OrgID;
+                addICD.RIS_ORDERICD.CREATED_BY = env.UserID;
+                addICD.RIS_ORDERICD.IS_REQONLINE = "Y";
+                addICD.Invoke();
+            }
+            return true;
+        }
+    }
+}

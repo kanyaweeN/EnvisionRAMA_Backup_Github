@@ -1,0 +1,2996 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB95E359-1EC6-4BDF-858F-E8CF12C1144B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.NET</RootNamespace>
+    <AssemblyName>Envision.NET</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>84CD25ECA02C43B0FA4A2C862F1CB7E2940FE975</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Envision.NET_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>Envision2.ico</ApplicationIcon>
+    <PublishUrl>D:\Works\Deploy\Envision_CheckupRAMA\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://miracle99/Envision_Checkup/</InstallUrl>
+    <ProductName>Envision.NET - Checkup</ProductName>
+    <PublisherName>Miracle Advance Technologies</PublisherName>
+    <MinimumRequiredVersion>2.0.0.52</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.htm</WebPage>
+    <ApplicationRevision>53</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="DevExpress.Charts.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.OfficeSkins.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v9.1.UI, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v9.1.Extensions, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Extensions, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL" />
+    <Reference Include="Elegant.Ui, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dc2acd7dbc8a5f88, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Shared.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Shared.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.EmployeeSchedule, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.EmployeeSchedule.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.Misc.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.Misc.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.SupportDialogs.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.SupportDialogs.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinCalcManager.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinCalcManager.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinCalcManager.v7.3.FormulaBuilder, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinCalcManager.v7.3.FormulaBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinDataSource.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinDataSource.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinDock.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinDock.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinEditors.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinExplorerBar.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinExplorerBar.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinGrid.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinListBar.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinListBar.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinListView.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinListView.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinMaskedEdit.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinPrintPreviewDialog.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinPrintPreviewDialog.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinSchedule.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinSchedule.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinSpellChecker.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinSpellChecker.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinStatusBar.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinStatusBar.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTabbedMdi.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinTabbedMdi.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinTabControl.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinToolbars.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTree.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.UltraWinTree.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.v7.3, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.v7.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.v7.3.Design, Version=7.3.20073.38, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Infragistics2.Win.v7.3.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MiraController, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MT.WindowsUI, Version=2.6.2.0, Culture=neutral, PublicKeyToken=6a0e81d0b9165633, processorArchitecture=MSIL" />
+    <Reference Include="NationalIdCardSdk4NET, Version=1.0.2347.32104, Culture=neutral" />
+    <Reference Include="Nevron.Presentation, Version=7.11.5.12, Culture=neutral, PublicKeyToken=6656c5d1103e75cc, processorArchitecture=MSIL" />
+    <Reference Include="Nevron.System, Version=7.11.5.12, Culture=neutral, PublicKeyToken=6a987feae5e496fd, processorArchitecture=MSIL" />
+    <Reference Include="NHapi.Base, Version=2.0.2.0, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL" />
+    <Reference Include="NHapi.Model.V23, Version=2.0.2.0, Culture=neutral, PublicKeyToken=81484ee3e2938800, processorArchitecture=MSIL" />
+    <Reference Include="Npgsql, Version=2.0.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="NRtfTree, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SriClocks, Version=1.0.1506.35277, Culture=neutral" />
+    <Reference Include="SUL.Control.RTextbox, Version=1.0.2810.21307, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SUL.DBM, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SUL.GraphicDesign, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UULibrary, Version=1.7.0.0, Culture=neutral" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DBConnection\dbConnection.cs" />
+    <Compile Include="Common\UtilityClass\DatabaseUtility.cs" />
+    <Compile Include="Common\UtilityClass\DataConnect.cs" />
+    <Compile Include="Common\UtilityClass\DBUtility.cs" />
+    <Compile Include="Common\UtilityClass\DefaultSettings.cs" />
+    <Compile Include="Common\UtilityClass\displayForm.cs" />
+    <Compile Include="Common\UtilityClass\GBLExceptionLog.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AlertSessionPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AlertSessionPopup.Designer.cs">
+      <DependentUpon>AlertSessionPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\editProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\editProfile.designer.cs">
+      <DependentUpon>editProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\employeeInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\employeeInformation.designer.cs">
+      <DependentUpon>employeeInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamMerge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamMerge.designer.cs">
+      <DependentUpon>ExamMerge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamResultLock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamResultLock.designer.cs">
+      <DependentUpon>ExamResultLock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamresultLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamresultLog.designer.cs">
+      <DependentUpon>ExamresultLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamresultLog_Radiologist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamresultLog_Radiologist.designer.cs">
+      <DependentUpon>ExamresultLog_Radiologist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ExamSetup.Designer.cs">
+      <DependentUpon>ExamSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmExamSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmExamSetup.designer.cs">
+      <DependentUpon>frmExamSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmHL7Monitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmHL7Monitoring.Designer.cs">
+      <DependentUpon>frmHL7Monitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmIntegrationConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmIntegrationConfig.designer.cs">
+      <DependentUpon>frmIntegrationConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmInterfaceMonitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmInterfaceMonitoring.designer.cs">
+      <DependentUpon>frmInterfaceMonitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmModalitySetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmModalitySetup.designer.cs">
+      <DependentUpon>frmModalitySetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmMonitoringConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmMonitoringConfirm.Designer.cs">
+      <DependentUpon>frmMonitoringConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\frmSession.designer.cs">
+      <DependentUpon>frmSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_AF01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_AF01.designer.cs">
+      <DependentUpon>GBL_AF01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_HOSPITAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_HOSPITAL.Designer.cs">
+      <DependentUpon>GBL_HOSPITAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_LF01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_LF01.Designer.cs">
+      <DependentUpon>GBL_LF01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF01.Designer.cs">
+      <DependentUpon>GBL_SF01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF02.Designer.cs">
+      <DependentUpon>GBL_SF02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF03.designer.cs">
+      <DependentUpon>GBL_SF03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF03a.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF03a.designer.cs">
+      <DependentUpon>GBL_SF03a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF04.Designer.cs">
+      <DependentUpon>GBL_SF04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF05.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF05.Designer.cs">
+      <DependentUpon>GBL_SF05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF06.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF06.Designer.cs">
+      <DependentUpon>GBL_SF06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF07.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF07.Designer.cs">
+      <DependentUpon>GBL_SF07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF08.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF08.Designer.cs">
+      <DependentUpon>GBL_SF08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF09.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF09.Designer.cs">
+      <DependentUpon>GBL_SF09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF11.Designer.cs">
+      <DependentUpon>GBL_SF11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GBL_SF13.Designer.cs">
+      <DependentUpon>GBL_SF13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\GrantUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GrantUnit.Designer.cs">
+      <DependentUpon>GrantUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\HL7MonitoringForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\HL7MonitoringForm.designer.cs">
+      <DependentUpon>HL7MonitoringForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_AUTHORISER_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_AUTHORISER_FORM.Designer.cs">
+      <DependentUpon>INV_AUTHORISER_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_CATEGORY_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_CATEGORY_FORM.Designer.cs">
+      <DependentUpon>INV_CATEGORY_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEMSTATUS_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEMSTATUS_FORM.Designer.cs">
+      <DependentUpon>INV_ITEMSTATUS_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEMTYPE_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEMTYPE_FORM.Designer.cs">
+      <DependentUpon>INV_ITEMTYPE_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEM_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_ITEM_FORM.Designer.cs">
+      <DependentUpon>INV_ITEM_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_SETTINGS_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_SETTINGS_FORM.Designer.cs">
+      <DependentUpon>INV_SETTINGS_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_TRANSACTIONTYPE_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_TRANSACTIONTYPE_FORM.Designer.cs">
+      <DependentUpon>INV_TRANSACTIONTYPE_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_TXNUNIT_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_TXNUNIT_FORM.Designer.cs">
+      <DependentUpon>INV_TXNUNIT_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_UNIT_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_UNIT_FORM.Designer.cs">
+      <DependentUpon>INV_UNIT_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_VENDOR_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\INV_VENDOR_FORM.Designer.cs">
+      <DependentUpon>INV_VENDOR_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\LogMonitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\LogMonitoring.designer.cs">
+      <DependentUpon>LogMonitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\LogMonitoringRad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\LogMonitoringRad.designer.cs">
+      <DependentUpon>LogMonitoringRad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\menuEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\menuEntry.designer.cs">
+      <DependentUpon>menuEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\PatientStatusN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\PatientStatusN.Designer.cs">
+      <DependentUpon>PatientStatusN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\QAReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\QAReason.Designer.cs">
+      <DependentUpon>QAReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\QAWorklist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\QAWorklist.Designer.cs">
+      <DependentUpon>QAWorklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RisvPatienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RisvPatienForm.designer.cs">
+      <DependentUpon>RisvPatienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_EXAMHOSPITAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_EXAMHOSPITAL.Designer.cs">
+      <DependentUpon>RIS_EXAMHOSPITAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_OperatorNoteItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_OperatorNoteItem.Designer.cs">
+      <DependentUpon>RIS_OperatorNoteItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF02.Designer.cs">
+      <DependentUpon>RIS_SF02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF04.Designer.cs">
+      <DependentUpon>RIS_SF04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF06.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF06.Designer.cs">
+      <DependentUpon>RIS_SF06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF07.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF07.Designer.cs">
+      <DependentUpon>RIS_SF07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF08.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF08.Designer.cs">
+      <DependentUpon>RIS_SF08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF09.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF09.Designer.cs">
+      <DependentUpon>RIS_SF09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF10.Designer.cs">
+      <DependentUpon>RIS_SF10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF11.Designer.cs">
+      <DependentUpon>RIS_SF11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RIS_SF12.Designer.cs">
+      <DependentUpon>RIS_SF12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\UserAccountSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\UserAccountSettings.designer.cs">
+      <DependentUpon>UserAccountSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\userPrivilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\userPrivilege.designer.cs">
+      <DependentUpon>userPrivilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GBLMessage\MyMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GBLMessage\MyMessageBox.designer.cs">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lookup\Lookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Lookup\Lookup.designer.cs">
+      <DependentUpon>Lookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lookup\LookupData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Lookup\LookupData.Designer.cs">
+      <DependentUpon>LookupData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Lookup\ValueUpdatedEventArgs.cs" />
+    <Compile Include="Forms\Main\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\frmMainTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\frmMainTab.designer.cs">
+      <DependentUpon>frmMainTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\Trees\SubMenuTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\Trees\SubMenuTree.designer.cs">
+      <DependentUpon>SubMenuTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\frmComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\frmComments.Designer.cs">
+      <DependentUpon>frmComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\frmOrders_Lite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\frmOrders_Lite.designer.cs">
+      <DependentUpon>frmOrders_Lite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\frmReprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\frmReprint.Designer.cs">
+      <DependentUpon>frmReprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\frmViewPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\frmViewPerformance.Designer.cs">
+      <DependentUpon>frmViewPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\GBL_SF14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\GBL_SF14.Designer.cs">
+      <DependentUpon>GBL_SF14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\PatientRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\PatientRegistration.Designer.cs">
+      <DependentUpon>PatientRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\PatientRegistration_ActivateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\PatientRegistration_ActivateDialog.Designer.cs">
+      <DependentUpon>PatientRegistration_ActivateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\RisvPatienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\RisvPatienForm.designer.cs">
+      <DependentUpon>RisvPatienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\RIS_TF05.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\RIS_TF05.Designer.cs">
+      <DependentUpon>RIS_TF05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\SelectStickerPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\SelectStickerPoint.Designer.cs">
+      <DependentUpon>SelectStickerPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmDocInstruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmDocInstruction.Designer.cs">
+      <DependentUpon>frmDocInstruction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmICD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmICD.Designer.cs">
+      <DependentUpon>frmICD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmWaitDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order\WaitDialog\frmWaitDialog.designer.cs">
+      <DependentUpon>frmWaitDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Popup\PopupNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Popup\PopupNotify.designer.cs">
+      <DependentUpon>PopupNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\Addendum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\BrowseArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\BrowseArchive.designer.cs">
+      <DependentUpon>BrowseArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\Common\ColorPopupRichText.cs" />
+    <Compile Include="Forms\ResultEntry\frmAddendum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmAddendum.Designer.cs">
+      <DependentUpon>frmAddendum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmICD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmICD.Designer.cs">
+      <DependentUpon>frmICD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmReprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmReprint.Designer.cs">
+      <DependentUpon>frmReprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmResultEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\frmResultEntry.Designer.cs">
+      <DependentUpon>frmResultEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\OpenTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\OpenTemplate.Designer.cs">
+      <DependentUpon>OpenTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\RadExperience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\RadExperience.designer.cs">
+      <DependentUpon>RadExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\RadioFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\RadioFinal.Designer.cs">
+      <DependentUpon>RadioFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\SaveTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\SaveTemplate.Designer.cs">
+      <DependentUpon>SaveTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\SearchEngine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\SearchEngine.Designer.cs">
+      <DependentUpon>SearchEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\StudyManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\StudyManagement.designer.cs">
+      <DependentUpon>StudyManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultEntry\Transfer.designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\ImageOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\ImageOrder.Designer.cs">
+      <DependentUpon>ImageOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\PerformUsr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\PerformUsr.Designer.cs">
+      <DependentUpon>PerformUsr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\QAConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\QAConfirm.Designer.cs">
+      <DependentUpon>QAConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\Reason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\Dialog\Reason.Designer.cs">
+      <DependentUpon>Reason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\Distribution Channel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\Distribution Channel.Designer.cs">
+      <DependentUpon>Distribution Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\frmPatientData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\frmPatientData.Designer.cs">
+      <DependentUpon>frmPatientData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\frmPopupReleaseMedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\frmPopupReleaseMedia.designer.cs">
+      <DependentUpon>frmPopupReleaseMedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technologist\MediaManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technologist\MediaManagement.Designer.cs">
+      <DependentUpon>MediaManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.th-TH.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AlertSessionPopup.resx">
+      <DependentUpon>AlertSessionPopup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\editProfile.resx">
+      <DependentUpon>editProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\employeeInformation.resx">
+      <DependentUpon>employeeInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ExamMerge.resx">
+      <DependentUpon>ExamMerge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ExamResultLock.resx">
+      <DependentUpon>ExamResultLock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ExamresultLog.resx">
+      <DependentUpon>ExamresultLog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ExamresultLog_Radiologist.resx">
+      <DependentUpon>ExamresultLog_Radiologist.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ExamSetup.resx">
+      <DependentUpon>ExamSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmExamSetup.resx">
+      <DependentUpon>frmExamSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmHL7Monitoring.resx">
+      <DependentUpon>frmHL7Monitoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmIntegrationConfig.resx">
+      <DependentUpon>frmIntegrationConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmInterfaceMonitoring.resx">
+      <DependentUpon>frmInterfaceMonitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmModalitySetup.resx">
+      <DependentUpon>frmModalitySetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmMonitoringConfirm.resx">
+      <DependentUpon>frmMonitoringConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\frmSession.resx">
+      <DependentUpon>frmSession.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_AF01.resx">
+      <DependentUpon>GBL_AF01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_HOSPITAL.resx">
+      <DependentUpon>GBL_HOSPITAL.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_LF01.resx">
+      <DependentUpon>GBL_LF01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF01.resx">
+      <DependentUpon>GBL_SF01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF02.resx">
+      <DependentUpon>GBL_SF02.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF03.resx">
+      <DependentUpon>GBL_SF03.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF03a.resx">
+      <DependentUpon>GBL_SF03a.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF04.resx">
+      <DependentUpon>GBL_SF04.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF05.resx">
+      <DependentUpon>GBL_SF05.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF06.resx">
+      <DependentUpon>GBL_SF06.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF07.resx">
+      <DependentUpon>GBL_SF07.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF08.resx">
+      <DependentUpon>GBL_SF08.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF09.resx">
+      <DependentUpon>GBL_SF09.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF11.resx">
+      <DependentUpon>GBL_SF11.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GBL_SF13.resx">
+      <DependentUpon>GBL_SF13.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GrantUnit.resx">
+      <DependentUpon>GrantUnit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\HL7MonitoringForm.resx">
+      <DependentUpon>HL7MonitoringForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_AUTHORISER_FORM.resx">
+      <DependentUpon>INV_AUTHORISER_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_CATEGORY_FORM.resx">
+      <DependentUpon>INV_CATEGORY_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_ITEMSTATUS_FORM.resx">
+      <DependentUpon>INV_ITEMSTATUS_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_ITEMTYPE_FORM.resx">
+      <DependentUpon>INV_ITEMTYPE_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_ITEM_FORM.resx">
+      <DependentUpon>INV_ITEM_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_SETTINGS_FORM.resx">
+      <DependentUpon>INV_SETTINGS_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_TRANSACTIONTYPE_FORM.resx">
+      <DependentUpon>INV_TRANSACTIONTYPE_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_TXNUNIT_FORM.resx">
+      <DependentUpon>INV_TXNUNIT_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_UNIT_FORM.resx">
+      <DependentUpon>INV_UNIT_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\INV_VENDOR_FORM.resx">
+      <DependentUpon>INV_VENDOR_FORM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\LogMonitoring.resx">
+      <DependentUpon>LogMonitoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\LogMonitoringRad.resx">
+      <DependentUpon>LogMonitoringRad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\menuEntry.resx">
+      <DependentUpon>menuEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\PatientStatusN.resx">
+      <DependentUpon>PatientStatusN.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\QAReason.resx">
+      <DependentUpon>QAReason.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\QAWorklist.resx">
+      <DependentUpon>QAWorklist.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RisvPatienForm.resx">
+      <DependentUpon>RisvPatienForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_EXAMHOSPITAL.resx">
+      <DependentUpon>RIS_EXAMHOSPITAL.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_OperatorNoteItem.resx">
+      <DependentUpon>RIS_OperatorNoteItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF02.resx">
+      <DependentUpon>RIS_SF02.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF04.resx">
+      <DependentUpon>RIS_SF04.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF06.resx">
+      <DependentUpon>RIS_SF06.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF07.resx">
+      <DependentUpon>RIS_SF07.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF08.resx">
+      <DependentUpon>RIS_SF08.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF09.resx">
+      <DependentUpon>RIS_SF09.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF10.resx">
+      <DependentUpon>RIS_SF10.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF11.resx">
+      <DependentUpon>RIS_SF11.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\RIS_SF12.resx">
+      <DependentUpon>RIS_SF12.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\UserAccountSettings.resx">
+      <DependentUpon>UserAccountSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\userPrivilege.resx">
+      <DependentUpon>userPrivilege.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GBLMessage\MyMessageBox.resx">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Lookup\Lookup.resx">
+      <DependentUpon>Lookup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Lookup\LookupData.resx">
+      <DependentUpon>LookupData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\frmMainTab.resx">
+      <DependentUpon>frmMainTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\Trees\SubMenuTree.resx">
+      <DependentUpon>SubMenuTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\frmComments.resx">
+      <DependentUpon>frmComments.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\frmOrders_Lite.resx">
+      <DependentUpon>frmOrders_Lite.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\frmReprint.resx">
+      <DependentUpon>frmReprint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\frmViewPerformance.resx">
+      <DependentUpon>frmViewPerformance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\GBL_SF14.resx">
+      <DependentUpon>GBL_SF14.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\PatientRegistration.resx">
+      <DependentUpon>PatientRegistration.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\PatientRegistration_ActivateDialog.resx">
+      <DependentUpon>PatientRegistration_ActivateDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\RisvPatienForm.resx">
+      <DependentUpon>RisvPatienForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\RIS_TF05.resx">
+      <DependentUpon>RIS_TF05.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\SelectStickerPoint.resx">
+      <DependentUpon>SelectStickerPoint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\WaitDialog\frmDocInstruction.resx">
+      <DependentUpon>frmDocInstruction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\WaitDialog\frmICD.resx">
+      <DependentUpon>frmICD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order\WaitDialog\frmWaitDialog.resx">
+      <DependentUpon>frmWaitDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Popup\PopupNotify.resx">
+      <DependentUpon>PopupNotify.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\Addendum.resx">
+      <DependentUpon>Addendum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\BrowseArchive.resx">
+      <DependentUpon>BrowseArchive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\frmAddendum.resx">
+      <DependentUpon>frmAddendum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\frmICD.resx">
+      <DependentUpon>frmICD.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\frmReprint.resx">
+      <DependentUpon>frmReprint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\frmResultEntry.resx">
+      <DependentUpon>frmResultEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\History.resx">
+      <DependentUpon>History.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\OpenTemplate.resx">
+      <DependentUpon>OpenTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\RadExperience.resx">
+      <DependentUpon>RadExperience.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\RadioFinal.resx">
+      <DependentUpon>RadioFinal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\SaveTemplate.resx">
+      <DependentUpon>SaveTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\SearchEngine.resx">
+      <DependentUpon>SearchEngine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\StudyManagement.resx">
+      <DependentUpon>StudyManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultEntry\Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\Dialog\ImageOrder.resx">
+      <DependentUpon>ImageOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\Dialog\PerformUsr.resx">
+      <DependentUpon>PerformUsr.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\Dialog\QAConfirm.resx">
+      <DependentUpon>QAConfirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\Dialog\Reason.resx">
+      <DependentUpon>Reason.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\Distribution Channel.resx">
+      <DependentUpon>Distribution Channel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\frmPatientData.resx">
+      <DependentUpon>frmPatientData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\frmPopupReleaseMedia.resx">
+      <DependentUpon>frmPopupReleaseMedia.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technologist\MediaManagement.resx">
+      <DependentUpon>MediaManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\frmEnvisionBI.resx">
+      <DependentUpon>frmEnvisionBI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\frmEnvisionBIPopupTemplate.resx">
+      <DependentUpon>frmEnvisionBIPopupTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\ParamExamResult.resx">
+      <DependentUpon>ParamExamResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\RPT_AppointDate.resx">
+      <DependentUpon>RPT_AppointDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\RPT_ModalityExam.resx">
+      <DependentUpon>RPT_ModalityExam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\RPT_ST01.resx">
+      <DependentUpon>RPT_ST01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportParameter\RPT_SummaryDFAimc.resx">
+      <DependentUpon>RPT_SummaryDFAimc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportViewer\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportViewer\frmXtraReportViewer.resx">
+      <DependentUpon>frmXtraReportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\frmEnvisionBI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\frmEnvisionBI.designer.cs">
+      <DependentUpon>frmEnvisionBI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\frmEnvisionBIPopupTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\frmEnvisionBIPopupTemplate.designer.cs">
+      <DependentUpon>frmEnvisionBIPopupTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\ParamExamResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\ParamExamResult.designer.cs">
+      <DependentUpon>ParamExamResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_AppointDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_AppointDate.Designer.cs">
+      <DependentUpon>RPT_AppointDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_ModalityExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_ModalityExam.Designer.cs">
+      <DependentUpon>RPT_ModalityExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_ST01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_ST01.designer.cs">
+      <DependentUpon>RPT_ST01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_SummaryDFAimc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportParameter\RPT_SummaryDFAimc.designer.cs">
+      <DependentUpon>RPT_SummaryDFAimc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportViewer\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportViewer\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportViewer\frmXtraReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportViewer\frmXtraReportViewer.Designer.cs">
+      <DependentUpon>frmXtraReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Miracle\Miracle.csproj">
+      <Project>{35611988-B35A-4B05-8FFB-C64A0FB2B66F}</Project>
+      <Name>Miracle %28Miracle\Miracle%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RIS.BusinessLogic\RIS.BusinessLogic.csproj">
+      <Project>{340EC273-C132-4070-950B-9A579181947C}</Project>
+      <Name>RIS.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RIS.Common\RIS.Common.csproj">
+      <Project>{4125D990-7016-45FD-836C-62433901A7CA}</Project>
+      <Name>RIS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RIS.DataAccess\RIS.DataAccess.csproj">
+      <Project>{B9A1C35E-278F-4984-9740-56A37A7EA5F7}</Project>
+      <Name>RIS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RIS.Operational\RIS.Operational.csproj">
+      <Project>{7A01D565-7FA9-488B-9143-36EE13FFA1E2}</Project>
+      <Name>RIS.Operational</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RIS.Plugin\RIS.Plugin.csproj">
+      <Project>{01EE75C9-ED3E-4345-903E-BAAF4B146411}</Project>
+      <Name>RIS.Plugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="dll\PhSTrigram.hah" />
+    <None Include="dll\roman.except" />
+    <None Include="dll\sylrule.lts" />
+    <None Include="dll\Tdict.hah" />
+    <None Include="dll\Thaisyl.hah" />
+    <None Include="dll\Tsyldict.hah" />
+    <None Include="dll\unins000.dat" />
+    <None Include="dll\user.dict" />
+    <None Include="Envision.NET_TemporaryKey.pfx" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\viewtree_48.png" />
+    <None Include="Resources\viewtree_24.png" />
+    <None Include="Resources\viewtree_16.png" />
+    <None Include="Resources\viewtree.png" />
+    <None Include="Resources\transfer_48.png" />
+    <None Include="Resources\transfer_24.png" />
+    <None Include="Resources\transfer_16.png" />
+    <None Include="Resources\tranfer.png" />
+    <None Include="Resources\title_bar.png" />
+    <None Include="Resources\technologist32.png" />
+    <None Include="Resources\split_48.png" />
+    <None Include="Resources\split_24.png" />
+    <None Include="Resources\split_16.png" />
+    <None Include="Resources\split.png" />
+    <None Include="Resources\splash_screen1.jpg" />
+    <None Include="Resources\Schedule.png" />
+    <None Include="Resources\save_template_16.png" />
+    <None Include="Resources\save_template.png" />
+    <None Include="Resources\save_result_16.png" />
+    <None Include="Resources\save_prelim_16.png" />
+    <None Include="Resources\save_prelim.png" />
+    <None Include="Resources\save_finalize.png" />
+    <None Include="Resources\save_draft_16.png" />
+    <None Include="Resources\save_draft.png" />
+    <None Include="Resources\save_as_template16.png" />
+    <None Include="Resources\save_as_result16.png" />
+    <None Include="Resources\save_as_prelim16.png" />
+    <None Include="Resources\result.png" />
+    <None Include="Resources\reprint_48.png" />
+    <None Include="Resources\reporting_management2_32.png" />
+    <None Include="Resources\refresh.gif" />
+    <None Include="Resources\QI24.png" />
+    <None Include="Resources\QA.png" />
+    <None Include="Resources\priority2_48.png" />
+    <None Include="Resources\priority2_24.png" />
+    <None Include="Resources\priority1_48.png" />
+    <None Include="Resources\priority1_24.png" />
+    <None Include="Resources\personal_schedule32.png" />
+    <None Include="Resources\order.png" />
+    <None Include="Resources\Notes24.png" />
+    <None Include="Resources\new_read_from_template2_16.png" />
+    <None Include="Resources\new_from_last_order2_48.png" />
+    <None Include="Resources\new_from_last_order2_32.png" />
+    <None Include="Resources\Miracle05.png" />
+    <None Include="Resources\merge_48.png" />
+    <None Include="Resources\merge_24.png" />
+    <None Include="Resources\merge_16.png" />
+    <None Include="Resources\merge.png" />
+    <None Include="Resources\logoff32.png" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\key2.jpg" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\icon-viewperformance.png" />
+    <None Include="Resources\icon_schedule.png" />
+    <None Include="Resources\icon_schedule32.png" />
+    <None Include="Resources\icon_result.png" />
+    <None Include="Resources\icon_result32.png" />
+    <None Include="Resources\icon_reprint.png" />
+    <None Include="Resources\icon_report.png" />
+    <None Include="Resources\icon_report32.png" />
+    <None Include="Resources\icon_order.png" />
+    <None Include="Resources\icon_order32.png" />
+    <None Include="Resources\icon_newarrival.png" />
+    <None Include="Resources\icon_myforum.png" />
+    <None Include="Resources\icon_home.png" />
+    <None Include="Resources\icon_home32.png" />
+    <None Include="Resources\icon_help.png" />
+    <None Include="Resources\icon_help16.png" />
+    <None Include="Resources\icon_faavourite.png" />
+    <None Include="Resources\icon_del.png" />
+    <None Include="Resources\icon_adminstrator.png" />
+    <None Include="Resources\icon_adminstrator32.png" />
+    <None Include="Resources\icon_add.png" />
+    <None Include="Resources\Home_16.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\history_48.png" />
+    <None Include="Resources\history_24.png" />
+    <None Include="Resources\history_16.png" />
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\Help1.png" />
+    <None Include="Resources\favourite_16.png" />
+    <None Include="Resources\FaceSheet24.png" />
+    <None Include="Resources\exit32.png" />
+    <None Include="Resources\envision_splashscreen.jpg" />
+    <None Include="Resources\envision_login.png" />
+    <None Include="Resources\envision_Login2.jpg" />
+    <None Include="Resources\envision04.png" />
+    <None Include="Resources\delete.gif" />
+    <None Include="Resources\CYC24.png" />
+    <None Include="Resources\confirmation.png" />
+    <None Include="Resources\close.gif" />
+    <None Include="Resources\check_document16.png" />
+    <None Include="Resources\caution.png" />
+    <None Include="Resources\calculator_orange24.jpg" />
+    <None Include="Resources\Calculator_16.png" />
+    <None Include="Resources\business_intelligence32.png" />
+    <None Include="Resources\browse_48.png" />
+    <None Include="Resources\browse_24.png" />
+    <None Include="Resources\browse_16.png" />
+    <None Include="Resources\BG01.jpg" />
+    <None Include="Resources\add_48.png" />
+    <None Include="Resources\add_24.png" />
+    <None Include="Resources\activity.gif" />
+    <None Include="Resources\01entry_48.png" />
+    <None Include="Resources\01entry_24.png" />
+    <None Include="Resources\01entry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="dll\CrystalDecisions.Enterprise.Framework.dll" />
+    <Content Include="dll\CrystalDecisions.Enterprise.InfoStore.dll" />
+    <Content Include="dll\CrystalDecisions.ReportSource.dll" />
+    <Content Include="dll\CrystalDecisions.Shared.dll" />
+    <Content Include="dll\CrystalDecisions.Windows.Forms.dll" />
+    <Content Include="dll\DirectShowLib-2005.dll" />
+    <Content Include="dll\Elegant.Ui.dll" />
+    <Content Include="dll\Infragistics2.Shared.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.EmployeeSchedule.dll" />
+    <Content Include="dll\Infragistics2.Win.Misc.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.SupportDialogs.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinCalcManager.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinCalcManager.v7.3.FormulaBuilder.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinDataSource.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinDock.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinEditors.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinExplorerBar.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinGrid.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinListBar.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinListView.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinMaskedEdit.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinPrintPreviewDialog.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinSchedule.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinSpellChecker.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinStatusBar.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinTabbedMdi.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinTabControl.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinToolbars.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.UltraWinTree.v7.3.dll" />
+    <Content Include="dll\Infragistics2.Win.v7.3.Design.dll" />
+    <Content Include="dll\Infragistics2.Win.v7.3.dll" />
+    <Content Include="dll\MiraController.dll" />
+    <Content Include="dll\MT.WindowsUI.dll" />
+    <Content Include="dll\NationalIdCardSdk4NET.dll" />
+    <Content Include="dll\Nevron.Presentation.dll" />
+    <Content Include="dll\Nevron.System.dll" />
+    <Content Include="dll\NHapi.Base.dll" />
+    <Content Include="dll\NHapi.Model.V23.dll" />
+    <Content Include="dll\NRtfTree.dll" />
+    <Content Include="dll\SriClocks.dll" />
+    <Content Include="dll\SUL.Control.RTextbox.dll" />
+    <Content Include="dll\SUL.DBM.dll" />
+    <Content Include="dll\SUL.GraphicDesign.dll" />
+    <Content Include="dll\ttranslite.dll" />
+    <Content Include="dll\UULibrary.dll" />
+    <Content Include="dll\XML\Remember.xml" />
+    <Content Include="Envision.ico" />
+    <Content Include="Envision2.ico" />
+    <Content Include="XML\Remember.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="BarCodeFont">
+      <Visible>False</Visible>
+      <ProductName>BarCodeFont</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="BusinessObjects.CrystalReports.10.5">
+      <Visible>False</Visible>
+      <ProductName>Crystal Reports Basic for Visual Studio 2008 %28x86, x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="EnvisionDict">
+      <Visible>False</Visible>
+      <ProductName>EnvisionDict</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="ThaiRomanize">
+      <Visible>False</Visible>
+      <ProductName>ThaiRomanize</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="CrystalDecisions.CrystalReports.Engine">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Enterprise.Framework">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Enterprise.InfoStore">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportSource">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Shared">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Windows.Forms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Charts.v9.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Data.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.OfficeSkins.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Utils.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraBars.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraCharts.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraCharts.v9.1.UI">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraEditors.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraGrid.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraLayout.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraNavBar.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraPivotGrid.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraPivotGrid.v9.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraPrinting.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraReports.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraRichEdit.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraRichEdit.v9.1.Extensions">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraScheduler.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraScheduler.v9.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraScheduler.v9.1.Extensions">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraSpellChecker.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraSpellChecker.v9.1.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraTreeList.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraVerticalGrid.v9.1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DirectShowLib-2005">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.CrystalReports.Engine.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.Enterprise.Framework.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.Enterprise.InfoStore.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.ReportSource.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.Shared.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\CrystalDecisions.Windows.Forms.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\DirectShowLib-2005.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Elegant.Ui.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Shared.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.EmployeeSchedule.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.Misc.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.SupportDialogs.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinCalcManager.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinCalcManager.v7.3.FormulaBuilder.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinDataSource.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinDock.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinEditors.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinExplorerBar.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinGrid.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinListBar.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinListView.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinMaskedEdit.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinPrintPreviewDialog.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinSchedule.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinSpellChecker.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinStatusBar.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinTabbedMdi.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinTabControl.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinToolbars.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.UltraWinTree.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.v7.3.Design.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Infragistics2.Win.v7.3.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\MiraController.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\MT.WindowsUI.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\NationalIdCardSdk4NET.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Nevron.Presentation.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\Nevron.System.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\NHapi.Base.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\NHapi.Model.V23.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\NRtfTree.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\SriClocks.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\SUL.Control.RTextbox.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\SUL.DBM.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\SUL.GraphicDesign.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\ttranslite.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\UULibrary.dll">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="dll\XML\Remember.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Elegant.Ui">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Envision.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Envision2.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Shared.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.EmployeeSchedule">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.Misc.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.SupportDialogs.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinCalcManager.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinCalcManager.v7.3.FormulaBuilder">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinDataSource.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinDock.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinEditors.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinExplorerBar.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinGrid.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinListBar.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinListView.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinMaskedEdit.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinPrintPreviewDialog.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinSchedule.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinSpellChecker.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinStatusBar.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinTabbedMdi.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinTabControl.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinToolbars.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.UltraWinTree.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.v7.3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Infragistics2.Win.v7.3.Design">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Interop.myTTranslite_TypeLib">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Interop.SHDocVw">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="MiraController">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Mono.Security">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="MT.WindowsUI">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="NationalIdCardSdk4NET">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Nevron.Presentation">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Nevron.System">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="NHapi.Base">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="NHapi.Model.V23">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Npgsql">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="NRtfTree">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="RIS.BusinessLogic">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="RIS.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="RIS.DataAccess">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="RIS.Operational">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SriClocks">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SUL.Control.RTextbox">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SUL.DBM">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SUL.GraphicDesign">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="th-TH\Envision.NET.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="UULibrary">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="XML\Remember.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="myTTranslite_TypeLib">
+      <Guid>{BCFB140F-9CC7-437E-BAF2-AED3305A003F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Main\_new\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBA91FA9-CED4-4813-9F2B-47647DEAD4D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.Database</RootNamespace>
+    <AssemblyName>Envision.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AC_ASSIGNMENT.cs" />
+    <Compile Include="AC_CLASS.cs" />
+    <Compile Include="AC_ENROLLMENT.cs" />
+    <Compile Include="AC_EVALUATION.cs" />
+    <Compile Include="AC_EVALUATIONLOGIC.cs" />
+    <Compile Include="AC_FINALIZEPRIVILEGE.cs" />
+    <Compile Include="AC_GRADE.cs" />
+    <Compile Include="AC_REPORTINGLANGUAGE.cs" />
+    <Compile Include="AC_YEAR.cs" />
+    <Compile Include="EnvisionDataModel.cs" />
+    <Compile Include="FIN_INVOICE.cs" />
+    <Compile Include="FIN_INVOICEDTL.cs" />
+    <Compile Include="FIN_PAYMENT.cs" />
+    <Compile Include="FIN_PAYMENTDTL.cs" />
+    <Compile Include="GBL_ALERT.cs" />
+    <Compile Include="GBL_ALERTDTL.cs" />
+    <Compile Include="GBL_BIREPORTS.cs" />
+    <Compile Include="GBL_BISETTINGS.cs" />
+    <Compile Include="GBL_EMPSCHEDULE.cs" />
+    <Compile Include="GBL_EMPSCHEDULECATEGORY.cs" />
+    <Compile Include="GBL_ENV.cs" />
+    <Compile Include="GBL_ERRORLOGS.cs" />
+    <Compile Include="GBL_EXCEPTIONLOG.cs" />
+    <Compile Include="GBL_GENERAL.cs" />
+    <Compile Include="GBL_GENERALDTL.cs" />
+    <Compile Include="GBL_GRANTOBJECT.cs" />
+    <Compile Include="GBL_GRANTROLE.cs" />
+    <Compile Include="GBL_GROUP.cs" />
+    <Compile Include="GBL_GROUPDTL.cs" />
+    <Compile Include="GBL_HOSPITAL.cs" />
+    <Compile Include="GBL_LANGUAGE.cs" />
+    <Compile Include="GBL_MENU.cs" />
+    <Compile Include="GBL_MESSAGE.cs" />
+    <Compile Include="GBL_MESSAGERECIPIENT.cs" />
+    <Compile Include="GBL_MYMENU.cs" />
+    <Compile Include="GBL_NOTIFICATION.cs" />
+    <Compile Include="GBL_PRODUCT.cs" />
+    <Compile Include="GBL_QUICKTEXT.cs" />
+    <Compile Include="GBL_RADEXPERIENCE.cs" />
+    <Compile Include="GBL_ROLE.cs" />
+    <Compile Include="GBL_ROLEDTL.cs" />
+    <Compile Include="GBL_SEQUENCES.cs" />
+    <Compile Include="GBL_SESSION.cs" />
+    <Compile Include="GBL_SESSIONLOG.cs" />
+    <Compile Include="GBL_SUBMENU.cs" />
+    <Compile Include="GBL_SUBMENUOBJECTLABEL.cs" />
+    <Compile Include="GBL_SUBMENUOBJECTS.cs" />
+    <Compile Include="GBL_SUPPORT.cs" />
+    <Compile Include="GBL_USERGROUP.cs" />
+    <Compile Include="GBL_USERGROUPDTL.cs" />
+    <Compile Include="HIS_ACR.cs" />
+    <Compile Include="HIS_CPT.cs" />
+    <Compile Include="HIS_ICD.cs" />
+    <Compile Include="HIS_REGISTRATION.cs" />
+    <Compile Include="HR_EMP.cs" />
+    <Compile Include="HR_EMPTITLE.cs" />
+    <Compile Include="HR_JOBTITLE.cs" />
+    <Compile Include="HR_OCCUPATION.cs" />
+    <Compile Include="HR_ROOM.cs" />
+    <Compile Include="HR_UNIT.cs" />
+    <Compile Include="INV_AUTHORISER.cs" />
+    <Compile Include="INV_AUTHORIZATION.cs" />
+    <Compile Include="INV_CATEGORY.cs" />
+    <Compile Include="INV_ITEM.cs" />
+    <Compile Include="INV_ITEMSTATUS.cs" />
+    <Compile Include="INV_ITEMSTOCK.cs" />
+    <Compile Include="INV_ITEMTYPE.cs" />
+    <Compile Include="INV_PO.cs" />
+    <Compile Include="INV_PODTL.cs" />
+    <Compile Include="INV_PR.cs" />
+    <Compile Include="INV_PRDTL.cs" />
+    <Compile Include="INV_REQUISITION.cs" />
+    <Compile Include="INV_REQUISITIONDTL.cs" />
+    <Compile Include="INV_ROOMSTOCKREDUCE.cs" />
+    <Compile Include="INV_SETTINGS.cs" />
+    <Compile Include="INV_TRANSACTION.cs" />
+    <Compile Include="INV_TRANSACTIONDTL.cs" />
+    <Compile Include="INV_TRANSACTIONTYPE.cs" />
+    <Compile Include="INV_TXNUNIT.cs" />
+    <Compile Include="INV_UNIT.cs" />
+    <Compile Include="INV_UNITREORDERLEVEL.cs" />
+    <Compile Include="INV_VENDOR.cs" />
+    <Compile Include="MG_BREASTEXAMRESULT.cs" />
+    <Compile Include="MG_BREASTMARK.cs" />
+    <Compile Include="MG_BREASTMARKDTL.cs" />
+    <Compile Include="MG_BREASTMARKTEMPLATE.cs" />
+    <Compile Include="MG_BREASTMASSDETAILS.cs" />
+    <Compile Include="MG_BREASTUSMASSDETAILS.cs" />
+    <Compile Include="MG_DOMINANT.cs" />
+    <Compile Include="MG_MADOMINANT.cs" />
+    <Compile Include="MG_MARKSHAPE.cs" />
+    <Compile Include="MG_MARKSTYLE.cs" />
+    <Compile Include="MG_MASSDOMINANTCYST.cs" />
+    <Compile Include="MG_PATIENTHISTORYCOMPARISON.cs" />
+    <Compile Include="MIS_ASESSMENTTYPE.cs" />
+    <Compile Include="MIS_BIOPSYRESULT.cs" />
+    <Compile Include="MIS_LESIONTYPE.cs" />
+    <Compile Include="MIS_TECHNIQUETYPE.cs" />
+    <Compile Include="OLAP_ORDER.cs" />
+    <Compile Include="OLAP_ORDER_DELETED.cs" />
+    <Compile Include="OLAP_ORDER_TEMP.cs" />
+    <Compile Include="ONL_FILTERDESTINATION.cs" />
+    <Compile Include="ONL_HISLINKLOG.cs" />
+    <Compile Include="ONL_SEARCHMATCH.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RIS_ASSESSMENT.cs" />
+    <Compile Include="RIS_AUTHLEVEL.cs" />
+    <Compile Include="RIS_AUTOMERGECONFIG.cs" />
+    <Compile Include="RIS_BILLINGLOG.cs" />
+    <Compile Include="RIS_BILLINGTRANSACTIONLOG.cs" />
+    <Compile Include="RIS_BILLINGTRANSACTIONLOGDTL.cs" />
+    <Compile Include="RIS_BILLINGTRANSACTIONLOG_AUDIT.cs" />
+    <Compile Include="RIS_BODYPART.cs" />
+    <Compile Include="RIS_BPVIEW.cs" />
+    <Compile Include="RIS_BPVIEWMAPPING.cs" />
+    <Compile Include="RIS_CLINICALINDICATION.cs" />
+    <Compile Include="RIS_CLINICALINDICATIONCHECKUPLIST.cs" />
+    <Compile Include="RIS_CLINICALINDICATIONFAVORITES.cs" />
+    <Compile Include="RIS_CLINICALINDICATIONLASTVISIT.cs" />
+    <Compile Include="RIS_CLINICALINDICATIONTYPE.cs" />
+    <Compile Include="RIS_CLINICALINDICATIONTYPEFAVORITES.cs" />
+    <Compile Include="RIS_CLINICALINDICATION_WITH_UNIT.cs" />
+    <Compile Include="RIS_CLINICSESSION.cs" />
+    <Compile Include="RIS_CLINICSESSIONONLINE.cs" />
+    <Compile Include="RIS_CLINICTYPE.cs" />
+    <Compile Include="RIS_COMMENTSONPATIENT.cs" />
+    <Compile Include="RIS_COMMENTSONPATIENTDTL.cs" />
+    <Compile Include="RIS_COMMENTSYSTEM.cs" />
+    <Compile Include="RIS_COMMENTSYSTEMALERT.cs" />
+    <Compile Include="RIS_COMMENTSYSTEMDTL.cs" />
+    <Compile Include="RIS_COMMENTSYSTEM_GROUP.cs" />
+    <Compile Include="RIS_COMMENTSYSTEM_GROUPDTL.cs" />
+    <Compile Include="RIS_CONFLICTEXAMDTL.cs" />
+    <Compile Include="RIS_CONFLICTEXAMGROUP.cs" />
+    <Compile Include="RIS_CONSUMABLETYPE.cs" />
+    <Compile Include="RIS_ENVISIONONLINEPARAMETERSLOG.cs" />
+    <Compile Include="RIS_EXAM.cs" />
+    <Compile Include="RIS_EXAMDF.cs" />
+    <Compile Include="RIS_EXAMFAVORITES.cs" />
+    <Compile Include="RIS_EXAMINSTRUCTIONCLINICSESSION.cs" />
+    <Compile Include="RIS_EXAMINSTRUCTIONS.cs" />
+    <Compile Include="RIS_EXAMPANEL.cs" />
+    <Compile Include="RIS_EXAMPANELPORTABLE.cs" />
+    <Compile Include="RIS_EXAMRESULT.cs" />
+    <Compile Include="RIS_EXAMRESULTACCESS.cs" />
+    <Compile Include="RIS_EXAMRESULTAUTOSAVE.cs" />
+    <Compile Include="RIS_EXAMRESULTCONSULT.cs" />
+    <Compile Include="RIS_EXAMRESULTKEYIMAGES.cs" />
+    <Compile Include="RIS_EXAMRESULTLEGACY.cs" />
+    <Compile Include="RIS_EXAMRESULTLOCKS.cs" />
+    <Compile Include="RIS_EXAMRESULTNOTE.cs" />
+    <Compile Include="RIS_EXAMRESULTRADS.cs" />
+    <Compile Include="RIS_EXAMRESULTSEVERITY.cs" />
+    <Compile Include="RIS_EXAMRESULTSEVERITY_LOG.cs" />
+    <Compile Include="RIS_EXAMRESULTSTATREPORT.cs" />
+    <Compile Include="RIS_EXAMRESULTTEMPLATE.cs" />
+    <Compile Include="RIS_EXAMRESULTTIME.cs" />
+    <Compile Include="RIS_EXAMRESULT_FILTERRAD.cs" />
+    <Compile Include="RIS_EXAMRESULT_FILTERWORKLIST.cs" />
+    <Compile Include="RIS_EXAMRVU.cs" />
+    <Compile Include="RIS_EXAMSKILL.cs" />
+    <Compile Include="RIS_EXAMSKILLMAPPING.cs" />
+    <Compile Include="RIS_EXAMSKILLTYPE.cs" />
+    <Compile Include="RIS_EXAMTEMPLATESHARE.cs" />
+    <Compile Include="RIS_EXAMTRANSFERLOG.cs" />
+    <Compile Include="RIS_EXAMTYPE.cs" />
+    <Compile Include="RIS_EXTERNALHL7TRANSLOG.cs" />
+    <Compile Include="RIS_HL7IELOG.cs" />
+    <Compile Include="RIS_HL7TRANSACTIONLOG.cs" />
+    <Compile Include="RIS_HOSPITAL_MAP_DOCTOR.cs" />
+    <Compile Include="RIS_INSURANCETYPE.cs" />
+    <Compile Include="RIS_INTEGRATIONCONFIG.cs" />
+    <Compile Include="RIS_INTEGRATIONSERVERS.cs" />
+    <Compile Include="RIS_LOADMEDIA.cs" />
+    <Compile Include="RIS_LOADMEDIADTL.cs" />
+    <Compile Include="RIS_LOCATIONMAPPING.cs" />
+    <Compile Include="RIS_MERGELOG.cs" />
+    <Compile Include="RIS_MESSAGE.cs" />
+    <Compile Include="RIS_MESSAGEDTL.cs" />
+    <Compile Include="RIS_MODALITY.cs" />
+    <Compile Include="RIS_MODALITYAETITLE.cs" />
+    <Compile Include="RIS_MODALITYCLINICTYPE.cs" />
+    <Compile Include="RIS_MODALITYCONFIG.cs" />
+    <Compile Include="RIS_MODALITYEXAM.cs" />
+    <Compile Include="RIS_MODALITYEXAM_ONL.cs" />
+    <Compile Include="RIS_MODALITYLOG.cs" />
+    <Compile Include="RIS_MODALITYLOGCAPTURE.cs" />
+    <Compile Include="RIS_MODALITYTYPE.cs" />
+    <Compile Include="RIS_MODALITYUNIT.cs" />
+    <Compile Include="RIS_NURSESDATA.cs" />
+    <Compile Include="RIS_NURSESDATADTL.cs" />
+    <Compile Include="RIS_OPNOTEITEM.cs" />
+    <Compile Include="RIS_OPNOTEITEMTEMPLATE.cs" />
+    <Compile Include="RIS_ORDER.cs" />
+    <Compile Include="RIS_ORDERCLINICALINDICATION.cs" />
+    <Compile Include="RIS_ORDERCLINICALINDICATIONTYPE.cs" />
+    <Compile Include="RIS_ORDERCPT.cs" />
+    <Compile Include="RIS_ORDERDTL.cs" />
+    <Compile Include="RIS_ORDEREXAMFLAG.cs" />
+    <Compile Include="RIS_ORDERICD.cs" />
+    <Compile Include="RIS_ORDERIMAGES.cs" />
+    <Compile Include="RIS_PATICD.cs" />
+    <Compile Include="RIS_PATIENTDESTINATION.cs" />
+    <Compile Include="RIS_PATIENTPREPARATION.cs" />
+    <Compile Include="RIS_PATSTATUS.cs" />
+    <Compile Include="RIS_PRALGORITHM.cs" />
+    <Compile Include="RIS_PRASSIGNMENT.cs" />
+    <Compile Include="RIS_PREXAMMAPPING.cs" />
+    <Compile Include="RIS_PRGRADE.cs" />
+    <Compile Include="RIS_PRGROUP.cs" />
+    <Compile Include="RIS_PRGROUPDTL.cs" />
+    <Compile Include="RIS_PRRADMAPPING.cs" />
+    <Compile Include="RIS_PRREPORTING.cs" />
+    <Compile Include="RIS_PRREPORTINGLANGUAGE.cs" />
+    <Compile Include="RIS_PRREVIEW.cs" />
+    <Compile Include="RIS_PRSTUDIES.cs" />
+    <Compile Include="RIS_PRSUBSPECIALTY.cs" />
+    <Compile Include="RIS_QAREASON.cs" />
+    <Compile Include="RIS_QAWORKS.cs" />
+    <Compile Include="RIS_QUESTIONS.cs" />
+    <Compile Include="RIS_RADSTUDYGROUP.cs" />
+    <Compile Include="RIS_RELEASEMEDIA.cs" />
+    <Compile Include="RIS_RESULTSTATUSCHANGELOG.cs" />
+    <Compile Include="RIS_RISKCATEGORIES.cs" />
+    <Compile Include="RIS_RISKINCIDENTS.cs" />
+    <Compile Include="RIS_RISKINCIDENTSLOGS.cs" />
+    <Compile Include="RIS_RISKINCIDENTUSERS.cs" />
+    <Compile Include="RIS_SCHEDULE.cs" />
+    <Compile Include="RIS_SCHEDULECONFIG.cs" />
+    <Compile Include="RIS_SCHEDULEDEFAULTDESTINATION.cs" />
+    <Compile Include="RIS_SCHEDULEDEFAULTMODALITY.cs" />
+    <Compile Include="RIS_SCHEDULEDTL.cs" />
+    <Compile Include="RIS_SCHEDULE_LOG.cs" />
+    <Compile Include="RIS_SCHEDULE_RESERVATION.cs" />
+    <Compile Include="RIS_SEARCH.cs" />
+    <Compile Include="RIS_SEARCH_AUDIT.cs" />
+    <Compile Include="RIS_SEARCH_DTL.cs" />
+    <Compile Include="RIS_SERVICETYPE.cs" />
+    <Compile Include="RIS_SESSIONAPPCOUNT.cs" />
+    <Compile Include="RIS_SESSIONMAXAPP.cs" />
+    <Compile Include="RIS_STUDYLIBRARY.cs" />
+    <Compile Include="RIS_STUDYLIBRARYACR.cs" />
+    <Compile Include="RIS_STUDYLIBRARYBODYPART.cs" />
+    <Compile Include="RIS_STUDYLIBRARYCONFERENCE.cs" />
+    <Compile Include="RIS_STUDYLIBRARYCPT.cs" />
+    <Compile Include="RIS_STUDYLIBRARYICD.cs" />
+    <Compile Include="RIS_STUDYLIBRARYSHAREWITH.cs" />
+    <Compile Include="RIS_STUDYLIBRARYTAGS.cs" />
+    <Compile Include="RIS_TECHCONSUMPTION.cs" />
+    <Compile Include="RIS_TECHNOTES.cs" />
+    <Compile Include="RIS_TECHWORKS.cs" />
+    <Compile Include="RIS_TECHWORKSDTL.cs" />
+    <Compile Include="RIS_TIME.cs" />
+    <Compile Include="RIS_TIMELEVEL.cs" />
+    <Compile Include="RIS_USERORGMAP.cs" />
+    <Compile Include="SR_QUESTIONS.cs" />
+    <Compile Include="SR_QUESTIONSANSWERS.cs" />
+    <Compile Include="SR_QUESTIONSANSWERSDTL.cs" />
+    <Compile Include="SR_QUESTIONSANSWERSDTLCHILD.cs" />
+    <Compile Include="SR_QUESTIONSDTL.cs" />
+    <Compile Include="SR_QUESTIONSDTLCHILD.cs" />
+    <Compile Include="SR_QUESTIONTYPE.cs" />
+    <Compile Include="SR_TEMPLATE.cs" />
+    <Compile Include="SR_TEMPLATEANSWERSPART.cs" />
+    <Compile Include="SR_TEMPLATEPART.cs" />
+    <Compile Include="SR_USERPREFERENCE.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

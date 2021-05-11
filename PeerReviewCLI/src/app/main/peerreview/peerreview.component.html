@@ -1,0 +1,69 @@
+<div *ngIf="isLoading" style="position:fixed; top: 50%; left: 50%">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s">
+    </p-progressSpinner>
+    <h5>{{lblLoadingText}}</h5>
+</div>
+<div *ngIf="!isLoading">
+    <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425" #cd>
+        <p-footer>
+            <button type="button" pButton icon="fa-check" label="Ok" (click)="cd.accept()"></button>
+        </p-footer>
+    </p-confirmDialog>
+    <p-panel>
+        <p-header>
+            Summary :
+        </p-header>
+        <table>
+            <tr>
+                <td>
+                    <b>Total Assigned Cases :</b> {{noOfStudies}} <br>
+                    <b>Reviewed :</b> {{noOfReviewed}} <br>
+                    <b>Pending :</b> {{noOfReviewing}} <br>
+                    <p-dropdown [options]="prStatus" [(ngModel)]="selectedFilter" [style]="{'width':'350px'}"
+                        editable="editable" placeholder="Filter Status" (onChange)="onChangeStatus($event)">
+                    </p-dropdown>
+                </td>
+                <td></td>
+                <td>
+                    <p-fieldset *ngIf="hideComment" legend="Comments" [toggleable]="true" [collapsed]="true">
+                        <textarea rows="10" cols="60" pInputTextarea [(ngModel)]="comment" disabled="true"></textarea>
+                    </p-fieldset>
+                </td>
+            </tr>
+        </table>
+    </p-panel>
+    <p-table #dt [value]="studies" selectionMode="single" [(selection)]="selectedStudy"
+        (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10"
+        [responsive]="true" tableStyleClass="table">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>HN</th>
+                <th>Name</th>
+                <th>Accession No</th>
+                <th>Exam Name</th>
+                <th>Study Date</th>
+                <th>Modality</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Review Date</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-study>
+            <tr>
+                <td>{{study.HN}}</td>
+                <td>{{study.PATIENT_NAME}}</td>
+                <td>{{study.ACCESSION_NO}}</td>
+                <td>{{study.EXAM_NAME}}</td>
+                <td>{{study.ORDER_DT}}</td>
+                <td>{{study.TYPE_NAME_ALIAS}}</td>
+                <td>{{study.REVIEW_SCORE}}</td>
+                <td>{{study.STATUS}}</td>
+                <td>{{study.REVIEW_DT}}</td>
+                <td>
+                    <p-button label="Review" icon="pi pi-pencil" iconPos="left" (click)="selectStudy(study)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

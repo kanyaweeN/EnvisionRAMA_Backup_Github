@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="19"
+   name=""
+   committed-date="2008-08-13T09:50:53.062500Z"
+   url="svn://r300-demo/RIS.Common/Common"
+   last-author="yo"
+   kind="dir"
+   uuid="2a112a70-baad-1c41-b1ea-b5bc32b24c81"
+   repos="svn://r300-demo"
+   revision="101"/>
+<entry
+   committed-rev="19"
+   name="GBLEnvVariable.cs"
+   text-time="2008-10-22T11:51:40.890625Z"
+   committed-date="2008-08-13T09:50:53.062500Z"
+   checksum="71eb1033ca382c398272bcbfb0afb4f4"
+   last-author="yo"
+   kind="file"
+   prop-time="2008-10-22T11:51:40.859375Z"/>
+</wc-entries>
