@@ -140,8 +140,8 @@ namespace Envision.DataAccess.Select
 
         public DataSet GetDataCapture(DateTime dtFrom, DateTime dtTo, int EmpId)
         {
-            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture; //test
-            //StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture2;
+            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture; 
+            //StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture2; //test
             DataSet ds = new DataSet();
             ParameterList = build_DataCapture(dtFrom, dtTo, EmpId);
             ds = ExecuteDataSet();
@@ -155,8 +155,8 @@ namespace Envision.DataAccess.Select
 
         public DataSet GetDataCapturebyHN(string HN, int EmpId)
         {
-            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture_withHN; //test 
-            //StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture_withHN2;
+            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture_withHN; 
+            //StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByCapture_withHN2; //test 
             DataSet ds = new DataSet();
             ParameterList = build_DataCapturebyHN(HN, EmpId);
             ds = ExecuteDataSet();
@@ -170,6 +170,37 @@ namespace Envision.DataAccess.Select
             };
             return parameters;
         }  //เพิ่มเข้ามาใหม่
+
+        public DataSet GetDataRejectPacsImage(DateTime dtFrom, DateTime dtTo, int EmpId)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByRejectPacsImage; 
+            DataSet ds = new DataSet();
+            ParameterList = build_DataRejectPacsImage(dtFrom, dtTo, EmpId);
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        private DbParameter[] build_DataRejectPacsImage(DateTime dtFrom, DateTime dtTo, int EmpId)
+        {
+            DbParameter[] parameters = { Parameter("@dtFrom", dtFrom), Parameter("@dtTo", dtTo), Parameter("@EMP_ID", EmpId) };
+            return parameters;
+        }
+
+        public DataSet GetDataRejectPacsImagebyHN(string HN, int EmpId)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_ORDERDTL_SelectByRejectPacsImage_withHN; 
+            DataSet ds = new DataSet();
+            ParameterList = build_DataRejectPacsImagebyHN(HN, EmpId);
+            ds = ExecuteDataSet();
+            return ds;
+        }  
+        private DbParameter[] build_DataRejectPacsImagebyHN(string HN, int EmpId)
+        {
+            DbParameter[] parameters ={ 
+                Parameter("@HN",HN),
+                Parameter("@EMP_ID",EmpId)
+            };
+            return parameters;
+        }
 
         public DataSet GetDataQA(DateTime dtFrom,DateTime dtTo)
         {

@@ -248,7 +248,6 @@ namespace Envision.NET.Forms.Orders
 
             this.txtHN.Focus();
             // Get Xray order info.
-
             if (this.selectedOrderId == 0)
             {
                 ProcessGetRISScheduleInfo processGetRISScheduleInfo = new ProcessGetRISScheduleInfo();
@@ -274,10 +273,8 @@ namespace Envision.NET.Forms.Orders
                 {
                     dtPatientDemographic = dsSource.Tables[0].Copy(); // copy to gbl datatable
                     dtCasesInfo = dsSource.Tables[1].Copy();
-
-                    UpdateHISRegistration();
-
                     this.BindingData();
+                    UpdateHISRegistration();
                     //Binding last order to grid
                     this.BindingLastOrderGrid();
                 }
@@ -930,10 +927,12 @@ namespace Envision.NET.Forms.Orders
                     proUpdate.HIS_REGISTRATION.PHONE1 = patient.Phone1;
                     proUpdate.HIS_REGISTRATION.SSN = patient.SocialNumber;
                     proUpdate.HIS_REGISTRATION.DOB = patient.DateOfBirth;
-                    if(patient.Gender == "M"){
+                    if (patient.Gender == "M")
+                    {
                         proUpdate.HIS_REGISTRATION.GENDER = 'M';
                     }
-                    else if (patient.Gender == "F"){
+                    else if (patient.Gender == "F")
+                    {
                         proUpdate.HIS_REGISTRATION.GENDER = 'F';
                     }
                     //proUpdate.HIS_REGISTRATION.PATIENT_TYPE = patient.Patient_type;
@@ -961,7 +960,6 @@ namespace Envision.NET.Forms.Orders
                 dtPatientDemographic.Rows[0]["GENDER"] = patient.Gender;
             }
         }
-
         private void checkAllergies()
         {
             if (!string.IsNullOrEmpty(dtPatientDemographic.Rows[0]["Allergies"].ToString().Trim()))

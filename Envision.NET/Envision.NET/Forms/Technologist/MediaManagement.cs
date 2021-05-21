@@ -23,6 +23,9 @@ using Envision.BusinessLogic.ProcessUpdate;
 using Envision.NET.Forms.Dialog;
 using Envision.Common;
 using Envision.BusinessLogic.ProcessDelete;
+using Miracle.Util;
+using Envision.BusinessLogic;
+using Miracle.Scanner;
 
 
 namespace Envision.NET.Forms.Technologist
@@ -30,7 +33,7 @@ namespace Envision.NET.Forms.Technologist
     public partial class MediaManagement : Envision.NET.Forms.Main.MasterForm
     {
         private int a = 0;//for grid
-        private string examUID, examname, examid, examAccession,orderid;
+        private string examUID, examname, examid, examAccession, orderid;
         private string loadID, examidEdit; //for Edit 
         private string ReleaseID, hisID;
         private int unitRe, empidRe;
@@ -284,7 +287,7 @@ namespace Envision.NET.Forms.Technologist
                 }
             }
         }
-        
+
         private void setGridRelease()
         {
             viewRelease.Columns["RELEASE_ID"].Visible = false;
@@ -370,7 +373,7 @@ namespace Envision.NET.Forms.Technologist
                 forGridRelease(rowData["ACCESSION_NO"].ToString());
             }
         }
-        
+
         private void txtAccession_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -429,27 +432,8 @@ namespace Envision.NET.Forms.Technologist
 
         private void viewData_DoubleClick(object sender, EventArgs e)
         {
-            DataTable dtData = (DataTable)grcData.DataSource;
-            if (dtData.Rows.Count > 0)
-            {
-                DataRow dr = viewData.GetDataRow(viewData.FocusedRowHandle);
-                DataRow[] drr = dr.Table.Select("CHK = 'Y'");
-                if (drr.Length == 0)
-                    drr = dr.Table.Select("ACCESSION_NO = '" + dr["ACCESSION_NO"].ToString() + "'");
-                frmPopupReleaseMedia frm = new frmPopupReleaseMedia(drr);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    ProcessGetRISReleasemediaNew get = new ProcessGetRISReleasemediaNew();
-                    get.RIS_RELEASEMEDIA.SELECTCASE = 2;
-                    get.RIS_RELEASEMEDIA.ACCESSION_NO = dr["ACCESSION_NO"].ToString();
-                    get.Invoke();
-                    DataTable dtRelease = get.Result.Tables[0];
-                    grcRelease.DataSource = dtRelease;
-                }
-            }
-        } 
+            insertData();
+        }
         #endregion
 
         private void MediaManagement_Load(object sender, EventArgs e)
@@ -471,7 +455,7 @@ namespace Envision.NET.Forms.Technologist
             dtReleaseHistory = get.Result.Tables[0];
         }
         private void ReleaseHistoryLoadFilter()
-        { 
+        {
         }
         private void ReleaseHistoryLoadGrid()
         {
@@ -496,34 +480,34 @@ namespace Envision.NET.Forms.Technologist
 
         private void contextViewData_Opening(object sender, CancelEventArgs e)
         {
-            DataTable dt = grcData.DataSource as DataTable;
-            if (dt.Columns.Contains("CHK"))
-            {
-                DataRow[] rows = dt.Select("CHK='Y'");
-                if (rows.Length > 1)
-                {
+            //DataTable dt = grcData.DataSource as DataTable;
+            //if (dt.Columns.Contains("CHK"))
+            //{
+            //    DataRow[] rows = dt.Select("CHK='Y'");
+            //    if (rows.Length > 1)
+            //    {
 
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+            //    }
+            //    else
+            //    {
+            //        e.Cancel = true;
+            //    }
+            //}
+            //else
+            //{
+            //    e.Cancel = true;
+            //}
         }
-
-        private void multipleReleaseMediaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void insertData()
         {
-            if (viewData.FocusedRowHandle >= 0)
+            DataTable dtData = (DataTable)grcData.DataSource;
+            if (dtData.Rows.Count > 0)
             {
                 DataRow dr = viewData.GetDataRow(viewData.FocusedRowHandle);
-
-                DataTable dt = grcData.DataSource as DataTable;
-                DataRow[] rows = dt.Select("CHK='Y'");
-                frmPopupReleaseMedia frm = new frmPopupReleaseMedia(rows);
+                DataRow[] drr = dr.Table.Select("CHK = 'Y'");
+                if (drr.Length == 0)
+                    drr = dr.Table.Select("ACCESSION_NO = '" + dr["ACCESSION_NO"].ToString() + "'");
+                frmPopupReleaseMedia frm = new frmPopupReleaseMedia(drr);
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
@@ -534,6 +518,59 @@ namespace Envision.NET.Forms.Technologist
                     get.Invoke();
                     DataTable dtRelease = get.Result.Tables[0];
                     grcRelease.DataSource = dtRelease;
+                }
+            }
+        }
+
+        private void multipleReleaseMediaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertData();
+        }
+
+        private void scanDocumentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataRow row = viewData.GetDataRow(viewData.FocusedRowHandle);
+
+            int orderID = Convert.ToInt32(row["ORDER_ID"]);
+            Order thisOrder = new Order(orderID);
+            if (!Utilities.IsHaveData(thisOrder.Ris_OrderImage))
+                thisOrder.Ris_OrderImage = new ScanImages().GetData(0, thisOrder.Item.ORDER_ID);
+
+            using (diagUploadFile diag = new diagUploadFile(thisOrder.Ris_OrderImage, false))
+            {
+                if (Height > diag.Height)
+                    diag.Height = Height;
+                if (Width > diag.Width)
+                    diag.Width = Width;
+
+                if (diag.ShowDialog() == DialogResult.OK)
+                    thisOrder.Ris_OrderImage = diag.OrderImages;
+                else if (diag.ShowDialog() == DialogResult.Abort)
+                {
+                    if (thisOrder.Ris_OrderImage.ToTable().Rows.Count > 0)
+                    {
+
+                        Miracle.Scanner.EditImageOrder editFrm = new Miracle.Scanner.EditImageOrder(thisOrder.Ris_OrderImage.ToTable(), env.PixPicture);
+                        editFrm.StartPosition = FormStartPosition.CenterParent;
+                        editFrm.ShowDialog();
+                        if (editFrm.DialogResult == DialogResult.Yes)
+                        {
+                            thisOrder.Ris_OrderImage = editFrm.Data.Copy().DefaultView;
+                            env.PixPicture = editFrm.PictureStruct;
+                        }
+
+                    }
+                    else
+                    {
+                        Miracle.Scanner.NewScan frm = new Miracle.Scanner.NewScan(env.PixPicture);
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            env.PixPicture = frm.PictureStruct;
+                        }
+                    }
+
                 }
             }
         }

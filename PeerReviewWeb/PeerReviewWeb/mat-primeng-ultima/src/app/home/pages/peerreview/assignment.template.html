@@ -1,0 +1,121 @@
+<div>
+    <p-messages [value]="msgs"></p-messages>
+    <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+    <p-panel>
+        <p-header>
+            Automatic Study Assignment
+        </p-header>
+        <table>
+            <tr>
+                <td>
+                    <p-fieldset legend="Automatic Process">
+                        <font color="red">Please be patient when automatic study assignment task started!</font><br><br>
+                        From Date: <p-calendar [(ngModel)]="fromDate" [showIcon]="true"></p-calendar>
+                        To Date :<p-calendar [(ngModel)]="toDate" [showIcon]="true"></p-calendar> <br><br><br>
+                        <button pButton type="button" class="ui-button-warning" (click)="startAutoAssign()"
+                            [label]="btnAutoStart" [disabled]=""></button>
+                        <button pButton type="button" class="ui-button-danger" (click)="deleteAutoAssign()"
+                            label="Delete Recent Assignments"></button>
+                        <spinner *ngIf='working' [size]="50" [tickness]="2">surajit</spinner>
+                    </p-fieldset>
+                </td>
+                <td>
+                    <p-fieldset legend="Algorithm">
+                        <p-spinner size="3" [(ngModel)]="valPer" [min]="1" [max]="100"></p-spinner>
+                        <font color="orange"><b>% From Each Radiologist's Finalized Studies</b></font> <br><br>
+                        <p-spinner size="3" [(ngModel)]="valMax" [min]="1" [max]="100"></p-spinner>
+                        <font color="orange"><b>Max Assignment Quota For Each Radiologist</b></font><br><br><br>
+                        <button pButton type="button" class="ui-button-success" (click)="changeAlgorithm()"
+                            label="Save Changes"></button>
+                    </p-fieldset>
+                </td>
+            </tr>
+        </table>
+        <p-fieldset legend="Assignment History" [toggleable]="true" collapsed="true">
+            <table>
+                <tr>
+                    <td>
+                        <p-dropdown [options]="subspecialty" [(ngModel)]="selectedSub" [style]="{'width':'350px'}"
+                            editable="editable" placeholder="Select a Subspecialty" (onChange)="onChangeSub($event)">
+                        </p-dropdown>
+                    </td>
+                    <td>
+                        <button pButton type="button" class="ui-button-success" (click)="allRadiologists()"
+                            label="All Radiologists"></button>
+                    </td>
+                </tr>
+            </table>
+            <br><br>
+            <table style="height:150px;text-align:left;">
+                <tr style="background-color:#3CBC3C;color:white;">
+                    <th>All Radiologists From {{selectedSub}}</th>
+                </tr>
+                <tr>
+                    <p-dataTable [value]="radiologists" selectionMode="single" [(selection)]="selectedradiologist"
+                        [rows]="10" [responsive]="true" (onRowSelect)="onRowSelect($event)" tableStyleClass="table">
+                        <p-column field="EMP_ID" header="EMP_ID" [sortable]="false" [filter]="true" filterPlaceholder=""
+                            [hidden]="true"></p-column>
+                        <p-column field="RAD_NAME" header="Name" [sortable]="false" [filter]="true" filterPlaceholder=""
+                            [hidden]="false"></p-column>
+                        <p-column field="GENDER" header="Gender" [sortable]="false" [filter]="true"
+                            filterPlaceholder=""></p-column>
+                        <p-column field="DOB" header="Date of birth" [sortable]="false" [filter]="true"
+                            filterPlaceholder="" [hidden]="true"></p-column>
+                        <p-column field="EMAIL" header="Email" [sortable]="false" [filter]="true" filterPlaceholder="">
+                        </p-column>
+                    </p-dataTable>
+                </tr>
+            </table>
+            <br><br>
+            <table style="height:150px;text-align:left;">
+                <tr style="background-color:#3CBC3C;color:white;">
+                    <th>Assigned Studies For {{radname}}</th>
+                </tr>
+                <tr>
+                    <p-dataTable [value]="studies" selectionMode="single" [(selection)]="selectedstudy" [rows]="5"
+                        [responsive]="true" tableStyleClass="table">
+                        <p-column field="HN" header="HN" [sortable]="false" [filter]="true" filterPlaceholder=""
+                            [hidden]="false"></p-column>
+                        <p-column field="PATIENT_NAME" header="Name" [sortable]="false" [filter]="true"
+                            filterPlaceholder=""></p-column>
+                        <p-column field="ACCESSION_NO" header="Accession No" [sortable]="false" [filter]="true"
+                            filterPlaceholder="" [hidden]="false"></p-column>
+                        <p-column field="EXAM_NAME" header="Exam Name" [sortable]="false" [filter]="true"
+                            filterPlaceholder="" [hidden]="false"></p-column>
+                        <p-column field="ORDER_DT" header="Study Date" [sortable]="false" [filter]="true"
+                            filterPlaceholder="">
+                            <template let-study="rowData" pTemplate type="body">
+                                <span>{{study.ORDER_DT | date:'dd/MM/yyyy'}}</span>
+                            </template>
+                        </p-column>
+                        <p-column field="TYPE_NAME_ALIAS" header="Modality" [sortable]="false" [filter]="true"
+                            filterPlaceholder=""></p-column>
+                    </p-dataTable>
+                </tr>
+            </table>
+        </p-fieldset>
+    </p-panel>
+    <p-dialog header="Radiologist's Assignment Details" [(visible)]="displayAllRadiologist" [responsive]="true"
+        showEffect="fade" [modal]="true" width="1024" height="850">
+        <p-panel>
+            <p-header>
+                Study Count :
+            </p-header>
+            <p-dataTable [value]="radiologistsCount" selectionMode="single" [paginator]="true" [rows]="10"
+                [responsive]="true" tableStyleClass="table">
+                <p-column field="EMP_ID" header="EMP_ID" [sortable]="false" [filter]="true" filterPlaceholder=""
+                    [hidden]="true"></p-column>
+                <p-column field="RAD_NAME" header="Name" [sortable]="false" [filter]="true" filterPlaceholder=""
+                    [hidden]="false"></p-column>
+                <p-column field="GENDER" header="Gender" [sortable]="false" [filter]="true" filterPlaceholder="">
+                </p-column>
+                <p-column field="DOB" header="Date of birth" [sortable]="false" [filter]="true" filterPlaceholder=""
+                    [hidden]="true"></p-column>
+                <p-column field="EMAIL" header="Email" [sortable]="false" [filter]="true" filterPlaceholder="">
+                </p-column>
+                <p-column field="STUDY_COUNT" header="Total" [sortable]="false" [filter]="true" filterPlaceholder="">
+                </p-column>
+            </p-dataTable>
+        </p-panel>
+    </p-dialog>
+</div>

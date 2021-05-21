@@ -453,7 +453,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favUSDopplerUpperVeinSingle"        Text="" Width="5px" style="vertical-align:top;"                                          Value="XU37"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerUpperVeinSingle"        Text="US Doppler Upper Extremity (Vein : Single Side)"      Value="XU37"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerUpperVeinSingle"        Text="US Doppler Upper Extremity (Deep Vein : Single Side)"      Value="XU37"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>
@@ -472,7 +472,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favUSDopplerLowerVeinSingle"        Text="" Width="5px" style="vertical-align:top;"                                          Value="XU41"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerLowerVeinSingle"        Text="US Doppler Lower Extremity (Vein : Single Side)"      Value="XU41"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerLowerVeinSingle"        Text="US Doppler Lower Extremity (Deep Vein : Single Side)"      Value="XU41"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>
@@ -633,7 +633,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favUSDopplerVascularVeinSingle"         Text="" Width="5px" style="vertical-align:top;"                                      Value="XU36"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerVascularVeinSingle"         Text="US Doppler Vascular (Deep Vein) (Single Side)"    Value="XU36"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td colspan="2"><telerik:RadButton    ID="chkUSDopplerVascularVeinSingle"         Text="US Doppler Vascular (Vein) (Single Side)"    Value="XU36"    runat="server" ButtonType="ToggleButton" GroupName="Doppler"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>

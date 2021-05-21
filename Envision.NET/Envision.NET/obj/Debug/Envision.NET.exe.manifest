@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity version="4.3.3.95" name="Envision.NET.exe" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity version="4.3.3.98" name="Envision.NET.exe" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Envision.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -393,50 +393,50 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.BusinessLogic.dll" size="577024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.BusinessLogic.dll" size="578560">
       <assemblyIdentity name="Envision.BusinessLogic" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3gfJbL1V3eUsq0J1gOsrxammgAw=</dsig:DigestValue>
+        <dsig:DigestValue>Tu9GKT+ymqaxAq4/biW0dwrjJf8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Common.dll" size="1278976">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Common.dll" size="1280512">
       <assemblyIdentity name="Envision.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>agkfKObvD79RgUxsYSh5I7akzbE=</dsig:DigestValue>
+        <dsig:DigestValue>v+3lbkwsYtujeHDr0JYnTw9HVQg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.DataAccess.dll" size="641536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.DataAccess.dll" size="644608">
       <assemblyIdentity name="Envision.DataAccess" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7Mmhrx1L4KzlAOIoyJ7wSXo3pVE=</dsig:DigestValue>
+        <dsig:DigestValue>qRoq8brVFW1q/6alLiVWhTT7U0E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.NET.exe" size="15028736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.NET.exe" size="15092736">
       <assemblyIdentity name="Envision.NET" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mxzvreKxnQ6R4eBMExFxE74Af00=</dsig:DigestValue>
+        <dsig:DigestValue>kyQtyZyGeYs9ezYgj3KiFbWPBh4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -448,7 +448,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>WtVboLzb2P/Hqu5z1+UL7p0sGI0=</dsig:DigestValue>
+        <dsig:DigestValue>sd7E4v8yd+aptlpBEMBMvhInlvs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -460,7 +460,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yAg6Odu4bdlrWLZhICnFJfYg7yw=</dsig:DigestValue>
+        <dsig:DigestValue>0VkJ/J+qmAOt0TU2/OCW74U0oGU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -472,7 +472,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Yzf3q1a6UZPWs19OlTb2ODw7acE=</dsig:DigestValue>
+        <dsig:DigestValue>B5SagyhK6fLWcj9Dn/As85cGG7Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -484,7 +484,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>sde+GpnR8hKGYgqhGzLiSNKLxwQ=</dsig:DigestValue>
+        <dsig:DigestValue>/Zk2JQgnLaTXC1ZDPuTnzFt+aLw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -496,7 +496,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>b9p0YZTtKxrmifev+L2+doQ1pSE=</dsig:DigestValue>
+        <dsig:DigestValue>aXaJ5Mxwo8tRGc5S1FnEoJQ9gaQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -580,7 +580,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dYCQus/BxZF94Is8AS1sWDScAc8=</dsig:DigestValue>
+        <dsig:DigestValue>i6Axje5PvfAPYruHku5TvTN4SBI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

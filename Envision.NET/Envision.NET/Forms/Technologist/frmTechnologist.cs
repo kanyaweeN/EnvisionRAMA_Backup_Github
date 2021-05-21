@@ -47,8 +47,11 @@ namespace Envision.NET.Forms.Technologist
 
         DataTable dtModality;
         DataView dvModality;
+
         DataTable dtWorkLoad;
         DataView dvWorkLoad;
+        DataTable dtReject;
+        DataView dvReject;
 
         DataView dvConsumable;
         DataTable dtConsumable;
@@ -208,6 +211,7 @@ namespace Envision.NET.Forms.Technologist
                 cabUserBy = env.UserID;
                 //chkAllModality.Checked = false;
                 ReloadWorkload();
+                ReloadReject();
             }
             #endregion
 
@@ -396,7 +400,11 @@ namespace Envision.NET.Forms.Technologist
         }
         private void btnWorkload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ReloadWorkload();
+            //ReloadWorkload();
+            if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                ReloadWorkload();
+            else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                ReloadReject();
         }
         private void btnCapture_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -408,13 +416,18 @@ namespace Envision.NET.Forms.Technologist
         }
         private void Refreshing()
         {
-
             if (xtraTabControl1.SelectedTabPage == pageLogIn)
                 ReloadLoginPage();
             else if (xtraTabControl1.SelectedTabPage == pageModality)
                 ReloadModality();
             else if (xtraTabControl1.SelectedTabPage == pageWorkload)
-                ReloadWorkload();
+            {
+                //ReloadWorkload();
+                if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                    ReloadWorkload();
+                else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                    ReloadReject();
+            }
             else if (xtraTabControl1.SelectedTabPage == pageCapture)
                 ReloadCapture();
             else if (xtraTabControl1.SelectedTabPage == pageDemographic)
@@ -562,6 +575,7 @@ namespace Envision.NET.Forms.Technologist
         }
         #endregion
 
+        #region Workload
         private void LoadDataWorkload()
         {
             #region LoadData
@@ -969,28 +983,7 @@ namespace Envision.NET.Forms.Technologist
 
         private void repComment_Click(object sender, EventArgs e)
         {
-            if (gridView2.FocusedRowHandle < 0) return;
-            tmAutoRefresh.Stop();
-            DataRow rowHandle = gridView2.GetDataRow(gridView2.FocusedRowHandle);
-            frmMessageConversation frm = new frmMessageConversation(rowHandle["ACCESSION_NO"].ToString());
-            frm.ShowDialog();
-            frm.Dispose();
 
-            Refreshing();
-            tmAutoRefresh.Start();
-
-
-            //if (gridView2.FocusedRowHandle < 0) return;
-            //DataRow rowHandle = gridView2.GetDataRow(gridView2.FocusedRowHandle);
-            //if (rowHandle["HAS_COMMENT"].ToString() == "Y")
-            //{
-            //    string hn = rowHandle["HN"].ToString();
-            //    int orderId = Convert.ToInt32(rowHandle["ORDER_ID"].ToString());
-            //    Envision.NET.Forms.Comment.frmComment frm = new Envision.NET.Forms.Comment.frmComment(hn, orderId, Envision.NET.Forms.Comment.QueryFromMode.Order);
-            //    frm.StartPosition = FormStartPosition.CenterParent;
-            //    frm.ShowDialog();
-            //    frm.Dispose();
-            //}
         }
         private void ReloadWorkload()
         {
@@ -1035,6 +1028,367 @@ namespace Envision.NET.Forms.Technologist
             tmAutoRefresh.Start();
 
         }
+        #endregion
+
+        #region Reject
+        private void LoadDataReject()
+        {
+            #region LoadData
+            DataSet ds = new DataSet();
+            //ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl();
+            //ds = process.GetDataCapture(dttFrom, dttTo);
+            if (radioGroup1.SelectedIndex == 0)
+            {
+                ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl();
+                ds = process.GetDataRejectPacsImage(dttFrom, dttTo, env.UserID);
+            }
+            else
+            {
+                ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl();
+                ds = process.GetDataRejectPacsImagebyHN(txtHN.Text, env.UserID);
+            }
+            #endregion
+
+            #region LoadNewColumns
+            ds.Tables[0].Columns.Add("Delay", typeof(string));
+            ds.Tables[0].Columns.Add("colStatus", typeof(int));
+            ds.Tables[0].Columns.Add("CHK", typeof(string));
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                //DateTime dt=DateTime.Now;
+                //if(dr["EST_START_TIME"].ToString().Trim()!=string.Empty)
+                //     dt = Convert.ToDateTime(dr["EST_START_TIME"]);
+                //TimeSpan ts = dt.TimeOfDay;
+                //dr["Delay"] = DateTime.Now.Add(ts);
+                if (dr["STATUS"].ToString().Trim() == "S")
+                    dr["colStatus"] = 1;
+                else if (dr["STATUS"].ToString().Trim() == "C")
+                    dr["colStatus"] = 2;
+                else
+                    dr["colStatus"] = 0;
+
+                DateTime dt = DateTime.Now;
+                if (dr["EST_START_TIME"].ToString() != string.Empty)
+                    dt = Convert.ToDateTime(dr["EST_START_TIME"]);
+                TimeSpan ts = DateTime.Now.Subtract(dt);
+                string day = ts.Days == 0 ? "00" : ts.Days.ToString();
+                day = day.Length == 1 ? "0" + day + ":" : day + ":";
+                string hour = ts.Hours == 0 ? "00" : ts.Hours.ToString();
+                hour = hour.Length == 1 ? "0" + hour + ":" : hour + ":";
+                string minute = ts.Minutes == 0 ? "00" : ts.Minutes.ToString();
+                minute = minute.Length == 1 ? "0" + minute : minute;
+                dr["Delay"] = day + hour + minute;
+
+                dr["CHK"] = "N";
+
+                if (!string.IsNullOrEmpty(dr["ALLERGIES"].ToString()) && dr["ALLERGIES"].ToString().Trim() != "N")
+                    dr["ALLERGIES"] = "Y";
+            }
+            dtReject = ds.Tables[0].Copy();
+            #endregion
+        }
+        private void LoadFilterReject()
+        {
+            #region less than one selected
+            bool unSelAll = true;
+
+            int kk = 0;
+            while (kk < chkListModality.Properties.Items.Count)
+            {
+                if (chkListModality.Properties.Items[kk].CheckState == CheckState.Checked)
+                {
+                    unSelAll = false;
+                    break;
+                }
+                ++kk;
+            }
+
+            if (unSelAll)
+            {
+                chkListModality.Properties.Items[0].CheckState = CheckState.Checked;
+                chkListModality.Text = "ALL:MODALITY";
+            }
+            #endregion
+
+            DataView dv = dtReject.DefaultView;
+            dv.RowFilter = "";
+
+            if (chkListModality.Properties.Items[0].CheckState == CheckState.Checked)
+                dv.RowFilter = "";
+            else
+            {
+                List<string> id = new List<string>();
+                int k = 1;
+                while (k < chkListModality.Properties.Items.Count)
+                {
+                    if (chkListModality.Properties.Items[k].CheckState == CheckState.Checked)
+                    {
+                        id.Add(selectModId[k].ToString());
+                    }
+                    ++k;
+                }
+
+                if (id.Count > 0)
+                {
+                    string qry = "";
+                    foreach (string str in id.ToArray())
+                        qry += " MODALITY_ID=" + str + " or ";
+                    qry = qry.Substring(0, qry.Length - 3);
+
+                    dv.RowFilter = "(" + qry + ")";
+                }
+            }
+
+            //if (chkShowStartComplete.CheckState == CheckState.Unchecked)
+            //{
+            //    if (dv.RowFilter == "")
+            //        dv.RowFilter += "(STATUS = 'A' OR STATUS = 'B')";
+            //    else
+            //        dv.RowFilter += " AND (STATUS = 'A' OR STATUS = 'B')";
+            //}
+            //else
+            //{
+            //    if (dv.RowFilter == "")
+            //        dv.RowFilter += "(STATUS = 'A' OR STATUS = 'B' OR STATUS = 'S' OR STATUS = 'C')";
+            //    else
+            //        dv.RowFilter += " AND (STATUS = 'A' OR STATUS = 'B' OR STATUS = 'S' OR STATUS = 'C')";
+            //}
+
+            dvReject = dv;
+        }
+        private void LoadGridReject()
+        {
+            gridControl6.DataSource = dvReject;
+
+            int k = 0;
+            while (k < gridViewReject.Columns.Count)
+            {
+                gridViewReject.Columns[k].Visible = false;
+                gridViewReject.Columns[k].OptionsColumn.AllowEdit = false;
+                //gridView2.Columns[k].OptionsColumn.AllowFocus = false;
+                ++k;
+            }
+
+            gridViewReject.OptionsSelection.EnableAppearanceFocusedRow = true;
+            gridViewReject.OptionsSelection.InvertSelection = false;
+            gridViewReject.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gridViewReject.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            gridViewReject.OptionsView.ShowAutoFilterRow = true;
+
+            DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repFlag = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            repFlag.AutoHeight = false;
+            repFlag.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("",1,0),
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("",2,1),
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("",3,2),
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("",4,3),
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("",5,4)
+            });
+            repFlag.Name = "repFlag";
+            repFlag.SmallImages = img16;
+            repFlag.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            repFlag.Buttons[0].Visible = false;
+
+            #region column edit
+            // alert code
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].ColVIndex = 1;
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].Caption = " ";
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].Width = 50;
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].OptionsColumn.ReadOnly = true;
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].OptionsColumn.AllowEdit = false;
+            gridViewReject.Columns["CLINICAL_INSTRUCTION_TAG"].OptionsFilter.AllowFilter = false;
+
+            gridViewReject.Columns["FLAG_ICON"].ColVIndex = 2;
+            gridViewReject.Columns["FLAG_ICON"].Caption = " ";
+            gridViewReject.Columns["FLAG_ICON"].Width = -1;
+            gridViewReject.Columns["FLAG_ICON"].ColumnEdit = repFlag;
+            gridViewReject.Columns["FLAG_ICON"].OptionsColumn.ReadOnly = true;
+            gridViewReject.Columns["FLAG_ICON"].OptionsColumn.AllowEdit = false;
+            gridViewReject.Columns["FLAG_ICON"].OptionsFilter.AllowFilter = false;
+
+            gridViewReject.Columns["READER"].Caption = " ";
+            gridViewReject.Columns["READER"].ColVIndex = 3;
+            gridViewReject.Columns["READER"].Width = -1;
+            gridViewReject.Columns["READER"].OptionsColumn.ReadOnly = true;
+            gridViewReject.Columns["READER"].OptionsColumn.AllowEdit = true;
+            gridViewReject.Columns["READER"].OptionsFilter.AllowFilter = false;
+
+            gridViewReject.Columns["ALLERGIES"].Caption = " ";
+            gridViewReject.Columns["ALLERGIES"].ColVIndex = 4;
+            gridViewReject.Columns["ALLERGIES"].Width = 20;
+            gridViewReject.Columns["ALLERGIES"].OptionsColumn.ReadOnly = true;
+            gridViewReject.Columns["ALLERGIES"].OptionsColumn.AllowEdit = true;
+            gridViewReject.Columns["ALLERGIES"].OptionsFilter.AllowFilter = false;
+
+            gridViewReject.Columns["PRIORITY"].Caption = "Priority";
+            gridViewReject.Columns["PRIORITY"].ColVIndex = 5;
+            gridViewReject.Columns["PRIORITY"].Width = 40;
+
+            gridViewReject.Columns["HN"].Caption = "HN";
+            gridViewReject.Columns["HN"].ColVIndex = 6;
+            gridViewReject.Columns["HN"].Width = 50;
+
+            gridViewReject.Columns["PatientName"].Caption = "Patient Name";
+            gridViewReject.Columns["PatientName"].ColVIndex = 7;
+            gridViewReject.Columns["PatientName"].Width = 90;
+
+            gridViewReject.Columns["AGEText"].ColVIndex = 8;
+            gridViewReject.Columns["AGEText"].Caption = "Age";
+            gridViewReject.Columns["AGEText"].Width = 75;
+            //gridView2.Columns["AGE"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+
+            gridViewReject.Columns["GENDER"].Caption = "Gender";
+            gridViewReject.Columns["GENDER"].ColVIndex = 9;
+            gridViewReject.Columns["GENDER"].Width = 40;
+
+            gridViewReject.Columns["STATUS_TEXT"].Caption = "Patient Status";
+            gridViewReject.Columns["STATUS_TEXT"].ColVIndex = 10;
+            gridViewReject.Columns["STATUS_TEXT"].Width = 49;
+
+            gridViewReject.Columns["ACCESSION_NO"].Caption = "Accession No.";
+            gridViewReject.Columns["ACCESSION_NO"].ColVIndex = 11;
+            gridViewReject.Columns["ACCESSION_NO"].Width = 50;
+
+            gridViewReject.Columns["EXAM_UID"].Caption = "Exam Code";
+            gridViewReject.Columns["EXAM_UID"].ColVIndex = 12;
+            gridViewReject.Columns["EXAM_UID"].Width = 50;
+
+            gridViewReject.Columns["EXAM_NAME"].Caption = "Exam Name";
+            gridViewReject.Columns["EXAM_NAME"].ColVIndex = 13;
+            gridViewReject.Columns["EXAM_NAME"].Width = 169;
+
+            gridViewReject.Columns["MODALITY_NAME"].Caption = "Modality";
+            gridViewReject.Columns["MODALITY_NAME"].ColVIndex = 14;
+            gridViewReject.Columns["MODALITY_NAME"].Width = 128;
+
+            gridViewReject.Columns["CLINIC_TYPE"].Caption = "Clinic Type";
+            gridViewReject.Columns["CLINIC_TYPE"].ColVIndex = 15;
+            gridViewReject.Columns["CLINIC_TYPE"].Width = 100;
+
+            gridViewReject.Columns["GEN_TEXT"].Caption = "Reject Reason";
+            gridViewReject.Columns["GEN_TEXT"].ColVIndex = 16;
+            gridViewReject.Columns["GEN_TEXT"].Width = 169;
+
+            gridViewReject.Columns["REJECT_COMMENTS"].Caption = "Reject Comments";
+            gridViewReject.Columns["REJECT_COMMENTS"].ColVIndex = 17;
+            gridViewReject.Columns["REJECT_COMMENTS"].Width = 128;
+
+            gridViewReject.Columns["PHONE_CALL_BACK"].Caption = "Phone call back";
+            gridViewReject.Columns["PHONE_CALL_BACK"].ColVIndex = 18;
+            gridViewReject.Columns["PHONE_CALL_BACK"].Width = 100;
+            #endregion
+
+            #region repository edit
+
+            DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            repositoryItemImageComboBox2.AutoHeight = false;
+            repositoryItemImageComboBox2.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Routine", "Routine", 6),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Urgent","Urgent", 7),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Stat", "Stat", 8)});
+            repositoryItemImageComboBox2.Name = "repositoryItemImageComboBox2";
+            repositoryItemImageComboBox2.SmallImages = imgWL;
+            repositoryItemImageComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            gridViewReject.Columns["PRIORITY"].ColumnEdit = repositoryItemImageComboBox2;
+
+            DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repComment = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            repComment.AutoHeight = false;
+            repComment.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("","New",1),
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("","Read",9)
+            });
+            repComment.Name = "repComment";
+            repComment.SmallImages = imgWL;
+            repComment.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            repComment.Buttons[0].Visible = false;
+            repComment.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            repComment.ShowPopupShadow = false;
+            repComment.DropDownRows = 0;
+            repComment.Click += new EventHandler(repComment_Reject_Click);
+            gridViewReject.Columns["READER"].ColumnEdit = repComment;
+
+            DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repAllery = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            repAllery.AutoHeight = false;
+            repAllery.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+                new DevExpress.XtraEditors.Controls.ImageComboBoxItem("","Y",12)
+            });
+            repAllery.Name = "repAllery";
+            repAllery.SmallImages = imgWL;
+            repAllery.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            repAllery.Buttons[0].Visible = false;
+            gridViewReject.Columns["ALLERGIES"].ColumnEdit = repAllery;
+            #endregion
+        }
+
+        private void repComment_Reject_Click(object sender, EventArgs e)
+        {
+            if (gridViewReject.FocusedRowHandle < 0) return;
+            tmAutoRefresh.Stop();
+            DataRow rowHandle = gridViewReject.GetDataRow(gridView2.FocusedRowHandle);
+            frmMessageConversation frm = new frmMessageConversation(rowHandle["ACCESSION_NO"].ToString());
+            frm.ShowDialog();
+            frm.Dispose();
+
+            Refreshing();
+            tmAutoRefresh.Start();
+
+
+            //if (gridView2.FocusedRowHandle < 0) return;
+            //DataRow rowHandle = gridView2.GetDataRow(gridView2.FocusedRowHandle);
+            //if (rowHandle["HAS_COMMENT"].ToString() == "Y")
+            //{
+            //    string hn = rowHandle["HN"].ToString();
+            //    int orderId = Convert.ToInt32(rowHandle["ORDER_ID"].ToString());
+            //    Envision.NET.Forms.Comment.frmComment frm = new Envision.NET.Forms.Comment.frmComment(hn, orderId, Envision.NET.Forms.Comment.QueryFromMode.Order);
+            //    frm.StartPosition = FormStartPosition.CenterParent;
+            //    frm.ShowDialog();
+            //    frm.Dispose();
+            //}
+        }
+        private void ReloadReject()
+        {
+            tmAutoRefresh.Stop();
+
+            //if (gridView1.FocusedRowHandle < 0) return;
+
+            ribbonPage1.Text = "Workload";
+            xtraTabControl1.SelectedTabPage = pageWorkload;
+            layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            //modalityID = Convert.ToInt32(gridView1.GetDataRow(gridView1.FocusedRowHandle)["MODALITY_ID"]);
+            ribbonControl1.SelectedPage = ribPageWorkload;
+
+            if (radioGroup1.SelectedIndex == 0)
+            {
+                panelDate.Visible = true;
+                panelHN.Visible = false;
+
+                dttFrom = new DateTime(txtFromdate.DateTime.Year, txtFromdate.DateTime.Month, txtFromdate.DateTime.Day, 0, 0, 0);
+                dttTo = new DateTime(txtToDate.DateTime.Year, txtToDate.DateTime.Month, txtToDate.DateTime.Day, 23, 59, 59); ;
+                HN = "";
+            }
+            else
+            {
+                panelDate.Visible = false;
+                panelHN.Visible = true;
+
+                dttFrom = new DateTime(1800, 1, 1, 1, 1, 1);
+                dttTo = new DateTime(9000, 1, 1, 1, 1, 1);
+                HN = txtHN.Text;
+            }
+
+            LoadDataReject();
+            LoadFilterReject();
+            LoadGridReject();
+
+            ribbonPage_DataShowing();
+            ribbonBtn_visibility();
+
+            onCapture = false;
+
+            tmAutoRefresh.Start();
+
+        }
+        #endregion
 
         #region Workload Page
         private void condition_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
@@ -1189,12 +1543,22 @@ namespace Envision.NET.Forms.Technologist
         }
         private void btnGO_Click(object sender, EventArgs e)
         {
-            ReloadWorkload();
+            //ReloadWorkload();
+            if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                ReloadWorkload();
+            else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                ReloadReject();
         }
         private void txtHN_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                ReloadWorkload();
+            {
+                //ReloadWorkload();
+                if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                    ReloadWorkload();
+                else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                    ReloadReject();
+            }
         }
         private void radioGroup1_Properties_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1343,7 +1707,11 @@ namespace Envision.NET.Forms.Technologist
         {
             if (xtraTabControl1.SelectedTabPage == pageWorkload)
             {
-                ReloadWorkload();
+                //ReloadWorkload();
+                if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                    ReloadWorkload();
+                else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                    ReloadReject();
             }
         }
 
@@ -1360,6 +1728,32 @@ namespace Envision.NET.Forms.Technologist
             tmAutoRefresh.Start();
         }
         private void barComments_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                CommentsProcess();
+            else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                OrderSummaryProcessReject();
+        }
+        private void btnOrderSummary_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //OrderSummaryProcess();
+            if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                OrderSummaryProcess();
+            else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                OrderSummaryProcessReject();
+        }
+        private void orderSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderSummaryProcess();
+        }
+        private void toolStripHisAllergy_Click(object sender, EventArgs e)
+        {
+            if (gridView2.FocusedRowHandle < -1) return;
+
+            DataRow dr = gridView2.GetDataRow(gridView2.FocusedRowHandle);
+            this._orderSummary.ShowDialogShortcut(true, dr["ACCESSION_NO"].ToString(), "allergy");
+        }
+        private void CommentsProcess()
         {
             Comment.frmComment frm = null;
             if (gridView2.FocusedRowHandle < 0)
@@ -1378,21 +1772,6 @@ namespace Envision.NET.Forms.Technologist
                 frm.ShowDialog();
             }
             frm.Dispose();
-        }
-        private void btnOrderSummary_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            OrderSummaryProcess();
-        }
-        private void orderSummaryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OrderSummaryProcess();
-        }
-        private void toolStripHisAllergy_Click(object sender, EventArgs e)
-        {
-            if (gridView2.FocusedRowHandle < -1) return;
-
-            DataRow dr = gridView2.GetDataRow(gridView2.FocusedRowHandle);
-            this._orderSummary.ShowDialogShortcut(true, dr["ACCESSION_NO"].ToString(), "allergy");
         }
         private void OrderSummaryProcess()
         {
@@ -1525,6 +1904,7 @@ namespace Envision.NET.Forms.Technologist
         }
         private void btnMerge_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (xtraTabControl2.SelectedTabPage == tabRejectImage) return;
             if (gridView2.FocusedRowHandle < 0) return;
 
             DataView dvW = (DataView)gridControl2.DataSource;
@@ -1554,6 +1934,7 @@ namespace Envision.NET.Forms.Technologist
         }
         private void btnSplit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (xtraTabControl2.SelectedTabPage == tabRejectImage) return;
             if (gridView2.FocusedRowHandle > -1)
             {
                 DataRow dr = gridView2.GetDataRow(gridView2.FocusedRowHandle);
@@ -3883,15 +4264,19 @@ namespace Envision.NET.Forms.Technologist
             }
 
         }
-
         private void toolTipController1_GetActiveObjectInfo(object sender, DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventArgs e)
         {
             ToolTipControlInfo info = null;
             try
             {
-                if (e.SelectedControl == gridControl2)
+                if (e.SelectedControl == gridControl2 || e.SelectedControl == gridControl6)
                 {
-                    GridView view = gridControl2.GetViewAt(e.ControlMousePosition) as GridView;
+                    GridView view = null;
+                    if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                        view = gridControl2.GetViewAt(e.ControlMousePosition) as GridView;
+                    else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                        view = gridControl6.GetViewAt(e.ControlMousePosition) as GridView;
+
                     if (view == null) return;
                     GridHitInfo hi = view.CalcHitInfo(e.ControlMousePosition);
                     if (hi.InRowCell)
@@ -3963,6 +4348,28 @@ namespace Envision.NET.Forms.Technologist
                                         return;
                                     }
                                     break;
+
+                                case "GEN_TEXT":
+                                    if (!string.IsNullOrEmpty(rowDetail["GEN_TEXT"].ToString()))
+                                    {
+                                        info = new ToolTipControlInfo(new CellToolTipInfo(hi.RowHandle, hi.Column, "cell"), rowDetail["GEN_TEXT"].ToString());
+                                        return;
+                                    }
+                                    break;
+                                case "REJECT_COMMENTS":
+                                    if (!string.IsNullOrEmpty(rowDetail["REJECT_COMMENTS"].ToString()))
+                                    {
+                                        info = new ToolTipControlInfo(new CellToolTipInfo(hi.RowHandle, hi.Column, "cell"), rowDetail["REJECT_COMMENTS"].ToString());
+                                        return;
+                                    }
+                                    break;
+                                case "PHONE_CALL_BACK":
+                                    if (!string.IsNullOrEmpty(rowDetail["PHONE_CALL_BACK"].ToString()))
+                                    {
+                                        info = new ToolTipControlInfo(new CellToolTipInfo(hi.RowHandle, hi.Column, "cell"), rowDetail["PHONE_CALL_BACK"].ToString());
+                                        return;
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -3996,7 +4403,6 @@ namespace Envision.NET.Forms.Technologist
                 e.Info = info;
             }
         }
-
         private void contextcmb_DropDownClosed(object sender, EventArgs e)
         {
             if (gridView2.FocusedRowHandle >= 0)
@@ -4033,7 +4439,6 @@ namespace Envision.NET.Forms.Technologist
                 gridView2.RefreshData();
             }
         }
-
         private void inspectraAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (gridView2.FocusedRowHandle > -1)
@@ -4051,7 +4456,6 @@ namespace Envision.NET.Forms.Technologist
                 }
             }
         }
-
         private void rAMAAIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (gridView2.FocusedRowHandle > -1)
@@ -4070,7 +4474,96 @@ namespace Envision.NET.Forms.Technologist
             }
         }
 
-        
+        private void orderSummaryToolStripMenuItemReject_Click(object sender, EventArgs e)
+        {
+            OrderSummaryProcessReject();
+        }
+        private void commentsToolStripMenuItemReject_Click(object sender, EventArgs e)
+        {
+            if (gridViewReject.FocusedRowHandle < 0) return;
 
+            tmAutoRefresh.Stop();
+            DataRow fcRow = gridViewReject.GetDataRow(gridViewReject.FocusedRowHandle);
+            frmMessageConversation frm = new frmMessageConversation(fcRow["ACCESSION_NO"].ToString());
+            frm.ShowDialog();
+
+            Refreshing();
+            tmAutoRefresh.Start();
+        }
+        private void CommentsProcessReject()
+        {
+            Comment.frmComment frm = null;
+            if (gridViewReject.FocusedRowHandle < 0)
+            {
+                frm = new Envision.NET.Forms.Comment.frmComment();
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+            else
+            {
+                DataRow rowHandle = gridViewReject.GetDataRow(gridView2.FocusedRowHandle);
+                string hn = rowHandle["HN"].ToString();
+                int orderId = Convert.ToInt32(rowHandle["ORDER_ID"].ToString());
+                frm = new Envision.NET.Forms.Comment.frmComment(hn, orderId, Envision.NET.Forms.Comment.QueryFromMode.Order);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+            frm.Dispose();
+        }
+        private void OrderSummaryProcessReject()
+        {
+            if (gridViewReject.FocusedRowHandle < -1) return;
+
+            DataRow dr = gridViewReject.GetDataRow(gridViewReject.FocusedRowHandle);
+            this._orderSummary.ShowDialog(true, dr["ACCESSION_NO"].ToString());
+        }
+
+        private void gridViewReject_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+            {
+                DataRow dr = gridViewReject.GetDataRow(e.RowHandle);
+                if (dr != null)
+                {
+                    if (dr["IS_ALERT_CLINICAL_INSTRUCTION"].ToString() == "Y")
+                    {
+                        e.Appearance.BackColor = Color.Tomato;
+                        //e.Appearance.ForeColor = Color.White;
+                    }
+                    else
+                        //Show Online case
+                        if (dr["IS_REQONLINE"].ToString() == "Y")
+                        {
+                            e.Appearance.BackColor = Color.SkyBlue;
+                        }
+                        else
+                        {
+                            //Show Merge case
+                            if (dr["MERGE"].ToString() != string.Empty)
+                            {
+                                if (dr["MERGE_WITH"].ToString() != string.Empty)
+                                {
+                                    e.Appearance.BackColor = Color.LightPink;
+                                }
+                                else
+                                {
+                                    e.Appearance.BackColor = Color.LightPink;
+                                }
+                            }
+                            else
+                            {
+                                e.Appearance.BackColor = SystemColors.Window;
+                            }
+                        }
+                }
+            }
+        }
+        private void xtraTabControl2_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
+        {
+            if (xtraTabControl2.SelectedTabPage == tabWorkload)
+                ReloadWorkload();
+            else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
+                ReloadReject();
+        }
     }
 }

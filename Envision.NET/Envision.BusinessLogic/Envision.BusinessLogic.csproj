@@ -82,6 +82,7 @@
     <Compile Include="PascManagement.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PatientDestinationInfo.cs" />
+    <Compile Include="ProcessCreate\ProcessAddRISRejectcapturelog.cs" />
     <Compile Include="ProcessCreate\ProcessAddACFinalizePrivilege.cs" />
     <Compile Include="ProcessCreate\ProcessAddGBLErrorLogs.cs" />
     <Compile Include="ProcessCreate\ProcessAddGBLNotification.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="ProcessDelete\ProcessDeleteSRTemplatePart.cs" />
     <Compile Include="ProcessDelete\ProcessDeleteSRUserpreference.cs" />
     <Compile Include="ProcessDelete\ProcessDeleteXRAYREQ.cs" />
+    <Compile Include="ProcessRead\ProcessGetRISRejectcapturelog.cs" />
     <Compile Include="ProcessRead\ProcessGetACFinalizePrivilege.cs" />
     <Compile Include="ProcessRead\ProcessGetClinicalIndicationType.cs" />
     <Compile Include="ProcessRead\ProcessGetCountHRUnit.cs" />

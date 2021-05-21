@@ -72,6 +72,7 @@
     <Compile Include="Common\ObjectControls.cs" />
     <Compile Include="ConditionTypes.cs" />
     <Compile Include="AC_FINALIZEPRIVILEGE.cs" />
+    <Compile Include="RIS_REJECTCAPTURELOG.cs" />
     <Compile Include="DistributionCommon.cs" />
     <Compile Include="DistributionNew.cs" />
     <Compile Include="FIN_INVOICE.cs" />

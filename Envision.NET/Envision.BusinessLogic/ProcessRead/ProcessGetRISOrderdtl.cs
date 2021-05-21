@@ -75,6 +75,18 @@ namespace Envision.BusinessLogic.ProcessRead
             DataSet ds = _proc.GetDataCapturebyHN(HN, empId);
             return ds.Copy();
         }
+        public DataSet GetDataRejectPacsImage(DateTime dtFrom, DateTime dtTo, int empId)
+        {
+            RISOrderdtlSelectData _proc = new RISOrderdtlSelectData();
+            DataSet ds = _proc.GetDataRejectPacsImage(dtFrom, dtTo, empId);
+            return ds.Copy();
+        }
+        public DataSet GetDataRejectPacsImagebyHN(string HN, int empId)
+        {
+            RISOrderdtlSelectData _proc = new RISOrderdtlSelectData();
+            DataSet ds = _proc.GetDataRejectPacsImagebyHN(HN, empId);
+            return ds.Copy();
+        }
         public DataSet GetDataQA(DateTime dtFrom,DateTime dtTo) {
             RISOrderdtlSelectData _proc = new RISOrderdtlSelectData();
             DataSet ds = _proc.GetDataQA(dtFrom, dtTo);

@@ -127,7 +127,7 @@ namespace Envision.WebService.HISWebService
         /// <remarks/>
         public Service()
         {
-            this.Url = "http://miracle99/PatientServiceNew/Service.asmx";
+            this.Url = "http://miracle99/PatientService2010/Service.asmx";
         }
 
         /// <remarks/>

@@ -13,6 +13,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using Envision.DataAccess;
+using System.Data.Common;
 
 namespace Envision.DataAccess.Select
 {
@@ -31,6 +32,18 @@ namespace Envision.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
 		}
+        public DataTable selectByModality(int modality_id)
+		{
+            StoredProcedureName = StoredProcedure.Prc_HR_ROOM_SelectBYModality;
+            DataTable ds = new DataTable();
+            DbParameter[] parameters = {
+                Parameter("@MODALITY_ID",modality_id)
+            };
+            ParameterList = parameters;
+            ds = ExecuteDataTable();
+            return ds;
+		}
+        
 	}
 }
 

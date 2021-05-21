@@ -1,0 +1,309 @@
+<div>
+    <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425" #cd>
+        <p-footer>
+            <button type="button" pButton icon="fa-check" label="Ok" (click)="cd.accept()"></button>
+        </p-footer>
+    </p-confirmDialog>
+    <p-panel>
+        <p-header>
+            Summary :
+        </p-header>
+        <table>
+            <tr>
+                <td>
+                    <b>Total Assigned Cases :</b> {{noOfStudies}} <br>
+                    <b>Reviewed :</b> {{noOfReviewed}} <br>
+                    <b>Pending :</b> {{noOfReviewing}} <br>
+                    <p-dropdown [options]="prStatus" [(ngModel)]="selectedFilter" [style]="{'width':'350px'}"
+                        editable="editable" placeholder="Filter Status" (onChange)="onChangeStatus($event)">
+                    </p-dropdown>
+                    <input #gb type="text" [value]="filterText" pInputText size="50" placeholder="Global Filter"
+                        hidden="true">
+                </td>
+                <td></td>
+                <td>
+                    <p-fieldset *ngIf="hideComment" legend="Comments" [toggleable]="true" [collapsed]="true">
+                        <textarea rows="10" cols="60" pInputTextarea [(ngModel)]="comment" disabled="true"></textarea>
+                    </p-fieldset>
+                </td>
+            </tr>
+        </table>
+    </p-panel>
+    <p-dataTable [value]="studies" selectionMode="single" [(selection)]="selectedStudy"
+        (onRowSelect)="onRowSelect($event)" (onRowDblclick)="onRowDoubleClick($event)" [paginator]="true" [rows]="10"
+        [responsive]="true" [globalFilter]="gb" tableStyleClass="table">
+        <p-header>PEER REVIEW WORKLIST</p-header>
+        <p-column field="ASSIGNMENT_ID" header="ASSIGNMENT_ID" [sortable]="false" [filter]="true"
+            filterPlaceholder="Search" [hidden]="true"></p-column>
+        <p-column field="HN" header="HN" [sortable]="false" [filter]="true" filterPlaceholder="Search" [hidden]="false">
+        </p-column>
+        <p-column field="PATIENT_NAME" header="Name" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+        </p-column>
+        <p-column field="ACCESSION_NO" header="Accession No" [sortable]="false" [filter]="true"
+            filterPlaceholder="Search"></p-column>
+        <p-column field="EXAM_NAME" header="Exam Name" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+        </p-column>
+        <p-column field="ORDER_DT" header="Study Date" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+            <template let-study="rowData" pTemplate="body">
+                <span>{{study.ORDER_DT | date:'dd/MM/yyyy'}}</span>
+            </template>
+        </p-column>
+        <p-column field="TYPE_NAME_ALIAS" header="Modality" [sortable]="false" [filter]="true"
+            filterPlaceholder="Search"></p-column>
+        <p-column field="REVIEW_SCORE" header="Score" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+        </p-column>
+        <p-column field="STATUS" header="Status" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+            filterMatchMode="equals"></p-column>
+        <p-column field="IS_COMMENTED" header="Comment" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+            filterMatchMode="equals"></p-column>
+        <p-column field="COMMENT" header="Comment" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+            filterMatchMode="equals" [hidden]="true"></p-column>
+        <p-column field="REVIEW_DT" header="Review Date" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+            filterMatchMode="equals">
+            <template let-study="rowData"  pTemplate="body">
+                <span>{{study.REVIEW_DT | date:'dd/MM/yyyy'}}</span>
+            </template>
+        </p-column>
+        <p-column styleClass="col-button">
+            <template let-study="rowData" pTemplate="body">
+                <button type="button" pButton (click)="selectStudy(study)" icon="ui-icon-pencil"></button>
+            </template>
+        </p-column>
+
+    </p-dataTable>
+
+
+
+    <p-dialog header="Peer Review Details" [(visible)]="displayScoring" [responsive]="true" showEffect="fade"
+        [modal]="true" [resizable]="true" positionTop="5" width="1024" height="auto">
+        <p-panel [toggleable]="true">
+            <p-header>
+                Selected Study :
+            </p-header>
+            <table>
+                <tr>
+                    <td>
+                        <b>HN</b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sTxtHN}}
+                    </td>
+                    <td>
+                        <b>Name </b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sTxtPATIENTNAME}}
+                    </td>
+                    <td>
+                        <b>Accession </b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sTxtACCESSIONNO}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Exam </b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sTxtEXAMNAME}}
+                    </td>
+                    <td>
+                        <b>Modality </b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sTxtTYPENAMEALIAS}}
+                    </td>
+                    <td>
+                        <b>Study Date </b>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        {{sDateORDERDT | date:'MM/dd/yyyy'}}
+                    </td>
+                </tr>
+            </table>
+
+        </p-panel>
+        <p-messages [value]="msgs"></p-messages>
+        <p-tabView (onChange)="changeTab($event.index)">
+
+            <p-tabPanel header={{reportTab}} [selected]="selectedTab === 0">
+                <button pButton type="button" class="ui-button-warning" label="Save as draft" [disabled]="ifFinal"
+                    (click)="saveAsDraft(study.ASSIGNMENT_ID)"></button>
+                <button pButton type="button" class="ui-button-success" label="Save as final" [disabled]="ifFinal"
+                    (click)="saveAsFinal(study.ASSIGNMENT_ID)"></button>
+                <p-editor [(ngModel)]="myReport" [readOnly]="false" [style]="{'height':'300px'}">
+                    <p-header>
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                        </span>
+                    </p-header>
+                </p-editor>
+                <table align="right">
+                    <tr>
+                        <button *ngIf="skipHide" pButton type="button" class="ui-button-danger" label="Skip >>"
+                            [disabled]="ifFinal" (click)="skipToFinalReport()"></button>
+                    </tr>
+                </table>
+            </p-tabPanel>
+            <p-tabPanel header="Finalized Report" [selected]="selectedTab === 1" [disabled]="tabDisable">
+                <p-editor [(ngModel)]="finalizeReport" [style]="{'height':'300px'}" [readOnly]="true">
+                    <p-header>
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                        </span>
+                    </p-header>
+                </p-editor>
+            </p-tabPanel>
+            <p-tabPanel header="Scoring" [selected]="selectedTab === 2" [disabled]="tabDisable">
+                <table>
+                    <tr>
+                        <td>
+                            <p-panel [toggleable]="true">
+                                <p-header>
+                                    Score:
+                                </p-header>
+                                <table width>
+                                    <tr>
+                                        <td>
+                                            1. Concur with interpretation
+                                        </td>
+                                    </tr>
+                                    <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            2. Discrepancy in Interpretation/not <br>
+                                            ordinarily expected to be <br>
+                                            made (understandable miss)
+                                        </td>
+                                    </tr>
+                                    <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            3. Discrepancy in Interpretation/ should <br>
+                                            be made most of the time
+                                        </td>
+                                    </tr>
+                                    <!-- <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            4. Discrepancy in Interpretation/ should be<br>
+                                            made almost every time – misinterpretation <br>
+                                            of finding
+                                        </td>
+                                    </tr> -->
+
+                                </table>
+                            </p-panel>
+                        </td>
+                        <td>
+                            <p-panel [toggleable]="true">
+                                <p-header>
+                                    Clinical Significance:
+                                </p-header>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="1" [(ngModel)]="scoreValue" label="">
+                                            </p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="2a" [(ngModel)]="scoreValue"
+                                                label="2a. Unlikely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="2b" [(ngModel)]="scoreValue"
+                                                label="2b. Likely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="3a" [(ngModel)]="scoreValue"
+                                                label="3a. Unlikely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="3b" [(ngModel)]="scoreValue"
+                                                label="3b. Likely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <!-- <div>
+                                        <hr style="background: green; border: none; height: 2px;" />
+                                    </div>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="4a" [(ngModel)]="scoreValue"
+                                                label="4a. Unlikely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p-radioButton name="groupname" value="4b" [(ngModel)]="scoreValue"
+                                                label="4b. Likely to be clinically significant"></p-radioButton>
+                                        </td>
+                                    </tr> -->
+                                    <br>
+                                </table>
+
+                            </p-panel>
+                        </td>
+                    </tr>
+                </table>
+                <h3 class="first">Comments</h3>
+                <textarea rows="10" cols="90" pInputTextarea [(ngModel)]="myComment"></textarea>
+                <table>
+                    <tr>
+                        <td>
+                            <button pButton type="button" class="ui-button-success" label="Save Changes"
+                                (click)="saveScore(study.ASSIGNMENT_ID)"></button>
+                        </td>
+                        <td>
+                            <button pButton type="button" class="ui-button-warning" label="Reset"></button>
+                        </td>
+                    </tr>
+                </table>
+            </p-tabPanel>
+        </p-tabView>
+    </p-dialog>
+
+</div>

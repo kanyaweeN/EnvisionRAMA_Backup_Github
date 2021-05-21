@@ -194,6 +194,7 @@
     <Compile Include="Insert\ACYearInsertData.cs" />
     <Compile Include="Insert\AddendumInsertData.cs" />
     <Compile Include="Insert\ACFinalizePrivilegeInsertData.cs" />
+    <Compile Include="Insert\RISRejectcapturelogData.cs" />
     <Compile Include="Insert\GBLErrorLogsInsertData.cs" />
     <Compile Include="Insert\GBLNotificationInsertData.cs" />
     <Compile Include="Insert\HRUnitInsertData_forExcel.cs" />
@@ -386,6 +387,7 @@
     <Compile Include="Select\AlertSelectData.cs" />
     <Compile Include="Select\AuthLevelSelectData.cs" />
     <Compile Include="Select\ACFinalizePrivilegeSelectData.cs" />
+    <Compile Include="Select\RISRejectcapturelogSelectData.cs" />
     <Compile Include="Select\RISClinicalindicationtypeSelectData.cs" />
     <Compile Include="Select\DistributionSelect.cs" />
     <Compile Include="Select\GBLBISettingsSelectData.cs" />

@@ -30,6 +30,11 @@ namespace Envision.BusinessLogic.ProcessRead
             HRRoomSelectData _proc = new HRRoomSelectData();
 			result=_proc.GetData();
 		}
+        public DataTable selectByModality(int modality_id)
+        {
+            HRRoomSelectData _proc = new HRRoomSelectData();
+            return _proc.selectByModality(modality_id);
+        }
 	}
 }
 

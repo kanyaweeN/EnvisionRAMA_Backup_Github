@@ -668,7 +668,7 @@ namespace Envision.NET.Forms.Schedule
                     procBlock.RIS_SCHEDULE.START_DATETIME = start;
                     procBlock.RIS_SCHEDULE.END_DATETIME = edt;
                     DataTable dtblock = procBlock.GetScheduleBlock();
-                    
+
                     if (dtblock.Rows.Count > 0)
                     {
                         MyMessageBoxBlock msgBlock = new MyMessageBoxBlock();

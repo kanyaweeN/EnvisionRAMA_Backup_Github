@@ -52,6 +52,7 @@ namespace Envision.NET.Forms.Technologist
             this.grcData = new DevExpress.XtraGrid.GridControl();
             this.contextViewData = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.multipleReleaseMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scanDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewData = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -290,17 +291,27 @@ namespace Envision.NET.Forms.Technologist
             // contextViewData
             // 
             this.contextViewData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.multipleReleaseMediaToolStripMenuItem});
+            this.multipleReleaseMediaToolStripMenuItem,
+            this.scanDocumentsToolStripMenuItem});
             this.contextViewData.Name = "contextViewData";
-            this.contextViewData.Size = new System.Drawing.Size(197, 26);
+            this.contextViewData.Size = new System.Drawing.Size(197, 48);
             this.contextViewData.Opening += new System.ComponentModel.CancelEventHandler(this.contextViewData_Opening);
             // 
             // multipleReleaseMediaToolStripMenuItem
             // 
+            this.multipleReleaseMediaToolStripMenuItem.Image = global::Envision.NET.Properties.Resources.activity;
             this.multipleReleaseMediaToolStripMenuItem.Name = "multipleReleaseMediaToolStripMenuItem";
             this.multipleReleaseMediaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.multipleReleaseMediaToolStripMenuItem.Text = "Multiple Release Media";
             this.multipleReleaseMediaToolStripMenuItem.Click += new System.EventHandler(this.multipleReleaseMediaToolStripMenuItem_Click);
+            // 
+            // scanDocumentsToolStripMenuItem
+            // 
+            this.scanDocumentsToolStripMenuItem.Image = global::Envision.NET.Properties.Resources.icon_reprint;
+            this.scanDocumentsToolStripMenuItem.Name = "scanDocumentsToolStripMenuItem";
+            this.scanDocumentsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.scanDocumentsToolStripMenuItem.Text = "Scan Documents";
+            this.scanDocumentsToolStripMenuItem.Click += new System.EventHandler(this.scanDocumentsToolStripMenuItem_Click);
             // 
             // viewData
             // 
@@ -667,6 +678,7 @@ namespace Envision.NET.Forms.Technologist
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.ContextMenuStrip contextViewData;
         private System.Windows.Forms.ToolStripMenuItem multipleReleaseMediaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scanDocumentsToolStripMenuItem;
 
     }
 }

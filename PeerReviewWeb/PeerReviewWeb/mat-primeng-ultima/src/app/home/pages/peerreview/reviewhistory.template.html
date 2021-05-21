@@ -1,0 +1,72 @@
+<div>
+    <p-panel>
+        <p-header>
+            Review History
+        </p-header>
+        <p-fieldset>
+            <b>From Assign Date :</b>
+            <p-dropdown [options]="assignDate" [(ngModel)]="fromDate" [style]="{'width':'350px'}" editable="editable"
+                placeholder="Select a assign date"></p-dropdown>
+            <b>To Assign Date :</b>
+            <p-dropdown [options]="assignDate" [(ngModel)]="toDate" [style]="{'width':'350px'}" editable="editable"
+                placeholder="Select a assign date"></p-dropdown>
+            <button pButton type="button" class="ui-button-success" (click)="getReviewHistory()"
+                label="  Find  "></button>
+        </p-fieldset>
+        <hr>
+        <p-dataTable [value]="reviewHistory" selectionMode="single" [(selection)]="selectedHistory" [rows]="5"
+            [responsive]="true" tableStyleClass="table" (onRowSelect)="onRowSelect($event)"
+            (onRowDblclick)="onRowDoubleClick($event)">
+            <p-header></p-header>
+            <p-column field="SUB_SPECIALTY_NAME" header="Subspecialty" [sortable]="false" [filter]="true"
+                filterPlaceholder="" [hidden]="false"></p-column>
+            <p-column field="RAD_NAME" header="Radiologist" [sortable]="false" [filter]="true" filterPlaceholder=""
+                [hidden]="false"></p-column>
+            <p-column field="TOTAL" header="Assigned" [sortable]="false" [filter]="true" filterPlaceholder=""
+                [hidden]="false"></p-column>
+            <p-column field="REVIEWED" header="Reviewed" [sortable]="false" [filter]="true" filterPlaceholder="">
+            </p-column>
+            <p-column field="PENDING" header="Pending" [sortable]="false" [filter]="true" filterPlaceholder=""
+                [hidden]="false"></p-column>
+        </p-dataTable>
+    </p-panel>
+    <p-dialog header="Peer Review History Details" [(visible)]="displayHistory" [responsive]="true" showEffect="fade"
+        [modal]="true" width="1400" height="900">
+        <p-panel>
+            <p-header>
+                Radiologist's NAME : {{radName}}
+            </p-header>
+        </p-panel>
+        <p-dataTable [value]="studies" selectionMode="single" [paginator]="true" [rows]="10" [responsive]="true"
+            tableStyleClass="table">
+            <p-header></p-header>
+            <p-column field="HN" header="HN" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+                [hidden]="false"></p-column>
+            <p-column field="PATIENT_NAME" header="Name" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+            </p-column>
+            <p-column field="ACCESSION_NO" header="Accession No" [sortable]="false" [filter]="true"
+                filterPlaceholder="Search"></p-column>
+            <p-column field="EXAM_NAME" header="Exam Name" [sortable]="false" [filter]="true"
+                filterPlaceholder="Search"></p-column>
+            <p-column field="ORDER_DT" header="Study Date" [sortable]="false" [filter]="true"
+                filterPlaceholder="Search">
+                <template let-study="rowData" pTemplate type="body">
+                    <span>{{study.ORDER_DT | date:'dd/MM/yyyy'}}</span>
+                </template>
+            </p-column>
+            <p-column field="TYPE_NAME_ALIAS" header="Modality" [sortable]="false" [filter]="true"
+                filterPlaceholder="Search"></p-column>
+            <p-column field="REVIEW_SCORE" header="Score" [sortable]="false" [filter]="true" filterPlaceholder="Search">
+            </p-column>
+            <p-column field="STATUS" header="Status" [sortable]="false" [filter]="true" filterPlaceholder="Search"
+                filterMatchMode="equals"></p-column>
+            <p-column field="REVIEW_DT" header="Review Date" [sortable]="false" [filter]="true"
+                filterPlaceholder="Search" filterMatchMode="equals">
+                <template let-study="rowData" pTemplate type="body">
+                    <span>{{study.REVIEW_DT | date:'dd/MM/yyyy'}}</span>
+                </template>
+            </p-column>
+        </p-dataTable>
+    </p-dialog>
+
+</div>

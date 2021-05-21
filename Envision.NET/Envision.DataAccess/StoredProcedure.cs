@@ -98,6 +98,11 @@ namespace Envision.DataAccess
         Prc_RIS_ORDER_GetCaseInfo,
         #endregion
 
+        #region RIS_REJECTCAPTURE
+        Prc_RIS_REJECTCAPTURELOG_SelectByAccession,
+        Prc_RIS_REJECTCAPTURELOG_Insert,
+        #endregion
+
         Prc_RIS_EXAMRESULTTIME_Insert,
         Prc_RIS_EXAMRESULTTIME_SelectTAT,
         Prc_RIS_EXAMRESULTTIME_SelectTATExecSummary,
@@ -294,8 +299,8 @@ namespace Envision.DataAccess
         Prc_HIS_REGISTRATION_Insert,
         Prc_RIS_ORDER_SelectAll,
         Prc_HIS_REGISTRATION_UpdateByOrder,
-        Prc_HIS_REGISTRATION_UpdateByOrder2,
         Prc_HIS_REGISTRATION_UpdateAllergies2,
+        Prc_HIS_REGISTRATION_UpdateByOrder2,
         Prc_RIS_PATSTATUS_Select,
         Prc_ViewPerformance_Select,
         Prc_RIS_ORDER_SelectPreviousOrder,
@@ -352,12 +357,15 @@ namespace Envision.DataAccess
         Prc_RIS_ORDERDTL_SelectByCapture,
         Prc_RIS_ORDERDTL_SelectByCapture2,
         Prc_RIS_ORDERDTL_SelectByQA,
+        Prc_RIS_ORDERDTL_SelectByRejectPacsImage,
+        Prc_RIS_ORDERDTL_SelectByRejectPacsImage_withHN,
         Prc_RIS_QAWORKS_Insert,
         Prc_RIS_ORDERDTL_UpdateStatus,
         Prc_RIS_TECHWORKS_InsertByStartOnly,
 
         Prc_RIS_TECHWORKS_Insert,
         Prc_RIS_TECHWORKS_Select,
+        Prc_RIS_TECHWORKS_SelectByAccessionNo,
         Prc_RIS_TECHCONSUMPTION_Select,
         Prc_RIS_TECHCONSUMPTION_Insert,
         Prc_RIS_TECHWORKS_Update,
@@ -781,6 +789,7 @@ namespace Envision.DataAccess
 
         Prc_RIS_ORDER_SelectByXrayNumber,
         Prc_HR_ROOM_Select,
+        Prc_HR_ROOM_SelectBYModality,
 
 
         //New Schedule
@@ -994,6 +1003,7 @@ namespace Envision.DataAccess
 
         //Waiting List
         Prc_RIS_SCHEDULE_SelectTest,
+        Prc_RIS_SCHEDULE_SelectBlock,
         Prc_RIS_SCHEDULE_WaitingList,
         Prc_RIS_SCHEDULE_UpdateWaitingList,
         //Prc_RIS_SCHEDULE_WaitingList2,
@@ -1002,7 +1012,6 @@ namespace Envision.DataAccess
         Prc_RIS_SCHEDULE_Busy2,
         Prc_RIS_SCHEDULE_SessionCount,
         Prc_RIS_SCHEDULE_AppointmentCount,
-        Prc_RIS_SCHEDULE_SelectBlock,
 
         Prc_RIS_SCHEDULECONFIG_Select,
         Prc_RIS_MODALITYEXAM_SelectByConfig,

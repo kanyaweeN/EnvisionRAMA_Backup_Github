@@ -41,10 +41,10 @@
     <InstallUrl>http://miracle99/Envision.NET/</InstallUrl>
     <ProductName>Envision.NET 4.3</ProductName>
     <PublisherName>Miracle Advanced Technologies</PublisherName>
-    <MinimumRequiredVersion>4.3.3.94</MinimumRequiredVersion>
+    <MinimumRequiredVersion>4.3.3.97</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>95</ApplicationRevision>
+    <ApplicationRevision>98</ApplicationRevision>
     <ApplicationVersion>4.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -411,12 +411,6 @@
     <Compile Include="Forms\Comment\frmContactDialog.Designer.cs">
       <DependentUpon>frmContactDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dialog\MyMessageBoxBlock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Dialog\MyMessageBoxBlock.designer.cs">
-      <DependentUpon>MyMessageBoxBlock.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Dialog\frmAllergy2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -465,6 +459,12 @@
     <Compile Include="Forms\Dialog\frmOpenWebsite.Designer.cs">
       <DependentUpon>frmOpenWebsite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dialog\frmRejectPacsImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialog\frmRejectPacsImage.designer.cs">
+      <DependentUpon>frmRejectPacsImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dialog\frmUserAccountSettingsEmailAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +488,12 @@
     </Compile>
     <Compile Include="Forms\Dialog\LookupAlertComment.Designer.cs">
       <DependentUpon>LookupAlertComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialog\MyMessageBoxBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialog\MyMessageBoxBlock.designer.cs">
+      <DependentUpon>MyMessageBoxBlock.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dialog\ValueDataTableEventArgs.cs" />
     <Compile Include="Forms\Dialog\frmDFSetting.cs">
@@ -1852,10 +1858,6 @@
       <DependentUpon>frmContactDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dialog\MyMessageBoxBlock.resx">
-      <DependentUpon>MyMessageBoxBlock.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialog\frmAllergy2.resx">
       <DependentUpon>frmAllergy2.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1896,6 +1898,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialog\frmOpenWebsite.resx">
       <DependentUpon>frmOpenWebsite.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialog\frmRejectPacsImage.resx">
+      <DependentUpon>frmRejectPacsImage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialog\frmUserAccountSettingsEmailAdd.resx">
@@ -1949,6 +1955,9 @@
     <EmbeddedResource Include="Forms\Dialog\LookupHN.resx">
       <DependentUpon>LookupHN.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialog\MyMessageBoxBlock.resx">
+      <DependentUpon>MyMessageBoxBlock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialog\PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
@@ -2623,7 +2632,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Technologist\frmTechnologist.resx">
       <DependentUpon>frmTechnologist.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Technologist\frmTechnologist_BarcodeChange.resx">
       <DependentUpon>frmTechnologist_BarcodeChange.cs</DependentUpon>
@@ -4275,6 +4283,7 @@
     <Content Include="PNG_Envision02.ico" />
     <Content Include="PNG_Envision02_1.ico" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Envision.NET_TemporaryKey.pfx" />
     <None Include="Resources\circle.png" />
     <None Include="Resources\Comment-add-icon16.png" />

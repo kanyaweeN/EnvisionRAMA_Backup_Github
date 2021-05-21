@@ -34,6 +34,9 @@ namespace Envision.NET.Forms.Technologist
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.pageWorkload = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.tabWorkload = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
             this.chkShowStartComplete = new DevExpress.XtraEditors.CheckEdit();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -54,6 +57,28 @@ namespace Envision.NET.Forms.Technologist
             this.gridView2 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.layoutControlGroup13 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabRejectImage = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl6 = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.commentsToolStripMenuItemReject = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderSummaryToolStripMenuItemReject = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.gridViewReject = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.chkListModality = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -72,12 +97,11 @@ namespace Envision.NET.Forms.Technologist
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem57 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pageLogIn = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -453,10 +477,22 @@ namespace Envision.NET.Forms.Technologist
             this.pageWorkload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.tabWorkload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
+            this.layoutControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkShowStartComplete.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
+            this.tabRejectImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewReject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -475,12 +511,11 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.txtHN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).BeginInit();
             this.pageLogIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
@@ -706,8 +741,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControl3.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
             this.layoutControl3.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
             this.layoutControl3.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
-            this.layoutControl3.Controls.Add(this.chkShowStartComplete);
-            this.layoutControl3.Controls.Add(this.gridControl2);
+            this.layoutControl3.Controls.Add(this.xtraTabControl2);
             this.layoutControl3.Controls.Add(this.panelControl1);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
@@ -717,13 +751,48 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControl3.TabIndex = 2;
             this.layoutControl3.Text = "layoutControl3";
             // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(5, 103);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.tabWorkload;
+            this.xtraTabControl2.Size = new System.Drawing.Size(936, 360);
+            this.xtraTabControl2.TabIndex = 6;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabWorkload,
+            this.tabRejectImage});
+            this.xtraTabControl2.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl2_SelectedPageChanged);
+            // 
+            // tabWorkload
+            // 
+            this.tabWorkload.Controls.Add(this.layoutControl7);
+            this.tabWorkload.Name = "tabWorkload";
+            this.tabWorkload.Size = new System.Drawing.Size(927, 329);
+            this.tabWorkload.Text = "Workload";
+            // 
+            // layoutControl7
+            // 
+            this.layoutControl7.Appearance.DisabledLayoutGroupCaption.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl7.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
+            this.layoutControl7.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl7.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl7.Controls.Add(this.chkShowStartComplete);
+            this.layoutControl7.Controls.Add(this.gridControl2);
+            this.layoutControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl7.Name = "layoutControl7";
+            this.layoutControl7.Root = this.layoutControlGroup13;
+            this.layoutControl7.Size = new System.Drawing.Size(927, 329);
+            this.layoutControl7.TabIndex = 0;
+            this.layoutControl7.Text = "layoutControl7";
+            // 
             // chkShowStartComplete
             // 
-            this.chkShowStartComplete.Location = new System.Drawing.Point(7, 442);
+            this.chkShowStartComplete.Location = new System.Drawing.Point(7, 304);
             this.chkShowStartComplete.Name = "chkShowStartComplete";
             this.chkShowStartComplete.Properties.Caption = "Start Complete";
-            this.chkShowStartComplete.Size = new System.Drawing.Size(932, 19);
-            this.chkShowStartComplete.StyleController = this.layoutControl3;
+            this.chkShowStartComplete.Size = new System.Drawing.Size(914, 19);
+            this.chkShowStartComplete.StyleController = this.layoutControl7;
             this.chkShowStartComplete.TabIndex = 5;
             this.chkShowStartComplete.CheckedChanged += new System.EventHandler(this.chkShowStartComplete_CheckedChanged);
             // 
@@ -735,10 +804,10 @@ namespace Envision.NET.Forms.Technologist
             this.gridControl2.EmbeddedNavigator.Buttons.Edit.Visible = false;
             this.gridControl2.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gridControl2.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gridControl2.Location = new System.Drawing.Point(7, 111);
+            this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(932, 320);
+            this.gridControl2.Size = new System.Drawing.Size(924, 296);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ToolTipController = this.toolTipController1;
             this.gridControl2.UseEmbeddedNavigator = true;
@@ -902,6 +971,222 @@ namespace Envision.NET.Forms.Technologist
             // toolTipController1
             // 
             this.toolTipController1.GetActiveObjectInfo += new DevExpress.Utils.ToolTipControllerGetActiveObjectInfoEventHandler(this.toolTipController1_GetActiveObjectInfo);
+            // 
+            // layoutControlGroup13
+            // 
+            this.layoutControlGroup13.CustomizationFormText = "layoutControlGroup13";
+            this.layoutControlGroup13.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem35});
+            this.layoutControlGroup13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup13.Name = "layoutControlGroup13";
+            this.layoutControlGroup13.Size = new System.Drawing.Size(927, 329);
+            this.layoutControlGroup13.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup13.Text = "layoutControlGroup13";
+            this.layoutControlGroup13.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.gridControl2;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlItem3.Size = new System.Drawing.Size(925, 297);
+            this.layoutControlItem3.Text = "layoutControlItem3";
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextToControlDistance = 0;
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem35
+            // 
+            this.layoutControlItem35.Control = this.chkShowStartComplete;
+            this.layoutControlItem35.CustomizationFormText = "layoutControlItem35";
+            this.layoutControlItem35.Location = new System.Drawing.Point(0, 297);
+            this.layoutControlItem35.Name = "layoutControlItem35";
+            this.layoutControlItem35.Size = new System.Drawing.Size(925, 30);
+            this.layoutControlItem35.Text = "layoutControlItem35";
+            this.layoutControlItem35.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem35.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem35.TextToControlDistance = 0;
+            this.layoutControlItem35.TextVisible = false;
+            // 
+            // tabRejectImage
+            // 
+            this.tabRejectImage.Controls.Add(this.gridControl6);
+            this.tabRejectImage.Name = "tabRejectImage";
+            this.tabRejectImage.Size = new System.Drawing.Size(927, 329);
+            this.tabRejectImage.Text = "Reject Image";
+            // 
+            // gridControl6
+            // 
+            this.gridControl6.ContextMenuStrip = this.contextMenuStrip2;
+            this.gridControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl6.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.gridControl6.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.gridControl6.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.gridControl6.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.gridControl6.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.gridControl6.Location = new System.Drawing.Point(0, 0);
+            this.gridControl6.MainView = this.gridViewReject;
+            this.gridControl6.Name = "gridControl6";
+            this.gridControl6.Size = new System.Drawing.Size(927, 329);
+            this.gridControl6.TabIndex = 2;
+            this.gridControl6.ToolTipController = this.toolTipController1;
+            this.gridControl6.UseEmbeddedNavigator = true;
+            this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewReject});
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.commentsToolStripMenuItemReject,
+            this.orderSummaryToolStripMenuItemReject,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem9,
+            this.toolStripSeparator2,
+            this.toolStripMenuItem12});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(159, 230);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem1.Text = "Waiting";
+            this.toolStripMenuItem1.Visible = false;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem2.Text = "Started";
+            this.toolStripMenuItem2.Visible = false;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem3.Text = "Complete";
+            this.toolStripMenuItem3.Visible = false;
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem4.Text = "Discontinued";
+            this.toolStripMenuItem4.Visible = false;
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5.Image")));
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem5.Text = "Canceled";
+            this.toolStripMenuItem5.Visible = false;
+            // 
+            // commentsToolStripMenuItemReject
+            // 
+            this.commentsToolStripMenuItemReject.Image = global::Envision.NET.Properties.Resources.Comment_add_icon16;
+            this.commentsToolStripMenuItemReject.Name = "commentsToolStripMenuItemReject";
+            this.commentsToolStripMenuItemReject.Size = new System.Drawing.Size(158, 22);
+            this.commentsToolStripMenuItemReject.Text = "Comments";
+            this.commentsToolStripMenuItemReject.Click += new System.EventHandler(this.commentsToolStripMenuItemReject_Click);
+            // 
+            // orderSummaryToolStripMenuItemReject
+            // 
+            this.orderSummaryToolStripMenuItemReject.Image = global::Envision.NET.Properties.Resources.browse_48;
+            this.orderSummaryToolStripMenuItemReject.Name = "orderSummaryToolStripMenuItemReject";
+            this.orderSummaryToolStripMenuItemReject.Size = new System.Drawing.Size(158, 22);
+            this.orderSummaryToolStripMenuItemReject.Text = "Order Summary";
+            this.orderSummaryToolStripMenuItemReject.Click += new System.EventHandler(this.orderSummaryToolStripMenuItemReject_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = global::Envision.NET.Properties.Resources.NO_MEDICAMENTOS;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem8.Text = "HIS Allergy";
+            this.toolStripMenuItem8.Visible = false;
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem11});
+            this.toolStripMenuItem9.Image = global::Envision.NET.Properties.Resources.ai;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem9.Text = "AI";
+            this.toolStripMenuItem9.Visible = false;
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Image = global::Envision.NET.Properties.Resources.rightclick_lab;
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem10.Text = "Inspectra Analysis";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Image = global::Envision.NET.Properties.Resources.ramaai_logo_16;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(168, 22);
+            this.toolStripMenuItem11.Text = "RAMAAI";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(155, 6);
+            this.toolStripSeparator2.Visible = false;
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(158, 22);
+            this.toolStripMenuItem12.Text = "Exam Flag";
+            this.toolStripMenuItem12.Visible = false;
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+            // 
+            // gridViewReject
+            // 
+            this.gridViewReject.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand6});
+            this.gridViewReject.GridControl = this.gridControl6;
+            this.gridViewReject.Name = "gridViewReject";
+            this.gridViewReject.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.gridViewReject.OptionsFilter.AllowFilterEditor = false;
+            this.gridViewReject.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewReject.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewReject.OptionsView.ShowBands = false;
+            this.gridViewReject.OptionsView.ShowDetailButtons = false;
+            this.gridViewReject.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.gridViewReject.OptionsView.ShowGroupPanel = false;
+            this.gridViewReject.ScrollStyle = DevExpress.XtraGrid.Views.Grid.ScrollStyleFlags.None;
+            this.gridViewReject.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
+            this.gridViewReject.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewReject_RowStyle);
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.Caption = "gridBand3";
+            this.gridBand6.Name = "gridBand6";
             // 
             // panelControl1
             // 
@@ -1085,28 +1370,13 @@ namespace Envision.NET.Forms.Technologist
             // 
             this.layoutControlGroup3.CustomizationFormText = "Root";
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlGroup4,
-            this.layoutControlItem35});
+            this.layoutControlGroup4});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(945, 467);
             this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup3.Text = "Root";
             this.layoutControlGroup3.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.gridControl2;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 104);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(943, 331);
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
-            this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlGroup4
             // 
@@ -1115,10 +1385,11 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem57});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(943, 104);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(943, 465);
             this.layoutControlGroup4.Text = "Search Filter";
             // 
             // emptySpaceItem1
@@ -1155,18 +1426,19 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
-            // layoutControlItem35
+            // layoutControlItem57
             // 
-            this.layoutControlItem35.Control = this.chkShowStartComplete;
-            this.layoutControlItem35.CustomizationFormText = "layoutControlItem35";
-            this.layoutControlItem35.Location = new System.Drawing.Point(0, 435);
-            this.layoutControlItem35.Name = "layoutControlItem35";
-            this.layoutControlItem35.Size = new System.Drawing.Size(943, 30);
-            this.layoutControlItem35.Text = "layoutControlItem35";
-            this.layoutControlItem35.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem35.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem35.TextToControlDistance = 0;
-            this.layoutControlItem35.TextVisible = false;
+            this.layoutControlItem57.Control = this.xtraTabControl2;
+            this.layoutControlItem57.CustomizationFormText = "layoutControlItem57";
+            this.layoutControlItem57.Location = new System.Drawing.Point(0, 80);
+            this.layoutControlItem57.Name = "layoutControlItem57";
+            this.layoutControlItem57.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlItem57.Size = new System.Drawing.Size(937, 361);
+            this.layoutControlItem57.Text = "layoutControlItem57";
+            this.layoutControlItem57.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem57.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem57.TextToControlDistance = 0;
+            this.layoutControlItem57.TextVisible = false;
             // 
             // pageLogIn
             // 
@@ -5013,10 +5285,22 @@ namespace Envision.NET.Forms.Technologist
             this.pageWorkload.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.tabWorkload.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
+            this.layoutControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chkShowStartComplete.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
+            this.tabRejectImage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewReject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -5038,12 +5322,11 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.txtHN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem57)).EndInit();
             this.pageLogIn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
@@ -5301,7 +5584,6 @@ namespace Envision.NET.Forms.Technologist
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit6;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraEditors.SimpleButton btnGO;
@@ -5546,7 +5828,6 @@ namespace Envision.NET.Forms.Technologist
         private DevExpress.XtraEditors.LabelControl txtTotalRate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem34;
         private DevExpress.XtraEditors.CheckEdit chkShowStartComplete;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
         private System.Windows.Forms.Timer tmAutoRefresh;
         private DevExpress.XtraEditors.SimpleButton btnConsumable;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
@@ -5647,5 +5928,31 @@ namespace Envision.NET.Forms.Technologist
         private System.Windows.Forms.ToolStripMenuItem aIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inspectraAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rAMAAIToolStripMenuItem;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
+        private DevExpress.XtraTab.XtraTabPage tabWorkload;
+        private DevExpress.XtraLayout.LayoutControl layoutControl7;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
+        private DevExpress.XtraTab.XtraTabPage tabRejectImage;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem57;
+        private DevExpress.XtraGrid.GridControl gridControl6;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridViewReject;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem commentsToolStripMenuItemReject;
+        private System.Windows.Forms.ToolStripMenuItem orderSummaryToolStripMenuItemReject;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }

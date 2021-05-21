@@ -314,6 +314,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
             this.barConference = new DevExpress.XtraBars.BarButtonItem();
             this.barlblCountCharector = new DevExpress.XtraBars.BarStaticItem();
+            this.ibtnRejectPacsImage = new DevExpress.XtraBars.BarButtonItem();
             this.imgLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.pageRibbonSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -336,6 +337,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.ribbonGroupAddendum = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonGroupLocked = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonGroupReject = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonGroupRejectPacsImage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpageRegular2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPagePeerReview = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageRibbonStructure = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -613,7 +615,9 @@ namespace Envision.NET.Forms.ResultEntry
             this.viewThumbnail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.ccbQuicktextFilter = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.btnIncreaseText = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.grdQuickText = new DevExpress.XtraGrid.GridControl();
             this.menuQuicktext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.increaseTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -621,9 +625,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.deleteTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewQuicktext = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.btnIncreaseText = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.ccbQuicktextFilter = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.sharedDictionaryStorage1 = new DevExpress.XtraSpellChecker.SharedDictionaryStorage(this.components);
             this.grdRadioSetup = new DevExpress.XtraGrid.GridControl();
             this.viewSetup = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
@@ -863,12 +865,12 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.viewThumbnail)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.controlContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbQuicktextFilter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdQuickText)).BeginInit();
             this.menuQuicktext.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewQuicktext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-            this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbQuicktextFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).BeginInit();
@@ -1054,10 +1056,11 @@ namespace Envision.NET.Forms.ResultEntry
             this.barButtonGroup2,
             this.barButtonGroup3,
             this.barConference,
-            this.barlblCountCharector});
+            this.barlblCountCharector,
+            this.ibtnRejectPacsImage});
             this.ribbonControl1.LargeImages = this.imgLarge;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 371;
+            this.ribbonControl1.MaxItemId = 372;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory1});
@@ -1125,7 +1128,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.repositoryItemImageComboBox1,
             this.repositoryItemButtonEdit1,
             this.repositCheckShowFinalize});
-            this.ribbonControl1.SelectedPage = this.pageRibbonSetup;
+            this.ribbonControl1.SelectedPage = this.pageRibbonEdit;
             this.ribbonControl1.ShowCategoryInCaption = false;
             this.ribbonControl1.Size = new System.Drawing.Size(1039, 116);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
@@ -3409,6 +3412,15 @@ namespace Envision.NET.Forms.ResultEntry
             this.barlblCountCharector.Name = "barlblCountCharector";
             this.barlblCountCharector.TextAlignment = System.Drawing.StringAlignment.Far;
             // 
+            // ibtnRejectPacsImage
+            // 
+            this.ibtnRejectPacsImage.Caption = "Reject";
+            this.ibtnRejectPacsImage.Id = 371;
+            this.ibtnRejectPacsImage.LargeImageIndex = 26;
+            this.ibtnRejectPacsImage.LargeWidth = 60;
+            this.ibtnRejectPacsImage.Name = "ibtnRejectPacsImage";
+            this.ibtnRejectPacsImage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ibtnRejectPacsImage_ItemClick);
+            // 
             // imgLarge
             // 
             this.imgLarge.ImageSize = new System.Drawing.Size(60, 60);
@@ -3577,6 +3589,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.ribbonGroupAddendum,
             this.ribbonGroupLocked,
             this.ribbonGroupReject,
+            this.ribbonGroupRejectPacsImage,
             this.rpageRegular2,
             this.ribbonPagePeerReview});
             this.pageRibbonEdit.Name = "pageRibbonEdit";
@@ -3665,6 +3678,13 @@ namespace Envision.NET.Forms.ResultEntry
             this.ribbonGroupReject.Name = "ribbonGroupReject";
             this.ribbonGroupReject.ShowCaptionButton = false;
             this.ribbonGroupReject.Visible = false;
+            // 
+            // ribbonGroupRejectPacsImage
+            // 
+            this.ribbonGroupRejectPacsImage.AllowMinimize = false;
+            this.ribbonGroupRejectPacsImage.ItemLinks.Add(this.ibtnRejectPacsImage);
+            this.ribbonGroupRejectPacsImage.Name = "ribbonGroupRejectPacsImage";
+            this.ribbonGroupRejectPacsImage.ShowCaptionButton = false;
             // 
             // rpageRegular2
             // 
@@ -6767,35 +6787,51 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // controlContainer1
             // 
-            this.controlContainer1.Controls.Add(this.ccbQuicktextFilter);
-            this.controlContainer1.Controls.Add(this.grdQuickText);
             this.controlContainer1.Controls.Add(this.panelControl5);
+            this.controlContainer1.Controls.Add(this.grdQuickText);
+            this.controlContainer1.Controls.Add(this.ccbQuicktextFilter);
             this.controlContainer1.Location = new System.Drawing.Point(3, 25);
             this.controlContainer1.Name = "controlContainer1";
             this.controlContainer1.Size = new System.Drawing.Size(194, 405);
             this.controlContainer1.TabIndex = 0;
             // 
-            // ccbQuicktextFilter
+            // panelControl5
             // 
-            this.ccbQuicktextFilter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ccbQuicktextFilter.Location = new System.Drawing.Point(0, 0);
-            this.ccbQuicktextFilter.MenuManager = this.ribbonControl1;
-            this.ccbQuicktextFilter.Name = "ccbQuicktextFilter";
-            this.ccbQuicktextFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ccbQuicktextFilter.Size = new System.Drawing.Size(194, 20);
-            this.ccbQuicktextFilter.TabIndex = 6;
-            this.ccbQuicktextFilter.EditValueChanged += new System.EventHandler(this.ccbQuicktextFilter_EditValueChanged);
+            this.panelControl5.Controls.Add(this.btnIncreaseText);
+            this.panelControl5.Controls.Add(this.btnDelete);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl5.Location = new System.Drawing.Point(0, 373);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(194, 32);
+            this.panelControl5.TabIndex = 6;
+            // 
+            // btnIncreaseText
+            // 
+            this.btnIncreaseText.Location = new System.Drawing.Point(5, 5);
+            this.btnIncreaseText.Name = "btnIncreaseText";
+            this.btnIncreaseText.Size = new System.Drawing.Size(85, 22);
+            this.btnIncreaseText.TabIndex = 4;
+            this.btnIncreaseText.Text = "Add New";
+            this.btnIncreaseText.Click += new System.EventHandler(this.btnIncreaseText_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(101, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(88, 22);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // grdQuickText
             // 
             this.grdQuickText.ContextMenuStrip = this.menuQuicktext;
             this.grdQuickText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdQuickText.Location = new System.Drawing.Point(0, 0);
+            this.grdQuickText.Location = new System.Drawing.Point(0, 20);
             this.grdQuickText.MainView = this.viewQuicktext;
             this.grdQuickText.MenuManager = this.ribbonControl1;
             this.grdQuickText.Name = "grdQuickText";
-            this.grdQuickText.Size = new System.Drawing.Size(194, 373);
+            this.grdQuickText.Size = new System.Drawing.Size(194, 385);
             this.grdQuickText.TabIndex = 6;
             this.grdQuickText.ToolTipController = this.toolTipController1;
             this.grdQuickText.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -6855,33 +6891,17 @@ namespace Envision.NET.Forms.ResultEntry
             this.gridBand4.Caption = "gridBand4";
             this.gridBand4.Name = "gridBand4";
             // 
-            // panelControl5
+            // ccbQuicktextFilter
             // 
-            this.panelControl5.Controls.Add(this.btnIncreaseText);
-            this.panelControl5.Controls.Add(this.btnDelete);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl5.Location = new System.Drawing.Point(0, 373);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(194, 32);
-            this.panelControl5.TabIndex = 6;
-            // 
-            // btnIncreaseText
-            // 
-            this.btnIncreaseText.Location = new System.Drawing.Point(5, 5);
-            this.btnIncreaseText.Name = "btnIncreaseText";
-            this.btnIncreaseText.Size = new System.Drawing.Size(85, 22);
-            this.btnIncreaseText.TabIndex = 4;
-            this.btnIncreaseText.Text = "Add New";
-            this.btnIncreaseText.Click += new System.EventHandler(this.btnIncreaseText_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(101, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 22);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.ccbQuicktextFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ccbQuicktextFilter.Location = new System.Drawing.Point(0, 0);
+            this.ccbQuicktextFilter.MenuManager = this.ribbonControl1;
+            this.ccbQuicktextFilter.Name = "ccbQuicktextFilter";
+            this.ccbQuicktextFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ccbQuicktextFilter.Size = new System.Drawing.Size(194, 20);
+            this.ccbQuicktextFilter.TabIndex = 6;
+            this.ccbQuicktextFilter.EditValueChanged += new System.EventHandler(this.ccbQuicktextFilter_EditValueChanged);
             // 
             // grdRadioSetup
             // 
@@ -7188,12 +7208,12 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.viewThumbnail)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.controlContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ccbQuicktextFilter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdQuickText)).EndInit();
             this.menuQuicktext.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.viewQuicktext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-            this.panelControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ccbQuicktextFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).EndInit();
@@ -7772,5 +7792,7 @@ namespace Envision.NET.Forms.ResultEntry
         private System.Windows.Forms.ToolStripMenuItem inspectraAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rAMAAIToolStripMenuItem;
         private DevExpress.XtraEditors.CheckedComboBoxEdit ccbQuicktextFilter;
+        private DevExpress.XtraBars.BarButtonItem ibtnRejectPacsImage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGroupRejectPacsImage;
     }
 }
