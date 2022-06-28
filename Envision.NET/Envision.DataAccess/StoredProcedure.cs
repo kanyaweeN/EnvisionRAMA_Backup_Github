@@ -865,7 +865,6 @@ namespace Envision.DataAccess
         Prc_LookUp_ClinicalData_Select,
         Prc_RIS_BillingGenMessage,
         Prc_RIS_ORDER_UpdateEncounter,
-        Prc_RIS_ORDER_UpdateEncounterRefunit,
 
         Prc_RIS_SCHEDULE_InsertRecurrence,
         Prc_RIS_SCHEDULE_UpdateRecurrence,
@@ -1414,7 +1413,6 @@ namespace Envision.DataAccess
         Prc_RIS_EXAMRESULT_Demographic,
         Prc_HR_EMP_SelectDoctorByID,
         Prc_HR_UNIT_SelectByID,
-        Prc_HR_UNIT_SelectByUID,
         Prc_RIS_SCHEDULE_SelectByXrayreqID,
         Prc_RIS_SCHEDULE_SelectByXrayreqAndModality,
 

@@ -1633,7 +1633,7 @@ namespace Envision.NET.Forms.Schedule
 
             LookUpSelect lvS = new LookUpSelect();
 
-            LookupData_Filter lv = new LookupData_Filter();
+            LookupData lv = new LookupData();
             lv.ValueUpdated += new Envision.NET.Forms.Dialog.ValueUpdatedEventHandler(departmentLookup_ValueUpdated);
             lv.AddColumn("UNIT_UID", "Unit Code", true, true);
             lv.AddColumn("UNIT_ID", "ID", false, true);
@@ -1643,7 +1643,7 @@ namespace Envision.NET.Forms.Schedule
 
             lv.Data = lvS.ScheduleNotParameter("OrderDept").Tables[0];//dtClinic;
             lv.Size = new Size(600, 400);
-            lv.ShowBox(patient.dtRefUnitVisit);
+            lv.ShowBox();
         }
         private void departmentLookup_ValueUpdated(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)
         {

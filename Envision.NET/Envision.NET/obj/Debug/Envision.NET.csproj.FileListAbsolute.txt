@@ -332,4 +332,6 @@ D:\MAT\GitHub\EnvisionRAMA\Envision.NET\Envision.NET\obj\Debug\Envision.NET.exe.
 D:\MAT\GitHub\EnvisionRAMA\Envision.NET\Envision.NET\obj\Debug\Envision.NET.application
 D:\MAT\GitHub\EnvisionRAMA\Envision.NET\Envision.NET\obj\Debug\Envision.NET.exe
 D:\MAT\GitHub\EnvisionRAMA\Envision.NET\Envision.NET\obj\Debug\Envision.NET.pdb
-D:\MAT\GitHub\EnvisionRAMA\Envision.NET\Envision.NET\obj\Debug\Envision.NET.Forms.Dialog.LookupData_Filter.resources
+D:\MAT\GitHub\EnvisionRAMA_หน้าต่าง comment จะไปเปิดซ้อนหลัง\Envision.NET\Envision.NET\bin\Debug\Envision.NET.exe.config
+D:\MAT\GitHub\EnvisionRAMA_หน้าต่าง comment จะไปเปิดซ้อนหลัง\Envision.NET\Envision.NET\obj\Debug\Envision.NET.exe
+D:\MAT\GitHub\EnvisionRAMA_หน้าต่าง comment จะไปเปิดซ้อนหลัง\Envision.NET\Envision.NET\obj\Debug\Envision.NET.pdb

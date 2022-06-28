@@ -298,17 +298,6 @@ namespace Envision.BusinessLogic
             update.Invoke();
         }
 
-
-        public void UpdateEncount(int ORDER_ID, string ENC_ID, string ENC_TYPE, int REF_UNIT)
-        {
-            ProcessUpdateRISOrderEncounter update = new ProcessUpdateRISOrderEncounter();
-            update.RIS_ORDER.ORDER_ID = ORDER_ID;
-            update.RIS_ORDER.ENC_ID = ENC_ID;
-            update.RIS_ORDER.ENC_TYPE = ENC_TYPE;
-            update.RIS_ORDER.REF_UNIT = REF_UNIT;
-            update.Invoke();
-        }
-
         public string LoadGetEligibilityInsuranceDetail(string HN, string ENC_ID, string ENC_TYPE, string SDLOC, string PerfDate, string CLINIC_TYPE)
         {
             HIS_Patient p = new HIS_Patient();

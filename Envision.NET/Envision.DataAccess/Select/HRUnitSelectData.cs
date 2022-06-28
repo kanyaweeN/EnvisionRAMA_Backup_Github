@@ -38,17 +38,6 @@ namespace Envision.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
         }
-        public DataSet GetDataByUID(string unit_uid)
-        {
-            DataSet ds = new DataSet();
-            StoredProcedureName = StoredProcedure.Prc_HR_UNIT_SelectByUID;
-            ParameterList = new DbParameter[] 
-            { 
-                Parameter("@UNIT_UID",unit_uid)
-            };
-            ds = ExecuteDataSet();
-            return ds;
-        }
         public DataSet GetData_forAIMC()
         {
             DataSet ds = new DataSet();

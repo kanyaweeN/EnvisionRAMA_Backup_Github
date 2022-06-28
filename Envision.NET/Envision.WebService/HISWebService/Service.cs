@@ -152,9 +152,6 @@ namespace Envision.WebService.HISWebService
         public event Get_AdrCompletedEventHandler Get_AdrCompleted;
 
         /// <remarks/>
-        public event Get_AdrCompletedEventHandler searchAdrByMrnAndCodeCompleted;
-
-        /// <remarks/>
         public event Get_ipd_detailCompletedEventHandler Get_ipd_detailCompleted;
 
         /// <remarks/>
@@ -614,55 +611,6 @@ namespace Envision.WebService.HISWebService
             {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Get_AdrCompleted(this, new Get_AdrCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/searchAdrByMrnAndCode", RequestNamespace = "http://tempuri.org/", ResponseNamespace = "http://tempuri.org/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet searchAdrByMrnAndCode(string hn, string code)
-        {
-            object[] results = this.Invoke("searchAdrByMrnAndCode", new object[] {
-                    hn,
-                    code});
-            return ((System.Data.DataSet)(results[0]));
-        }
-
-        /// <remarks/>
-        public System.IAsyncResult BeginsearchAdrByMrnAndCode(string hn, string code, System.AsyncCallback callback, object asyncState)
-        {
-            return this.BeginInvoke("searchAdrByMrnAndCode", new object[] {
-                    hn, code}, callback, asyncState);
-        }
-
-        /// <remarks/>
-        public System.Data.DataSet EndsearchAdrByMrnAndCode(System.IAsyncResult asyncResult)
-        {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((System.Data.DataSet)(results[0]));
-        }
-
-        /// <remarks/>
-        public void searchAdrByMrnAndCodeAsync(string hn, string code)
-        {
-            this.searchAdrByMrnAndCodeAsync(hn, code, null);
-        }
-
-        /// <remarks/>
-        public void searchAdrByMrnAndCodeAsync(string hn, string code, object userState)
-        {
-            if ((this.Get_ipd_detailOperationCompleted == null))
-            {
-                this.Get_ipd_detailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsearchAdrByMrnAndCodeOperationCompleted);
-            }
-            this.InvokeAsync("Get_ipd_detail", new object[] {
-                    hn, code}, this.Get_ipd_detailOperationCompleted, userState);
-        }
-
-        private void OnsearchAdrByMrnAndCodeOperationCompleted(object arg)
-        {
-            if ((this.searchAdrByMrnAndCodeCompleted != null))
-            {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Get_ipd_detailCompleted(this, new Get_ipd_detailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
 

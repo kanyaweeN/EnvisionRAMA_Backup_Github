@@ -23,12 +23,6 @@ namespace Envision.DataAccess.Update
             ParameterList = buildParameter();
             ExecuteNonQuery();
         }
-        public void UpdateRefUnit()
-        {
-            StoredProcedureName = StoredProcedure.Prc_RIS_ORDER_UpdateEncounterRefunit;
-            ParameterList = buildParameterRefUnit();
-            ExecuteNonQuery();
-        }
         public void Update_ADMISSION_NO()
         {
             StoredProcedureName = StoredProcedure.Prc_RIS_ORDER_Update_ADMISSION_NO;
@@ -42,17 +36,6 @@ namespace Envision.DataAccess.Update
                 Parameter( "@ORDER_ID"         ,   RIS_ORDER.ORDER_ID   ),
                 Parameter( "@ENC_ID"        ,   RIS_ORDER.ENC_ID  ),
                 Parameter( "@ENC_TYPE"       ,   RIS_ORDER.ENC_TYPE ),
-                Parameter( "@CREATED_BY"     ,   new GBLEnvVariable().UserID  ),
-                                      };
-            return parameters;
-        }
-        private DbParameter[] buildParameterRefUnit()
-        {
-            DbParameter[] parameters ={
-                Parameter( "@ORDER_ID"         ,   RIS_ORDER.ORDER_ID   ),
-                Parameter( "@ENC_ID"        ,   RIS_ORDER.ENC_ID  ),
-                Parameter( "@ENC_TYPE"       ,   RIS_ORDER.ENC_TYPE ),
-                Parameter( "@UNIT_ID"       ,   RIS_ORDER.REF_UNIT ),
                 Parameter( "@CREATED_BY"     ,   new GBLEnvVariable().UserID  ),
                                       };
             return parameters;

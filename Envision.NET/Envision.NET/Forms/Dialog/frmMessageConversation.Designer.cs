@@ -57,15 +57,14 @@ namespace Envision.NET.Forms.Dialog
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.tabPageControl = new DevExpress.XtraTab.XtraTabControl();
-            this.tabContrast = new DevExpress.XtraTab.XtraTabPage();
-            this.xTabContrastControl = new DevExpress.XtraTab.XtraTabControl();
-            this.tabAllergy = new DevExpress.XtraTab.XtraTabPage();
             this.gridAllergyControl = new DevExpress.XtraGrid.GridControl();
             this.gridAllergyView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcSideEffect = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabPageControl = new DevExpress.XtraTab.XtraTabControl();
+            this.tabContrast = new DevExpress.XtraTab.XtraTabPage();
+            this.xTabContrastControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabContrastFill = new DevExpress.XtraTab.XtraTabPage();
             this.lblValueTypeContrastMediaExtra = new DevExpress.XtraEditors.LabelControl();
             this.xtabContrastDetail = new DevExpress.XtraTab.XtraTabControl();
@@ -122,6 +121,16 @@ namespace Envision.NET.Forms.Dialog
             this.grdTemplate = new DevExpress.XtraGrid.GridControl();
             this.viewTemplate = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblShowContrast = new DevExpress.XtraEditors.LabelControl();
+            this.chkComboExam = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lblGender = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.lblName = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblHN = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.grdMessage = new DevExpress.XtraGrid.GridControl();
             this.menuMessage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cancelMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,21 +142,12 @@ namespace Envision.NET.Forms.Dialog
             this.btnOrderSummary = new DevExpress.XtraEditors.SimpleButton();
             this.memoMessage = new DevExpress.XtraEditors.MemoEdit();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.lblShowContrast = new DevExpress.XtraEditors.LabelControl();
-            this.chkComboExam = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.lblGender = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.lblName = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.lblHN = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTemplate = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancleMsgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -156,14 +156,13 @@ namespace Envision.NET.Forms.Dialog
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPageControl)).BeginInit();
             this.tabPageControl.SuspendLayout();
             this.tabContrast.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xTabContrastControl)).BeginInit();
             this.xTabContrastControl.SuspendLayout();
-            this.tabAllergy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyView)).BeginInit();
             this.tabContrastFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtabContrastDetail)).BeginInit();
             this.xtabContrastDetail.SuspendLayout();
@@ -201,20 +200,21 @@ namespace Envision.NET.Forms.Dialog
             ((System.ComponentModel.ISupportInitialize)(this.grdTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkComboExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMessage)).BeginInit();
             this.menuMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoMessage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkComboExam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -313,10 +313,11 @@ namespace Envision.NET.Forms.Dialog
             this.layoutControl1.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
             this.layoutControl1.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
             this.layoutControl1.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl1.Controls.Add(this.gridAllergyControl);
             this.layoutControl1.Controls.Add(this.tabPageControl);
+            this.layoutControl1.Controls.Add(this.panelControl2);
             this.layoutControl1.Controls.Add(this.grdMessage);
             this.layoutControl1.Controls.Add(this.panelControl1);
-            this.layoutControl1.Controls.Add(this.panelControl2);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 48);
             this.layoutControl1.Name = "layoutControl1";
@@ -325,55 +326,16 @@ namespace Envision.NET.Forms.Dialog
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // tabPageControl
-            // 
-            this.tabPageControl.Location = new System.Drawing.Point(499, 7);
-            this.tabPageControl.Name = "tabPageControl";
-            this.tabPageControl.SelectedTabPage = this.tabContrast;
-            this.tabPageControl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.tabPageControl.Size = new System.Drawing.Size(416, 533);
-            this.tabPageControl.TabIndex = 8;
-            this.tabPageControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabTemplate,
-            this.tabContrast});
-            // 
-            // tabContrast
-            // 
-            this.tabContrast.Controls.Add(this.xTabContrastControl);
-            this.tabContrast.Name = "tabContrast";
-            this.tabContrast.Size = new System.Drawing.Size(407, 524);
-            this.tabContrast.Text = "Contrast Detail";
-            // 
-            // xTabContrastControl
-            // 
-            this.xTabContrastControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xTabContrastControl.Location = new System.Drawing.Point(0, 0);
-            this.xTabContrastControl.Name = "xTabContrastControl";
-            this.xTabContrastControl.SelectedTabPage = this.tabAllergy;
-            this.xTabContrastControl.Size = new System.Drawing.Size(407, 524);
-            this.xTabContrastControl.TabIndex = 26;
-            this.xTabContrastControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabAllergy,
-            this.tabContrastFill,
-            this.tabContrastHistory});
-            // 
-            // tabAllergy
-            // 
-            this.tabAllergy.Controls.Add(this.gridAllergyControl);
-            this.tabAllergy.Name = "tabAllergy";
-            this.tabAllergy.Size = new System.Drawing.Size(398, 493);
-            this.tabAllergy.Text = "Allergy";
-            // 
             // gridAllergyControl
             // 
             this.gridAllergyControl.EmbeddedNavigator.Appearance.ForeColor = System.Drawing.Color.Black;
             this.gridAllergyControl.EmbeddedNavigator.Appearance.Options.UseForeColor = true;
-            this.gridAllergyControl.Location = new System.Drawing.Point(0, 0);
+            this.gridAllergyControl.Location = new System.Drawing.Point(257, 2);
             this.gridAllergyControl.MainView = this.gridAllergyView;
             this.gridAllergyControl.Margin = new System.Windows.Forms.Padding(0);
             this.gridAllergyControl.MenuManager = this.ribbon;
             this.gridAllergyControl.Name = "gridAllergyControl";
-            this.gridAllergyControl.Size = new System.Drawing.Size(398, 493);
+            this.gridAllergyControl.Size = new System.Drawing.Size(236, 89);
             this.gridAllergyControl.TabIndex = 16;
             this.gridAllergyControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridAllergyView});
@@ -419,6 +381,37 @@ namespace Envision.NET.Forms.Dialog
             this.gridColumn44.MinWidth = 10;
             this.gridColumn44.Name = "gridColumn44";
             this.gridColumn44.Width = 56;
+            // 
+            // tabPageControl
+            // 
+            this.tabPageControl.Location = new System.Drawing.Point(499, 7);
+            this.tabPageControl.Name = "tabPageControl";
+            this.tabPageControl.SelectedTabPage = this.tabContrast;
+            this.tabPageControl.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.tabPageControl.Size = new System.Drawing.Size(416, 533);
+            this.tabPageControl.TabIndex = 8;
+            this.tabPageControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabTemplate,
+            this.tabContrast});
+            // 
+            // tabContrast
+            // 
+            this.tabContrast.Controls.Add(this.xTabContrastControl);
+            this.tabContrast.Name = "tabContrast";
+            this.tabContrast.Size = new System.Drawing.Size(407, 524);
+            this.tabContrast.Text = "Contrast Detail";
+            // 
+            // xTabContrastControl
+            // 
+            this.xTabContrastControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xTabContrastControl.Location = new System.Drawing.Point(0, 0);
+            this.xTabContrastControl.Name = "xTabContrastControl";
+            this.xTabContrastControl.SelectedTabPage = this.tabContrastFill;
+            this.xTabContrastControl.Size = new System.Drawing.Size(407, 524);
+            this.xTabContrastControl.TabIndex = 26;
+            this.xTabContrastControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabContrastFill,
+            this.tabContrastHistory});
             // 
             // tabContrastFill
             // 
@@ -1019,14 +1012,108 @@ namespace Envision.NET.Forms.Dialog
             this.gridView1.GridControl = this.grdTemplate;
             this.gridView1.Name = "gridView1";
             // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.lblShowContrast);
+            this.panelControl2.Controls.Add(this.chkComboExam);
+            this.panelControl2.Controls.Add(this.labelControl4);
+            this.panelControl2.Controls.Add(this.lblGender);
+            this.panelControl2.Controls.Add(this.labelControl3);
+            this.panelControl2.Controls.Add(this.lblName);
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.lblHN);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Location = new System.Drawing.Point(7, 7);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(244, 79);
+            this.panelControl2.TabIndex = 6;
+            // 
+            // lblShowContrast
+            // 
+            this.lblShowContrast.Location = new System.Drawing.Point(4, 62);
+            this.lblShowContrast.Name = "lblShowContrast";
+            this.lblShowContrast.Size = new System.Drawing.Size(69, 13);
+            this.lblShowContrast.TabIndex = 15;
+            this.lblShowContrast.Text = "labelControl17";
+            this.lblShowContrast.Visible = false;
+            // 
+            // chkComboExam
+            // 
+            this.chkComboExam.EditValue = "";
+            this.chkComboExam.Location = new System.Drawing.Point(43, 41);
+            this.chkComboExam.MenuManager = this.ribbon;
+            this.chkComboExam.Name = "chkComboExam";
+            this.chkComboExam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null)});
+            this.chkComboExam.Size = new System.Drawing.Size(198, 20);
+            this.chkComboExam.TabIndex = 14;
+            this.chkComboExam.EditValueChanged += new System.EventHandler(this.chkComboExam_EditValueChanged);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(4, 43);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(36, 13);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Exam : ";
+            // 
+            // lblGender
+            // 
+            this.lblGender.Location = new System.Drawing.Point(169, 3);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(72, 13);
+            this.lblGender.TabIndex = 5;
+            this.lblGender.Text = "Patient Gender";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(118, 3);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(45, 13);
+            this.labelControl3.TabIndex = 4;
+            this.labelControl3.Text = "Gender : ";
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(46, 22);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(64, 13);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Patient Name";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(3, 22);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(37, 13);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Name : ";
+            // 
+            // lblHN
+            // 
+            this.lblHN.Location = new System.Drawing.Point(33, 3);
+            this.lblHN.Name = "lblHN";
+            this.lblHN.Size = new System.Drawing.Size(14, 13);
+            this.lblHN.TabIndex = 1;
+            this.lblHN.Text = "HN";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 3);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(24, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "HN : ";
+            // 
             // grdMessage
             // 
             this.grdMessage.ContextMenuStrip = this.menuMessage;
-            this.grdMessage.Location = new System.Drawing.Point(7, 85);
+            this.grdMessage.Location = new System.Drawing.Point(7, 97);
             this.grdMessage.MainView = this.viewMessage;
             this.grdMessage.MenuManager = this.ribbon;
             this.grdMessage.Name = "grdMessage";
-            this.grdMessage.Size = new System.Drawing.Size(481, 270);
+            this.grdMessage.Size = new System.Drawing.Size(481, 258);
             this.grdMessage.TabIndex = 5;
             this.grdMessage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewMessage});
@@ -1186,100 +1273,6 @@ namespace Envision.NET.Forms.Dialog
             this.btnSend.Text = "Send";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.lblShowContrast);
-            this.panelControl2.Controls.Add(this.chkComboExam);
-            this.panelControl2.Controls.Add(this.labelControl4);
-            this.panelControl2.Controls.Add(this.lblGender);
-            this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Controls.Add(this.lblName);
-            this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.lblHN);
-            this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Location = new System.Drawing.Point(7, 7);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(481, 67);
-            this.panelControl2.TabIndex = 6;
-            // 
-            // lblShowContrast
-            // 
-            this.lblShowContrast.Location = new System.Drawing.Point(407, 44);
-            this.lblShowContrast.Name = "lblShowContrast";
-            this.lblShowContrast.Size = new System.Drawing.Size(69, 13);
-            this.lblShowContrast.TabIndex = 15;
-            this.lblShowContrast.Text = "labelControl17";
-            this.lblShowContrast.Visible = false;
-            // 
-            // chkComboExam
-            // 
-            this.chkComboExam.EditValue = "";
-            this.chkComboExam.Location = new System.Drawing.Point(43, 41);
-            this.chkComboExam.MenuManager = this.ribbon;
-            this.chkComboExam.Name = "chkComboExam";
-            this.chkComboExam.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null)});
-            this.chkComboExam.Size = new System.Drawing.Size(358, 20);
-            this.chkComboExam.TabIndex = 14;
-            this.chkComboExam.EditValueChanged += new System.EventHandler(this.chkComboExam_EditValueChanged);
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(4, 43);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(36, 13);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Exam : ";
-            // 
-            // lblGender
-            // 
-            this.lblGender.Location = new System.Drawing.Point(169, 3);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(72, 13);
-            this.lblGender.TabIndex = 5;
-            this.lblGender.Text = "Patient Gender";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(118, 3);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(45, 13);
-            this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "Gender : ";
-            // 
-            // lblName
-            // 
-            this.lblName.Location = new System.Drawing.Point(46, 22);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(64, 13);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Patient Name";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(3, 22);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(37, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Name : ";
-            // 
-            // lblHN
-            // 
-            this.lblHN.Location = new System.Drawing.Point(33, 3);
-            this.lblHN.Name = "lblHN";
-            this.lblHN.Size = new System.Drawing.Size(14, 13);
-            this.lblHN.TabIndex = 1;
-            this.lblHN.Text = "HN";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 3);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(24, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "HN : ";
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -1287,7 +1280,8 @@ namespace Envision.NET.Forms.Dialog
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutTemplate});
+            this.layoutTemplate,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(921, 546);
@@ -1315,11 +1309,11 @@ namespace Envision.NET.Forms.Dialog
             // 
             this.layoutControlItem2.Control = this.grdMessage;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 78);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(492, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(492, 31);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(492, 281);
+            this.layoutControlItem2.Size = new System.Drawing.Size(492, 269);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
@@ -1332,9 +1326,10 @@ namespace Envision.NET.Forms.Dialog
             this.layoutControlItem3.Control = this.panelControl2;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(111, 31);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(255, 0);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(255, 31);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(492, 78);
+            this.layoutControlItem3.Size = new System.Drawing.Size(255, 90);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
@@ -1354,6 +1349,23 @@ namespace Envision.NET.Forms.Dialog
             this.layoutTemplate.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTemplate.TextToControlDistance = 0;
             this.layoutTemplate.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.gridAllergyControl;
+            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
+            this.layoutControlItem4.Location = new System.Drawing.Point(255, 0);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(237, 0);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(237, 21);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlItem4.Size = new System.Drawing.Size(237, 90);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextToControlDistance = 0;
+            this.layoutControlItem4.TextVisible = false;
             // 
             // cancleMsgToolStripMenuItem
             // 
@@ -1390,20 +1402,20 @@ namespace Envision.NET.Forms.Dialog
             this.Name = "frmMessageConversation";
             this.Ribbon = this.ribbon;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MessageConversation";
             this.Load += new System.EventHandler(this.frmMessageConversation_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMessageConversation_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.img16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabPageControl)).EndInit();
             this.tabPageControl.ResumeLayout(false);
             this.tabContrast.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xTabContrastControl)).EndInit();
             this.xTabContrastControl.ResumeLayout(false);
-            this.tabAllergy.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridAllergyView)).EndInit();
             this.tabContrastFill.ResumeLayout(false);
             this.tabContrastFill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtabContrastDetail)).EndInit();
@@ -1444,21 +1456,22 @@ namespace Envision.NET.Forms.Dialog
             ((System.ComponentModel.ISupportInitialize)(this.grdTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkComboExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdMessage)).EndInit();
             this.menuMessage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.viewMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoMessage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkComboExam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1568,6 +1581,6 @@ namespace Envision.NET.Forms.Dialog
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
         private DevExpress.XtraGrid.Columns.GridColumn gcSideEffect;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
-        private DevExpress.XtraTab.XtraTabPage tabAllergy;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

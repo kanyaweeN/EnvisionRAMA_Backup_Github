@@ -985,12 +985,8 @@ namespace Envision.NET.Forms.Orders
         private int BuildOrder()
         {
             #region Check HIS Billing
-            bool isIpd = false;
             string _enc_id = "0";
             string _enc_type = " ";
-            string _ref_unit_uid = string.Empty;
-            int _ref_unit_id = 0;
-
             HIS_Patient proxy = new HIS_Patient();
             DataSet dsIpd = proxy.Get_ipd_detail(this.dtPatientDemographic.Rows[0]["HN"].ToString());
             if (Utilities.IsHaveData(dsIpd))
@@ -1001,12 +997,10 @@ namespace Envision.NET.Forms.Orders
                     {
                         _enc_id = dsIpd.Tables[0].Rows[0]["an"].ToString();
                         _enc_type = dsIpd.Tables[0].Rows[0]["enc_type"].ToString();
-                        _ref_unit_uid = dsIpd.Tables[0].Rows[0]["current_location"].ToString();
-                        isIpd = true;
                     }
                 }
             }
-            if (!isIpd)
+            else
             {
                 DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(this.dtPatientDemographic.Rows[0]["HN"].ToString(), "ALL");
                 int _ref_unit = Convert.ToInt32(this.glkOrderingDept.EditValue);
@@ -1018,7 +1012,6 @@ namespace Envision.NET.Forms.Orders
                     {
                         _enc_id = rows[0]["enc_id"].ToString();
                         _enc_type = rows[0]["enc_type"].ToString();
-                        _ref_unit_uid = rows[0]["sdloc_id"].ToString();
                     }
                     else
                     {
@@ -1026,25 +1019,18 @@ namespace Envision.NET.Forms.Orders
                         {
                             _enc_id = dsEncounter.Tables[0].Rows[0]["enc_id"].ToString();
                             _enc_type = dsEncounter.Tables[0].Rows[0]["enc_type"].ToString();
-                            _ref_unit_uid = dsEncounter.Tables[0].Rows[0]["sdloc_id"].ToString();
                         }
+                        
                     }
                 }
-            }
-            if (!string.IsNullOrEmpty(_ref_unit_uid))
-            {
-                DataRow[] drUnit = dtRefUnit.Select("UNIT_UID = '" + _ref_unit_uid.ToString().Trim()+"'");
-                if (drUnit.Length > 0)
-                    _ref_unit_id = Convert.ToInt32(drUnit[0]["UNIT_ID"]);
             }
             foreach (DataRow rowEnc in this.dtCasesInfo.Rows)
             {
                 rowEnc["ENC_ID"] = _enc_id;
                 rowEnc["ENC_TYPE"] = _enc_type;
-                rowEnc["REF_UNIT"] = _ref_unit_id;
             }
             #endregion
-            
+
             int orderId = 0;
             bool isOrderSuccess = true;
             // ## Local Parameter
@@ -1108,7 +1094,7 @@ namespace Envision.NET.Forms.Orders
                     processAddRISOrder.RIS_ORDER.ORDER_START_TIME = Convert.ToDateTime(this.dtCasesInfo.Rows[0]["ORDER_START_TIME"]);
                     processAddRISOrder.RIS_ORDER.REF_DOC = Convert.ToInt32(this.glkOrderingDoc.EditValue);
                 }
-                processAddRISOrder.RIS_ORDER.REF_UNIT = Convert.ToInt32(this.dtCasesInfo.Rows[0]["REF_UNIT"]) == 0 ? Convert.ToInt32(this.dtCasesInfo.Rows[0]["REF_UNIT"]) : Convert.ToInt32(this.glkOrderingDept.EditValue);
+                processAddRISOrder.RIS_ORDER.REF_UNIT = Convert.ToInt32(this.glkOrderingDept.EditValue);
                 processAddRISOrder.RIS_ORDER.INSURANCE_TYPE_ID = insuranceId;
                 processAddRISOrder.RIS_ORDER.PAT_STATUS = this.btePatientStatus.EditValue.ToString();
                 processAddRISOrder.RIS_ORDER.CLINICAL_INSTRUCTION = this.dtCasesInfo.Rows[0]["CLINICAL_INSTRUCTION"].ToString();
@@ -1159,7 +1145,7 @@ namespace Envision.NET.Forms.Orders
                     {
                         //Get acession no
                         processGetRISOrderGenAccessionNo.MODALITY_ID = processAddRISOrderDtl.RIS_ORDERDTL.MODALITY_ID;
-                        processGetRISOrderGenAccessionNo.REF_UNIT_ID = Convert.ToInt32(eachExamRow["REF_UNIT"]) == 0 ? Convert.ToInt32(eachExamRow["REF_UNIT"]) : Convert.ToInt32(this.glkOrderingDept.EditValue);
+                        processGetRISOrderGenAccessionNo.REF_UNIT_ID = Convert.ToInt32(this.glkOrderingDept.EditValue);
                         processGetRISOrderGenAccessionNo.Invoke();
                         processAddRISOrderDtl.RIS_ORDERDTL.ACCESSION_NO = processGetRISOrderGenAccessionNo.ACCESSION_ON;
                     }

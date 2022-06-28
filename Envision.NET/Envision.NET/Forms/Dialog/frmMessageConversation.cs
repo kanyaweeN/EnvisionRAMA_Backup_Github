@@ -21,6 +21,7 @@ namespace Envision.NET.Forms.Dialog
 
     public partial class frmMessageConversation : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+
         private GBLEnvVariable env;
         private HIS_Patient _hisPatientWebService;
         private MessageConversationManagement msgManagement;
@@ -40,6 +41,7 @@ namespace Envision.NET.Forms.Dialog
         private Size collapse = new Size(505, 600);
         public PagesModes pageMode;
         public object objectCurrent;
+
 
         public frmMessageConversation()
         {
@@ -81,6 +83,72 @@ namespace Envision.NET.Forms.Dialog
             objectCurrent = Xrayreq_id;
             pageMode = PagesModes.XrayReq;
 
+        }
+        public DialogResult ShowDialog(string parent_form)
+        {
+            this.ShowDialog();
+            //if (!CheckOpened(this.Text))
+            //{
+            //    formParent = parent_form;
+            //    this.Show();
+            //}
+            //return DialogResult.Cancel;
+            return DialogResult.OK;
+        }
+        public DialogResult ShowDialog(bool is_showDialog, string Accession_no, int Schedule_id)
+        {
+            if (!CheckOpened(string.IsNullOrEmpty(this.Text) ? "MessageConversation" : this.Text))
+            {
+                if (!string.IsNullOrEmpty(Accession_no))
+                {
+                    accession = Accession_no;
+                    pageMode = PagesModes.Order;
+                    objectCurrent = Accession_no;
+                    LookUpSelect sel = new LookUpSelect();
+                    DataSet chkDs = sel.SelectOrderIdByAccession(Accession_no);
+                    if (Utilities.IsHaveData(chkDs))
+                    {
+                        order_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["ORDER_ID"]);
+                        reg_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["REG_ID"]);
+                        hn = chkDs.Tables[0].Rows[0]["HN"].ToString();
+                    }
+                }
+                else
+                {
+                    schedule_id = Schedule_id;
+                    objectCurrent = Schedule_id;
+                    pageMode = PagesModes.Schedule;
+                    LookUpSelect sel = new LookUpSelect();
+                    DataSet chkDs = sel.SelectRegIdByScheduleId(Schedule_id);
+                    if (Utilities.IsHaveData(chkDs))
+                    {
+                        reg_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["REG_ID"]);
+                        hn = chkDs.Tables[0].Rows[0]["HN"].ToString();
+                    }
+                }
+
+                if (is_showDialog)
+                    return this.ShowDialog();
+                else
+                {
+                    this.Show();
+                    return DialogResult.OK;
+                }
+            }
+            else
+                return DialogResult.Cancel;
+        }
+        public DialogResult ShowDialog(int Xrayreq_id, bool is_online)
+        {
+            //InitializeComponent();
+            xrayreq_id = Xrayreq_id;
+            objectCurrent = Xrayreq_id;
+            pageMode = PagesModes.XrayReq;
+
+            if (!CheckOpened(this.Text))
+                return this.ShowDialog();
+            else
+                return DialogResult.OK;
         }
         private void frmMessageConversation_Load(object sender, EventArgs e)
         {
@@ -169,17 +237,6 @@ namespace Envision.NET.Forms.Dialog
             viewMessage.SelectRow(viewMessage.FocusedRowHandle);
             this.ActiveControl = memoMessage;
             timer1.Start();
-        }
-        public DialogResult ShowDialog(string parent_form)
-        {
-            this.ShowDialog();
-            //if (!CheckOpened(this.Text))
-            //{
-            //    formParent = parent_form;
-            //    this.Show();
-            //}
-            //return DialogResult.Cancel;
-            return DialogResult.OK;
         }
 
         private DataTable getExamId()
@@ -635,14 +692,18 @@ namespace Envision.NET.Forms.Dialog
         {
             FormCollection fc = Application.OpenForms;
 
-            foreach (Form frm in fc)
+            try
             {
-                if (frm.Text == name)
+                foreach (Form frm in fc)
                 {
-                    frm.Focus();
-                    return true;
+                    if (frm.Text == name)
+                    {
+                        frm.Focus();
+                        return true;
+                    }
                 }
             }
+            catch { }
             return false;
         }
         private bool CheckClose(string name)
@@ -869,7 +930,7 @@ namespace Envision.NET.Forms.Dialog
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    colls.Add(new contrastData(Convert.ToInt32(dr["ID"]), dr["CONTRAST_NAME"].ToString(), dr["CONTRAST_UID"].ToString()));
+                    colls.Add(new contrastData(Convert.ToInt32(dr["ID"]), dr["CONTRAST_NAME"].ToString()));
                 }
             }
             finally
@@ -1139,9 +1200,7 @@ namespace Envision.NET.Forms.Dialog
             contrastData _contrastSelected = cmbContrastName.SelectedItem as contrastData;
             if (_contrastSelected != null)
             {
-                checkContrastWithHIS();
                 setDataLot(_contrastSelected.id());
-
             }
 
         }
@@ -1348,7 +1407,7 @@ namespace Envision.NET.Forms.Dialog
 
         private void LoadAllergyData()
         {
-            this.ShowLoadingDialog("Loading...", 150, 50);
+            //this.ShowLoadingDialog("Loading...", 150, 50);
             try
             {
                 DataSet ds = this._hisPatientWebService.Get_Adr(hn.Trim());
@@ -1356,7 +1415,7 @@ namespace Envision.NET.Forms.Dialog
                 {
                     this.gridAllergyControl.DataSource = ds.Tables[0];
                 }
-                this.waitDialog.Close();
+                //this.waitDialog.Close();
             }
             catch (Exception ex)
             {
@@ -1365,7 +1424,7 @@ namespace Envision.NET.Forms.Dialog
                 #endif
 
                 this.ResetAllergyData();
-                this.waitDialog.Close();
+                //this.waitDialog.Close();
             }
         }
         private void ResetAllergyData()
@@ -1373,30 +1432,6 @@ namespace Envision.NET.Forms.Dialog
             this.gridAllergyControl.DataSource = null;
         }
         #endregion
-
-        private void checkContrastWithHIS()
-        {
-            this.ShowLoadingDialog("Loading...", 150, 50);
-            try
-            {
-                contrastData _contrastSelected = cmbContrastName.SelectedItem as contrastData;
-                DataSet ds = this._hisPatientWebService.searchAdrByMrnAndCode(hn.Trim(), _contrastSelected.code());
-                if (ds.Tables.Count > 0)
-                {
-                    this.gridAllergyControl.DataSource = ds.Tables[0];
-                }
-                this.waitDialog.Close();
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                //MessageBox.Show(ex.Message);
-#endif
-
-                this.ResetAllergyData();
-                this.waitDialog.Close();
-            }
-        }
 
     }
     public enum PagesModes
@@ -1406,17 +1441,10 @@ namespace Envision.NET.Forms.Dialog
     public class contrastData
     {
         private int _id;
-        private string _code;
         private string _name;
         public contrastData(int id, string name)
         {
             _id = id;
-            _name = name;
-        }
-        public contrastData(int id, string code, string name)
-        {
-            _id = id;
-            _code = code;
             _name = name;
         }
         public override string ToString()
@@ -1426,10 +1454,6 @@ namespace Envision.NET.Forms.Dialog
         public int id()
         {
             return _id;
-        }
-        public string code()
-        {
-            return _code;
         }
     }
     public class routeData

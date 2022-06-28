@@ -3071,7 +3071,7 @@ namespace Envision.NET.Forms.Orders
         {
             LookUpSelect lvS = new LookUpSelect();
 
-            Envision.NET.Forms.Dialog.LookupData_Filter lv = new Envision.NET.Forms.Dialog.LookupData_Filter();
+            Envision.NET.Forms.Dialog.LookupData lv = new Envision.NET.Forms.Dialog.LookupData();
             lv.ValueUpdated += new Envision.NET.Forms.Dialog.ValueUpdatedEventHandler(find_UnitCode);
             lv.AddColumn("UNIT_ID", "Department ID", false, true);
             lv.AddColumn("UNIT_UID", "Department Code", true, true);
@@ -3081,7 +3081,7 @@ namespace Envision.NET.Forms.Orders
 
             lv.Data = lvS.SelectOrderFrom("UNIT").Tables[0];
             lv.Size = new Size(600, 400);
-            lv.ShowBox(thisOrder.dtRefUnitVisit);
+            lv.ShowBox();
 
         }
         private void find_UnitCode(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)

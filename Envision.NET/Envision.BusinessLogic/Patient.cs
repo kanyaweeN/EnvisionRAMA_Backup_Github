@@ -90,7 +90,6 @@ namespace Envision.BusinessLogic
         private string non_residence;
         private string patientIDLabel;
         private string patientIDDetail;
-        private DataTable refUnitVisitData;
         #endregion
 
         #region IPatientDemographic Members
@@ -611,17 +610,6 @@ namespace Envision.BusinessLogic
         {
             get { return ref_unit; }
             set { ref_unit = value; }
-        }
-        public DataTable dtRefUnitVisit
-        {
-            get
-            {
-                return refUnitVisitData;
-            }
-            set
-            {
-                refUnitVisitData = value;
-            }
         }
         public string Department_Name
         {
@@ -1381,8 +1369,6 @@ namespace Envision.BusinessLogic
                             else
                                 insertHR_UNIT(ds.Tables[id].Rows[i]["appt_doc_dept_code"].ToString());
 
-                            setapptdocdeptcode(ds.Tables[id]);
-                            
                             ProcessGetHISDoctor processDoctor = new ProcessGetHISDoctor();
                             processDoctor.Invoke();
                             dttDept = processDoctor.Result.Tables[0].Copy();
@@ -1466,18 +1452,6 @@ namespace Envision.BusinessLogic
             }
             
             else hasHN = false;
-        }
-        private void setapptdocdeptcode(DataTable dtt)
-        {
-            refUnitVisitData = new DataTable();
-            refUnitVisitData.Columns.Add("UNIT_UID");
-
-            foreach (DataRow dr in dtt.Rows)
-            {
-                refUnitVisitData.Rows.Add(dr["appt_doc_dept_code"].ToString());
-            }
-            refUnitVisitData = refUnitVisitData.DefaultView.ToTable(true, "UNIT_UID");
-            refUnitVisitData.AcceptChanges();
         }
         private void setUnitDoctorByIPD(DataTable dtt)
         {
@@ -1646,11 +1620,6 @@ namespace Envision.BusinessLogic
         {
             return proxy.Get_ipd_detail(hn.Trim());
 
-        }
-
-        public DataSet searchAdrByMrnAndCode(string hn, string contrast_uid)
-        {
-            return proxy.searchAdrByMrnAndCode(hn.Trim(), contrast_uid);
         }
 
         //public DataSet Get_appointment(string hn)

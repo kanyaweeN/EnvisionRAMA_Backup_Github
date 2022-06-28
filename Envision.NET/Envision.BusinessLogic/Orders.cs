@@ -102,7 +102,6 @@ namespace Envision.BusinessLogic
         private DataTable dtSchedule;
         private DataSet dsPrevOrder;//ใช้ในกรณีเก็บข้อมูลที่จะแสดงใน TreeGrid 
         private DataTable dtOrderDetailBeforUpdate;
-        private DataTable dtRefUnitVisitData;
         private bool hasSchedule;
         private int scheduleID; //schedule ที่ถูก User เลือก
         private string IsSchedule; //check ว่า มากจาก schedule or order
@@ -143,7 +142,6 @@ namespace Envision.BusinessLogic
             item = new RIS_ORDER();
             item.REF_UNIT = patient.REF_UNIT;
             item.REF_DOC = patient.REF_DOC;
-            dtRefUnitVisitData = patient.dtRefUnitVisit;
             his = new HIS_REGISTRATION();
             RefreshData();
             initBaseData();
@@ -553,11 +551,7 @@ namespace Envision.BusinessLogic
             getData.Invoke();
             return getData.Result.Tables[0];
         }
-        public DataTable dtRefUnitVisit
-        {
-            get { return dtRefUnitVisitData; }
-            set { dtRefUnitVisitData = value; }
-        }
+
         #region IPatient Members
 
         public IPatientDemographic Demographic
@@ -1763,12 +1757,8 @@ namespace Envision.BusinessLogic
             {
                 if (fnBill.CheckIsSendBillingByHn(patient.Reg_UID))
                 {
-                    bool isIpd = false;
                     string _enc_id = "0";
                     string _enc_type = " ";
-                    string _ref_unit_uid = string.Empty;
-                    int _ref_unit_id = 0;
-
                     HIS_Patient proxy = new HIS_Patient();
                     DataSet dsRef = proxy.Get_ipd_detail(patient.Reg_UID);
                     if (Utilities.IsHaveData(dsRef))
@@ -1777,27 +1767,25 @@ namespace Envision.BusinessLogic
                         {
                             _enc_id = dsRef.Tables[0].Rows[0]["an"].ToString();
                             _enc_type = dsRef.Tables[0].Rows[0]["enc_type"].ToString();
-                            _ref_unit_uid = dsRef.Tables[0].Rows[0]["current_location"].ToString();
-                            isIpd = true;
                         }
-                        //else
-                        //{
-                        //    DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(patient.Reg_UID, "ALL");
-                        //    ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
-                        //    _getUnit.GetDataByID(item.REF_UNIT.Value);
-                        //    DataSet dsUnit = _getUnit.Result;
-                        //    if (Utilities.IsHaveData(dsEncounter))
-                        //    {
-                        //        DataRow[] rows = dsEncounter.Tables[0].Select("sdloc_id ='" + dsUnit.Tables[0].Rows[0]["UNIT_UID"].ToString() + "'", " enc_id desc ");
-                        //        if (rows.Length > 0)
-                        //        {
-                        //            _enc_id = rows[0]["enc_id"].ToString();
-                        //            _enc_type = rows[0]["enc_type"].ToString();
-                        //        }
-                        //    }
-                        //}
+                        else
+                        {
+                            DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(patient.Reg_UID, "ALL");
+                            ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
+                            _getUnit.GetDataByID(item.REF_UNIT.Value);
+                            DataSet dsUnit = _getUnit.Result;
+                            if (Utilities.IsHaveData(dsEncounter))
+                            {
+                                DataRow[] rows = dsEncounter.Tables[0].Select("sdloc_id ='" + dsUnit.Tables[0].Rows[0]["UNIT_UID"].ToString() + "'", " enc_id desc ");
+                                if (rows.Length > 0)
+                                {
+                                    _enc_id = rows[0]["enc_id"].ToString();
+                                    _enc_type = rows[0]["enc_type"].ToString();
+                                }
+                            }
+                        }
                     }
-                    if (!isIpd)
+                    else
                     {
                         DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(patient.Reg_UID, "ALL");
                         ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
@@ -1810,34 +1798,11 @@ namespace Envision.BusinessLogic
                             {
                                 _enc_id = rows[0]["enc_id"].ToString();
                                 _enc_type = rows[0]["enc_type"].ToString();
-                                _ref_unit_uid = rows[0]["sdloc_id"].ToString();
-                            }
-                            else
-                            {
-                                if (dsEncounter.Tables[0].Rows.Count > 0)
-                                {
-                                    _enc_id = dsEncounter.Tables[0].Rows[0]["enc_id"].ToString();
-                                    _enc_type = dsEncounter.Tables[0].Rows[0]["enc_type"].ToString();
-                                    _ref_unit_uid = dsEncounter.Tables[0].Rows[0]["sdloc_id"].ToString();
-                                }
                             }
                         }
                     }
-
-                    if (!string.IsNullOrEmpty(_ref_unit_uid))
-                    {
-                        ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
-                        _getUnit.GetDataByUID(_ref_unit_uid);
-                        DataSet dsUnit = _getUnit.Result;
-                        if (Utilities.IsHaveData(dsUnit))
-                            _ref_unit_id = Convert.ToInt32(dsUnit.Tables[0].Rows[0]["UNIT_ID"]);
-                    }
-
-                    if (_ref_unit_id == 0)
-                        fnBill.UpdateEncount(Item.ORDER_ID, _enc_id, _enc_type);
-                    else
-                        fnBill.UpdateEncount(Item.ORDER_ID, _enc_id, _enc_type, _ref_unit_id);
-
+                   
+                    fnBill.UpdateEncount(Item.ORDER_ID, _enc_id, _enc_type);
                     try
                     {
                         #region Set Billing

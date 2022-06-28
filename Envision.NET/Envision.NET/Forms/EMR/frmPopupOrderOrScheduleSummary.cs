@@ -58,6 +58,7 @@ namespace Envision.NET.Forms.EMR
         private Envision.WebService.HISWebService.Service _hisWebService;
         private Envision.NET.Reports.ReportViewer.frmXtraReportViewer htmlViwer;
         private frmComment _commentForm;
+        private frmMessageConversation _messageForm;
         private bool ShortcutToLabdata = false;
         private bool ShortcutToHISAllergy = false;
         private GBLEnvVariable env = new GBLEnvVariable();
@@ -92,6 +93,7 @@ namespace Envision.NET.Forms.EMR
             this._emoerWebService = new EMROERWebService();
             this._hisPatientWebService = new HIS_Patient();
             this._hisWebService = new Envision.WebService.HISWebService.Service();
+            this._messageForm = new frmMessageConversation();
             this._backupXtrPage = this.xtraTabOrderPage;
 
             this.xtraTabLayoutControl.SelectedTabPage = xtraTabOrderPage;
@@ -1439,23 +1441,23 @@ namespace Envision.NET.Forms.EMR
         }
         private void barCommentSyst_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmMessageConversation frmComment = new frmMessageConversation();
+            //frmMessageConversation frmComment = new frmMessageConversation();
             switch (PageMode)
             {
                 case PagesModes.Order:
-                    if(string.IsNullOrEmpty(_selectedAccessionNo))
-                        frmComment = new frmMessageConversation(this._selectedOrderIdOrScheduleId, true);
+                    if (string.IsNullOrEmpty(_selectedAccessionNo))
+                        this._messageForm.ShowDialog(this._selectedOrderIdOrScheduleId, true);
                     else
-                        frmComment = new frmMessageConversation(_selectedAccessionNo);
-                    frmComment.TopLevel = true;
-                    frmComment.ShowDialog();
-                    frmComment.Focus();
+                        this._messageForm.ShowDialog(false,this._selectedAccessionNo, 0);
+                    //frmComment.TopLevel = true;
+                    //frmComment.ShowDialog();
+                    //frmComment.Focus();
                     break;
                 case PagesModes.Schedule:
-                    frmComment = new frmMessageConversation(this._selectedOrderIdOrScheduleId);
-                    frmComment.TopLevel = true;
-                    frmComment.ShowDialog();
-                    frmComment.Focus();
+                    this._messageForm.ShowDialog(false, "", this._selectedOrderIdOrScheduleId);
+                    //frmComment.TopLevel = true;
+                    //frmComment.ShowDialog();
+                    //frmComment.Focus();
                     break;
             }
         }
