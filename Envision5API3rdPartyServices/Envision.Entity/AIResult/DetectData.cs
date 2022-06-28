@@ -8,6 +8,6 @@ namespace Envision.Entity.AIResult
     {
         public string hn { get; set; }
         public string accession_no { get; set; }
-        public decimal detectos_value { get; set; }
+        public string detectos_value { get; set; }
     }
 }

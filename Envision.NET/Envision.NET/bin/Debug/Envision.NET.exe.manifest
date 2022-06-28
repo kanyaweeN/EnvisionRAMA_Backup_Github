@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
-  <asmv1:assemblyIdentity version="4.3.3.98" name="Envision.NET.exe" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity version="4.3.3.161" name="Envision.NET.exe" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Envision.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -65,6 +65,222 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>o/V93eadQXHNnFDbbFfni9zgjeg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.CrystalReports.Engine.dll" size="372736">
+      <assemblyIdentity name="CrystalDecisions.CrystalReports.Engine" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>cP7PnI2J8Dfw6uiXC1fVSt6c6jE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.Enterprise.Framework.dll" size="45056">
+      <assemblyIdentity name="CrystalDecisions.Enterprise.Framework" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>5/6vRpcP9pMhHPKgnalIgmCIPMY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.Enterprise.InfoStore.dll" size="86016">
+      <assemblyIdentity name="CrystalDecisions.Enterprise.InfoStore" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>hqypv+KUOhPz7lz4oWhk80Wne4k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.Enterprise.PluginManager.dll" size="32768">
+      <assemblyIdentity name="CrystalDecisions.Enterprise.PluginManager" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>AdOxa69HrdrSINPkSD4LtAlwg+w=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.KeyCode.dll" size="18944">
+      <assemblyIdentity name="CrystalDecisions.KeyCode" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>wKURLmxOwCzjE/ZxMEl1ePg71M8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.ClientDoc.dll" size="57344">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.ClientDoc" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>UIstXC6mb6epzBHQvK+Lui7nuFs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.CommLayer.dll" size="49152">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.CommLayer" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>nUN7Th7ZVCe+rrS6QQwSGmYTTyw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.CommonControls.dll" size="135168">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.CommonControls" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>i6bV+BtZ5F+5EiZsiCmDnGi1x24=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.CommonObjectModel.dll" size="36864">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.CommonObjectModel" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>wzXpEeikPWyil+BODjcTFLdPB1M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.Controllers.dll" size="139264">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.Controllers" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>u1aGEKnUGbIf1hjUE3Q6BrjH8M0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.DataDefModel.dll" size="225280">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.DataDefModel" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>q2jAe+Es7O7jQkZGPZgyzOyV3fA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.DataSetConversion.dll" size="49152">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.DataSetConversion" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>pGfKoVwV6o0NlqmOiwaaoRzCsCc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.ObjectFactory.dll" size="4608">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.ObjectFactory" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>of22Xs2fzusDmdWcU9bYLiJ7i9s=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.ReportDefModel.dll" size="315392">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.ReportDefModel" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>HPpyCKW6hoAXGiH9p3+XFO52FjU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportAppServer.XmlSerialize.dll" size="15360">
+      <assemblyIdentity name="CrystalDecisions.ReportAppServer.XmlSerialize" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>amRR3b7p+2qOtpe7Ny7BouzRub4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.ReportSource.dll" size="86016">
+      <assemblyIdentity name="CrystalDecisions.ReportSource" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>zk5j8ivW3ggpRetvMGMbC2QAtWI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.Shared.dll" size="671744">
+      <assemblyIdentity name="CrystalDecisions.Shared" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>YuoTe+crbip9YKJ+8iRuRx7LZZo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CrystalDecisions.Windows.Forms.dll" size="249856">
+      <assemblyIdentity name="CrystalDecisions.Windows.Forms" version="10.5.3700.0" publicKeyToken="692FBEA5521E1304" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>/SFYBzkVKXdCwWVO+aryD30jWpA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -393,86 +609,86 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.BusinessLogic.dll" size="578560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.BusinessLogic.dll" size="585728">
       <assemblyIdentity name="Envision.BusinessLogic" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Tu9GKT+ymqaxAq4/biW0dwrjJf8=</dsig:DigestValue>
+        <dsig:DigestValue>9CToZQa2WLKfoLfKCw+E+L697qM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Common.dll" size="1280512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Common.dll" size="1291264">
       <assemblyIdentity name="Envision.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>v+3lbkwsYtujeHDr0JYnTw9HVQg=</dsig:DigestValue>
+        <dsig:DigestValue>RavIQdShXraEM6rVHqFLDySPea4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.DataAccess.dll" size="644608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.DataAccess.dll" size="657408">
       <assemblyIdentity name="Envision.DataAccess" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>qRoq8brVFW1q/6alLiVWhTT7U0E=</dsig:DigestValue>
+        <dsig:DigestValue>Erh93nYDt7Y+oSur17TPx2fwMKQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.NET.exe" size="15092736">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.NET.exe" size="15245824">
       <assemblyIdentity name="Envision.NET" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kyQtyZyGeYs9ezYgj3KiFbWPBh4=</dsig:DigestValue>
+        <dsig:DigestValue>apmfZi+5XfGh5WBmbCFE5JPI//Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Operational.dll" size="18432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Operational.dll" size="20992">
       <assemblyIdentity name="Envision.Operational" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>sd7E4v8yd+aptlpBEMBMvhInlvs=</dsig:DigestValue>
+        <dsig:DigestValue>MO28ylS39Kh2e+kv5VKOpgz4BGg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Plugin.dll" size="11651072">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.Plugin.dll" size="11738624">
       <assemblyIdentity name="Envision.Plugin" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0VkJ/J+qmAOt0TU2/OCW74U0oGU=</dsig:DigestValue>
+        <dsig:DigestValue>5UqyScAupgFMJUEjcwJp0S/t7iE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.WebService.dll" size="137216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Envision.WebService.dll" size="138240">
       <assemblyIdentity name="Envision.WebService" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>B5SagyhK6fLWcj9Dn/As85cGG7Q=</dsig:DigestValue>
+        <dsig:DigestValue>1YfEd/TpUS5BU7N2WM+huUaPHZY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -484,7 +700,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/Zk2JQgnLaTXC1ZDPuTnzFt+aLw=</dsig:DigestValue>
+        <dsig:DigestValue>1KHpSavzemwn3Aavw61TAOx6u6Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -496,7 +712,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aXaJ5Mxwo8tRGc5S1FnEoJQ9gaQ=</dsig:DigestValue>
+        <dsig:DigestValue>BriDNxRzmvRl/jPdSXxtf4NyI7w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -580,7 +796,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>i6Axje5PvfAPYruHku5TvTN4SBI=</dsig:DigestValue>
+        <dsig:DigestValue>iwrLFljPfZTkpPQ0cpyVeJTV/08=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -644,18 +860,6 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFToolkit.dll" size="459104">
-      <assemblyIdentity name="WPFToolkit" version="3.5.40128.1" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>nOzJnR2Qqq0FtdJVbSrWUzvxF9Y=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
   <file name="Envision.ico" size="32038">
     <hash>
       <dsig:Transforms>
@@ -665,13 +869,13 @@
       <dsig:DigestValue>3IcqKXRcNn3gDRIkGGqoqnvVn+A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Envision.NET.exe.config" size="4157">
+  <file name="Envision.NET.exe.config" size="4156">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>iY3sa/SYh1wkkKas7I0bQLoXqFs=</dsig:DigestValue>
+      <dsig:DigestValue>U5RjklWpXE3mOfgo5hcKa/KaL0U=</dsig:DigestValue>
     </hash>
   </file>
   <file name="PNG_Envision02.ico" size="481686">

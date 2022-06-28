@@ -57,5 +57,16 @@ namespace EnvisionOnline.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
         }
+        public DataSet GetDataWithParameter(string param)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_CLINICALINDICATIONTYPE_SelectWithParam;
+            DbParameter[] parameters = { 
+                                             Parameter( "@PARAM"	        , param ),
+                                       };
+            ParameterList = parameters;
+            DataSet ds = new DataSet();
+            ds = ExecuteDataSet();
+            return ds;
+        }
     }
 }

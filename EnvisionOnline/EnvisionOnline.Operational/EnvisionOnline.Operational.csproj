@@ -53,6 +53,13 @@
       <Project>{A5CBC33E-667C-4EB9-B26B-D0AA6F3831BB}</Project>
       <Name>EnvisionOnline.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnvisionOnline.Webservice\EnvisionOnline.Webservice.csproj">
+      <Project>{7B78002B-2C0E-450D-903D-534A7694C204}</Project>
+      <Name>EnvisionOnline.Webservice</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PACS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

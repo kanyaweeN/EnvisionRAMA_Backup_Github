@@ -1,0 +1,109 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Envision Libraries", "Envision Libraries", "{E9D33188-6608-43C7-AFC0-1E0A618AFE8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Plugin", "Envision.Plugin\Envision.Plugin.csproj", "{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.WebService", "Envision.WebService\Envision.WebService.csproj", "{AEAA3524-2432-47D6-B379-6F5BA644099A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Operational", "Envision.Operational\Envision.Operational.csproj", "{36F75CC2-3873-41B8-A76F-6042690DEE06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.DataAccess", "Envision.DataAccess\Envision.DataAccess.csproj", "{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Common", "Envision.Common\Envision.Common.csproj", "{7646549E-3644-4690-AEC4-8D20FDD157C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.BusinessLogic", "Envision.BusinessLogic\Envision.BusinessLogic.csproj", "{55D7CD05-F615-45A1-A469-F30ADA257E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.NET", "Envision.NET\Envision.NET.csproj", "{39B287B4-2BE8-4957-84AE-2CA9C123014A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miracle", "Miracle\Miracle.csproj", "{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEAA3524-2432-47D6-B379-6F5BA644099A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEAA3524-2432-47D6-B379-6F5BA644099A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEAA3524-2432-47D6-B379-6F5BA644099A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEAA3524-2432-47D6-B379-6F5BA644099A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F75CC2-3873-41B8-A76F-6042690DEE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F75CC2-3873-41B8-A76F-6042690DEE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F75CC2-3873-41B8-A76F-6042690DEE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F75CC2-3873-41B8-A76F-6042690DEE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7646549E-3644-4690-AEC4-8D20FDD157C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7646549E-3644-4690-AEC4-8D20FDD157C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7646549E-3644-4690-AEC4-8D20FDD157C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7646549E-3644-4690-AEC4-8D20FDD157C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D7CD05-F615-45A1-A469-F30ADA257E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D7CD05-F615-45A1-A469-F30ADA257E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D7CD05-F615-45A1-A469-F30ADA257E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D7CD05-F615-45A1-A469-F30ADA257E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B287B4-2BE8-4957-84AE-2CA9C123014A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B287B4-2BE8-4957-84AE-2CA9C123014A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B287B4-2BE8-4957-84AE-2CA9C123014A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B287B4-2BE8-4957-84AE-2CA9C123014A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AEAA3524-2432-47D6-B379-6F5BA644099A} = {E9D33188-6608-43C7-AFC0-1E0A618AFE8F}
+		{36F75CC2-3873-41B8-A76F-6042690DEE06} = {E9D33188-6608-43C7-AFC0-1E0A618AFE8F}
+		{EF7BB306-00BC-45D1-9F3E-6542ECF17F1C} = {E9D33188-6608-43C7-AFC0-1E0A618AFE8F}
+		{7646549E-3644-4690-AEC4-8D20FDD157C3} = {E9D33188-6608-43C7-AFC0-1E0A618AFE8F}
+		{55D7CD05-F615-45A1-A469-F30ADA257E7F} = {E9D33188-6608-43C7-AFC0-1E0A618AFE8F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://rad_repository:8080/tfs/envision
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Envision.BusinessLogic\\Envision.BusinessLogic.csproj
+		SccProjectTopLevelParentUniqueName1 = Envision.NET.sln
+		SccProjectName1 = Envision.BusinessLogic
+		SccLocalPath1 = Envision.BusinessLogic
+		SccProjectUniqueName2 = Envision.Common\\Envision.Common.csproj
+		SccProjectTopLevelParentUniqueName2 = Envision.NET.sln
+		SccProjectName2 = Envision.Common
+		SccLocalPath2 = Envision.Common
+		SccProjectUniqueName3 = Envision.DataAccess\\Envision.DataAccess.csproj
+		SccProjectTopLevelParentUniqueName3 = Envision.NET.sln
+		SccProjectName3 = Envision.DataAccess
+		SccLocalPath3 = Envision.DataAccess
+		SccProjectUniqueName4 = Envision.NET\\Envision.NET.csproj
+		SccProjectTopLevelParentUniqueName4 = Envision.NET.sln
+		SccProjectName4 = Envision.NET
+		SccLocalPath4 = Envision.NET
+		SccProjectUniqueName5 = Envision.Operational\\Envision.Operational.csproj
+		SccProjectTopLevelParentUniqueName5 = Envision.NET.sln
+		SccProjectName5 = Envision.Operational
+		SccLocalPath5 = Envision.Operational
+		SccProjectUniqueName6 = Envision.Plugin\\Envision.Plugin.csproj
+		SccProjectTopLevelParentUniqueName6 = Envision.NET.sln
+		SccProjectName6 = Envision.Plugin
+		SccLocalPath6 = Envision.Plugin
+		SccProjectUniqueName7 = Envision.WebService\\Envision.WebService.csproj
+		SccProjectTopLevelParentUniqueName7 = Envision.NET.sln
+		SccProjectName7 = Envision.WebService
+		SccLocalPath7 = Envision.WebService
+		SccProjectUniqueName8 = Miracle\\Miracle.csproj
+		SccProjectTopLevelParentUniqueName8 = Envision.NET.sln
+		SccProjectName8 = Miracle
+		SccLocalPath8 = Miracle
+	EndGlobalSection
+EndGlobal

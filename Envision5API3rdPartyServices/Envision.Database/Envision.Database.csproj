@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Envision.Entity\Envision.Entity.csproj" />
+    <ProjectReference Include="..\Envision.Operational\Envision.Operational.csproj" />
   </ItemGroup>
 
 </Project>

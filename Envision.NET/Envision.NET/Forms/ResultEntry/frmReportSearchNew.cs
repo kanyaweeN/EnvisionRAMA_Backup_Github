@@ -18,6 +18,7 @@ using Envision.NET.Forms.Main;
 using Envision.BusinessLogic.ProcessRead;
 using Miracle.Scanner;
 using Envision.NET.Forms.Dialog;
+using Envision.Operational.PACS;
 
 namespace Envision.NET.Forms.ResultEntry
 {
@@ -258,34 +259,42 @@ namespace Envision.NET.Forms.ResultEntry
         private string openPACS(string AccessionNumber, bool is_blank)
         {
             GBLEnvVariable env = new GBLEnvVariable();
-            string str = env.PacsUrl + AccessionNumber;
-            if (env.LoginType == "W")
-            {
-                str = env.PacsUrl;
-                str = str.Replace("http://", string.Empty);
-                str = "http://radiology%5C" + env.UserName + ":" + env.PasswordAD + "@" + str + AccessionNumber;
-            }
+            //if (env.LoginType == "E")
+            //{
+                // UpdatePacs
+                return new OpenPACS(env.PacsUrl).OpenIEAccession(AccessionNumber, env.UserName, env.PasswordAD, "", env.LoginType);
+            //}
+            //else
+            //{
+            //    string str = env.PacsUrl + AccessionNumber;
+            //    if (env.LoginType == "W")
+            //    {
+            //        str = env.PacsUrl;
+            //        str = str.Replace("http://", string.Empty);
+            //        str = "http://radiology%5C" + env.UserName + ":" + env.PasswordAD + "@" + str + AccessionNumber;
+            //    }
 
-            if (is_blank)
-            {
-                //IECompatible ieCom = new IECompatible();
-                //ieCom.OpenSynapseLink("_blank");
+            //    if (is_blank)
+            //    {
+            //        //IECompatible ieCom = new IECompatible();
+            //        //ieCom.OpenSynapseLink("_blank");
 
-                //System.Diagnostics.Process.Start(str, "_blank");
+            //        //System.Diagnostics.Process.Start(str, "_blank");
 
 
-                Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-                if (!ieCom.OpenSynapseLink(str))
-                    msg.ShowAlert("UID4053", env.CurrentLanguageID);
-            }
-            else
-            {
-                Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-                if (!ieCom.OpenSynapseLink(str))
-                    msg.ShowAlert("UID4053", env.CurrentLanguageID);
-            }
-
-            return str;
+            //        Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+            //        if (!ieCom.OpenSynapseLink(str))
+            //            msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            //    }
+            //    else
+            //    {
+            //        Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+            //        if (!ieCom.OpenSynapseLink(str))
+            //            msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            //    }
+            //    return str;
+            //}
+ 
         }
         private void webBS_FontHilighting()
         {

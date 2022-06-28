@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AEAA3524-2432-47D6-B379-6F5BA644099A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.WebService</RootNamespace>
+    <AssemblyName>Envision.WebService</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AIMCWebService\Service1.cs" />
+    <Compile Include="EMROERWebService\EMROERWebService.cs" />
+    <Compile Include="EnvisionBIService\Service1.cs" />
+    <Compile Include="EnvisionIEGet3rdPartyData.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EnvisionIEPreSyncParams.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EnvisionWebService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HISWebService\Service.cs" />
+    <Compile Include="ImageStoreService\Service.cs" />
+    <Compile Include="PACSService\ORMMessage.cs" />
+    <Compile Include="PACSService\ORUMessage.cs" />
+    <Compile Include="PACSService\ServiceSendToPAC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RamaCare\Class1.cs" />
+    <Compile Include="RamaCare\RamaCare.cs" />
+    <Compile Include="ReportSearchWebService\EnvisionReportSearchWS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+      <Project>{7646549E-3644-4690-AEC4-8D20FDD157C3}</Project>
+      <Name>Envision.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

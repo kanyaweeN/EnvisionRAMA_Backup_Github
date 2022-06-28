@@ -57,6 +57,7 @@ namespace Envision.NET.Forms.Orders
         private MyMessageBox messageBox;
         private Envision.Common.GBLEnvVariable gblenv;
         private RepositoryItemLookUpEdit repBpview = new RepositoryItemLookUpEdit();
+        private Patient patient;
 
         #region Title Name DataSource
         // Thai Title name
@@ -273,8 +274,8 @@ namespace Envision.NET.Forms.Orders
                 {
                     dtPatientDemographic = dsSource.Tables[0].Copy(); // copy to gbl datatable
                     dtCasesInfo = dsSource.Tables[1].Copy();
-                    this.BindingData();
                     UpdateHISRegistration();
+                    this.BindingData();
                     //Binding last order to grid
                     this.BindingLastOrderGrid();
                 }
@@ -764,27 +765,7 @@ namespace Envision.NET.Forms.Orders
 
                 GetNextAppointment();
             }
-
-
-            dtCasesInfo.BeginLoadData();
-            chkNonResident.ForeColor = chkNonResident.Checked ? Color.Red : Color.Black;
-
-            foreach (DataRow drExam in this.dtCasesInfo.Rows)
-            {
-
-                DataRow[] ctName = RISBaseData.RIS_ClinicType().Select("CLINIC_TYPE_ID = " + drExam["CLINIC_TYPE_ID"].ToString());
-                string clinictypeName = ctName[0]["CLINIC_TYPE_UID"].ToString();
-                switch (clinictypeName.ToUpper())
-                {
-                    case "SPECIAL": drExam["EXAM_RATE"] = chkNonResident.Checked ? drExam["FOREIGN_SPCIAL_RATE"] : drExam["SPECIAL_RATE"]; break;
-                    case "VIP": drExam["EXAM_RATE"] = chkNonResident.Checked ? drExam["FOREIGN_VIP_RATE"] : drExam["VIP_RATE"]; break;
-                    default: drExam["EXAM_RATE"] = chkNonResident.Checked ? drExam["FOREIGN_RATE"] : drExam["RGL_RATE"]; break;
-                }
-            }
-            calTotal();
-            dtCasesInfo.AcceptChanges();
-            dtCasesInfo.EndLoadData();
-
+            checkNonResidentRate();
         }
         private void setTrauma(int id, bool is_schedule)
         {
@@ -910,7 +891,7 @@ namespace Envision.NET.Forms.Orders
         }
         public void UpdateHISRegistration()
         {
-            Patient patient = new Envision.BusinessLogic.Patient(this.dtPatientDemographic.Rows[0]["HN"].ToString(), false);
+            patient = new Envision.BusinessLogic.Patient(this.dtPatientDemographic.Rows[0]["HN"].ToString(), false);
             if (patient.HasHN)
             {
                 try
@@ -958,13 +939,19 @@ namespace Envision.NET.Forms.Orders
                 dtPatientDemographic.Rows[0]["SSN"] = patient.SocialNumber;
                 dtPatientDemographic.Rows[0]["DOB"] = patient.DateOfBirth;
                 dtPatientDemographic.Rows[0]["GENDER"] = patient.Gender;
+
+                dtPatientDemographic.Rows[0]["INSURANCE_TYPE_DESC"] = patient.Insurance_Name;
+                dtPatientDemographic.Rows[0]["INSURANCE_TYPE_ID"] = patient.InsuranceID;
+                dtPatientDemographic.Rows[0]["IS_FOREIGNER"] = patient.NON_RESIDENCE;
             }
         }
         private void checkAllergies()
         {
             if (!string.IsNullOrEmpty(dtPatientDemographic.Rows[0]["Allergies"].ToString().Trim()))
             {
-                frmAllergy2 Allergy = new frmAllergy2();
+                frmAllergy2 Allergy = new frmAllergy2(dtPatientDemographic.Rows[0]["HN"].ToString().Trim()); 
+                Allergy.TopLevel = true;
+                Allergy.StartPosition = FormStartPosition.CenterScreen;
                 Allergy.ShowDialog();
             }
         }
@@ -998,83 +985,66 @@ namespace Envision.NET.Forms.Orders
         private int BuildOrder()
         {
             #region Check HIS Billing
-            foreach (DataRow eachExamRow2 in this.dtCasesInfo.Rows)
+            bool isIpd = false;
+            string _enc_id = "0";
+            string _enc_type = " ";
+            string _ref_unit_uid = string.Empty;
+            int _ref_unit_id = 0;
+
+            HIS_Patient proxy = new HIS_Patient();
+            DataSet dsIpd = proxy.Get_ipd_detail(this.dtPatientDemographic.Rows[0]["HN"].ToString());
+            if (Utilities.IsHaveData(dsIpd))
             {
-                DataRow[] getBillingExamUID = dtExam.Select("EXAM_UID = '" + eachExamRow2["EXAM_UID"].ToString() + "'");
-                string exam_uid = getBillingExamUID[0]["BILLING_CODE"].ToString();
-                string _nonResident = chkNonResident.Checked ? "nonresident(v)" : "";
-                HIS_Patient proxy = new HIS_Patient();
-                DataSet dsCheckRate = proxy.GetEncounterDetailClinicTypePriceType(this.dtPatientDemographic.Rows[0]["HN"].ToString(), exam_uid, DateTime.Now.ToString("dd/MM/yyyy"), _nonResident);
-                if (string.IsNullOrEmpty(dsCheckRate.Tables[0].Rows[0]["mrn"].ToString()))
-                    dsCheckRate.Tables[0].Rows[0]["mrn"] = this.dtPatientDemographic.Rows[0]["HN"].ToString();
-
-                int _ref_unit = Convert.ToInt32(this.glkOrderingDept.EditValue);
-                DataRow[] drClinic = dtClinic.Select("CLINIC_TYPE_ID = " + eachExamRow2["CLINIC_TYPE"].ToString());
-                DataRow[] drUnit = dtRefUnit.Select("UNIT_ID=" + _ref_unit.ToString());
-
-                DataView dv = dsCheckRate.Tables[0].DefaultView;
-                dv.RowFilter = "sdloc_id='" + drUnit[0]["UNIT_UID"].ToString() + "'";
-                if (dv.Count > 0)
+                if (dsIpd.Tables[0].Rows.Count > 0)
                 {
-                    #region Add TemplateTable Billing
-                    DataRow[] rowChkExam = dtTemplateBillingLog.Select("EXAM_ID=" + eachExamRow2["EXAM_ID"].ToString());
-                    if (rowChkExam.Length > 0)
-                        dtTemplateBillingLog.Rows.Remove(rowChkExam[0]);
-                    DataRow rowAddTemp = dtTemplateBillingLog.NewRow();
-
-
-                    dv.RowFilter = "clinictype='" + drClinic[0]["CLINIC_TYPE_ALIAS"].ToString() + "'";
-                    if (dv.Count == 0)
+                    if (!string.IsNullOrEmpty(dsIpd.Tables[0].Rows[0]["an"].ToString()))
                     {
-                        //MessageBox.Show(eachExamRow2["EXAM_UID"].ToString() + " ไม่มีประกาศราคาใน clinic type นี้"); //_strAlert += " " +  + " clinictype= null;";
-                        ProcessAddRISBillinglogWithHIS logs = new ProcessAddRISBillinglogWithHIS();
-                        logs.RIS_BILLINGLOG_WITH_HIS.UNIT_UID = drUnit[0]["UNIT_UID"].ToString();
-                        logs.RIS_BILLINGLOG_WITH_HIS.CLINIC_TYPE_ALIAS = drClinic[0]["CLINIC_TYPE_ALIAS"].ToString();
-                        logs.RIS_BILLINGLOG_WITH_HIS.EXAM_UID = exam_uid;
-                        logs.RIS_BILLINGLOG_WITH_HIS.HN = this.dtPatientDemographic.Rows[0]["HN"].ToString();
-                        logs.RIS_BILLINGLOG_WITH_HIS.CREATED_BY = gblenv.UserID;
-                        logs.insertLogByHISErrorClinic();
+                        _enc_id = dsIpd.Tables[0].Rows[0]["an"].ToString();
+                        _enc_type = dsIpd.Tables[0].Rows[0]["enc_type"].ToString();
+                        _ref_unit_uid = dsIpd.Tables[0].Rows[0]["current_location"].ToString();
+                        isIpd = true;
+                    }
+                }
+            }
+            if (!isIpd)
+            {
+                DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(this.dtPatientDemographic.Rows[0]["HN"].ToString(), "ALL");
+                int _ref_unit = Convert.ToInt32(this.glkOrderingDept.EditValue);
+                DataRow[] drUnit = dtRefUnit.Select("UNIT_ID=" + _ref_unit.ToString());
+                if (Utilities.IsHaveData(dsEncounter))
+                {
+                    DataRow[] rows = dsEncounter.Tables[0].Select("sdloc_id ='" + drUnit[0]["UNIT_UID"].ToString() + "'", " enc_id desc ");
+                    if (rows.Length > 0)
+                    {
+                        _enc_id = rows[0]["enc_id"].ToString();
+                        _enc_type = rows[0]["enc_type"].ToString();
+                        _ref_unit_uid = rows[0]["sdloc_id"].ToString();
                     }
                     else
                     {
-                        eachExamRow2["ENC_ID"] = dv[0]["enc_id"].ToString();
-                        eachExamRow2["ENC_TYPE"] = dv[0]["enc_type"].ToString();
-                        eachExamRow2["ENC_CLINIC"] = dv[0]["clinictype"].ToString();
-                        eachExamRow2.AcceptChanges();
-
-                        rowAddTemp["EXAM_ID"] = eachExamRow2["EXAM_ID"];
-                        rowAddTemp["object_id"] = dv[0]["object_id"];
-                        rowAddTemp["enc_id"] = dv[0]["enc_id"];
-                        rowAddTemp["enc_type"] = dv[0]["enc_type"];
-                        rowAddTemp["mrn"] = dv[0]["mrn"];
-                        rowAddTemp["mrn_type"] = dv[0]["mrn_type"];
-                        rowAddTemp["sdloc_id"] = dv[0]["sdloc_id"];
-                        rowAddTemp["period"] = dv[0]["period"];
-                        rowAddTemp["attender"] = dv[0]["attender"];
-                        rowAddTemp["enterer"] = dv[0]["enterer"];
-                        rowAddTemp["insurance"] = dv[0]["insurance"];
-                        rowAddTemp["pt_acc_id"] = dv[0]["pt_acc_id"];
-                        rowAddTemp["effectivestartdate"] = convertHISDate(dv[0]["effectivestartdate"].ToString());
-                        rowAddTemp["effectiveenddate"] = convertHISDate(dv[0]["effectiveenddate"].ToString());
-                        rowAddTemp["statuscode"] = dv[0]["statuscode"];
-                        rowAddTemp["productcode"] = dv[0]["productcode"];
-                        rowAddTemp["clinictype"] = dv[0]["clinictype"];
-                        rowAddTemp["pricetype"] = dv[0]["pricetype"];
-                        rowAddTemp["amtprice"] = dv[0]["amtprice"];
-                        dtTemplateBillingLog.Rows.Add(rowAddTemp);
-                        dtTemplateBillingLog.AcceptChanges();
-
+                        if (dsEncounter.Tables[0].Rows.Count > 0)
+                        {
+                            _enc_id = dsEncounter.Tables[0].Rows[0]["enc_id"].ToString();
+                            _enc_type = dsEncounter.Tables[0].Rows[0]["enc_type"].ToString();
+                            _ref_unit_uid = dsEncounter.Tables[0].Rows[0]["sdloc_id"].ToString();
+                        }
                     }
-                    #endregion
                 }
-                else
-                {
-                    //MessageBox.Show(drUnit[0]["UNIT_UID"].ToString() + " ไม่มีการลงทะเบียนที่แผนกนี้");//_strAlert += "sdloc_id=0";
-                }
-
+            }
+            if (!string.IsNullOrEmpty(_ref_unit_uid))
+            {
+                DataRow[] drUnit = dtRefUnit.Select("UNIT_UID = '" + _ref_unit_uid.ToString().Trim()+"'");
+                if (drUnit.Length > 0)
+                    _ref_unit_id = Convert.ToInt32(drUnit[0]["UNIT_ID"]);
+            }
+            foreach (DataRow rowEnc in this.dtCasesInfo.Rows)
+            {
+                rowEnc["ENC_ID"] = _enc_id;
+                rowEnc["ENC_TYPE"] = _enc_type;
+                rowEnc["REF_UNIT"] = _ref_unit_id;
             }
             #endregion
-
+            
             int orderId = 0;
             bool isOrderSuccess = true;
             // ## Local Parameter
@@ -1138,11 +1108,12 @@ namespace Envision.NET.Forms.Orders
                     processAddRISOrder.RIS_ORDER.ORDER_START_TIME = Convert.ToDateTime(this.dtCasesInfo.Rows[0]["ORDER_START_TIME"]);
                     processAddRISOrder.RIS_ORDER.REF_DOC = Convert.ToInt32(this.glkOrderingDoc.EditValue);
                 }
-                processAddRISOrder.RIS_ORDER.REF_UNIT = Convert.ToInt32(this.glkOrderingDept.EditValue);
+                processAddRISOrder.RIS_ORDER.REF_UNIT = Convert.ToInt32(this.dtCasesInfo.Rows[0]["REF_UNIT"]) == 0 ? Convert.ToInt32(this.dtCasesInfo.Rows[0]["REF_UNIT"]) : Convert.ToInt32(this.glkOrderingDept.EditValue);
                 processAddRISOrder.RIS_ORDER.INSURANCE_TYPE_ID = insuranceId;
                 processAddRISOrder.RIS_ORDER.PAT_STATUS = this.btePatientStatus.EditValue.ToString();
                 processAddRISOrder.RIS_ORDER.CLINICAL_INSTRUCTION = this.dtCasesInfo.Rows[0]["CLINICAL_INSTRUCTION"].ToString();
                 processAddRISOrder.RIS_ORDER.REF_DOC_INSTRUCTION = this.dtCasesInfo.Rows[0]["REF_DOC_INSTRUCTION"].ToString();
+
                 processAddRISOrder.RIS_ORDER.ENC_ID = string.IsNullOrEmpty(this.dtCasesInfo.Rows[0]["ENC_ID"].ToString()) ? string.Empty : this.dtCasesInfo.Rows[0]["ENC_ID"].ToString();
                 processAddRISOrder.RIS_ORDER.ENC_TYPE = string.IsNullOrEmpty(this.dtCasesInfo.Rows[0]["ENC_TYPE"].ToString()) ? string.Empty : this.dtCasesInfo.Rows[0]["ENC_TYPE"].ToString();
                 processAddRISOrder.RIS_ORDER.ENC_CLINIC = string.IsNullOrEmpty(this.dtCasesInfo.Rows[0]["ENC_CLINIC"].ToString()) ? string.Empty : this.dtCasesInfo.Rows[0]["ENC_CLINIC"].ToString();
@@ -1188,7 +1159,7 @@ namespace Envision.NET.Forms.Orders
                     {
                         //Get acession no
                         processGetRISOrderGenAccessionNo.MODALITY_ID = processAddRISOrderDtl.RIS_ORDERDTL.MODALITY_ID;
-                        processGetRISOrderGenAccessionNo.REF_UNIT_ID = Convert.ToInt32(this.glkOrderingDept.EditValue);
+                        processGetRISOrderGenAccessionNo.REF_UNIT_ID = Convert.ToInt32(eachExamRow["REF_UNIT"]) == 0 ? Convert.ToInt32(eachExamRow["REF_UNIT"]) : Convert.ToInt32(this.glkOrderingDept.EditValue);
                         processGetRISOrderGenAccessionNo.Invoke();
                         processAddRISOrderDtl.RIS_ORDERDTL.ACCESSION_NO = processGetRISOrderGenAccessionNo.ACCESSION_ON;
                     }
@@ -1414,23 +1385,31 @@ namespace Envision.NET.Forms.Orders
                 #endregion
                 #region Send Billing
                 //Send Billing
+
                 FinancialBilling fnBill = new FinancialBilling();
-                foreach (string eachAccession in accessionList)
+                if (fnBill.CheckIsSendBillingByHn(this.dtPatientDemographic.Rows[0]["HN"].ToString()))
                 {
-                    bool IsSendBilling = fnBill.CheckIsSendBilling(eachAccession);
-                    if (IsSendBilling)
+                    foreach (string eachAccession in accessionList)
                     {
-                        string ackMessage = BillingManagement.SUCCESS_SEND_BILLING;
-                        if (!BillingManagement.SendBilling(eachAccession, gblenv.UserName, true))
+                        bool IsSendBilling = fnBill.CheckIsSendBilling(eachAccession);
+                        if (IsSendBilling)
                         {
-                            ackMessage = BillingManagement.FAIL_SEND_BILLING;
-                            messageBox.ShowAlert("UID6121", gblenv.CurrentLanguageID);
+                            string ackMessage = BillingManagement.SUCCESS_SEND_BILLING;
+                            if (!BillingManagement.SendBilling(eachAccession, gblenv.UserName, true))
+                            {
+                                ackMessage = BillingManagement.FAIL_SEND_BILLING;
+                                messageBox.ShowAlert("UID6121", gblenv.CurrentLanguageID);
+                            }
+                            OrderManagement.UpdateOrderHISSync(eachAccession,
+                                ackMessage == BillingManagement.FAIL_SEND_BILLING ? "N" : "Y", ackMessage, gblenv.OrgID);
+                            Thread.Sleep(100); //set thread sleep 100 msec
                         }
-                        OrderManagement.UpdateOrderHISSync(eachAccession,
-                            ackMessage == BillingManagement.FAIL_SEND_BILLING ? "N" : "Y", ackMessage, gblenv.OrgID);
-                        Thread.Sleep(100); //set thread sleep 100 msec
                     }
                 }
+                #endregion
+                #region Update Contrast Detail
+                ProcessUpdateRISContrastDtl upContrast = new ProcessUpdateRISContrastDtl();
+                upContrast.updateArrival(orderId, selectedScheduleId);
                 #endregion
             }
             catch (Exception ex)
@@ -1852,6 +1831,10 @@ namespace Envision.NET.Forms.Orders
 
         private void chkNonResident_CheckedChanged(object sender, EventArgs e)
         {
+            checkNonResidentRate();   
+        }
+        private void checkNonResidentRate()
+        {
             dtCasesInfo.BeginLoadData();
             chkNonResident.ForeColor = chkNonResident.Checked ? Color.Red : Color.Black;
 
@@ -1871,7 +1854,6 @@ namespace Envision.NET.Forms.Orders
             dtCasesInfo.AcceptChanges();
             dtCasesInfo.EndLoadData();
         }
-
         private void bgUpdateHISData_DoWork(object sender, DoWorkEventArgs e)
         {
 

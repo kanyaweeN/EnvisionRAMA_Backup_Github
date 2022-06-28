@@ -15,7 +15,7 @@ namespace Envision.DataAccess.Insert
         public ACAssignmentInsertData()
 		{
             AC_ASSIGNMENT = new AC_ASSIGNMENT();
-            StoredProcedureName = StoredProcedure.Prc_AC_ASSIGNMENT_Insert;
+            StoredProcedureName = StoredProcedure.Prc_AC_ASSIGNMENT_Insert_New;
             //StoredProcedureName = StoredProcedure.Prc_AC_ASSIGNMENT_Insert_TEST;
 		}
 		public void Add()
@@ -63,6 +63,7 @@ _ASSIGNEMENT_ID
 ,Parameter("@REPORT_TYPE",AC_ASSIGNMENT.REPORT_TYPE)
 ,Parameter("@REPORT_TEXT",AC_ASSIGNMENT.REPORT_TEXT)
 ,Parameter("@SEVERITY_ID",AC_ASSIGNMENT.SEVERITY_ID)
+,Parameter("@RESULT_STATUS",AC_ASSIGNMENT.RESULT_STATUS)
             };
             return parameters;
         }

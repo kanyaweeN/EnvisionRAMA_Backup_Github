@@ -12,6 +12,7 @@ namespace Envision.Common
         private int assignment_id;
         private string report_type;
         private string report_text;
+        private string result_status;
         private DateTime reporting_timestamp;
         private int evaluated_by;
         private DateTime evaluated_on;
@@ -40,6 +41,11 @@ namespace Envision.Common
         {
             get { return report_type; }
             set { report_type = value; }
+        }
+        public string RESULT_STATUS
+        {
+            get { return result_status; }
+            set { result_status = value; }
         }
         public string IS_CLINICALLY_SIGNIFICANT
         {

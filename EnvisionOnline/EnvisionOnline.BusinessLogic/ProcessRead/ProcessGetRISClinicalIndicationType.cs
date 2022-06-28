@@ -27,10 +27,14 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
         }
         public DataSet GetDataCovid()
         {
-
             RISClinicalIndicationTypeSelectData data = new RISClinicalIndicationTypeSelectData();
             data.RIS_CLINICALINDICATIONTYPE = RIS_CLINICALINDICATIONTYPE;
             return data.GetDataCovid();
+        }
+        public DataSet GetDataWithParameter(string param)
+        {
+            RISClinicalIndicationTypeSelectData data = new RISClinicalIndicationTypeSelectData();
+            return data.GetDataWithParameter(param);
         }
         public int get_CI_TYPE_ID(string ci_desc, string parent_desc,string mode)
         {

@@ -15,13 +15,14 @@ using EnvisionOnline.BusinessLogic;
 using EnvisionOnline.Operational;
 using System.Globalization;
 using System.Collections.Generic;
+using EnvisionOnline.BusinessLogic.ProcessRead;
 
 public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-        {          
+        {
             Session["ClinicalPopup"] = null;
             if (Request.Params["TEXT"] != null)
                 txtEditor.Text = Request.Params["TEXT"].Trim();
@@ -35,7 +36,7 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
 
                 DataTable dtExamAll = Application["ExamAllData"] as DataTable;
                 DataRow[] chkRows = dtExamAll.Select("EXAM_ID=" + Request.Params["EXAM_ID"].ToString());
-                lblExam.Text = chkRows[0]["EXAM_UID"].ToString()+" : "+chkRows[0]["EXAM_NAME"].ToString();
+                lblExam.Text = chkRows[0]["EXAM_UID"].ToString() + " : " + chkRows[0]["EXAM_NAME"].ToString();
                 Session["chkRowsExam"] = chkRows[0];
 
                 datetimeChange.SelectedDate = DateTime.Now;
@@ -92,9 +93,11 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
                     cmbSide.Enabled = false;
                 }
                 #endregion
+
+                txtEditor.Text = param.REF_DOC_INSTRUCTION;
             }
 
-            
+
 
             #region Combobox Priority
 
@@ -141,9 +144,11 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
             if (setInsertOrder())
                 ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "CloseAndRebind('ClinicalPopup');", true);
     }
+
+
     protected void btnCancle_Click(object sender, EventArgs e)
     {
-            ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "CloseAndRebind('ClinicalPopupCancle');", true);
+        ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "CloseAndRebind('ClinicalPopupCancle');", true);
     }
     protected void rdoChangeDate_CheckedChanged(object source, EventArgs e)
     {
@@ -176,7 +181,7 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
     protected void cmbRefDoc_ItemsRequested(object o, RadComboBoxItemsRequestedEventArgs e)
     {
         DataTable dtDoc = (DataTable)Application["HisDoctorData"];
-        
+
         cmbRefDoc.Items.Clear();
 
         string text = e.Text.Trim();
@@ -287,7 +292,7 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
             bool isTele = false;
             int encId = 0;
             ds = param.dsPatientData = getPatient.get_Patient_Registration_ByHN(_hn, env, false);
-            param.IS_NONRESIDENT = getPatient.get_Patient_NonResident(_hn, out isTele, out encId);
+            param.IS_NONRESIDENT = getPatient.get_Patient_NonResident(_hn, param.ENCOUNTER_TYPE, param.REF_UNIT_UID, out isTele, out encId);
             param.IS_TELEMED = isTele;
             param.ENC_ID = encId;
         }
@@ -394,8 +399,8 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
         dr["PRIORITY_TEXT"] = cmbPriority.SelectedValue;
         dr["ORDER_DT"] = setDatetime;
         dr["EXAM_DT"] = setDatetime;
-        
-        if(cmbSide.SelectedValue != "")
+
+        if (cmbSide.SelectedValue != "")
         {
             dr["BPVIEW_ID"] = cmbSide.SelectedValue;
         }
@@ -407,9 +412,25 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
         dr["EXAM_ID"] = chkRows["EXAM_ID"].ToString();
         dr["EXAM_UID"] = chkRows["EXAM_UID"].ToString();
         dr["EXAM_NAME"] = chkRows["EXAM_NAME"].ToString();
-        dr["RATE"] = checkExamRate(chkRows, param.ENC_CLINIC, param.IS_NONRESIDENT);
-        dr["TOTAL_RATE"] = dr["RATE"].ToString();
-        dr["QTY"] = 1;
+
+        string _rate = checkExamRate(chkRows, param.ENC_CLINIC, param.IS_NONRESIDENT);
+        if (string.IsNullOrEmpty(dr["BPVIEW_ID"].ToString()))
+        {
+            dr["RATE"] = _rate;
+            dr["TOTAL_RATE"] = dr["RATE"].ToString();
+            dr["QTY"] = 1;
+        }
+        else
+        {
+            DataTable dtBP = risbase.get_BP_ViewMapping(chkRows["EXAM_ID"].ToString());
+            DataRow[] rowbp = dtBP.Select("BPVIEW_ID=" + dr["BPVIEW_ID"].ToString());
+
+            double sumrate = Convert.ToDouble(_rate) * Convert.ToDouble(rowbp[0]["NO_OF_EXAM"]);
+            dr["TOTAL_RATE"] = sumrate.ToString("#.00");
+            dr["RATE"] = _rate;
+            dr["QTY"] = Convert.ToDouble(rowbp[0]["NO_OF_EXAM"]);
+        }
+
         dr["CLINIC_TYPE"] = param.CLINIC_TYPE_ID;
         dr["CREATED_BY"] = env.UserID;
         dr["CREATED_NAME"] = env.FirstName + " " + env.LastName;
@@ -467,7 +488,7 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
             }
         }
 
-        
+
         int pat_dest_id = string.IsNullOrEmpty(dr["PAT_DEST_ID"].ToString()) ? 0 : Convert.ToInt32(dr["PAT_DEST_ID"]);
         DataTable dtMod_ID = risbase.get_ModalityID_With_PatDest(Convert.ToInt32(chkRows["EXAM_ID"]), pat_dest_id, SpecifyData.checkPatientType(param.IS_CHILDEN, dtDept, param.REF_UNIT_ID, param.ENC_CLINIC));
         dtMod_ID = Utilities.filterModalityByClinic(dtMod_ID, param.ENC_CLINIC);
@@ -488,14 +509,10 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
         string rate = "0";
         switch (clinic)
         {
-            case "RGL": rate = row_exam["RATE"].ToString(); break;
-            case "SPC": rate = row_exam["SPECIAL_RATE"].ToString(); break;
-            case "PM": rate = row_exam["VIP_RATE"].ToString(); break;
-            default: rate = row_exam["RATE"].ToString(); break;
-        }
-        if (is_nonresident)
-        {
-            rate = row_exam["FOREIGN_RATE"].ToString();
+            case "RGL": rate = is_nonresident ? row_exam["FOREIGN_RATE"].ToString() : row_exam["RATE"].ToString(); break;
+            case "SPC": rate = is_nonresident ? row_exam["FOREIGN_SPCIAL_RATE"].ToString() : row_exam["SPECIAL_RATE"].ToString(); break;
+            case "PM": rate = is_nonresident ? row_exam["FOREIGN_VIP_RATE"].ToString() : row_exam["VIP_RATE"].ToString(); break;
+            default: rate = is_nonresident ? row_exam["FOREIGN_RATE"].ToString() : row_exam["RATE"].ToString(); break;
         }
         return rate;
     }
@@ -542,7 +559,7 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
         GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
         DataTable dtUnit = Application["UnitData"] as DataTable;
-        
+
         #region Check Conflict Exam
         DataRow[] chkRows = dt.Select("EXAM_ID=" + rowsExam[0]["EXAM_ID"].ToString());
         if (chkRows.Length > 0)
@@ -618,5 +635,14 @@ public partial class OnlineClinicalIndicationPopup : System.Web.UI.Page
 
     public void OnAjaxRequest(object sender, AjaxRequestEventArgs e)
     {
+        switch (e.Argument)
+        {
+            case "COVID":
+                ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+                txtEditor.Text += param.REF_DOC_INSTRUCTION;
+                if (setInsertOrder())
+                    ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "CloseAndRebind('ClinicalPopup');", true);
+                break;
+        }
     }
 }

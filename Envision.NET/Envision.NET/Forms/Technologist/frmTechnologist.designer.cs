@@ -420,7 +420,11 @@ namespace Envision.NET.Forms.Technologist
             this.btnOrderSummary = new DevExpress.XtraBars.BarButtonItem();
             this.btnMerge = new DevExpress.XtraBars.BarButtonItem();
             this.btnSplit = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnAddRads = new DevExpress.XtraBars.BarButtonItem();
             this.imgLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribboncateRad = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+            this.ribbonRads = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribBtnLogIn = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribBtnMod = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -470,6 +474,9 @@ namespace Envision.NET.Forms.Technologist
             this.barEditItem10 = new DevExpress.XtraBars.BarEditItem();
             this.tmAutoRefresh = new System.Windows.Forms.Timer(this.components);
             this.img16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.grdRadioSetup = new DevExpress.XtraGrid.GridControl();
+            this.viewSetup = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -694,6 +701,8 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -732,7 +741,7 @@ namespace Envision.NET.Forms.Technologist
             // 
             this.pageWorkload.Controls.Add(this.layoutControl3);
             this.pageWorkload.Name = "pageWorkload";
-            this.pageWorkload.Size = new System.Drawing.Size(945, 467);
+            this.pageWorkload.Size = new System.Drawing.Size(945, 468);
             this.pageWorkload.Text = "pageWorkload";
             // 
             // layoutControl3
@@ -747,7 +756,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(945, 467);
+            this.layoutControl3.Size = new System.Drawing.Size(945, 468);
             this.layoutControl3.TabIndex = 2;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -756,7 +765,7 @@ namespace Envision.NET.Forms.Technologist
             this.xtraTabControl2.Location = new System.Drawing.Point(5, 103);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.tabWorkload;
-            this.xtraTabControl2.Size = new System.Drawing.Size(936, 360);
+            this.xtraTabControl2.Size = new System.Drawing.Size(936, 361);
             this.xtraTabControl2.TabIndex = 6;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabWorkload,
@@ -767,7 +776,7 @@ namespace Envision.NET.Forms.Technologist
             // 
             this.tabWorkload.Controls.Add(this.layoutControl7);
             this.tabWorkload.Name = "tabWorkload";
-            this.tabWorkload.Size = new System.Drawing.Size(927, 329);
+            this.tabWorkload.Size = new System.Drawing.Size(927, 331);
             this.tabWorkload.Text = "Workload";
             // 
             // layoutControl7
@@ -782,16 +791,16 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup13;
-            this.layoutControl7.Size = new System.Drawing.Size(927, 329);
+            this.layoutControl7.Size = new System.Drawing.Size(927, 331);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
             // chkShowStartComplete
             // 
-            this.chkShowStartComplete.Location = new System.Drawing.Point(7, 304);
+            this.chkShowStartComplete.Location = new System.Drawing.Point(7, 307);
             this.chkShowStartComplete.Name = "chkShowStartComplete";
             this.chkShowStartComplete.Properties.Caption = "Start Complete";
-            this.chkShowStartComplete.Size = new System.Drawing.Size(914, 19);
+            this.chkShowStartComplete.Size = new System.Drawing.Size(914, 18);
             this.chkShowStartComplete.StyleController = this.layoutControl7;
             this.chkShowStartComplete.TabIndex = 5;
             this.chkShowStartComplete.CheckedChanged += new System.EventHandler(this.chkShowStartComplete_CheckedChanged);
@@ -807,7 +816,7 @@ namespace Envision.NET.Forms.Technologist
             this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(924, 296);
+            this.gridControl2.Size = new System.Drawing.Size(924, 299);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ToolTipController = this.toolTipController1;
             this.gridControl2.UseEmbeddedNavigator = true;
@@ -980,7 +989,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem35});
             this.layoutControlGroup13.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup13.Name = "layoutControlGroup13";
-            this.layoutControlGroup13.Size = new System.Drawing.Size(927, 329);
+            this.layoutControlGroup13.Size = new System.Drawing.Size(927, 331);
             this.layoutControlGroup13.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup13.Text = "layoutControlGroup13";
             this.layoutControlGroup13.TextVisible = false;
@@ -992,7 +1001,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlItem3.Size = new System.Drawing.Size(925, 297);
+            this.layoutControlItem3.Size = new System.Drawing.Size(925, 300);
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -1003,9 +1012,9 @@ namespace Envision.NET.Forms.Technologist
             // 
             this.layoutControlItem35.Control = this.chkShowStartComplete;
             this.layoutControlItem35.CustomizationFormText = "layoutControlItem35";
-            this.layoutControlItem35.Location = new System.Drawing.Point(0, 297);
+            this.layoutControlItem35.Location = new System.Drawing.Point(0, 300);
             this.layoutControlItem35.Name = "layoutControlItem35";
-            this.layoutControlItem35.Size = new System.Drawing.Size(925, 30);
+            this.layoutControlItem35.Size = new System.Drawing.Size(925, 29);
             this.layoutControlItem35.Text = "layoutControlItem35";
             this.layoutControlItem35.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem35.TextSize = new System.Drawing.Size(0, 0);
@@ -1257,7 +1266,7 @@ namespace Envision.NET.Forms.Technologist
             this.chkAllModality.Location = new System.Drawing.Point(480, 42);
             this.chkAllModality.Name = "chkAllModality";
             this.chkAllModality.Properties.Caption = "All Modality";
-            this.chkAllModality.Size = new System.Drawing.Size(75, 19);
+            this.chkAllModality.Size = new System.Drawing.Size(75, 18);
             this.chkAllModality.TabIndex = 7;
             this.chkAllModality.Visible = false;
             this.chkAllModality.CheckedChanged += new System.EventHandler(this.chkAllModality_CheckedChanged);
@@ -1373,7 +1382,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlGroup4});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(945, 467);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(945, 468);
             this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup3.Text = "Root";
             this.layoutControlGroup3.TextVisible = false;
@@ -1389,7 +1398,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem57});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(943, 465);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(943, 466);
             this.layoutControlGroup4.Text = "Search Filter";
             // 
             // emptySpaceItem1
@@ -1433,7 +1442,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem57.Location = new System.Drawing.Point(0, 80);
             this.layoutControlItem57.Name = "layoutControlItem57";
             this.layoutControlItem57.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlItem57.Size = new System.Drawing.Size(937, 361);
+            this.layoutControlItem57.Size = new System.Drawing.Size(937, 362);
             this.layoutControlItem57.Text = "layoutControlItem57";
             this.layoutControlItem57.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem57.TextSize = new System.Drawing.Size(0, 0);
@@ -3739,11 +3748,15 @@ namespace Envision.NET.Forms.Technologist
             this.barButtonItem13,
             this.btnOrderSummary,
             this.btnMerge,
-            this.btnSplit});
+            this.btnSplit,
+            this.barBtnAddRads});
             this.ribbonControl1.LargeImages = this.imgLarge;
             this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
-            this.ribbonControl1.MaxItemId = 133;
+            this.ribbonControl1.MaxItemId = 134;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
+            this.ribboncateRad});
+            this.ribbonControl1.PageCategoryAlignment = DevExpress.XtraBars.Ribbon.RibbonPageCategoryAlignment.Right;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribPageWorkload,
@@ -3799,7 +3812,7 @@ namespace Envision.NET.Forms.Technologist
             this.ribbonControl1.SelectedPage = this.ribPageWorkload;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(954, 115);
+            this.ribbonControl1.Size = new System.Drawing.Size(954, 118);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.SelectedPageChanging += new DevExpress.XtraBars.Ribbon.RibbonPageChangingEventHandler(this.ribbonControl1_SelectedPageChanging);
@@ -4706,6 +4719,7 @@ namespace Envision.NET.Forms.Technologist
             this.barButtonItem8.LargeImageIndex = 11;
             this.barButtonItem8.LargeWidth = 60;
             this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAddUser_ItemPress);
             // 
             // barComments
@@ -4768,6 +4782,16 @@ namespace Envision.NET.Forms.Technologist
             this.btnSplit.Name = "btnSplit";
             this.btnSplit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSplit_ItemClick);
             // 
+            // barBtnAddRads
+            // 
+            this.barBtnAddRads.Caption = "Add Rad.";
+            this.barBtnAddRads.Id = 133;
+            this.barBtnAddRads.LargeImageIndex = 7;
+            this.barBtnAddRads.LargeWidth = 60;
+            this.barBtnAddRads.Name = "barBtnAddRads";
+            this.barBtnAddRads.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barBtnAddRads.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAddRads_ItemClick);
+            // 
             // imgLarge
             // 
             this.imgLarge.ImageSize = new System.Drawing.Size(48, 48);
@@ -4776,6 +4800,27 @@ namespace Envision.NET.Forms.Technologist
             this.imgLarge.Images.SetKeyName(13, "browse_48.png");
             this.imgLarge.Images.SetKeyName(14, "merge.png");
             this.imgLarge.Images.SetKeyName(15, "split.png");
+            // 
+            // ribboncateRad
+            // 
+            this.ribboncateRad.Color = System.Drawing.Color.Empty;
+            this.ribboncateRad.Name = "ribboncateRad";
+            this.ribboncateRad.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonRads});
+            this.ribboncateRad.Text = "ribbonPageCategory1";
+            // 
+            // ribbonRads
+            // 
+            this.ribbonRads.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup15});
+            this.ribbonRads.Name = "ribbonRads";
+            this.ribbonRads.Text = "Rads. Setup";
+            // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.ItemLinks.Add(this.barBtnAddRads);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.ShowCaptionButton = false;
             // 
             // ribbonPage1
             // 
@@ -5269,11 +5314,43 @@ namespace Envision.NET.Forms.Technologist
             this.img16.Images.SetKeyName(4, "flag-green.png");
             this.img16.Images.SetKeyName(5, "alert.png");
             // 
+            // grdRadioSetup
+            // 
+            this.grdRadioSetup.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.grdRadioSetup.Location = new System.Drawing.Point(250, 25);
+            this.grdRadioSetup.MainView = this.viewSetup;
+            this.grdRadioSetup.MenuManager = this.ribbonControl1;
+            this.grdRadioSetup.Name = "grdRadioSetup";
+            this.grdRadioSetup.Size = new System.Drawing.Size(362, 91);
+            this.grdRadioSetup.TabIndex = 8;
+            this.grdRadioSetup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewSetup});
+            this.grdRadioSetup.Visible = false;
+            // 
+            // viewSetup
+            // 
+            this.viewSetup.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand7});
+            this.viewSetup.GridControl = this.grdRadioSetup;
+            this.viewSetup.Name = "viewSetup";
+            this.viewSetup.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewSetup.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.viewSetup.OptionsView.ShowBands = false;
+            this.viewSetup.OptionsView.ShowGroupPanel = false;
+            this.viewSetup.OptionsView.ShowIndicator = false;
+            this.viewSetup.OptionsView.ShowVertLines = false;
+            // 
+            // gridBand7
+            // 
+            this.gridBand7.Caption = "gridBand5";
+            this.gridBand7.Name = "gridBand7";
+            // 
             // frmTechnologist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 621);
+            this.Controls.Add(this.grdRadioSetup);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmTechnologist";
             this.Text = "frmTechnologist";
@@ -5508,6 +5585,8 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5954,5 +6033,12 @@ namespace Envision.NET.Forms.Technologist
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private DevExpress.XtraBars.BarButtonItem barBtnAddRads;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonRads;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribboncateRad;
+        private DevExpress.XtraGrid.GridControl grdRadioSetup;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView viewSetup;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
     }
 }

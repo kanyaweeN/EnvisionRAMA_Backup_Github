@@ -260,6 +260,7 @@
             this.cmbAuth.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cmbAuth.FormattingEnabled = true;
             this.cmbAuth.Items.AddRange(new object[] {
+            "Rama Authentication",
             "Envision.Net Authentication",
             "Windows Authentication"});
             this.cmbAuth.Location = new System.Drawing.Point(190, 197);

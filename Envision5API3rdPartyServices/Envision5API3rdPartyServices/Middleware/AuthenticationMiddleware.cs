@@ -42,6 +42,14 @@ namespace Envision5API3rdPartyServices.Middleware
                     {
                         await _next.Invoke(context);
                     }
+                    else if (username == "BridgeAsia" && password == "AIteam#1020")
+                    {
+                        await _next.Invoke(context);
+                    }
+                    else if (username == "HISMiracle" && password == "RAMA#2022")
+                    {
+                        await _next.Invoke(context);
+                    }
                     else
                     {
                         context.Response.StatusCode = 401; //Unauthorized
@@ -75,6 +83,8 @@ namespace Envision5API3rdPartyServices.Middleware
                     case "/api/requestappointment/getversion":
                     case "/api/requestappointment/deleterequestappointment":
                     case "/api/requestappointment/checkwebservice":
+                    case "/api/adr/searchadrbymrnandcode":
+                    case "/api/adr/getadrbymrnandcode":
                         flag = true;
                         break;
                 }

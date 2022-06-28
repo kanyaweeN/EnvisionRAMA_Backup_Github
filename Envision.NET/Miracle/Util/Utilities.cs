@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using System.Data;
+
 namespace Miracle.Util
 {
     public static class Utilities
@@ -256,6 +257,25 @@ namespace Miracle.Util
 
             // Return decrypted string.   
             return plainText;
+        }
+
+        public static string EncryptText(string input, string key)
+        {
+            String encData = null;
+            System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
+            AesManaged tdes = new AesManaged();
+            byte[] keys = UTF8.GetBytes(key);
+            Array.Resize(ref keys, 16);
+            tdes.Key = keys;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform crypt = tdes.CreateEncryptor();
+
+            byte[] plain = Encoding.UTF8.GetBytes(input);
+            byte[] cipher = crypt.TransformFinalBlock(plain, 0, plain.Length);
+            encData = Convert.ToBase64String(cipher);
+
+            return encData;
         }
 
         [DllImportAttribute("kernel32.dll", EntryPoint = "SetProcessWorkingSetSize", ExactSpelling = true, CharSet = CharSet.Ansi, SetLastError = true)]

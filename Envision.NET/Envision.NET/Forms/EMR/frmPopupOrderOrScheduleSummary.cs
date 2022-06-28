@@ -21,6 +21,7 @@ using Envision.Common;
 using Envision.BusinessLogic.ProcessDelete;
 using Miracle.Util;
 using DevExpress.XtraGrid;
+using Envision.Operational.PACS;
 
 namespace Envision.NET.Forms.EMR
 {
@@ -1323,20 +1324,30 @@ namespace Envision.NET.Forms.EMR
         /// <param name="e"></param>
         private void barPACSImage_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!string.IsNullOrEmpty(this._selectedAccessionNo.Trim()))
-            {
-                string str = this._gblEnv.PacsUrl + this._selectedAccessionNo;
-                if (this._gblEnv.LoginType == "W")
-                {
-                    str = this._gblEnv.PacsUrl;
-                    str = str.Replace("http://", string.Empty);
-                    str = "http://radiology%5C" + this._gblEnv.UserName + ":" + this._gblEnv.PasswordAD + "@" + str + this._selectedAccessionNo;
-                }
-                //System.Diagnostics.Process.Start(str);
-                Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-                if (!ieCom.OpenSynapseLink(str))
-                    msg.ShowAlert("UID4053", env.CurrentLanguageID);
-            }
+            //if (env.LoginType == "E")
+            //{
+                // UpdatePacs
+                new OpenPACS(env.PacsUrl).OpenIEAccession(this._selectedAccessionNo, env.UserName, env.PasswordAD, "", env.LoginType);
+            //}
+            //else
+            //{
+            //    if (!string.IsNullOrEmpty(this._selectedAccessionNo.Trim()))
+            //    {
+            //        string str = this._gblEnv.PacsUrl + this._selectedAccessionNo;
+            //        if (this._gblEnv.LoginType == "W")
+            //        {
+            //            str = this._gblEnv.PacsUrl;
+            //            str = str.Replace("http://", string.Empty);
+            //            str = "http://radiology%5C" + this._gblEnv.UserName + ":" + this._gblEnv.PasswordAD + "@" + str + this._selectedAccessionNo;
+            //        }
+            //        //System.Diagnostics.Process.Start(str);
+            //        Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+            //        if (!ieCom.OpenSynapseLink(str))
+            //            msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            //    }
+
+            //}
+            
         }
 
         /// <summary>
@@ -1366,17 +1377,24 @@ namespace Envision.NET.Forms.EMR
 
             if (!string.IsNullOrEmpty(this._selectedHN.Trim()))
             {
-                string str = this._gblEnv.PacsUrl3 + this._selectedHN;
-                if (this._gblEnv.LoginType == "W")
-                {
-                    str = this._gblEnv.PacsUrl3;
-                    str = str.Replace("http://", string.Empty);
-                    str = "http://radiology%5C" + this._gblEnv.UserName + ":" + this._gblEnv.PasswordAD + "@" + str + this._selectedHN;
-                }
-                //System.Diagnostics.Process.Start(str);
-                Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-                if (!ieCom.OpenSynapseLink(str))
-                    msg.ShowAlert("UID4053", env.CurrentLanguageID);
+                //if (env.LoginType == "E")
+                //{
+                    new OpenPACS(env.PacsUrl).OpenIEHn(this._selectedHN);
+                //}
+                //else
+                //{
+                //    string str = this._gblEnv.PacsUrl3 + this._selectedHN;
+                //    if (this._gblEnv.LoginType == "W")
+                //    {
+                //        str = this._gblEnv.PacsUrl3;
+                //        str = str.Replace("http://", string.Empty);
+                //        str = "http://radiology%5C" + this._gblEnv.UserName + ":" + this._gblEnv.PasswordAD + "@" + str + this._selectedHN;
+                //    }
+                //    //System.Diagnostics.Process.Start(str);
+                //    Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+                //    if (!ieCom.OpenSynapseLink(str))
+                //        msg.ShowAlert("UID4053", env.CurrentLanguageID);
+                //}
             }
         }
         /// <summary>
@@ -2067,7 +2085,8 @@ namespace Envision.NET.Forms.EMR
             //    saveRiskIndication(12, "ALLERGIC", txtCreatinine.Text.Trim(), "Y");
             if (rdoContrast.SelectedIndex == 1)
                 saveRiskIndication(22, "ALLERGIC", txtUseContrast.Text.Trim(), "Y");
-
+            else if (rdoContrast.SelectedIndex == 0)
+                saveRiskIndication(22, "ALLERGIC", txtUseContrast.Text.Trim(), "N");
             #region Save MRI Risk
             DataTable dtMRIsave = grdRiskMRI.DataSource as DataTable;
             foreach (DataRow rowsMRI in dtMRIsave.Rows)

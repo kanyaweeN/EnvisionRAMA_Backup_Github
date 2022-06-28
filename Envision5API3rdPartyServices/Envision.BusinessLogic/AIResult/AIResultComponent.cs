@@ -20,7 +20,7 @@ namespace Envision.BusinessLogic.AIResult
             RisAIDetail data = null;
             using (var context = new EnvisionContext())
             {
-                data = context.RisAIDetail.Where(x => x.AccessionNo == Item.AccessionNo).FirstOrDefault();
+                data = context.RisAIDetail.Where(x => x.AccessionNo == Item.AccessionNo && x.AiVendor == Item.AiVendor).FirstOrDefault();
             }
             return data;
         }
@@ -38,12 +38,13 @@ namespace Envision.BusinessLogic.AIResult
         {
             using (var context = new EnvisionContext())
             {
-                var obj = context.RisAIDetail.Where(x => x.AccessionNo == Item.AccessionNo).FirstOrDefault();
+                var obj = context.RisAIDetail.Where(x => x.AccessionNo == Item.AccessionNo && x.AiVendor == Item.AiVendor).FirstOrDefault();
                 if (obj != null)
                 {
                     obj.DetectValues = Item.DetectValues == null ? obj.DetectValues : Item.DetectValues;
                     obj.Hn = Item.Hn == null ? obj.Hn : Item.Hn;
                     obj.Remark = Item.Remark == null ? obj.Remark : Item.Remark;
+                    obj.AiVendor = Item.AiVendor == null ? obj.AiVendor : Item.AiVendor;
                     obj.LastModifiedOn = DateTime.Now;
                     context.SaveChanges();
                 }

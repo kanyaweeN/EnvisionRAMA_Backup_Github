@@ -24,6 +24,7 @@ using Envision.BusinessLogic.ProcessDelete;
 using Envision.Operational.PACS;
 using Miracle.HL7.ORM;
 using Miracle.Scanner;
+using Miracle.Util;
 namespace Envision.BusinessLogic
 {
     public class OrderManager
@@ -100,6 +101,8 @@ namespace Envision.BusinessLogic
         private DataTable dtOrder;
         private DataTable dtSchedule;
         private DataSet dsPrevOrder;//ใช้ในกรณีเก็บข้อมูลที่จะแสดงใน TreeGrid 
+        private DataTable dtOrderDetailBeforUpdate;
+        private DataTable dtRefUnitVisitData;
         private bool hasSchedule;
         private int scheduleID; //schedule ที่ถูก User เลือก
         private string IsSchedule; //check ว่า มากจาก schedule or order
@@ -140,6 +143,7 @@ namespace Envision.BusinessLogic
             item = new RIS_ORDER();
             item.REF_UNIT = patient.REF_UNIT;
             item.REF_DOC = patient.REF_DOC;
+            dtRefUnitVisitData = patient.dtRefUnitVisit;
             his = new HIS_REGISTRATION();
             RefreshData();
             initBaseData();
@@ -549,7 +553,11 @@ namespace Envision.BusinessLogic
             getData.Invoke();
             return getData.Result.Tables[0];
         }
-
+        public DataTable dtRefUnitVisit
+        {
+            get { return dtRefUnitVisitData; }
+            set { dtRefUnitVisitData = value; }
+        }
         #region IPatient Members
 
         public IPatientDemographic Demographic
@@ -1478,6 +1486,13 @@ namespace Envision.BusinessLogic
                     #endregion
 
                     #region Update Details
+
+                    #region Get Data Detail Befor Update
+                    ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl('4', item.ORDER_ID, 0);
+                    process.Invoke();
+                    dtOrderDetailBeforUpdate = process.Result.Tables[0].Copy(); 
+                    #endregion
+
                     foreach (DataRow dr in dtOrder.Rows)
                     {
                         if (dr["ORDER_ID"].ToString() != string.Empty)
@@ -1746,142 +1761,95 @@ namespace Envision.BusinessLogic
             #region Encounter & Billing
             if (retFlag)
             {
-                bool flag_encounter = false;
-                try
+                if (fnBill.CheckIsSendBillingByHn(patient.Reg_UID))
                 {
-                    #region UPDATE ENCOUNTER AND ADDMINSSION NO.
+                    bool isIpd = false;
+                    string _enc_id = "0";
+                    string _enc_type = " ";
+                    string _ref_unit_uid = string.Empty;
+                    int _ref_unit_id = 0;
 
-                    string strEnc_id = "";
-                    string strEnc_type = "";
-                    string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+                    HIS_Patient proxy = new HIS_Patient();
+                    DataSet dsRef = proxy.Get_ipd_detail(patient.Reg_UID);
+                    if (Utilities.IsHaveData(dsRef))
+                    {
+                        if (!string.IsNullOrEmpty(dsRef.Tables[0].Rows[0]["an"].ToString()) && !string.IsNullOrEmpty(dsRef.Tables[0].Rows[0]["enc_type"].ToString()))
+                        {
+                            _enc_id = dsRef.Tables[0].Rows[0]["an"].ToString();
+                            _enc_type = dsRef.Tables[0].Rows[0]["enc_type"].ToString();
+                            _ref_unit_uid = dsRef.Tables[0].Rows[0]["current_location"].ToString();
+                            isIpd = true;
+                        }
+                        //else
+                        //{
+                        //    DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(patient.Reg_UID, "ALL");
+                        //    ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
+                        //    _getUnit.GetDataByID(item.REF_UNIT.Value);
+                        //    DataSet dsUnit = _getUnit.Result;
+                        //    if (Utilities.IsHaveData(dsEncounter))
+                        //    {
+                        //        DataRow[] rows = dsEncounter.Tables[0].Select("sdloc_id ='" + dsUnit.Tables[0].Rows[0]["UNIT_UID"].ToString() + "'", " enc_id desc ");
+                        //        if (rows.Length > 0)
+                        //        {
+                        //            _enc_id = rows[0]["enc_id"].ToString();
+                        //            _enc_type = rows[0]["enc_type"].ToString();
+                        //        }
+                        //    }
+                        //}
+                    }
+                    if (!isIpd)
+                    {
+                        DataSet dsEncounter = proxy.GetEncounterDetailByMRNENCTYPE(patient.Reg_UID, "ALL");
+                        ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
+                        _getUnit.GetDataByID(item.REF_UNIT.Value);
+                        DataSet dsUnit = _getUnit.Result;
+                        if (Utilities.IsHaveData(dsEncounter))
+                        {
+                            DataRow[] rows = dsEncounter.Tables[0].Select("sdloc_id ='" + dsUnit.Tables[0].Rows[0]["UNIT_UID"].ToString() + "'", " enc_id desc ");
+                            if (rows.Length > 0)
+                            {
+                                _enc_id = rows[0]["enc_id"].ToString();
+                                _enc_type = rows[0]["enc_type"].ToString();
+                                _ref_unit_uid = rows[0]["sdloc_id"].ToString();
+                            }
+                            else
+                            {
+                                if (dsEncounter.Tables[0].Rows.Count > 0)
+                                {
+                                    _enc_id = dsEncounter.Tables[0].Rows[0]["enc_id"].ToString();
+                                    _enc_type = dsEncounter.Tables[0].Rows[0]["enc_type"].ToString();
+                                    _ref_unit_uid = dsEncounter.Tables[0].Rows[0]["sdloc_id"].ToString();
+                                }
+                            }
+                        }
+                    }
 
-                    string strUNIT_UID = "";
-                    string strUNIT_NAME = "";
-                    //int ref_unit = Convert.ToInt32(processAdd.RIS_ORDER.REF_UNIT);
-                    int ref_unit = Convert.ToInt32(_refuid);
-                    fnBill.LoadHRUnit(ref_unit, ref strUNIT_UID, ref strUNIT_NAME);
+                    if (!string.IsNullOrEmpty(_ref_unit_uid))
+                    {
+                        ProcessGetHRUnit _getUnit = new ProcessGetHRUnit();
+                        _getUnit.GetDataByUID(_ref_unit_uid);
+                        DataSet dsUnit = _getUnit.Result;
+                        if (Utilities.IsHaveData(dsUnit))
+                            _ref_unit_id = Convert.ToInt32(dsUnit.Tables[0].Rows[0]["UNIT_ID"]);
+                    }
 
-                    //fnBill.LoadEncounter(processAdd.RIS_ORDER.HN, strUNIT_UID, ref strEnc_id, ref strEnc_type);
-                    fnBill.LoadEncounter(patient.Reg_UID, strUNIT_UID, ref strEnc_id, ref strEnc_type);
+                    if (_ref_unit_id == 0)
+                        fnBill.UpdateEncount(Item.ORDER_ID, _enc_id, _enc_type);
+                    else
+                        fnBill.UpdateEncount(Item.ORDER_ID, _enc_id, _enc_type, _ref_unit_id);
 
-                    string encid = strEnc_id;
-                    string enctype = strEnc_type;
-                    //fnBill.UpdateEncount(processAdd.RIS_ORDER.ORDER_ID, encid, enctype);
-                    fnBill.UpdateEncount(_orderid, encid, enctype);
-
-                    //string admission_no = fnBill.LoadAdmissinNo(processAdd.RIS_ORDER.HN);
-                    string admission_no = fnBill.LoadAdmissinNo(patient.Reg_UID);
-                    //fnBill.UpdateAddmissionNo(processAdd.RIS_ORDER.ORDER_ID, admission_no);
-                    fnBill.UpdateAddmissionNo(_orderid, admission_no);
-
-                    #endregion
-                    flag_encounter = true;
-                }
-                catch (Exception ex)
-                {
-                    flag_encounter = false;
-                }
-
-                if (flag_encounter == false)
-                {
                     try
                     {
-                        #region UPDATE ENCOUNTER AND ADDMINSSION NO.
-
-                        string strEnc_id = "";
-                        string strEnc_type = "";
-                        string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
-
-                        string strUNIT_UID = "";
-                        string strUNIT_NAME = "";
-                        //int ref_unit = Convert.ToInt32(processAdd.RIS_ORDER.REF_UNIT);
-                        int ref_unit = Convert.ToInt32(_refuid);
-                        fnBill.LoadHRUnit(ref_unit, ref strUNIT_UID, ref strUNIT_NAME);
-
-                        //fnBill.LoadEncounter(processAdd.RIS_ORDER.HN, strUNIT_UID, ref strEnc_id, ref strEnc_type);
-                        fnBill.LoadEncounter(patient.Reg_UID, strUNIT_UID, ref strEnc_id, ref strEnc_type);
-
-                        string encid = strEnc_id;
-                        string enctype = strEnc_type;
-                        //fnBill.UpdateEncount(processAdd.RIS_ORDER.ORDER_ID, encid, enctype);
-                        fnBill.UpdateEncount(_orderid, encid, enctype);
-
-                        //string admission_no = fnBill.LoadAdmissinNo(processAdd.RIS_ORDER.HN);
-                        string admission_no = fnBill.LoadAdmissinNo(patient.Reg_UID);
-                        //fnBill.UpdateAddmissionNo(processAdd.RIS_ORDER.ORDER_ID, admission_no);
-                        fnBill.UpdateAddmissionNo(_orderid, admission_no);
-
-                        #endregion
-                        flag_encounter = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("อัพเดทเอนเคาเตอร์มีปัญหา กรุณาติดต่อเจ้าหน้าที่", "Update Encounter Fail!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        flag_encounter = false;
-                    }
-                }
-
-                if (flag_encounter == false)
-                {
-                    try
-                    {
-                        #region UPDATE ENCOUNTER AND ADDMINSSION NO.
-
-                        string strEnc_id = "";
-                        string strEnc_type = "";
-                        string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
-
-                        string strUNIT_UID = "";
-                        string strUNIT_NAME = "";
-                        //int ref_unit = Convert.ToInt32(processAdd.RIS_ORDER.REF_UNIT);
-                        int ref_unit = Convert.ToInt32(_refuid);
-                        fnBill.LoadHRUnit(ref_unit, ref strUNIT_UID, ref strUNIT_NAME);
-
-                        //fnBill.LoadEncounter(processAdd.RIS_ORDER.HN, strUNIT_UID, ref strEnc_id, ref strEnc_type);
-                        fnBill.LoadEncounter(patient.Reg_UID, strUNIT_UID, ref strEnc_id, ref strEnc_type);
-
-                        string encid = strEnc_id;
-                        string enctype = strEnc_type;
-                        //fnBill.UpdateEncount(processAdd.RIS_ORDER.ORDER_ID, encid, enctype);
-                        fnBill.UpdateEncount(_orderid, encid, enctype);
-
-                        //string admission_no = fnBill.LoadAdmissinNo(processAdd.RIS_ORDER.HN);
-                        string admission_no = fnBill.LoadAdmissinNo(patient.Reg_UID);
-                        //fnBill.UpdateAddmissionNo(processAdd.RIS_ORDER.ORDER_ID, admission_no);
-                        fnBill.UpdateAddmissionNo(_orderid, admission_no);
-
-                        #endregion
-                        flag_encounter = true;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("อัพเดทเอนเคาเตอร์มีปัญหา กรุณาติดต่อเจ้าหน้าที่", "Update Encounter Fail!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        flag_encounter = false;
-                    }
-                }
-
-                bool flag_billing = false;
-                if (flag_encounter)
-                {
-                    try
-                    {
-
                         #region Set Billing
 
                         SendBilling(mode);
 
                         #endregion
-                        flag_billing = true;
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("ส่งข้อมูลไปการเงินมีปัญหา กรุณาติดต่อเจ้าหน้าที่", "Send Billing Fail!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        flag_billing = false;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("ส่งข้อมูลไปการเงินมีปัญหา กรุณาติดต่อเจ้าหน้าที่", "Send Billing Fail!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             #endregion
@@ -1936,106 +1904,6 @@ namespace Envision.BusinessLogic
             }
             return locationCode;
         }
-        private string genNewMessageBill(DataRow dr)
-        {
-            DataTable dtExam = RISBaseData.Ris_Exam();
-            DataTable dtDoctor = RISBaseData.His_Doctor();
-            DataTable dtDepart = RISBaseData.His_Department();
-            DataTable dtClinic = RISBaseData.RIS_ClinicType();
-            DataTable dtInsurance = RISBaseData.Ris_InsuranceType();
-
-
-            string str = string.Empty;
-
-            HIS_Patient BillHis = new HIS_Patient();
-            string strAN = "";
-            string strMstype = "";
-            string strISEQ = "";
-            string strClinic = "";
-            string strInSu = "";
-            string strAcc = dr["ACCESSION_NO"].ToString();
-            int intQTY = 1;
-            decimal Amt = 0;
-
-            DataSet dsIPD = new DataSet();
-            try
-            {
-                dsIPD = BillHis.Get_ipd_detail(patient.Reg_UID);
-            }
-            catch
-            {
-                return string.Empty;
-            }
-
-            for (int ai = 0; ai < dsIPD.Tables[0].Rows.Count; ai++)
-            {
-                strAN = dsIPD.Tables[0].Rows[ai]["an"].ToString();
-                if (strAN != "")
-                {
-                    strMstype = "I";
-                }
-                else
-                {
-                    strMstype = "O";
-                }
-                strISEQ = dsIPD.Tables[0].Rows[ai]["iseq"].ToString();
-            }
-            if (string.IsNullOrEmpty(strISEQ)) strISEQ = "1";
-            if (string.IsNullOrEmpty(strAN)) strAN = " ";
-            DataRow[] drBExam =dtExam.Select("EXAM_ID=" + dr["EXAM_ID"].ToString());
-            DataRow[] drBEmp = dtDoctor.Select("EMP_ID=" + item.REF_DOC.ToString());
-            DataRow[] drBUnit = dtDepart.Select("UNIT_ID=" + item.REF_UNIT.ToString());
-            DataRow[] drBClinic = dtClinic.Select("CLINIC_TYPE_ID=" + dr["CLINIC_TYPE"].ToString());
-            if (item.INSURANCE_TYPE_ID != 0)
-            {
-                DataRow[] drBIn = dtInsurance.Select("INSURANCE_TYPE_ID=" + item.INSURANCE_TYPE_ID.ToString());
-                strInSu = drBIn[0]["INSURANCE_TYPE_UID"].ToString();
-            }
-            else
-            {
-                strInSu = " ";
-            }
-
-            intQTY = Convert.ToInt32(dr["QTY"]);
-
-            if (!string.IsNullOrEmpty(drBClinic[0]["CLINIC_TYPE_UID"].ToString()))
-            {
-                strClinic = drBClinic[0]["CLINIC_TYPE_UID"].ToString() == "Normal" ? "R" : "S";
-            }
-            decimal rate = Convert.ToDecimal(dr["RATE"].ToString());
-            Amt = rate * intQTY;
-            string reg_uid = patient.Reg_UID;
-            string unit_uid = drBUnit[0]["UNIT_UID"].ToString();
-            string exam_uid = drBExam[0]["EXAM_UID"].ToString();
-            string emp_uid = drBEmp[0]["EMP_UID"].ToString();
-            str = "#" + " "
-                + "#" + reg_uid
-                + "#" + strAcc
-                + "#" + strAN
-                + "#" + strISEQ
-                + "#" + unit_uid
-                + "#" + item.ORDER_DT.ToString("dd/MM") + "/" + item.ORDER_DT.Year
-                + "#" + "C"
-                + "#" + "3"
-                + "#" + exam_uid
-                + "#" + intQTY.ToString()
-                + "#" + rate.ToString("#0.0")
-                + "#" + Amt.ToString("#.0")
-                + "#" + emp_uid
-                + "# # # # #" + item.ORDER_DT.ToString("dd/MM") + "/" + item.ORDER_DT.Year
-                + "#" + item.ORDER_DT.ToString("HH:mm")
-                + "#" + strMstype
-                + "#" + strClinic
-                + "#" + "3"
-                + "#" + strInSu
-                //+ "#" + "RD-0101"
-                + "#" + findLocationCode(dr["MODALITY_ID"].ToString())
-                + "#" + "0"
-                + "#" + env.UserUID
-                + "#";
-
-            return str;
-        }
         private void SendBilling(string mode)
         {
             //SendToPacs send = new SendToPacs();
@@ -2050,12 +1918,14 @@ namespace Envision.BusinessLogic
 
             ProcessGetRISExam geExam = new ProcessGetRISExam();
             geExam.Invoke();
-            ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl('3', item.ORDER_ID, 0);
+            ProcessGetRISOrderdtl process = new ProcessGetRISOrderdtl('4', item.ORDER_ID, 0);
             process.Invoke();
             DataTable dtt = process.Result.Tables[0].Copy();
 
             string str = "";
-
+            //DataRow[] chkDeferHis = dtt.Select("DEFER_HIS_RECONCILE = 'N' and IS_DELETED = 'N'");
+            //if (chkDeferHis.Length == 0)
+            //{
             if (mode == "Edit")
             {
                 #region Update Billing.
@@ -2068,60 +1938,53 @@ namespace Envision.BusinessLogic
                     DataRow[] rows = dtt.Select("ACCESSION_NO='" + acc + "'");
                     if (rows.Length > 0)
                     {
-                        DataRow dr = rows[0];
-                        DataRow[] drChkExam = geExam.Result.Tables[0].Select("EXAM_ID=" + dr["EXAM_ID"].ToString());
-                        if (drChkExam.Length == 0)
+                        if (rows[0]["IS_DELETED"].ToString() == "Y")
                         {
-                            continue;
+                            SentCancelBilling(acc);
                         }
-                        if (drChkExam[0]["DEFER_HIS_RECONCILE"].ToString() == "Y")
+                        else
                         {
-                            str = fnBill.Cancel_Billing(patient.Reg_UID, acc, " ", " ");
-                            fnBill.UpdateHisSync(acc, str);
-                            if (str.Trim() != "Success in Cancel_Billing")
+                            DataRow[] rowsOld = dtOrderDetailBeforUpdate.Select("ACCESSION_NO='" + acc + "'");
+                            if (rowsOld.Length > 0)
                             {
-                                MessageBox.Show("ไม่สามารถทำการยกเลิกบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                                continue;
-                            }
-
-                            //if()
-
-                            string billMsg = fnBill.GetBillingMessage(dr["ACCESSION_NO"].ToString());
-                            if (string.IsNullOrEmpty(billMsg)) continue;
-
-                            str = fnBill.Set_Billing(billMsg);
-                            fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), str);
-                            if (str.Trim() != "Success in Set_Billing")
-                            {
-                                MessageBox.Show("ไม่สามารถทำการส่งบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                                continue;
+                                DataRow[] drChkExam = geExam.Result.Tables[0].Select("EXAM_ID=" + rowsOld[0]["EXAM_ID"].ToString());
+                                if (drChkExam.Length == 0)
+                                {
+                                    continue;
+                                }
+                                if (drChkExam[0]["DEFER_HIS_RECONCILE"].ToString() == "Y")
+                                {
+                                    if (rows[0]["EXAM_ID"].ToString() != rowsOld[0]["EXAM_ID"].ToString())
+                                    {
+                                        DataTable dtExamMapBilling = geExam.GetExamMappingBilling(Convert.ToInt32(rowsOld[0]["EXAM_ID"]));
+                                        if (dtExamMapBilling.Rows.Count > 0)
+                                        {
+                                            foreach (DataRow rowCancelBill in dtExamMapBilling.Rows)
+                                            {
+                                                str = fnBill.Cancel_Billing(patient.Reg_UID, rowCancelBill["EXAM_UID"].ToString().Trim() + acc, " ", "1");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            str = fnBill.Cancel_Billing(patient.Reg_UID, rowsOld[0]["EXAM_UID"].ToString().Trim() + acc, " ", "1");
+                                        }
+                                        SentBilling(acc);
+                                        fnBill.UpdateHisSync(acc, str);
+                                    }
+                                    else
+                                    {
+                                        str = fnBill.Cancel_Billing(patient.Reg_UID, rows[0]["EXAM_UID"].ToString().Trim() + acc, " ", "1");
+                                        if (str.Contains("Success"))
+                                            SentBilling(acc);
+                                    }
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        //str = fnBill.Cancel_Billing(patient.Reg_UID, acc, " ", " ");
-                        //fnBill.UpdateHisSync(acc, str);
-                        //if (str.Trim() != "Success in Cancel_Billing")
-                        //{
-                        //    MessageBox.Show("ไม่สามารถทำการยกเลิกบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                        //    continue;
-                        //}
+
                     }
                 }
                 foreach (string acc in _accNo)
                 {
-                    //str = fnBill.Cancel_Billing(patient.Reg_UID, acc, " ", " ");
-                    //fnBill.UpdateHisSync(acc, str);
-                    //if (str.Trim() != "Success in Cancel_Billing")
-                    //{
-                    //    MessageBox.Show("ไม่สามารถทำการยกเลิกบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                    //    continue;
-                    //}
-
-                    // send billing
-                    //foreach (DataRow dr in dtt.Rows)
-
                     DataRow[] rows = dtt.Select("ACCESSION_NO='" + acc + "'");
                     if (rows.Length > 0)
                     {
@@ -2133,16 +1996,7 @@ namespace Envision.BusinessLogic
                         }
                         if (drChkExam[0]["DEFER_HIS_RECONCILE"].ToString() == "Y")
                         {
-                            string billMsg = fnBill.GetBillingMessage(dr["ACCESSION_NO"].ToString());
-                            if (string.IsNullOrEmpty(billMsg)) continue;
-
-                            str = fnBill.Set_Billing(billMsg);
-                            fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), str);
-                            if (str.Trim() != "Success in Set_Billing")
-                            {
-                                MessageBox.Show("ไม่สามารถทำการส่งบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                                continue;
-                            }
+                            SentBilling(dr["ACCESSION_NO"].ToString());
                         }
 
                     }
@@ -2153,6 +2007,7 @@ namespace Envision.BusinessLogic
             else
             {
                 #region Insert Billing.
+
                 foreach (DataRow dr in dtt.Rows)
                 {
                     DataRow[] drChkExam = geExam.Result.Tables[0].Select("EXAM_ID=" + dr["EXAM_ID"].ToString());
@@ -2163,45 +2018,50 @@ namespace Envision.BusinessLogic
                     }
                     if (drChkExam[0]["DEFER_HIS_RECONCILE"].ToString() == "Y")
                     {
-                        flag = false;
-
-                        string billMsg = fnBill.GetBillingMessage(dr["ACCESSION_NO"].ToString());
-
-                        if (string.IsNullOrEmpty(billMsg)) continue;
-                        try
-                        {
-                            str = fnBill.Set_Billing(billMsg);
-
-                            if (str.Trim() == "Success in Set_Billing")
-                            {
-                                flag = true;
-                            }
-                            else
-                            {
-                                if (MessageBox.Show("ไม่สามารถส่งข้อมูลไปการเงินได้ กรุณาลองใหม่อีกครั้ง", "Error", MessageBoxButtons.RetryCancel) == DialogResult.Retry)
-                                {
-                                    billMsg = fnBill.GetBillingMessage(dr["ACCESSION_NO"].ToString());
-                                    str = fnBill.Set_Billing(billMsg);
-
-                                    if (str.Trim() != "Success in Set_Billing")
-                                    {
-                                        MessageBox.Show("ไม่สามารถส่งข้อมูลไปการเงินได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                                        flag = false;
-                                    }
-                                }
-                            }
-
-                        }
-                        catch (Exception ex)
-                        {
-
-                        }
-
-                        fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), str);
+                        SentBilling(dr["ACCESSION_NO"].ToString());
                     }
                 }
                 #endregion
             }
+            //}
+        }
+        private void SentBilling(string accession)
+        {
+            string str = "";
+            DataTable dt = fnBill.GetBillingMessage(accession).Tables[0];
+            bool flagSent = true;
+            foreach (DataRow rowSent in dt.Rows)
+            {
+                if (string.IsNullOrEmpty(rowSent["BILLING_MESSAGE"].ToString())) continue;
+                str = fnBill.Set_Billing(rowSent["BILLING_MESSAGE"].ToString());
+
+                if (str.Trim() != "Success in Set_Billing")
+                    flagSent = false;
+            }
+            fnBill.UpdateHisSync(accession, str);
+            if (!flagSent)
+            {
+                MessageBox.Show("ไม่สามารถทำการส่งบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
+            }
+        }
+        private void SentCancelBilling(string accession)
+        {
+            string str = "";
+            bool flagSent = true;
+            DataTable dtCancelBill = fnBill.GetBillingMessage(accession).Tables[0];
+            foreach (DataRow rowCancelBill in dtCancelBill.Rows)
+            {
+                str = fnBill.Cancel_Billing(patient.Reg_UID, rowCancelBill["EXAM_UID"].ToString().Trim() + accession, " ", " ");
+                if (str.Trim() != "Success in Cancel_Billing")
+                    flagSent = false;
+            }
+            fnBill.UpdateHisSync(accession, str);
+
+            if (!flagSent)
+            {
+                MessageBox.Show("ไม่สามารถทำการยกเลิกบิลลิ่งได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
+            }
+                           
         }
         public void SendBilling(int OrderID)
         {
@@ -2216,27 +2076,7 @@ namespace Envision.BusinessLogic
             #region Insert Billing.
             foreach (DataRow dr in dtt.Rows)
             {
-                bool flag = false;
-                //string str = genNewMessageBill(dr);
-                string str = genNewMessageBill_Encounter(dr);
-                if (string.IsNullOrEmpty(str)) continue;
-                try
-                {
-                    //str = BillHis.Set_Billing(str);
-                    str = fnBill.Set_Billing(str);
-                    flag = true;
-                }
-                catch (Exception ex)
-                {
-
-                }
-                if (flag)
-                {
-                    fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), str);
-
-                    if (str != "Success in Set_Billing")
-                        MessageBox.Show("ไม่สามารถส่งข้อมูลไปการเงินได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);              
-                }
+                SentBilling(dr["ACCESSION_NO"].ToString());
             }
             #endregion
         }
@@ -2257,54 +2097,12 @@ namespace Envision.BusinessLogic
             {
                 #region Insert Billing.
 
-                bool flag = false;
-                //string str = genNewMessageBill(dr);
-                string str = genNewMessageBill_Encounter(dr);
-                if (string.IsNullOrEmpty(str)) return;
-                try
-                {
-                    //str = BillHis.Set_Billing(str);
-                    str = fnBill.Set_Billing(str);
-                    flag = true;
-                }
-                catch (Exception ex)
-                {
-
-                }
-                if (flag)
-                {
-                    //dtl.RIS_ORDERDTL.ACCESSION_NO = dr["ACCESSION_NO"].ToString();
-                    //if (str == "Success in Set_Billing")
-                    //    dtl.RIS_ORDERDTL.HIS_SYNC = 'Y';
-                    //else
-                    //{
-                    //    dtl.RIS_ORDERDTL.HIS_SYNC = 'N';
-                    //    MessageBox.Show("ไม่สามารถส่งข้อมูลไปการเงินได้ กรุณาติดต่อเจ้าหน้าที่", "Error", MessageBoxButtons.OK);
-                    //}
-                    //dtl.RIS_ORDERDTL.HIS_ACK = str;
-                    //dtl.UpdateSend();
-
-                    fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), str);
-                
-                }
+                SentBilling(dr["ACCESSION_NO"].ToString());
                 
                 #endregion
             }
         }
-        public string genNewMessageBill_Encounter(DataRow dr)
-        {
-            FinancialBilling fnBill = new FinancialBilling();
-            string strAcc = dr["ACCESSION_NO"].ToString();
-            string msg = fnBill.GetBillingMessage(strAcc);
-            return msg;
-        }
 
-        public void CancelBilling(int OrderID, string HN, string accession)
-        {
-            //SendToPacs send = new SendToPacs();
-            //send.SendBillMessage("C;" + OrderID);
-            fnBill.Cancel_Billing(HN, accession, " ", " ");
-        }
         private string getDeptName(int ref_unit)
         {
 

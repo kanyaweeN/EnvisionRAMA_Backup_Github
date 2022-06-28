@@ -13,6 +13,7 @@ using EnvisionOnline.Common;
 using EnvisionOnline.BusinessLogic;
 using System.Collections.Generic;
 using EnvisionOnline.BusinessLogic.ProcessRead;
+using EnvisionOnline.Common.Common;
 
 public partial class frmCovidDetail : System.Web.UI.Page 
 {
@@ -229,6 +230,16 @@ public partial class frmCovidDetail : System.Web.UI.Page
     protected void treeIndicationView_NodeDataBound(object sender, RadTreeNodeEventArgs e)
     {
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        if (param.dtCLINICALINDICATIONLASTVISIT == null)
+        {
+            GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
+            RISBaseClass ris_base = new RISBaseClass();
+            DataSet dsInd = new DataSet();
+            dsInd = ris_base.get_RIS_CLINICALINDICATION(env.OrgID, env.UserID);
+            DataTable dtIndLast = new DataTable();
+            dtIndLast = dsInd.Tables[3];
+            param.dtCLINICALINDICATIONLASTVISIT = dtIndLast;
+        }
         RadTreeNode node = e.Node;
         if (!string.IsNullOrEmpty(node.FullPath))
         {

@@ -156,3 +156,11 @@ D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\Telerik.Web.
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.csprojResolveAssemblyReference.cache
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.dll
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\EnvisionReprintReport.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\EnvisionReprintReport.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\Telerik.Web.UI.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\Telerik.Web.UI.Skins.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\bin\Telerik.Web.UI.xml
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.csprojResolveAssemblyReference.cache
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionReprintReport\obj\Debug\EnvisionReprintReport.pdb

@@ -11,7 +11,8 @@ export class UtilitiesService {
         optionUrl += ',screenY=-313'; // + window.screenY;
         optionUrl += ',left=-1920'; // + window.screenLeft;
         // const pacsUrl = 'http://ramapacs%5Cpeerreview:1234@synapse:80/explore.asp?path=/All%20Studies./AccessionNumber=';
-        const pacsUrl = 'http://miracle99/envisionPACSDirectlyServe/default.aspx?accession_no=';
+        // const pacsUrl = 'http://miracle99/envisionPACSDirectlyServe/default.aspx?accession_no=';
+        const pacsUrl = 'http://localhost:9090?QueryMode=AN&Value=';
         window.open(pacsUrl + accession, 'OpenPACS', optionUrl);
     }
 }

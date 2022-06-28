@@ -546,58 +546,6 @@ namespace Envision.NET.Forms.Orders
             }
             return -1; // false, This case can't select
         }
-        private string CancelBilling(string CanAcc)
-        {
-            #region CancelBilling
-            string str = "";
-            string his_sync = "";
-            HIS_Patient hisCB = new HIS_Patient();
-            //DataSet dsCB = hisCB.Get_ipd_detail(txtHN.Text);
-            DataSet dsCB = hisCB.Get_ipd_detail(txtHN.Text);
-            string CanHN = txtHN.Text;
-            string CanAN;
-            string CanISEQ;
-
-            if (dsCB.Tables[0].Rows[0]["an"].ToString() != "")
-            {
-                CanAN = dsCB.Tables[0].Rows[0]["an"].ToString();
-            }
-            else
-            {
-                CanAN = " ";
-            }
-            if (dsCB.Tables[0].Rows[0]["iseq"].ToString() != "")
-            {
-                CanISEQ = dsCB.Tables[0].Rows[0]["iseq"].ToString();
-            }
-            else
-            {
-                CanISEQ = " ";
-            }
-
-            try
-            {
-                str = hisCB.Cancel_Billing(txtHN.Text, "", "", "");
-
-                if (str == "Success in Cancel_Billing")
-                {
-                    his_sync = "S";
-                }
-                else
-                {
-                    his_sync = "F";
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Error :" + exc.Message);
-
-                his_sync = "F";
-            }
-
-            return his_sync;
-            #endregion
-        }
 
         private void btnICD_Click(object sender, EventArgs e)
         {
@@ -823,7 +771,7 @@ namespace Envision.NET.Forms.Orders
                                 #region cancel billing
                                 try
                                 {
-                                    string his_ack = fnBill.Cancel_Billing(txtHN.Text, dr["ACCESSION_NO"].ToString(), " ", " ");
+                                    string his_ack = fnBill.Cancel_Billing(txtHN.Text, dr["EXAM_UID"].ToString().Trim() + dr["ACCESSION_NO"].ToString(), " ", " ");
                                     fnBill.UpdateHisSync(dr["ACCESSION_NO"].ToString(), his_ack);
                                     if (his_ack.Trim() != "Success in Cancel_Billing")
                                     {
@@ -3123,7 +3071,7 @@ namespace Envision.NET.Forms.Orders
         {
             LookUpSelect lvS = new LookUpSelect();
 
-            Envision.NET.Forms.Dialog.LookupData lv = new Envision.NET.Forms.Dialog.LookupData();
+            Envision.NET.Forms.Dialog.LookupData_Filter lv = new Envision.NET.Forms.Dialog.LookupData_Filter();
             lv.ValueUpdated += new Envision.NET.Forms.Dialog.ValueUpdatedEventHandler(find_UnitCode);
             lv.AddColumn("UNIT_ID", "Department ID", false, true);
             lv.AddColumn("UNIT_UID", "Department Code", true, true);
@@ -3133,7 +3081,7 @@ namespace Envision.NET.Forms.Orders
 
             lv.Data = lvS.SelectOrderFrom("UNIT").Tables[0];
             lv.Size = new Size(600, 400);
-            lv.ShowBox();
+            lv.ShowBox(thisOrder.dtRefUnitVisit);
 
         }
         private void find_UnitCode(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)
@@ -4630,23 +4578,26 @@ namespace Envision.NET.Forms.Orders
             }
             if (!string.IsNullOrEmpty(thisOrder.Demographic.Insurance_Type))
             {
-                DataRow[] rows = dttAutoIns.Select("INSURANCE_TYPE_UID='" + thisOrder.Demographic.Insurance_Type + "'");
-                if (rows.Length == 0)
-                {
-                    bindInsuranceAutoComplete();
-                    rows = dttAutoIns.Select("INSURANCE_TYPE_ID=" + thisOrder.Demographic.Insurance_Type);
-                }
-                if (rows.Length == 0)
-                {
-                    thisOrder.Demographic.Insurance_Type = string.Empty;
-                    thisOrder.Demographic.InsuranceID = 0;
-                }
-                else
-                {
-                    txtInsurace.Tag = rows[0]["INSURANCE_TYPE_ID"].ToString();
-                    txtInsurace.Text = rows[0]["INSURANCE_TYPE_DESC"].ToString();
-                    txtTempInsurance.Text = txtInsurace.Text;
-                }
+                txtInsurace.Tag = thisOrder.Demographic.InsuranceID;
+                txtInsurace.Text = thisOrder.Demographic.Insurance_Name;
+                txtTempInsurance.Text = txtInsurace.Text;
+                //DataRow[] rows = dttAutoIns.Select("INSURANCE_TYPE_UID='" + thisOrder.Demographic.Insurance_Type + "'");
+                //if (rows.Length == 0)
+                //{
+                //    bindInsuranceAutoComplete();
+                //    rows = dttAutoIns.Select("INSURANCE_TYPE_ID=" + thisOrder.Demographic.Insurance_Type);
+                //}
+                //if (rows.Length == 0)
+                //{
+                //    thisOrder.Demographic.Insurance_Type = string.Empty;
+                //    thisOrder.Demographic.InsuranceID = 0;
+                //}
+                //else
+                //{
+                //    txtInsurace.Tag = rows[0]["INSURANCE_TYPE_ID"].ToString();
+                //    txtInsurace.Text = rows[0]["INSURANCE_TYPE_DESC"].ToString();
+                //    txtTempInsurance.Text = txtInsurace.Text;
+                //}
 
             }
             if (txtPatientType.Tag != null)
@@ -4716,7 +4667,7 @@ namespace Envision.NET.Forms.Orders
             if (txtOrderDepartment.Text.Trim().Length > 0)
                 txtOrderDepartment.Select(0, 1);
 
-            LoadInsuranceDetail();
+            //LoadInsuranceDetail();
 
             if (thisOrder.Demographic.HasEngName == false)
             {
@@ -5340,7 +5291,9 @@ namespace Envision.NET.Forms.Orders
         {
             if (!string.IsNullOrEmpty(thisOrder.Demographic.Allergies))
             {
-                frmAllergy2 Allergy = new frmAllergy2();
+                frmAllergy2 Allergy = new frmAllergy2(thisOrder.Demographic.Reg_UID);
+                Allergy.TopLevel = true;
+                Allergy.StartPosition = FormStartPosition.CenterScreen;
                 Allergy.ShowDialog();
             }
         }
@@ -6633,33 +6586,33 @@ namespace Envision.NET.Forms.Orders
         #region Insurance Webservice Process
         private void LoadInsuranceDetail()
         {
-            string strUNIT_UID = " ";
-            string[] strSplit = txtOrderDepartment.Text.Split(new string[] { ":" }, StringSplitOptions.None);
-            if (strSplit.Length > 1 && strSplit[0] != "")
-            {
-                strUNIT_UID = strSplit[0];
-            }
+            //string strUNIT_UID = " ";
+            //string[] strSplit = txtOrderDepartment.Text.Split(new string[] { ":" }, StringSplitOptions.None);
+            //if (strSplit.Length > 1 && strSplit[0] != "")
+            //{
+            //    strUNIT_UID = strSplit[0];
+            //}
 
-            String strEnc_id = "";
-            String strEnc_type = "";
-            string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+            //String strEnc_id = "";
+            //String strEnc_type = "";
+            //string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
 
-            fnBill.LoadEncounter(txtHN.Text, strUNIT_UID, ref strEnc_id, ref strEnc_type);
+            //fnBill.LoadEncounter(txtHN.Text, strUNIT_UID, ref strEnc_id, ref strEnc_type);
 
-            if (strEnc_id == "") strEnc_id = " ";
-            if (strEnc_type == "") strEnc_type = " ";
+            //if (strEnc_id == "") strEnc_id = " ";
+            //if (strEnc_type == "") strEnc_type = " ";
 
-            Enc_ID = strEnc_id;
-            Enc_Type = strEnc_type;
+            //Enc_ID = strEnc_id;
+            //Enc_Type = strEnc_type;
 
-            string insu_uid = fnBill.LoadGetEligibilityInsuranceDetail(txtHN.Text, strEnc_id, strEnc_type, strUNIT_UID, perfDate, "RGL");
+            //string insu_uid = fnBill.LoadGetEligibilityInsuranceDetail(txtHN.Text, strEnc_id, strEnc_type, strUNIT_UID, perfDate, "RGL");
 
-            int insu_id = 0;
-            string insu_name = "";
-            fnBill.LoadInsuranceType(insu_uid, ref insu_id, ref insu_name);
+            //int insu_id = 0;
+            //string insu_name = "";
+            //fnBill.LoadInsuranceType(insu_uid, ref insu_id, ref insu_name);
 
-            txtInsurace.Text = insu_name;
-            txtInsurace.Tag = insu_id;
+            //txtInsurace.Text = insu_name;
+            //txtInsurace.Tag = insu_id;
         }
         #endregion
 

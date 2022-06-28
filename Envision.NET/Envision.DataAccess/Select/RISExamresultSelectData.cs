@@ -48,8 +48,39 @@ namespace Envision.DataAccess.Select
         public DataTable GetWorkListSchedule()
         {
             StoredProcedureName = StoredProcedure.Prc_RIS_SCHEDULE_WorkList_Reporting; //this
-            //StoredProcedureName = StoredProcedure.Prc_RIS_SCHEDULE_WorkList_Reporting2; 
             ParameterList = buildParameterWorkListSchedule();
+            DataTable dtt = new DataTable();
+            dtt = ExecuteDataTable();
+            return dtt;
+        }
+        public DataTable GetWorkListCovid()
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_EXAMRESULT_WorkListCovid; //this
+            
+            DbParameter paramFT = Parameter();
+            paramFT.ParameterName = "@FROM_DT";
+            if (RIS_EXAMRESULT.FROM_DATE == null)
+                paramFT.Value = DBNull.Value;
+            else
+                paramFT.Value = RIS_EXAMRESULT.FROM_DATE == DateTime.MinValue ? (object)DBNull.Value : RIS_EXAMRESULT.FROM_DATE;
+
+            DbParameter paramTT = Parameter();
+            paramTT.ParameterName = "@TO_DT";
+            if (RIS_EXAMRESULT.TO_DATE == null)
+                paramTT.Value = DBNull.Value;
+            else
+                paramTT.Value = RIS_EXAMRESULT.TO_DATE == DateTime.MinValue ? (object)DBNull.Value : RIS_EXAMRESULT.TO_DATE;
+
+
+            DbParameter[] parameters = { 
+                                                 Parameter("@MODE",RIS_EXAMRESULT.MODE)
+                                                , Parameter("@EMP_ID",RIS_EXAMRESULT.EMP_ID)
+                                                , Parameter("@HN",RIS_EXAMRESULT.HN)
+                                                , paramFT
+                                                , paramTT
+                                                , Parameter("@STATUS",RIS_EXAMRESULT.STATUS)
+                                       };
+            ParameterList = parameters;
             DataTable dtt = new DataTable();
             dtt = ExecuteDataTable();
             return dtt;

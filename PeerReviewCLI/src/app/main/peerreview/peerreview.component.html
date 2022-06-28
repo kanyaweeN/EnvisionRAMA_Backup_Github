@@ -33,8 +33,7 @@
         </table>
     </p-panel>
     <p-table #dt [value]="studies" selectionMode="single" [(selection)]="selectedStudy"
-        (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10"
-        [responsive]="true" tableStyleClass="table">
+        (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true" tableStyleClass="table">
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th>HN</th>
@@ -55,11 +54,12 @@
                 <td>{{study.PATIENT_NAME}}</td>
                 <td>{{study.ACCESSION_NO}}</td>
                 <td>{{study.EXAM_NAME}}</td>
-                <td>{{study.ORDER_DT}}</td>
+                <td>{{study.ORDER_DT | date:'dd/MM/yyyy HH:mm'}}</td>
                 <td>{{study.TYPE_NAME_ALIAS}}</td>
                 <td>{{study.REVIEW_SCORE}}</td>
-                <td>{{study.STATUS}}</td>
-                <td>{{study.REVIEW_DT}}</td>
+                <td *ngIf="study.STATUS == 'Reviewed'" style="color: green;">{{study.STATUS}}</td>
+                <td *ngIf="study.STATUS != 'Reviewed'" style="color: orangered;">{{study.STATUS}}</td>
+                <td>{{study.REVIEW_DT | date:'dd/MM/yyyy HH:mm'}}</td>
                 <td>
                     <p-button label="Review" icon="pi pi-pencil" iconPos="left" (click)="selectStudy(study)"></p-button>
                 </td>

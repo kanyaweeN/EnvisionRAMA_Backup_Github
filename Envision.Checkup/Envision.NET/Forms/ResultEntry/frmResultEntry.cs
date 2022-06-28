@@ -6321,11 +6321,19 @@ namespace RIS.Forms.ResultEntry
 
         private void ShowPacsImage(string accno)
         {
-            string str = env.PacsUrl + accno;
+            if (env.LoginType == "E")
+            {
+                // UpdatePacs
+                new OpenPACS(env.PacsUrl).OpenIEAccession(accno, env.UserName, env.PasswordAD, "", env.LoginType);
+            }
+            else
+            {
+                string str = env.PacsUrl + accno;
 
-            Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-            if (!ieCom.OpenSynapseLink(str))
-                msg.ShowAlert("UID4053", env.CurrentLanguageID);
+                Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+                if (!ieCom.OpenSynapseLink(str))
+                    msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            }
         }
         private bool checkHaveThaiWords(string words)
         {

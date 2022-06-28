@@ -663,7 +663,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EnvisionIEReceiver"
         "ProductCode" = "8:{9F7D93FA-0538-45D0-8F77-D44F7A7C084A}"
-        "PackageCode" = "8:{B95D48A9-539E-42C8-8653-24829B7359E4}"
+        "PackageCode" = "8:{26C6C1F5-FBF8-4C97-A77B-FEFF18C76C29}"
         "UpgradeCode" = "8:{69A231EE-96D5-4A39-B56E-0BD39DEFC41C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

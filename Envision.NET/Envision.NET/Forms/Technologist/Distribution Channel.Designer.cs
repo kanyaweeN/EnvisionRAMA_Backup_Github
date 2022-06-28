@@ -142,6 +142,7 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.img16 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -215,6 +216,7 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img16)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -1423,6 +1425,18 @@ namespace Envision.NET.Forms.Technologist
             this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
             // 
+            // img16
+            // 
+            this.img16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("img16.ImageStream")));
+            this.img16.Images.SetKeyName(0, "flag-black.png");
+            this.img16.Images.SetKeyName(1, "flag-yellow.png");
+            this.img16.Images.SetKeyName(2, "flag-red.png");
+            this.img16.Images.SetKeyName(3, "flag-blue.png");
+            this.img16.Images.SetKeyName(4, "flag-green.png");
+            this.img16.Images.SetKeyName(5, "flag-purple.png");
+            this.img16.Images.SetKeyName(6, "flag-orange.png");
+            this.img16.Images.SetKeyName(7, "flag-pink.png");
+            // 
             // Distribution_Channel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1512,6 +1526,7 @@ namespace Envision.NET.Forms.Technologist
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.img16)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1629,5 +1644,6 @@ namespace Envision.NET.Forms.Technologist
         private DevExpress.XtraTab.XtraTabPage pageHNTransfer;
         private DevExpress.XtraEditors.TextEdit txtHNTransfer;
         private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.Utils.ImageCollection img16;
     }
 }

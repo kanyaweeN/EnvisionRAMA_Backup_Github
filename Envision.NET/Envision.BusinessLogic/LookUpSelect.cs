@@ -206,6 +206,11 @@ namespace Envision.BusinessLogic
             _LookUpSelect prc = new _LookUpSelect();
             return prc.SelectSummaryDFRadPremium(FromDate, ToDate, EmpID,clinic_id, modality_id);
         }
+        public DataSet SelectSummaryDFNuero(DateTime FromDate, DateTime ToDate, int EmpID, int clinic_id, int modality_id)
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectSummaryDFNuero(FromDate, ToDate, EmpID, clinic_id, modality_id);
+        }
         public DataSet SelectSummaryDFTechPremium(DateTime FromDate, DateTime ToDate, int EmpID, int clinic_id, int modality_id)
         {
             _LookUpSelect prc = new _LookUpSelect();
@@ -385,6 +390,35 @@ namespace Envision.BusinessLogic
         {
             _LookUpSelect prc = new _LookUpSelect();
             return prc.SelectContrastManagement(Mode, FromDate, ToDate,Hn);
+        }
+        public DataSet SelectContrastLot(int contrastId)
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectContrastLot(contrastId);
+        }
+        public DataSet SelectOrderIdByAccession(string accessionNo) {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectOrderIdByAccession(accessionNo);
+        }
+        public DataSet SelectRegIdByScheduleId(int scheduleId)
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectRegIdByScheduleId(scheduleId);
+        }
+        public DataSet SelectRptFindingAll()
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectRptFindingAll();
+        }
+        public DataSet SelectReportChangeStatus(DateTime FromDate, DateTime ToDate)
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectReportChangeStatus(FromDate, ToDate);
+        }
+        public DataSet SelectReportER(DateTime FromDate, DateTime ToDate)
+        {
+            _LookUpSelect prc = new _LookUpSelect();
+            return prc.SelectReportER(FromDate, ToDate);
         }
     }
 }

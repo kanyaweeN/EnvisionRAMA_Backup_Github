@@ -14,7 +14,7 @@ namespace Envision.DataAccess.Insert
         public RISExamresultradsInsertData()
         {
             RIS_EXAMRESULTRADS = new RIS_EXAMRESULTRADS();
-            StoredProcedureName = StoredProcedure.Prc_RIS_EXAMRESULTRADS_Insert;
+            StoredProcedureName = StoredProcedure.Prc_RIS_EXAMRESULTRADS_Insert_IsShowPacs;
         }
         public void Add()
         {
@@ -36,6 +36,7 @@ namespace Envision.DataAccess.Insert
                 ,Parameter("@CAN_FINALIZE",RIS_EXAMRESULTRADS.CAN_FINALIZE)
                 ,Parameter("@SL_NO",RIS_EXAMRESULTRADS.SL_NO)
                 ,Parameter("@CREATED_BY",RIS_EXAMRESULTRADS.CREATED_BY)
+                ,Parameter("@IS_SHOW_PACS",RIS_EXAMRESULTRADS.IS_SHOW_PACS)
 			};
             return parameters;
 

@@ -33,6 +33,7 @@ namespace RIS.Common.Common
         public static string _curname;
         public static string _cursymbol;
         public static string _curformat;
+        public static string _pacsdomain;
         public static string _pacsip;
         public static string _pacsport;
         public static string _pacsurl;
@@ -61,6 +62,12 @@ namespace RIS.Common.Common
         private static string _pacsurl1_1;
         private static string _pacsurl2_1;
         private static string _pacsdomain_1;
+        public static string _passwordAD;
+
+        static GBLEnvVariable()
+        {
+        }
+
         public GBLEnvVariable()
         {
         }
@@ -261,6 +268,11 @@ namespace RIS.Common.Common
             get { return _curformat; }
             set { _curformat = value; }
         }
+        public string PacsDomain
+        {
+            get { return _pacsdomain; }
+            set { _pacsdomain = value; }
+        }
         public string PacsIp
         {
             get { return _pacsip; }
@@ -333,6 +345,11 @@ namespace RIS.Common.Common
         {
             get { return _pacsurl2_1; }
             set { _pacsurl2_1 = value; }
+        }
+        public string PasswordAD
+        {
+            get { return _passwordAD; }
+            set { _passwordAD = value; }
         }
 
         public PointerStruct[] PixPicture

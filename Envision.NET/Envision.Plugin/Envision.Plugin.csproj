@@ -378,6 +378,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAppointReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XtraFile\xtraData\dsReport_2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReport_2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="XtraFile\xtraData\dsScheduleReport.cs">
       <DependentUpon>dsScheduleReport.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -401,6 +406,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsScheduleReports.xsd</DependentUpon>
     </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraReportER.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraReportER.designer.cs">
+      <DependentUpon>XtraReportER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraReportChangeStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraReportChangeStatus.designer.cs">
+      <DependentUpon>XtraReportChangeStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraFile\xtraReports\xrptAIMCDailyReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -412,6 +429,12 @@
     </Compile>
     <Compile Include="XtraFile\xtraReports\xrptOrderReportAIMC.designer.cs">
       <DependentUpon>xrptOrderReportAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.Designer.cs">
+      <DependentUpon>xrptOrderReportClinicalIndicationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="XtraFile\xtraReports\xrptScheduleReportAIMCNew.cs">
       <SubType>Component</SubType>
@@ -845,12 +868,23 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraReportER.resx">
+      <DependentUpon>XtraReportER.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraReportChangeStatus.resx">
+      <DependentUpon>XtraReportChangeStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFile\xtraReports\xrptAIMCDailyReport.resx">
       <DependentUpon>xrptAIMCDailyReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportAIMC.resx">
       <DependentUpon>xrptOrderReportAIMC.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.resx">
+      <DependentUpon>xrptOrderReportClinicalIndicationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportAIMCNew.resx">
       <DependentUpon>xrptScheduleReportAIMCNew.cs</DependentUpon>
@@ -1028,6 +1062,17 @@
     </None>
     <None Include="XtraFile\xtraData\dsReport.xss">
       <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport_2.xsc">
+      <DependentUpon>dsReport_2.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport_2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReport_2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport_2.xss">
+      <DependentUpon>dsReport_2.xsd</DependentUpon>
     </None>
     <None Include="XtraFile\xtraData\dsScheduleReport.xsc">
       <DependentUpon>dsScheduleReport.xsd</DependentUpon>

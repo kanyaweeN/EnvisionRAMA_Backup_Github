@@ -297,6 +297,9 @@
             function showCovid() {
                 window.radopen("../../Forms/Dialogs/frmCovidDetail.aspx", "windowCovid");
             }
+            function showClinicalIndicationWithParams(arg) {
+                window.radopen("../../Forms/Dialogs/frmClinicalIndicationTypeWithParameter.aspx?PARAM1=" + arg, "windowClinicalIndicationWithParam");
+            }
             function showLoading() {
                 window.radopen("../../Forms/Dialogs/OnlineLoadingForm.aspx", "windowShowLoading");
             }
@@ -760,6 +763,11 @@
         <Windows>
             <telerik:RadWindow ID="windowCovid" runat="server" Behaviors="Close, Move" Modal="true" ReloadOnShow="true"
                 Width="900" Height="530" OnClientClose="OnClientClose">
+            </telerik:RadWindow>
+        </Windows>
+        <Windows>
+            <telerik:RadWindow ID="windowClinicalIndicationWithParam" runat="server" Behaviors="Close, Move" Modal="true" ReloadOnShow="true"
+                Width="500" Height="530" OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
         <Windows>

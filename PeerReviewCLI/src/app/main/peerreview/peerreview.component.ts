@@ -64,10 +64,13 @@ export class PeerreviewComponent implements OnInit, OnDestroy {
     this.filterText = 'Pending';
     this.selectedFilter = 'Pending';
     this.prStatus = [];
-    this.prStatus.push({ label: 'All', value: '' });
+    this.prStatus.push({ label: 'All', value: 'All' });
     this.prStatus.push({ label: 'Reviewed', value: 'Reviewed' });
     this.prStatus.push({ label: 'Pending', value: 'Pending' });
     this.queryParam = this.activatedRoute.queryParams.subscribe((params: Params) => {
+      if(params['filterStatus'] != null){
+        this.selectedFilter = params['filterStatus'];
+      }
       const env: PeerGblEnv = {
         USER_ID: params['userId'],
         USER_NAME: params['userName'],
@@ -129,6 +132,7 @@ export class PeerreviewComponent implements OnInit, OnDestroy {
       + '/' + this.gblEnv[0].USER_ID
       + '/' + this.gblEnv[0].USER_NAME
       + '/' + this.gblEnv[0].ORG_ID
+      + '/' + this.selectedFilter
     ]);
     this.dblclick = false;
   }
@@ -164,7 +168,7 @@ export class PeerreviewComponent implements OnInit, OnDestroy {
         });
         this.noOfReviewing = '' + count;
         this.noOfReviewed = '' + (len - count);
-        if (this.selectedFilter === '') {
+        if (this.selectedFilter === 'All') {
           this.studies = res;
         } else {
           this.studies = res.filter((f) => f.STATUS === this.selectedFilter);

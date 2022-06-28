@@ -206,7 +206,8 @@ export class ScoringComponent implements OnInit, OnDestroy {
         userId: this.route.snapshot.params['userid'],
         userName: this.route.snapshot.params['username'],
         orgId: this.route.snapshot.params['orgid'],
-        menuName: 'review'
+        menuName: 'review',
+        filterStatus: this.route.snapshot.params['filterStatus']
       }
     });
   }

@@ -1,0 +1,37 @@
+﻿<body>
+<div id="myDiv">
+
+</div>
+
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+    var httpGet = function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    };
+
+    var url = getUrlParameter('PatientID');
+    var path = httpGet("http://localhost:9090?QueryMode=PID&Value=" + url);
+
+    var html = '<object type="text/html" data="' + path + '" width="100%" height="100%" style="overflow:auto;border:1px ridge white"></object>';
+    var div = document.getElementById('myDiv');
+    div.innerHTML += html;
+
+</script>
+
+</body>

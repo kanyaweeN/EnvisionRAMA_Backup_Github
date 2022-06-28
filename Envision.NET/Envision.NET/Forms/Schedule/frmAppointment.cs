@@ -693,7 +693,9 @@ namespace Envision.NET.Forms.Schedule
         {
             if (!string.IsNullOrEmpty(patient.Allergies))
             {
-                frmAllergy2 Allergy = new frmAllergy2();
+                frmAllergy2 Allergy = new frmAllergy2(patient.Reg_UID);
+                Allergy.TopLevel = true;
+                Allergy.StartPosition = FormStartPosition.CenterScreen;
                 Allergy.ShowDialog();
             }
         }
@@ -1262,7 +1264,7 @@ namespace Envision.NET.Forms.Schedule
             #endregion
 
             #region Scan Image
-            ScanImage save = save = new ScanImage(txtHN.Text.Trim(), process.RIS_SCHEDULE.SCHEDULE_ID, "Schedule");
+            ScanImage save = new ScanImage(txtHN.Text.Trim(), process.RIS_SCHEDULE.SCHEDULE_ID, "Schedule");
             env.PixPicture = PointerStruct.ClearPointerStruct(env.PixPicture);
             #endregion
 
@@ -1631,7 +1633,7 @@ namespace Envision.NET.Forms.Schedule
 
             LookUpSelect lvS = new LookUpSelect();
 
-            LookupData lv = new LookupData();
+            LookupData_Filter lv = new LookupData_Filter();
             lv.ValueUpdated += new Envision.NET.Forms.Dialog.ValueUpdatedEventHandler(departmentLookup_ValueUpdated);
             lv.AddColumn("UNIT_UID", "Unit Code", true, true);
             lv.AddColumn("UNIT_ID", "ID", false, true);
@@ -1641,7 +1643,7 @@ namespace Envision.NET.Forms.Schedule
 
             lv.Data = lvS.ScheduleNotParameter("OrderDept").Tables[0];//dtClinic;
             lv.Size = new Size(600, 400);
-            lv.ShowBox();
+            lv.ShowBox(patient.dtRefUnitVisit);
         }
         private void departmentLookup_ValueUpdated(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)
         {
@@ -2989,7 +2991,7 @@ namespace Envision.NET.Forms.Schedule
         {
             SpinEdit spe = new SpinEdit();
             spe = (SpinEdit)sender;
-            DataRow dr = viewExam.GetDataRow(view1.FocusedRowHandle);
+            DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
             int sp = Convert.ToInt32(spe.Value.ToString());
             if (sp > 0)
             {
@@ -3513,19 +3515,47 @@ namespace Envision.NET.Forms.Schedule
                 e.Cancel = true;
         }
 
-        private void viewExam_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
+        private void viewExam_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                string strqty = viewExam.FocusedColumn.FieldName;
+                if (viewExam.FocusedRowHandle > -1)
+                {
+                    DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
+                    if (dr["EXAM_UID"].ToString() != string.Empty)
+                    {
+                        if (strqty == "QTY")
+                        {
+                            DataRow[] drbp = dttBpview.Copy().Select("BPVIEW_ID =" + dr["BPVIEW_ID"].ToString());
+                            if (drbp[0]["BPVIEW_NAME"].ToString() == "Other")
+                            {
+                                viewExam.Columns["QTY"].OptionsColumn.ReadOnly = false;
+                            }
+                            else
+                            {
+                                viewExam.Columns["QTY"].OptionsColumn.ReadOnly = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch { }
+        }
+        private void viewExam_FocusedColumnChanged(object sender, FocusedColumnChangedEventArgs e)
         {
             try
             {
                 string strqty = e.FocusedColumn.FieldName;
                 if (viewExam.FocusedRowHandle > -1)
                 {
-                    DataRow dr = viewExam.GetDataRow(view1.FocusedRowHandle);
+                    DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
                     if (dr["EXAM_UID"].ToString() != string.Empty)
                     {
                         if (strqty == "QTY")
                         {
-                            DataRow[] drbp = dttBpview.Copy().Select("BPVIEW_ID =" + dr["BPVIEW_ID"].ToString());
+                            string _bpview_id = string.IsNullOrEmpty(dr["BPVIEW_ID"].ToString()) ? "0" : dr["BPVIEW_ID"].ToString();
+                            DataRow[] drbp = RISBaseData.BP_View().Select("BPVIEW_ID =" + _bpview_id);
                             if (drbp[0]["BPVIEW_NAME"].ToString() == "Other")
                             {
                                 viewExam.Columns["QTY"].OptionsColumn.ReadOnly = false;
@@ -3717,79 +3747,33 @@ namespace Envision.NET.Forms.Schedule
         #region Insurance Webservice Process
         private void LoadInsuranceDetail()
         {
-            FinancialBilling fnBill = new FinancialBilling();
-            string strUNIT_UID = " ";
-            string strUNIT_NAME = " ";
+            //FinancialBilling fnBill = new FinancialBilling();
+            //string strUNIT_UID = " ";
+            //string strUNIT_NAME = " ";
 
-            fnBill.LoadHRUnit(patient.REF_UNIT, ref strUNIT_UID, ref strUNIT_NAME);
-            String strEnc_id = "";
-            String strEnc_type = "";
-            string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+            //fnBill.LoadHRUnit(patient.REF_UNIT, ref strUNIT_UID, ref strUNIT_NAME);
+            //String strEnc_id = "";
+            //String strEnc_type = "";
+            //string perfDate = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
 
-            fnBill.LoadEncounter(txtHN.Text, strUNIT_UID, ref strEnc_id, ref strEnc_type);
+            //fnBill.LoadEncounter(txtHN.Text, strUNIT_UID, ref strEnc_id, ref strEnc_type);
 
-            if (strEnc_id == "") strEnc_id = " ";
-            if (strEnc_type == "") strEnc_type = " ";
+            //if (strEnc_id == "") strEnc_id = " ";
+            //if (strEnc_type == "") strEnc_type = " ";
 
-            string insu_uid = fnBill.LoadGetEligibilityInsuranceDetail(txtHN.Text, strEnc_id, strEnc_type, strUNIT_UID, perfDate, "RGL");
+            //string insu_uid = fnBill.LoadGetEligibilityInsuranceDetail(txtHN.Text, strEnc_id, strEnc_type, strUNIT_UID, perfDate, "RGL");
 
-            int insu_id = 0;
-            string insu_name = "";
-            fnBill.LoadInsuranceType(insu_uid, ref insu_id, ref insu_name);
+            //int insu_id = 0;
+            //string insu_name = "";
+            //fnBill.LoadInsuranceType(insu_uid, ref insu_id, ref insu_name);
+            DataTable dtInsu = RISBaseData.Ris_InsuranceType();
+            grdLvInsurance.Properties.DataSource = dtInsu;
+            grdLvInsurance.Properties.DisplayMember = "INSURANCE_TYPE_DESC";
+            grdLvInsurance.Properties.ValueMember = "INSURANCE_TYPE_ID";
 
-            grdLvInsurance.EditValue = insu_id;
+            grdLvInsurance.EditValue = patient.InsuranceID;
         }
         #endregion
-        private void LoadInsurnaceType2()
-        {
-            #region Load Insurance Type from HIS WS
-
-            FinancialBilling fb = new FinancialBilling();
-            string enc_id = "";
-            string enc_type = "";
-            string unit_uid = "";
-            string unit_name = "";
-            string insurance_type_uid = "UNK";
-
-            string date_now = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
-            string clinic_type = "";
-
-            int insurance_id = 122; // �Թʴ
-            string insurance_name = "UNK"; //�Թʴ
-
-            fb.LoadHRUnit(patient.REF_UNIT, ref unit_uid, ref unit_name);
-            fb.LoadEncounter(patient.Reg_UID, unit_uid, ref enc_id, ref enc_type);
-            if (enc_id != "" && enc_type != "")
-            {
-                switch (txtSession.Tag.ToString())
-                {
-                    case "1":
-                        clinic_type = "SPC";
-                        break;
-                    case "2":
-                        clinic_type = "RGL";
-                        break;
-                    case "3":
-                        clinic_type = "RGL";
-                        break;
-                    case "4":
-                        clinic_type = "SPC";
-                        break;
-                }
-
-                insurance_type_uid = fb.LoadGetEligibilityInsuranceDetail(patient.Reg_UID, enc_id, enc_type, unit_uid, date_now, clinic_type);
-                fb.LoadInsuranceType(insurance_type_uid, ref insurance_id, ref insurance_name);
-
-                grdLvInsurance.EditValue = insurance_id;
-            }
-            else
-            {
-                fb.LoadUNKInsuranceType(ref insurance_id, ref insurance_type_uid, ref insurance_name);
-                grdLvInsurance.EditValue = insurance_id;
-            }
-
-            #endregion
-        }
         private void txtOrderDept_Validated(object sender, EventArgs e)
         {
             //LoadInsurnaceType();

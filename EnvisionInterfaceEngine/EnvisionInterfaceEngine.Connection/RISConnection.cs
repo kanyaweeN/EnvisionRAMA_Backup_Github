@@ -1228,7 +1228,8 @@ from
             from RIS_EXAMRESULTRADS
             inner join HR_EMP on RIS_EXAMRESULTRADS.RAD_ID = HR_EMP.EMP_ID
             inner join HR_JOBTITLE on HR_EMP.JOBTITLE_ID = HR_JOBTITLE.JOB_TITLE_ID
-            where ACCESSION_NO = @ACCESSION_NO";
+            where ACCESSION_NO = @ACCESSION_NO
+            and ISNULL(IS_SHOW_PACS,N'Y') = N'Y'";
 
             Parameters = new DbParameter[] {
                 DoParameter("@ACCESSION_NO", accessionNo)};

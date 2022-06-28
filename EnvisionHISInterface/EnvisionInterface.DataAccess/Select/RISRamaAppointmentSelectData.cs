@@ -15,7 +15,7 @@ namespace EnvisionInterface.DataAccess.Select
         public DataSet GetData(string hn)
         {
             DataSet ds = new DataSet();
-            StoredProcedureName = StoredProcedure.SCB_Appointment_Select_ByHN;
+            StoredProcedureName = StoredProcedure.SCB_Appointment_Select_ByHN2;
 
             DbParameter[] parameters = { Parameter("@HN", hn) };
             ParameterList = parameters;

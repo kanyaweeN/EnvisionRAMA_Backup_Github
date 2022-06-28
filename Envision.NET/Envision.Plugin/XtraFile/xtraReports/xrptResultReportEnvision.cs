@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Data;
+using System.Globalization;
 
 namespace Envision.Plugin.XtraFile.xtraReports
 {
@@ -47,6 +48,16 @@ namespace Envision.Plugin.XtraFile.xtraReports
                                 "Tel : " + dtData.Rows[0]["ORG_TEL1"].ToString() + "\r\n" +
                                 "Fax : " + dtData.Rows[0]["ORG_FAX"].ToString() + "\r\n" +
                                 "Email : " + dtData.Rows[0]["ORG_EMAIL1"].ToString();
+
+            if (!string.IsNullOrEmpty(dtData.Rows[0]["ORDER_DT"].ToString()))
+                lblOrderDT.Text = Convert.ToDateTime(dtData.Rows[0]["ORDER_DT"]).ToString("dd MMM yyyy HH:mm", CultureInfo.GetCultureInfo("th-TH").DateTimeFormat);
+            else
+                lblOrderDT.Text = "";
+
+            if (!string.IsNullOrEmpty(dtData.Rows[0]["FINALIZED_ON"].ToString()))
+                lblFinalizedOn.Text = Convert.ToDateTime(dtData.Rows[0]["FINALIZED_ON"]).ToString("dd MMM yyyy HH:mm", CultureInfo.GetCultureInfo("th-TH").DateTimeFormat);
+            else
+                lblFinalizedOn.Text = "";
 
             int count = dtData.Rows.Count;
             string showAddendum = "";
@@ -104,6 +115,9 @@ namespace Envision.Plugin.XtraFile.xtraReports
             {
                 this.xrRichText1.Rtf = ((DataTable)this.DataSource).Rows[0]["RESULT_TEXT_PLAIN"].ToString();
             }
+
+            if (((DataTable)this.DataSource).Rows[0]["ISCOVID"].ToString() == "Y")
+                rtCovidCategory.Visible = true;
         }
 
     }

@@ -22,6 +22,7 @@ using System.Drawing;
 using EnvisionOnline.BusinessLogic.ProcessCreate;
 using EnvisionOnline.BusinessLogic.ProcessUpdate;
 using EnvisionOnline.BusinessLogic.ProcessRead;
+using EnvisionOnline.PACS;
 
 public partial class frmEnvisionOrderWL : System.Web.UI.Page
 {
@@ -38,6 +39,27 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
         }
     }
     #region Header
+    private void recieveSession()
+    {
+        GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        RISBaseClass ris_base = new RISBaseClass();
+        List<string> fullpath = new List<string>();
+        List<string> fullpath2 = new List<string>();
+        DataSet dsIndType = new DataSet();
+        DataTable dtIndType = new DataTable();
+        dsIndType = ris_base.get_RIS_CLINICALINDICATIONTYPE(env.OrgID, env.UserID);
+        dtIndType = dsIndType.Tables[1];
+        dtIndType.Merge(dsIndType.Tables[2].Copy());//
+
+        param.dtCLINICALINDICATIONTYPE = dtIndType;
+
+        param.TEMP_CLINICALINDICATION = fullpath;
+        param.TEMP_CLINICALINDICATIONTYPE = fullpath2;
+
+        Session["GBLEnvVariable"] = env;
+        Session["ONL_PARAMETER"] = param;
+    }
     private void refreshSetupData() {
         RISBaseClass baseManage = new RISBaseClass();
         DataTable dtt = baseManage.get_His_Department(1);
@@ -112,6 +134,7 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
             env.CurrencySymbol = string.Empty;
             env.USED_120DPI = "N";
             env.USED_MENUBAR = "N";
+            env.PacsDomain = dtGBL.Rows[0]["PACS_DOMAIN"].ToString();
 
             param.EmpName = dt.Rows[0]["FullName"].ToString();
         }
@@ -316,7 +339,7 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
             bool isTele = false;
             int encId = 0;
             ds = param.dsPatientData = getPatient.get_Patient_Registration_ByHN(_hn, env, false);
-            param.IS_NONRESIDENT = getPatient.get_Patient_NonResident(_hn, out isTele, out encId);
+            param.IS_NONRESIDENT = getPatient.get_Patient_NonResident(_hn,param.ENCOUNTER_TYPE,param.REF_UNIT_UID, out isTele, out encId);
             param.IS_TELEMED = isTele;
             param.ENC_ID = encId;
         }
@@ -659,7 +682,27 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
             else
                 Response.Redirect(@"../../Forms/Orders/frmEnvisionOrderNW.aspx");
         else
+            checkParameterInsert_Covid(exam_id);
+    }
+    private bool checkParameterInsert_Covid(int exam_id)
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        bool flag = true;
+
+        ProcessGetHRUnit getCovidUnit = new ProcessGetHRUnit();
+        DataSet ds = getCovidUnit.checkCovidUnit(param.REF_UNIT_ID);
+
+        if (ds.Tables[0].Rows.Count > 0)
+            showCovid();
+        else
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openQuickOrder", "showQuickOrder(" + exam_id.ToString() + ");", true);
+
+        return flag;
+    }
+    private void showCovid()
+    {
+        recieveSession();
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showCovid", "showCovid();", true);
     }
     private void setPageDetail(string _order_id, string _schedule_id)
     {
@@ -811,22 +854,39 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
                         "and EXAM_ID = '" + values["EXAM_ID"].ToString() + "'";
                 }
 
-                try
-                {
-                    if (dv[0]["IS_BUSY"].ToString() == "Y")
-                    {
-                        showOnlineMessageBox("IsBusy");
-                    }
-                    else
-                    {
-                        param.ORDER_ID = values["ORDER_ID"].ToString();
-                        param.SCHEDULE_ID = values["SCHEDULE_ID"].ToString();
-                        Session["ONL_PARAMETER"] = param;
-
-                        showOnlineMessageBox("EditOrder");
-                    }
+                bool flagIsBusy = false;
+                if (dv[0]["IS_BUSY"].ToString() == "Y"){
+                    if(!string.IsNullOrEmpty(dv[0]["BUSY_BY"].ToString())){
+                        if(dv[0]["BUSY_BY"].ToString() != env.UserID.ToString())
+                            flagIsBusy = true;
+                    }else
+                        flagIsBusy = true;
                 }
-                catch { }
+
+                if (flagIsBusy)
+                {
+                    //if (string.IsNullOrEmpty(dv[0]["BUSY_BY"].ToString()))
+                    param.ORDER_ID = values["ORDER_ID"].ToString();
+                    param.SCHEDULE_ID = values["SCHEDULE_ID"].ToString();
+                    Session["ONL_PARAMETER"] = param;
+
+                    showOnlineMessageBox("IsBusy");
+                }
+                else
+                {
+                    updateBusyCase(values["ORDER_ID"].ToString() != "0" ? "XRAYREQ" : "SCHEDULE",
+                        Convert.ToInt32(values["ORDER_ID"].ToString()),
+                        Convert.ToInt32(values["SCHEDULE_ID"].ToString()),
+                        "Y"
+                        );
+
+                    param.ORDER_ID = values["ORDER_ID"].ToString();
+                    param.SCHEDULE_ID = values["SCHEDULE_ID"].ToString();
+                    Session["ONL_PARAMETER"] = param;
+
+                    showOnlineMessageBox("EditOrder");
+                }
+                
             }
             else if (e.CommandName == "grdbtnDelete")
             {
@@ -899,6 +959,8 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
             //string url = env.PacsUrl + values["ACCESSION_NO"].ToString();
             string url = values["ACCESSION_NO"].ToString();
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openSynapse", "showNewWindows('" + url + "');", true);
+            //new OpenPACS(env,env.PacsUrl).OpenIEAccession(url, env.UserName, env.PasswordAD, "", env.LoginType);
+
         }
         else if (e.CommandName == "grdbtnFilterPrint")
         {
@@ -988,26 +1050,36 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
                     break;
                 case "A":
                 case "R":
-                    string _is_online = "";
-                    if (values["ONL_REQ"].ToString() == "true")
+                    ProcessGetONLDirectlyOrder checkDirectOrder = new ProcessGetONLDirectlyOrder(Convert.ToInt32(values["EXAM_ID"]));
+                    checkDirectOrder.Invoke();
+                    DataSet ds = checkDirectOrder.Result;
+                    if (ds.Tables[0].Rows.Count > 0)
                     {
-                        ProcessGetONLDirectlyOrder chkDirect = new ProcessGetONLDirectlyOrder(
-                            Convert.ToInt32(values["REF_UNIT"]),
-                            Convert.ToInt32(values["CLINIC_TYPE"]),
-                            Convert.ToInt32(values["EXAM_ID"]));
-                        chkDirect.Invoke();
-                        if (chkDirect.Result.Tables[0].Rows.Count != 0)
-                            _is_online = "false";
-                        else
-                            _is_online = "true";
+                        showOnlineMessageBox("CannotPrintRequest");
                     }
                     else
-                        _is_online = values["ONL_REQ"].ToString();
-                    url = @"../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=xrptOrderReport&IS_ONLINE=" + _is_online + "&ORDER_ID=" + values["ORDER_ID"].ToString() +
-                                                                                                                            "&ORG_ID=" + env.OrgID.ToString() +
-                                                                                                                            "&PRINTOR=" + env.FirstName + " " + env.LastName +
-                                                                                                                            "&USER_ID=" + env.UserID.ToString();
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
+                    {
+                        string _is_online = "";
+                        if (values["ONL_REQ"].ToString() == "true")
+                        {
+                            ProcessGetONLDirectlyOrder chkDirect = new ProcessGetONLDirectlyOrder(
+                                Convert.ToInt32(values["REF_UNIT"]),
+                                Convert.ToInt32(values["CLINIC_TYPE"]),
+                                Convert.ToInt32(values["EXAM_ID"]));
+                            chkDirect.Invoke();
+                            if (chkDirect.Result.Tables[0].Rows.Count != 0)
+                                _is_online = "false";
+                            else
+                                _is_online = "true";
+                        }
+                        else
+                            _is_online = values["ONL_REQ"].ToString();
+                        url = @"../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=xrptOrderReport&IS_ONLINE=" + _is_online + "&ORDER_ID=" + values["ORDER_ID"].ToString() +
+                                                                                                                                "&ORG_ID=" + env.OrgID.ToString() +
+                                                                                                                                "&PRINTOR=" + env.FirstName + " " + env.LastName +
+                                                                                                                                "&USER_ID=" + env.UserID.ToString();
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
+                    }
                     break;
                 case "D":
                 case "C":
@@ -1302,6 +1374,48 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
     {
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "printdocumentWindows", "printDocument('" + url + "');", true);
     }
+    private bool getBusyCase(string mode, int orderId, int scheduleId)
+    {
+        GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
+        bool flag = false;
+        switch (mode)
+        {
+            case "SCHEDULE":
+                ProcessGetRISSchedule sch = new ProcessGetRISSchedule();
+                sch.RIS_SCHEDULE.SCHEDULE_ID = scheduleId;
+                DataTable dtSch = sch.GetBusyStatus();
+                if (Utilities.IsHaveData(dtSch))
+                    if (dtSch.Rows[0]["IS_BUSY"].ToString() == "Y" && dtSch.Rows[0]["BUSY_BY"].ToString() != env.UserID.ToString())
+                        flag = true;
+                break;
+            case "XRAYREQ":
+                ProcessGetXRAYREQ xryReq = new ProcessGetXRAYREQ();
+                DataTable dtxryReq = xryReq.GetBusyCase(orderId);
+                if (Utilities.IsHaveData(dtxryReq))
+                    if (dtxryReq.Rows[0]["IS_BUSY"].ToString() == "Y" && dtxryReq.Rows[0]["BUSY_BY"].ToString() != env.UserID.ToString())
+                        flag = true;
+                break;
+        }
+        return flag;
+    }
+    private void updateBusyCase(string mode, int orderId, int scheduleId, string busy)
+    {
+        GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
+        switch (mode)
+        {
+            case "SCHEDULE":
+                ProcessUpdateRISSchedule proc = new ProcessUpdateRISSchedule();
+                proc.RIS_SCHEDULE.SCHEDULE_ID = scheduleId;
+                proc.RIS_SCHEDULE.IS_BUSY = busy;
+                proc.RIS_SCHEDULE.LAST_MODIFIED_BY = env.UserID;
+                proc.UpdateBusy();
+                break;
+            case "XRAYREQ":
+                ProcessUpdateXRAYREQ xryReq = new ProcessUpdateXRAYREQ();
+                xryReq.updateLockCase(orderId, busy, env.UserID);
+                break;
+        }
+    }
 
     protected void RadAjaxManager1_AjaxRequest(object sender, AjaxRequestEventArgs e)
     {
@@ -1335,6 +1449,14 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
                 {
                     setPageDetail(param.ORDER_ID, param.SCHEDULE_ID);
                 }
+                else
+                {
+                    updateBusyCase(param.ORDER_ID.ToString() != "0" ? "XRAYREQ" : "SCHEDULE",
+                            Convert.ToInt32(param.ORDER_ID),
+                            Convert.ToInt32(param.SCHEDULE_ID),
+                            "N"
+                            );
+                }
                 break;
             case "ClinicalPopup":
                 modifiedData_grdData();
@@ -1344,6 +1466,18 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
                 break;
             case "checkRefUnit":
                 Response.Redirect(@"../../Forms/Orders/frmEnvisionOrderNW.aspx");
+                break;
+            case "COVID":
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openQuickOrder", "showQuickOrder(" + param.QUICKEXAM_ID + ");", true);
+                break;
+            case "OnlineAlertPatientPhone":
+                string strXTRAFORM = Session["XTRAFORM"] as string;
+                string strIS_ONLINE = Session["IS_ONLINE"] as string;
+                string strORDER_ID = Session["ORDER_ID"] as string;
+                string reg_id = Session["REG_ID"] as string;
+                string printor = Session["PRINTOR"] as string;
+                string url = @"../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=" + strXTRAFORM + "&IS_ONLINE=" + strIS_ONLINE + "&ORDER_ID=" + strORDER_ID + "&PRINTOR=" + printor;
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
                 break;
             #endregion
         }

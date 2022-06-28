@@ -1,0 +1,76 @@
+//---------------------------------------------------------------------------------------------
+//         Description.
+//---------------------------------------------------------------------------------------------
+//         Create by  :    
+//         Email      :    
+//         Generate   :    03/04/2009 05:03:16
+//         Objecttive :    
+//---------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Data.Common;
+
+using Envision.Common;
+
+namespace Envision.DataAccess.Insert
+{
+	public class GBLRadexperienceInsertData : DataAccessBase 
+	{
+        public GBL_RADEXPERIENCE GBL_RADEXPERIENCE { get; set; }
+        public GBLRadexperienceInsertData()
+		{
+            GBL_RADEXPERIENCE = new GBL_RADEXPERIENCE();
+			StoredProcedureName = StoredProcedure.Prc_GBL_RADEXPERIENCE_Insert;
+		}
+		public bool Add()
+		{
+            ParameterList = buildParameter();
+            ExecuteNonQuery();
+			return true;
+		}
+		public bool Add(DbTransaction tran) 
+		{
+
+                ParameterList = buildParameter();
+                Transaction = tran;
+                ExecuteNonQuery();
+
+			return true;
+		}
+        private DbParameter[] buildParameter()
+        {
+            DbParameter[] parameters ={
+Parameter("@RADIOLOGIST_ID",GBL_RADEXPERIENCE.RADIOLOGIST_ID)
+,Parameter("@AUTO_REFRESH_WL_SEC",GBL_RADEXPERIENCE.AUTO_REFRESH_WL_SEC)
+,Parameter("@DASHBOARD_DEF_SEARCH",GBL_RADEXPERIENCE.DASHBOARD_DEF_SEARCH)
+,Parameter("@LOAD_FINALIZED_EXAMS",GBL_RADEXPERIENCE.LOAD_FINALIZED_EXAMS)
+,Parameter("@ALL_EXAM_VISIBLE",GBL_RADEXPERIENCE.ALL_EXAM_VISIBLE)
+,Parameter("@LOAD_ALL_EXAM",GBL_RADEXPERIENCE.LOAD_ALL_EXAM)
+,Parameter("@AUTO_START_ORDER_IMG",GBL_RADEXPERIENCE.AUTO_START_ORDER_IMG)
+,Parameter("@AUTO_START_PACS_IMG",GBL_RADEXPERIENCE.AUTO_START_PACS_IMG)
+,Parameter("@DEF_DATE_RANGE",GBL_RADEXPERIENCE.DEF_DATE_RANGE)
+,Parameter("@REMEMBER_GRID_ORDER",GBL_RADEXPERIENCE.REMEMBER_GRID_ORDER)
+,Parameter("@GRID_DBL_CLICK_TO",GBL_RADEXPERIENCE.GRID_DBL_CLICK_TO)
+,Parameter("@FINISH_WRITING_REFER_TO",GBL_RADEXPERIENCE.FINISH_WRITING_REFER_TO)
+,Parameter("@ALLOW_OTHERSTO_FINALIZE",GBL_RADEXPERIENCE.ALLOW_OTHERSTO_FINALIZE)
+,Parameter("@FONT_FACE",GBL_RADEXPERIENCE.FONT_FACE)
+,Parameter("@FONT_SIZE",GBL_RADEXPERIENCE.FONT_SIZE)
+,Parameter("@SIGNATURE_TEXT",GBL_RADEXPERIENCE.SIGNATURE_TEXT)
+,Parameter("@SIGNATURE_SCAN",GBL_RADEXPERIENCE.SIGNATURE_SCAN)
+,Parameter("@USED_SIGNATURE",GBL_RADEXPERIENCE.USED_SIGNATURE)
+,Parameter("@WHEN_GROUP_SIGN_USE",GBL_RADEXPERIENCE.WHEN_GROUP_SIGN_USE)
+,Parameter("@ORG_ID",GBL_RADEXPERIENCE.ORG_ID)
+,Parameter("@CREATED_BY",GBL_RADEXPERIENCE.CREATED_BY)
+,Parameter("@SIGNATURE_RTF",GBL_RADEXPERIENCE.SIGNATURE_RTF)
+,Parameter("@SIGNATURE_HTML",GBL_RADEXPERIENCE.SIGNATURE_HTML)
+,Parameter("@MINIMIZE_CHARACTER",GBL_RADEXPERIENCE.MINIMIZE_CHARACTER) 
+,Parameter("@AUTO_EXAMNAME",GBL_RADEXPERIENCE.AUTO_EXAMNAME) 
+,Parameter("@AUTO_CLINICALINDICATION",GBL_RADEXPERIENCE.AUTO_CLINICALINDICATION) 
+            };
+            return parameters;
+        }
+	}
+}
+

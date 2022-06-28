@@ -102,6 +102,15 @@ public partial class frmEnvisionOrderWL {
     protected global::Telerik.Web.UI.RadWindow windowMultiMessageBox;
     
     /// <summary>
+    /// windowOnlineMessageBoxBusy control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadWindow windowOnlineMessageBoxBusy;
+    
+    /// <summary>
     /// windowCancelReason control.
     /// </summary>
     /// <remarks>
@@ -154,6 +163,15 @@ public partial class frmEnvisionOrderWL {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadWindow windowPrintDocument;
+    
+    /// <summary>
+    /// windowCovid control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadWindow windowCovid;
     
     /// <summary>
     /// labelHead control.

@@ -882,8 +882,8 @@
             <td colspan="2">
                 <table width="100%">
                     <tr>
-                        <td class="favoritStyle"><telerik:RadButton ID="favMRIMSKArthrography"      Text="" Width="5px" style="vertical-align:top;"                      Value="XM79"        runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle"><telerik:RadButton    ID="chkMRIMSKArthrography"      Text="MRI Arthrography"                 Value="XM79"        runat="server" ButtonType="ToggleButton" GroupName="MRI"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="favoritStyle"><telerik:RadButton ID="favMRIMSKArthrography"      Text="" Width="5px" style="vertical-align:top;"                      Value="XM087"        runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkMRIMSKArthrography"      Text="MR  Arthrography : Shoulder jt.(1 ข้าง)"                 Value="XM087"        runat="server" ButtonType="ToggleButton" GroupName="MRI"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>

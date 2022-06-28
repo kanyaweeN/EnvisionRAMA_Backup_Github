@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Envision.Operational.Configs;
 using Envision5API3rdPartyServices.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,9 @@ namespace Envision5API3rdPartyServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<EnvisionConfig>(Configuration.GetSection("EnvisionConfig"));
+            services.Configure<ThirdPartyConfig>(Configuration.GetSection("ThirdPartyConfig"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -56,6 +60,7 @@ namespace Envision5API3rdPartyServices
             }
 
             app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseMiddleware<AppSettingMiddleware>();
 
             app.UseHttpsRedirection();
 

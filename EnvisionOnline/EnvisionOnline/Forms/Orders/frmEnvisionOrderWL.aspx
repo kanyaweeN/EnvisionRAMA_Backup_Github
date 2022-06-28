@@ -63,8 +63,11 @@
                     case 'CannotPrint':
                         window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args + "&ALT_UID=ONL4019", "windowOnlineMessageBox");
                         break;
+                    case 'CannotPrintRequest':
+                        window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args + "&ALT_UID=ONL4020", "windowOnlineMessageBox");
+                        break;
                     case 'IsBusy':
-                        window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args , "windowOnlineMessageBox");
+                        window.radopen("../../Forms/Dialogs/OnlineMessageBoxBusy.aspx?FROM=" + args + "&ALT_UID=ONL4021", "windowOnlineMessageBoxBusy");   
                         break;
                     case 'DeleteSchedule':
                         window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args, "windowOnlineMessageBox");
@@ -106,13 +109,20 @@
             }
             var popupWin;
             function showNewWindows(args) {
-                popupWin = window.open("http://miracleonline/SynapseManageLink/AccessionNOpacsurl.html?AccessionNo=" + args, "name");
+                popupWin = window.open("http://localhost:9090?QueryMode=AN&Value=" + args, "name");
                 popupWin.focus();
                 return false;
             }
             function showQuickOrder(arg) {
                 window.radopen("../../Forms/Dialogs/OnlineClinicalIndicationPopup.aspx?EXAM_ID="+arg.toString(), "windowQuickOrder");
             }
+            function httpGet(theUrl) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                xmlHttp.send(null);
+                return xmlHttp.responseText;
+            }
+
         </script>
     </telerik:RadCodeBlock>
     <telerik:RadCodeBlock ID="blockAjaxManage" runat="server">
@@ -143,6 +153,9 @@
                 else if (arg == 'ClinicalPopup') {
                     RefreshGridWorklist();
                 }
+                else {
+                    set_AjaxRequest(arg);
+                }
             }
             function chkMessageBox(args) {
                 set_AjaxRequest(args);
@@ -168,7 +181,10 @@
                     window.open('http://miracleonline/manualonlinerequest/pdf/SimpleScreening.pdf', '_newtab');
                     break;
                 }
-            }
+        }
+        function showCovid() {
+            window.radopen("../../Forms/Dialogs/frmCovidDetail.aspx", "windowCovid");
+        }
         </script>
     </telerik:RadCodeBlock>
    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" />
@@ -195,14 +211,20 @@
 	<telerik:RadWindowManager ID="RadWindowManager1" ShowContentDuringLoad="False" VisibleStatusbar="false"
         runat="server" EnableShadow="true">
         <Windows>
-            <telerik:RadWindow ID="windowOnlineMessageBox" runat="server" Behaviors="Close, Move" AutoSizeBehaviors="HeightProportional"
+            <telerik:RadWindow ID="windowOnlineMessageBox" runat="server" Behaviors="Move" AutoSizeBehaviors="HeightProportional"
                 Modal="true" Width="400" Height="200" NavigateUrl="~/Forms/Dialogs/OnlineMessageBox.aspx"
                 OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
         <Windows>
-            <telerik:RadWindow ID="windowMultiMessageBox" runat="server" Behaviors="Close, Move" AutoSizeBehaviors="HeightProportional"
+            <telerik:RadWindow ID="windowMultiMessageBox" runat="server" Behaviors="Move" AutoSizeBehaviors="HeightProportional"
                 Modal="true" Width="400" Height="200" NavigateUrl="~/Forms/Dialogs/OnlineMultiMessageBox.aspx"
+                OnClientClose="OnClientClose">
+            </telerik:RadWindow>
+        </Windows>
+        <Windows>
+            <telerik:RadWindow ID="windowOnlineMessageBoxBusy" runat="server" Behaviors="Move" AutoSizeBehaviors="HeightProportional"
+                Modal="true" Width="400" Height="200" NavigateUrl="~/Forms/Dialogs/OnlineMessageBoxBusy.aspx"
                 OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
@@ -238,6 +260,11 @@
              VisibleStatusbar="false" AutoSize="true" AutoSizeBehaviors="Height" OffsetElementID="offsetElement"
             Behaviors="Close, Move" Modal="true" ReloadOnShow="true"
               Width="700" OnClientClose="OnClientClose">
+            </telerik:RadWindow>
+        </Windows>
+        <Windows>
+            <telerik:RadWindow ID="windowCovid" runat="server" Behaviors="Close, Move" Modal="true" ReloadOnShow="true"
+                Width="900" Height="530" OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
     </telerik:RadWindowManager>

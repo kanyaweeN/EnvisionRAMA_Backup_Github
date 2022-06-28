@@ -344,6 +344,24 @@ namespace EnvisionInterfaceEngine.Operational.HL7
             html += " <br>  <br> " + generateResultDatetime(resultData["RESULT_STATUS"].ToString());
             //Add result stat
             html += " <br>  <br> " + generateResultStat(resultData["NOTE_NO"].ToString());
+            //Add severity Covid Desc.
+            if (resultData["SEVERITY_UID"].ToString().Contains("COVID"))
+            {
+                html += " <br>";
+                html += "<b>Category1       : Normal chest X-rayor no abnormality detected.</b><br>";
+                html += "<b>Category2       : Minor abnormalities unrelated toCOVID-19 pneumonia.</b><br>";
+                html += "-	Anatomical variants, including breast implants and scoliosis.<br>";
+                html += "-	Features favoring technical issues (e.g. suboptimal inspiration, off-center exposure, etc.) but not affecting film interpretation.<br>";
+                html += "-	Irrelevant abnormalities, e.g. old TB, mild cardiomegaly, aortic atherosclerosis, etc.<br>";
+                html += "<b>Category C**  : Low probability of or atypical for COVID-19 pneumonia, but with other clinically significant diseases requiring clinical correlation and further management.</b><br>";
+                html += "-	Other clinically significant diseases, e.g. bacterial pneumonia, active TB, congestive heart failure, pneumothorax, pleural effusion, malignancy, etc.<br>";
+                html += "<b>Category3*** : Equivocal/unsure/indeterminate for COVID-19 pneumonia.</b><br>";
+                html += "-	Some features (e.g. subtle,  poorly defined opacities) that can be due toearly/mild/atypical COVID-19 pneumonia or other causes (e.g. pseudolesions, other diseases) requiring   clinical correlation and follow-up or repeated chest X-ray.<br>";
+                html += "<b>Category 4       : Suspicious for early/mild COVID-19 pneumonia.</b><br>";
+                html += "-	Single or multifocal unilateral poorly defined ground-glass opacities.<br>";
+                html += "<b>Category 5       : Typical for COVID-19 pneumonia.</b><br>";
+                html += "-	Multifocal bilateralperipheral opacities or opacities with rounded morphology.<br>";
+            }
             return html;
         }
         private static string generateResultHTML(string resultRTF)

@@ -9,6 +9,7 @@ namespace EnvisionInterface.DataAccess
         Prc_MammoICheckup_Select,
         Prc_MammoICheckup_SelectByDate,
         SCB_Appointment_Select_ByHN,
+        SCB_Appointment_Select_ByHN2,
         SCB_Appointment_Select_ByAppointID,
         SCB_Appointment_Select_ByXrayReqID,
     }

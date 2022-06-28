@@ -27,6 +27,8 @@ using Envision.BusinessLogic.ProcessRead;
 using Envision.BusinessLogic.ProcessUpdate;
 using Envision.NET.Forms.Dialog;
 using Miracle.OSDetail;
+using Envision.BusinessLogic;
+using Envision.Operational.PACS;
 
 namespace Envision.NET
 {
@@ -752,33 +754,48 @@ namespace Envision.NET
                 IEnumerable<HR_EMP> hrData = null;
                 HR_EMP userInfo = new HR_EMP();
                 string ltype = string.Empty;
-
+                IEnumerable<HR_EMP> empSelect;
                 #region Check UserName, Password, Authentication.
-                if (cmbAuth.Text == "Windows Authentication")
+                switch (cmbAuth.SelectedIndex)
                 {
-                    if (UserExists(txtUser.Text.Trim(), txtPassword.Text.Trim()))
-                    {
-                        ltype = "W";
-                        IEnumerable<HR_EMP> empSelect = from emp in empListData where (emp.USER_NAME == txtUser.Text) && (emp.IS_ACTIVE == 'Y') select emp;
+                    case 2:
+                        if (UserExists(txtUser.Text.Trim(), txtPassword.Text.Trim()))
+                        {
+                            ltype = "W";
+                            empSelect = from emp in empListData where (emp.USER_NAME == txtUser.Text) && (emp.IS_ACTIVE == 'Y') select emp;
+                            hrData = empSelect.ToList();
+                            env.PasswordAD = txtPassword.Text.Trim();
+                        }
+                        else
+                        {
+                            string id = msg.ShowAlert("UID003", new GBLEnvVariable().CurrentLanguageID);
+                            txtUser.Focus();
+                            return;
+                        } 
+                        break;
+                    case 0:
+                        ltype = "E";
+                        HIS_Patient pateintService = new HIS_Patient();
+                        DataSet ds = pateintService.Get_staff_detail(txtUser.Text.Trim(), txtPassword.Text.Trim());
+                        if (Utilities.IsHaveData(ds))
+                        {
+                            if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["name"].ToString()))
+                            {
+                                empSelect = from emp in empListData where (emp.USER_NAME == txtUser.Text) && (emp.IS_ACTIVE == 'Y') select emp;
+                                hrData = empSelect.ToList();
+                                env.PasswordAD = txtPassword.Text.Trim();
+                            }
+                        }
+                        break;
+                    default:
+                        if (Regex.IsMatch(txtPassword.Text.Trim(), "Envision", RegexOptions.IgnoreCase)) txtPassword.Text = "envision";
+                        ltype = "D";
+                        string pwd = Utilities.Encrypt(txtPassword.Text.Trim());
+                        empSelect = from emp in empListData where (emp.USER_NAME == txtUser.Text) && (emp.PWD == pwd) && (emp.IS_ACTIVE == 'Y') select emp;
                         hrData = empSelect.ToList();
-                        env.PasswordAD = txtPassword.Text.Trim();
-                    }
-                    else
-                    {
+                        break;
+                }
 
-                        string id = msg.ShowAlert("UID003", new GBLEnvVariable().CurrentLanguageID);
-                        txtUser.Focus();
-                        return;
-                    }
-                }
-                else
-                {
-                    if (Regex.IsMatch(txtPassword.Text.Trim(), "Envision", RegexOptions.IgnoreCase)) txtPassword.Text = "envision";
-                    ltype = "D";
-                    string pwd = Utilities.Encrypt(txtPassword.Text.Trim());
-                    IEnumerable<HR_EMP> empSelect = from emp in empListData where (emp.USER_NAME == txtUser.Text) && (emp.PWD == pwd) && (emp.IS_ACTIVE == 'Y') select emp;
-                    hrData = empSelect.ToList();
-                }
                 if (hrData == null || hrData.Count() == 0)
                 {
                     string id = msg.ShowAlert("UID003", new GBLEnvVariable().CurrentLanguageID);
@@ -912,6 +929,7 @@ namespace Envision.NET
                     env.DateFormat = gEnv.DT_FMT;
                     env.FontName = gEnv.DEFAULT_FONT_FACE;
                     env.FontSize = gEnv.DEFAULT_FONT_SIZE.ToString();
+                    env.PacsDomain = gEnv.PACS_DOMAIN;
                     env.PacsIp = gEnv.PACS_IP;
                     env.PacsPort = gEnv.PACS_PORT;
                     env.PacsUrl = gEnv.PACS_URL1;
@@ -963,6 +981,14 @@ namespace Envision.NET
                     Envision.NET.Forms.Main.MasterForm.DefaultFontSize = env.FontSize;
                     Envision.NET.Forms.Main.MasterForm.DefaultSkinName = "Office 2007 Blue";
                     Envision.NET.Forms.Main.MasterForm.TimeFormat = env.TimeFormat;
+                    #endregion
+
+                    #region AuthenPACS
+                    if (env.LoginType == "E")
+                    {
+                        OpenPACS authPacs = new OpenPACS();
+                        authPacs.AuthenPACS(txtUser.Text.Trim(), txtPassword.Text.Trim());
+                    }
                     #endregion
 
                     if (chkRem.Checked)

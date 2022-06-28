@@ -23,6 +23,7 @@ namespace Envision.NET.Forms.ResultEntry
         private string aaccessionNo = string.Empty;
         private string rreportText = string.Empty;
         private string rreportType = string.Empty;
+        private string rresultStatus = string.Empty;
         //BackUp parameters
         private int backupGradeId = 0;
         private int backupLangId = 0;
@@ -60,6 +61,26 @@ namespace Envision.NET.Forms.ResultEntry
             aaccessionNo = accessionNo;
             rreportText = report_text;
             rreportType = report_type;
+            rresultStatus = report_type;
+            InitializeComponent();
+            this.Load += fromPopupEvaluation_Load;
+
+            this.panelEvaluationReport.Click += new EventHandler(panelEvaluationReport_Click);
+            this.Size = new Size(800, 590);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.panelEvaluationReport.Expanded = false;
+            reportText = report_text;
+        }
+        public frmPopupEvaluationExtend(int[] assign_id, int evalutionby, string accessionNo, string report_text, string report_type, string result_status)
+        {
+            env = new GBLEnvVariable();
+            gui = GuiMode.Normal;
+            assignmentIds = assign_id;
+            EvaBy = evalutionby;
+            aaccessionNo = accessionNo;
+            rreportText = report_text;
+            rreportType = report_type;
+            rresultStatus = result_status;
             InitializeComponent();
             this.Load += fromPopupEvaluation_Load;
 
@@ -216,6 +237,7 @@ namespace Envision.NET.Forms.ResultEntry
                         AcademicManagement.AC_EVALUATION.LANGUAGE_OF_REPORT = Convert.ToInt32(selectedLangRows[0]["REPORT_LANG_ID"]);
                         AcademicManagement.AC_EVALUATION.LANGUAGE_OF_REPORT_COMMENTS = tbLangComment.Text;
                         AcademicManagement.AC_EVALUATION.ORG_ID = env.OrgID;
+                        AcademicManagement.AC_EVALUATION.RESULT_STATUS = rresultStatus;
                         AcademicManagement.UpdateEvaluation();
                     }
                 }
@@ -241,6 +263,7 @@ namespace Envision.NET.Forms.ResultEntry
                         AcademicManagement.AC_EVALUATION.LANGUAGE_OF_REPORT = Convert.ToInt32(selectedLangRows[0]["REPORT_LANG_ID"]);
                         AcademicManagement.AC_EVALUATION.LANGUAGE_OF_REPORT_COMMENTS = tbLangComment.Text;
                         AcademicManagement.AC_EVALUATION.ORG_ID = env.OrgID;
+                        AcademicManagement.AC_EVALUATION.RESULT_STATUS = rresultStatus;
                         AcademicManagement.AddEvaluation();
                     }
                 }

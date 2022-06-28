@@ -81,6 +81,7 @@ namespace Envision.Common
             public string REPORT_TEXT { get; set; }
             public string REPORT_TYPE { get; set; }
             public int SEVERITY_ID { get; set; }
+            public string RESULT_STATUS { get; set; }
 			#endregion 
 
 

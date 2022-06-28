@@ -113,7 +113,17 @@
                 <telerik:RadToolBarButton Value="rtoolbtnChkAll">
                     <ItemTemplate>
                         <telerik:RadButton ID="chkShowAllData" runat="server" ButtonType="ToggleButton" ToggleType="CheckBox"
-                            Text="Show All Data" CommandName="Play" OnCheckedChanged="chkShowAllData_OnCheckedChanged"
+                            Text="All Visit" CommandName="Play" OnCheckedChanged="chkShowAllData_OnCheckedChanged"
+                            AutoPostBack="true" >
+                        </telerik:RadButton>
+                    </ItemTemplate>
+                </telerik:RadToolBarButton>
+                <telerik:RadToolBarButton IsSeparator="True">
+                </telerik:RadToolBarButton>
+                <telerik:RadToolBarButton Value="rtoolbtnChkAllDept">
+                    <ItemTemplate>
+                        <telerik:RadButton ID="chkAllDept" runat="server" ButtonType="ToggleButton" ToggleType="CheckBox"
+                            Text="All Department" CommandName="Play" OnCheckedChanged="chkAllDept_OnCheckedChanged"
                             AutoPostBack="true" >
                         </telerik:RadButton>
                     </ItemTemplate>
@@ -138,11 +148,17 @@
                                 <telerik:GridSortExpression SortOrder="Descending" FieldName="EFFECTIVE_START_DATE" />
                             </SortExpressions>
                             <Columns>
-                                <telerik:GridButtonColumn CommandName="grdbtnUpload" HeaderText="Upload" ButtonType="ImageButton"
-                                    UniqueName="grdbtnUpload_Unigue" ImageUrl="../../Resources/ICON/upload-16.png">
+                                <telerik:GridButtonColumn CommandName="grdbtnVna" HeaderText="List Visit" ButtonType="ImageButton"
+                                    UniqueName="grdbtnVna_Unigue" ImageUrl="../../Resources/ICON/vna_16.png">
                                     <HeaderStyle Width="25px" />
                                      <ItemStyle Width="16px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                 </telerik:GridButtonColumn>
+                                <telerik:GridBoundColumn DataField="IMAGECOUNT" HeaderText="Image Count" SortExpression="IMAGECOUNT"
+                                    UniqueName="colIMAGECOUNT" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
+                                    Visible="true" >
+                                    <HeaderStyle Width="50px" />
+                                    <ItemStyle Width="50px" Wrap="true" />
+                                </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn DataField="HN" HeaderText="HN" SortExpression="HN"
                                     UniqueName="colHN" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
                                     Visible="true" >
@@ -155,11 +171,6 @@
                                     <HeaderStyle Width="100px" />
                                     <ItemStyle Width="100px" Wrap="true" />
                                 </telerik:GridBoundColumn>
-                                <telerik:GridButtonColumn CommandName="grdbtnViewer" HeaderText="Viewer" ButtonType="ImageButton"
-                                    UniqueName="grdbtnViewer_Unigue" ImageUrl="../../Resources/ICON/vna_16.png">
-                                    <HeaderStyle Width="25px" />
-                                    <ItemStyle Width="16px" HorizontalAlign="Center" VerticalAlign="Middle" />
-                                </telerik:GridButtonColumn>
                                 <telerik:GridBoundColumn DataField="VN" HeaderText="Visit Number" SortExpression="Visit Number"
                                     UniqueName="colVN" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
                                     Visible="true">
@@ -186,6 +197,18 @@
                                 </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn DataField="VNA_PATH" HeaderText="VNA_PATH" SortExpression="VNA_PATH"
                                     UniqueName="colVNA_PATH" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
+                                     Visible="false">
+                                    <HeaderStyle Width="200px" />
+                                    <ItemStyle Width="200px" Wrap="true" />
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="ENC_ID" HeaderText="ENC_ID" SortExpression="ENC_ID"
+                                    UniqueName="colENC_ID" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
+                                     Visible="false">
+                                    <HeaderStyle Width="200px" />
+                                    <ItemStyle Width="200px" Wrap="true" />
+                                </telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn DataField="ENC_TYPE" HeaderText="ENC_TYPE" SortExpression="ENC_TYPE"
+                                    UniqueName="colENC_TYPE" AutoPostBackOnFilter="true" ShowFilterIcon="false" FilterControlWidth="100%"
                                      Visible="false">
                                     <HeaderStyle Width="200px" />
                                     <ItemStyle Width="200px" Wrap="true" />

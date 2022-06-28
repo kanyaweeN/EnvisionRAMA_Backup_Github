@@ -1103,56 +1103,56 @@
             // 
             // txtGradeCreatedBy
             // 
-            this.txtGradeCreatedBy.Location = new System.Drawing.Point(644, 38);
+            this.txtGradeCreatedBy.Location = new System.Drawing.Point(634, 38);
             this.txtGradeCreatedBy.MenuManager = this.ribbonControl1;
             this.txtGradeCreatedBy.Name = "txtGradeCreatedBy";
-            this.txtGradeCreatedBy.Size = new System.Drawing.Size(225, 20);
+            this.txtGradeCreatedBy.Size = new System.Drawing.Size(235, 20);
             this.txtGradeCreatedBy.StyleController = this.layoutControl3;
             this.txtGradeCreatedBy.TabIndex = 112;
             // 
             // txtGradeCreatedOn
             // 
-            this.txtGradeCreatedOn.Location = new System.Drawing.Point(314, 38);
+            this.txtGradeCreatedOn.Location = new System.Drawing.Point(304, 38);
             this.txtGradeCreatedOn.MenuManager = this.ribbonControl1;
             this.txtGradeCreatedOn.Name = "txtGradeCreatedOn";
-            this.txtGradeCreatedOn.Size = new System.Drawing.Size(224, 20);
+            this.txtGradeCreatedOn.Size = new System.Drawing.Size(234, 20);
             this.txtGradeCreatedOn.StyleController = this.layoutControl3;
             this.txtGradeCreatedOn.TabIndex = 111;
             // 
             // txtGradeValue
             // 
-            this.txtGradeValue.Location = new System.Drawing.Point(644, 7);
+            this.txtGradeValue.Location = new System.Drawing.Point(634, 7);
             this.txtGradeValue.MenuManager = this.ribbonControl1;
             this.txtGradeValue.Name = "txtGradeValue";
-            this.txtGradeValue.Size = new System.Drawing.Size(225, 20);
+            this.txtGradeValue.Size = new System.Drawing.Size(235, 20);
             this.txtGradeValue.StyleController = this.layoutControl3;
             this.txtGradeValue.TabIndex = 110;
             this.txtGradeValue.Visible = false;
             // 
             // txtGradeLabel
             // 
-            this.txtGradeLabel.Location = new System.Drawing.Point(314, 7);
+            this.txtGradeLabel.Location = new System.Drawing.Point(304, 7);
             this.txtGradeLabel.MenuManager = this.ribbonControl1;
             this.txtGradeLabel.Name = "txtGradeLabel";
-            this.txtGradeLabel.Size = new System.Drawing.Size(224, 20);
+            this.txtGradeLabel.Size = new System.Drawing.Size(234, 20);
             this.txtGradeLabel.StyleController = this.layoutControl3;
             this.txtGradeLabel.TabIndex = 109;
             // 
             // txtGradeLastModifiedBy
             // 
-            this.txtGradeLastModifiedBy.Location = new System.Drawing.Point(314, 69);
+            this.txtGradeLastModifiedBy.Location = new System.Drawing.Point(304, 69);
             this.txtGradeLastModifiedBy.MenuManager = this.ribbonControl1;
             this.txtGradeLastModifiedBy.Name = "txtGradeLastModifiedBy";
-            this.txtGradeLastModifiedBy.Size = new System.Drawing.Size(224, 20);
+            this.txtGradeLastModifiedBy.Size = new System.Drawing.Size(234, 20);
             this.txtGradeLastModifiedBy.StyleController = this.layoutControl3;
             this.txtGradeLastModifiedBy.TabIndex = 107;
             // 
             // txtGradeLastModifiedOn
             // 
-            this.txtGradeLastModifiedOn.Location = new System.Drawing.Point(314, 100);
+            this.txtGradeLastModifiedOn.Location = new System.Drawing.Point(304, 100);
             this.txtGradeLastModifiedOn.MenuManager = this.ribbonControl1;
             this.txtGradeLastModifiedOn.Name = "txtGradeLastModifiedOn";
-            this.txtGradeLastModifiedOn.Size = new System.Drawing.Size(224, 20);
+            this.txtGradeLastModifiedOn.Size = new System.Drawing.Size(234, 20);
             this.txtGradeLastModifiedOn.StyleController = this.layoutControl3;
             this.txtGradeLastModifiedOn.TabIndex = 105;
             // 
@@ -1250,7 +1250,7 @@
             this.layoutControlItem18.Size = new System.Drawing.Size(330, 491);
             this.layoutControlItem18.Text = "Last Modified On";
             this.layoutControlItem18.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutGrade
             // 
@@ -1261,7 +1261,7 @@
             this.layoutGrade.Size = new System.Drawing.Size(330, 31);
             this.layoutGrade.Text = "Feedback Label";
             this.layoutGrade.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutGrade.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutGrade.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutValue
             // 
@@ -1272,7 +1272,7 @@
             this.layoutValue.Size = new System.Drawing.Size(331, 31);
             this.layoutValue.Text = "Feedback Value";
             this.layoutValue.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutValue.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutValue.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlItem21
             // 
@@ -1283,7 +1283,7 @@
             this.layoutControlItem21.Size = new System.Drawing.Size(330, 31);
             this.layoutControlItem21.Text = "Created On";
             this.layoutControlItem21.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlItem23
             // 
@@ -1294,7 +1294,7 @@
             this.layoutControlItem23.Size = new System.Drawing.Size(331, 31);
             this.layoutControlItem23.Text = "Created By";
             this.layoutControlItem23.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlItem19
             // 
@@ -1318,7 +1318,7 @@
             this.layoutControlItem20.Size = new System.Drawing.Size(330, 31);
             this.layoutControlItem20.Text = "Last Modified By";
             this.layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(80, 13);
             // 
             // xtraAC_REPORTINGLANGUAGE
             // 

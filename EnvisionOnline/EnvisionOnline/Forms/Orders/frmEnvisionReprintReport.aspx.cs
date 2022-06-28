@@ -14,6 +14,7 @@ using EnvisionOnline.BusinessLogic.ProcessRead;
 using System.Collections;
 using System.Drawing;
 using EnvisionOnline.Common.Common;
+using EnvisionOnline.PACS;
 
 public partial class frmEnvisionReprintReport : System.Web.UI.Page 
 {
@@ -58,6 +59,7 @@ public partial class frmEnvisionReprintReport : System.Web.UI.Page
             env.PacsUrl = dtGBL.Rows[0]["PACS_URL1"].ToString();
             env.PacsUrl2 = dtGBL.Rows[0]["PACS_URL2"].ToString();
             env.PacsUrl3 = dtGBL.Rows[0]["PACS_URL3"].ToString();
+            env.PacsDomain = dtGBL.Rows[0]["PACS_DOMAIN"].ToString();
             env.TemplateID = 0;
             env.CurrencyName = string.Empty;
             env.CurrencySymbol = string.Empty;
@@ -106,6 +108,8 @@ public partial class frmEnvisionReprintReport : System.Web.UI.Page
             //string url = env.PacsUrl + values["Accession No"].ToString();
             string url = values["Accession No"].ToString();
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openSynapse", "showNewWindows('" + url + "');", true);
+            //new OpenPACS(env, env.PacsUrl).OpenIEAccession(url, env.UserName, env.PasswordAD, "", env.LoginType);
+
         }
         else if (e.CommandName == "grdbtnPrintA5")
         {

@@ -11,6 +11,7 @@ using Envision.Operational;
 using Envision.NET.Forms.Dialog;
 using System.Linq;
 using Miracle.Util;
+using Envision.BusinessLogic;
 
 namespace Envision.NET.Forms.Dialog
 {
@@ -28,12 +29,14 @@ namespace Envision.NET.Forms.Dialog
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text.Trim() == string.Empty) {
+            if (txtUserName.Text.Trim() == string.Empty)
+            {
                 string id = msg.ShowAlert("UID001", new GBLEnvVariable().CurrentLanguageID);
                 txtUserName.Focus();
                 return;
             }
-            if (txtPassword.Text.Trim() == string.Empty) {
+            if (txtPassword.Text.Trim() == string.Empty)
+            {
                 string id = msg.ShowAlert("UID002", new GBLEnvVariable().CurrentLanguageID);
                 txtPassword.Focus();
                 return;
@@ -58,12 +61,30 @@ namespace Envision.NET.Forms.Dialog
             EnvisionDataContext db = new EnvisionDataContext();
 
             IQueryable<HR_EMP> empListData = from emp in db.HR_EMPs select emp;
+            IEnumerable<HR_EMP> empSelect;
             IEnumerable<HR_EMP> hrData = null;
             HR_EMP userInfo = new HR_EMP();
 
-            string pwd = Utilities.Encrypt(txtPassword.Text.Trim());
-            IEnumerable<HR_EMP> empSelect = from emp in empListData where (emp.USER_NAME == txtUserName.Text) && (emp.PWD == pwd) && (emp.IS_ACTIVE == 'Y') select emp;
-            hrData = empSelect.ToList();
+            switch (env.LoginType)
+            {
+                case "E":
+                    HIS_Patient pateintService = new HIS_Patient();
+                    DataSet ds = pateintService.Get_staff_detail(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+                    if (Utilities.IsHaveData(ds))
+                    {
+                        if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["name"].ToString()))
+                        {
+                            empSelect = from emp in empListData where (emp.USER_NAME == txtUserName.Text) && (emp.IS_ACTIVE == 'Y') select emp;
+                            hrData = empSelect.ToList();
+                        }
+                    }
+                    break;
+                default:
+                    string pwd = Utilities.Encrypt(txtPassword.Text.Trim());
+                    empSelect = from emp in empListData where (emp.USER_NAME == txtUserName.Text) && (emp.PWD == pwd) && (emp.IS_ACTIVE == 'Y') select emp;
+                    hrData = empSelect.ToList();
+                    break;
+            }
 
             if (hrData == null || hrData.Count() == 0)
             {

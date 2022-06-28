@@ -142,6 +142,7 @@
     <Compile Include="ProcessRead\ProcessGetRISSessionMaxapp.cs" />
     <Compile Include="ProcessRead\ProcessGetVNAHRUnit.cs" />
     <Compile Include="ProcessRead\ProcessGetVNAWorklist.cs" />
+    <Compile Include="ProcessRead\ProcessGetXRAYREQ.cs" />
     <Compile Include="ProcessRead\ProcessResultEntryReport.cs" />
     <Compile Include="ProcessRead\ProcessScheduleReport.cs" />
     <Compile Include="ProcessUpdate\ProcessUpdateHREmp.cs" />

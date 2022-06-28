@@ -40,30 +40,22 @@ public partial class frmVNAWorklist : System.Web.UI.Page
         Hashtable values = new Hashtable();
         Session["values"] = values;
         item.ExtractValues(values);
-        if (e.CommandName == "grdbtnUpload")
+        if (e.CommandName == "grdbtnVna")
         {
+            if (values["VNA_PATH"] ==  null)
+            {
 
-            string url = "http://synapsevna.rama.mahidol.ac.th/connext-web/portal?";
-            url += "patientID=" + param.dsPatientData.Tables[0].Rows[0]["HN"].ToString(); ;
-            url += "&firstName=";// +param.dsPatientData.Tables[0].Rows[0]["FNAME"].ToString(); ;
-            url += "&lastName=";// +param.dsPatientData.Tables[0].Rows[0]["LNAME"].ToString(); ;
-            url += "&dob=" + Convert.ToDateTime(param.dsPatientData.Tables[0].Rows[0]["DOB"]).ToString("yyyy-MM-dd");
-            url += "&visitID=" + values["VN"].ToString();
-            url += "&creationDate=" + Convert.ToDateTime(values["EFFECTIVE_START_DATE"]).ToString("yyyy-MM-dd");
-            url += "&stmo=" + values["STMO_NAME"].ToString();
-            url += "&ehrUserID=" + env.UserUID;
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
-
-        }
-        else if (e.CommandName == "grdbtnViewer")
-        {
-
-            //string url = "http://10.6.85.232:8080/launch?";
-            //url += "action=search&Archive=synapsevna&username=admin&password=admin";
-            //url += "&patientID=" + values["HN"].ToString();
-
-            string url = values["VNA_PATH"].ToString();
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
+                string urlUpload = "http://envisionvna.rama.mahidol.ac.th/#/vna/listvisithis/:username/:encid/:enctype";
+                urlUpload = urlUpload.Replace(":username",env.UserName);
+                urlUpload = urlUpload.Replace(":encid", values["ENC_ID"].ToString());
+                urlUpload = urlUpload.Replace(":enctype", values["ENC_TYPE"].ToString());
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + urlUpload + "');", true);
+            }
+            else
+            {
+                string url = values["VNA_PATH"].ToString();
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openAlertPrintPreview", "showPrintPreview('" + url + "');", true);
+            }
         }
     }
 
@@ -77,8 +69,8 @@ public partial class frmVNAWorklist : System.Web.UI.Page
             if (!string.IsNullOrEmpty(dv.Row["VNA_PATH"].ToString()))
                 flag = true;
 
-            ImageButton imgBtnViewer = (ImageButton)gridDataItem["grdbtnViewer_Unigue"].Controls[0];
-            imgBtnViewer.Visible = flag;
+            ImageButton imgBtnVna = (ImageButton)gridDataItem["grdbtnVna_Unigue"].Controls[0];
+            imgBtnVna.ImageUrl = flag ? "../../Resources/ICON/vna_16.png" : "../../Resources/ICON/viewtree_24.png";
         }
     }
     protected void grdData_PreRender(object sender, EventArgs e)
@@ -117,30 +109,16 @@ public partial class frmVNAWorklist : System.Web.UI.Page
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
         param.dvGrid = new DataTable();
         RadButton chkShowAllData = (RadButton)rtoolSearch.FindItemByValue("rtoolbtnChkAll").FindControl("chkShowAllData");
-        //RadDatePicker dtFromDate = (RadDatePicker)rtoolSearch.Items.FindItemByValue("rtoolbtnDatetime").FindControl("dtFromDate");
-        //RadDatePicker dtToDate = (RadDatePicker)rtoolSearch.Items.FindItemByValue("rtoolbtnDatetime").FindControl("dtToDate");
-        //DateTime dtFrom = new DateTime();
-        //DateTime dtTo = new DateTime();
-        //if (dtFromDate.SelectedDate != null)
-        //    dtFrom = new DateTime(dtFromDate.SelectedDate.Value.Year, dtFromDate.SelectedDate.Value.Month, dtFromDate.SelectedDate.Value.Day, 0, 0, 0);
-        //if (dtToDate.SelectedDate != null)
-        //    dtTo = new DateTime(dtToDate.SelectedDate.Value.Year, dtToDate.SelectedDate.Value.Month, dtToDate.SelectedDate.Value.Day, 23, 59, 59);
-        //dtTo = dtTo.AddYears(10);
+        RadButton chkShowAllDept = (RadButton)rtoolSearch.FindItemByValue("rtoolbtnChkAllDept").FindControl("chkAllDept");
+
         int _mode = 0;
 
         DataTable dtDept = (DataTable)Application["UnitData"];
         DataRow[] rowRefUnit = dtDept.Select("UNIT_UID='" + param.REF_UNIT_UID + "'");
 
-        _mode = chkShowAllData.Checked ? 2 : 1;
         ProcessGetVNAWorklist pro = new ProcessGetVNAWorklist();
-        pro.VNA_WORKLIST.MODE = _mode;
-        pro.VNA_WORKLIST.HN = param.HN;
-        pro.VNA_WORKLIST.REF_UNIT = rowRefUnit.Length <= 0 ? 0 : Convert.ToInt32(rowRefUnit[0]["UNIT_ID"]);
-        //pro.VNA_WORKLIST.FROM_DATE = dtFromDate.SelectedDate == null ? DateTime.Now : dtFrom;
-        //pro.VNA_WORKLIST.TO_DATE = dtToDate.SelectedDate == null ? DateTime.Now : dtTo;
-        pro.Invoke();
-
-        return pro.Result.Tables[0];
+        DataSet ds = pro.getDataVna(param.HN, rowRefUnit.Length <= 0 ? 0 : Convert.ToInt32(rowRefUnit[0]["UNIT_ID"]), chkShowAllData.Checked, chkShowAllDept.Checked);
+        return ds.Tables[0];
     }
     private void get_AllRowFilter(RadGrid radGridData, DataTable dt, string _search)
     {
@@ -163,6 +141,10 @@ public partial class frmVNAWorklist : System.Web.UI.Page
         modifiedData_grdData();
     }
     protected void chkShowAllData_OnCheckedChanged(object sender, EventArgs e)
+    {
+        modifiedData_grdData();
+    }
+    protected void chkAllDept_OnCheckedChanged(object sender, EventArgs e)
     {
         modifiedData_grdData();
     }

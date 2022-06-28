@@ -34,6 +34,17 @@ namespace EnvisionOnline.DataAccess.Update
             ParameterList = buildParameterDelete();
             ExecuteNonQuery();
         }
+        public void updateLockCase(int order_id, string is_busy, int busy_by)
+        {
+            StoredProcedureName = StoredProcedure.Prc_XRAYREQ_UpdateBusyCase;
+            DbParameter[] parameters ={
+                Parameter("@ORDER_ID",order_id),
+                Parameter("@IS_BUSY",is_busy),
+                Parameter("@BUSY_BY",busy_by),
+                                      };
+            ParameterList = parameters;
+            ExecuteNonQuery();
+        }
         private DbParameter[] buildParameterDelete()
         {
             DbParameter[] parameters ={

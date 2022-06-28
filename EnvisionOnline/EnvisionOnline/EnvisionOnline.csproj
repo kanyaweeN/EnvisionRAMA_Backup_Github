@@ -130,8 +130,10 @@
     <Content Include="Forms\Admin\frmSetupCinicalIndicationWithUnit.aspx" />
     <Content Include="Forms\Admin\frmSetupDirectlyOrder.aspx" />
     <Content Include="Forms\Admin\frmSetupGroupExam.aspx" />
+    <Content Include="Forms\Dialogs\OnlineMessageBoxBusy.aspx" />
     <Content Include="Forms\Dialogs\frmAllNextAppointment.aspx" />
     <Content Include="Forms\Dialogs\frmBasicClinicalIndication.aspx" />
+    <Content Include="Forms\Dialogs\frmClinicalIndicationTypeWithParameter.aspx" />
     <Content Include="Forms\Dialogs\frmCovidDetail.aspx" />
     <Content Include="Forms\Dialogs\frmRiskincedent.aspx" />
     <Content Include="Forms\Dialogs\normalPageAllExam.aspx" />
@@ -202,6 +204,7 @@
     <Content Include="Resources\background.jpg" />
     <Content Include="Resources\ICON\Comment-add-icon16.png" />
     <Content Include="Resources\ICON\Comment-add-icon16_gray.png" />
+    <Content Include="Resources\ICON\listicon.svg" />
     <Content Include="Resources\ICON\MessageBoxs\flag32.png" />
     <Content Include="Resources\ICON\MessageBoxs\warning.png" />
     <Content Include="Resources\ICON\upload-16.png" />
@@ -412,6 +415,13 @@
     <Compile Include="Forms\Admin\masterAdmin.Master.designer.cs">
       <DependentUpon>masterAdmin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBoxBusy.aspx.cs">
+      <DependentUpon>OnlineMessageBoxBusy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\OnlineMessageBoxBusy.aspx.designer.cs">
+      <DependentUpon>OnlineMessageBoxBusy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dialogs\frmAllNextAppointment.aspx.cs">
       <DependentUpon>frmAllNextAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,6 +435,13 @@
     </Compile>
     <Compile Include="Forms\Dialogs\frmBasicClinicalIndication.aspx.designer.cs">
       <DependentUpon>frmBasicClinicalIndication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmClinicalIndicationTypeWithParameter.aspx.cs">
+      <DependentUpon>frmClinicalIndicationTypeWithParameter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmClinicalIndicationTypeWithParameter.aspx.designer.cs">
+      <DependentUpon>frmClinicalIndicationTypeWithParameter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dialogs\frmCovidDetail.aspx.cs">
       <DependentUpon>frmCovidDetail.aspx</DependentUpon>
@@ -877,6 +894,7 @@
     <Compile Include="OnlineRequestPage.aspx.designer.cs">
       <DependentUpon>OnlineRequestPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PACS\OpenPACS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportViewer\Data\dataBilling.cs">
       <DependentUpon>dataBilling.xsd</DependentUpon>

@@ -790,7 +790,7 @@ namespace Envision.NET.Forms.Schedule
         {
             LookUpSelect lvS = new LookUpSelect();
 
-            LookupData lv = new LookupData();
+            LookupData_Filter lv = new LookupData_Filter();
             lv.ValueUpdated += new ValueUpdatedEventHandler(departmentLookup_ValueUpdated);
             lv.AddColumn("UNIT_UID", "Unit Code", true, true);
             lv.AddColumn("UNIT_ID", "ID", false, true);
@@ -800,7 +800,7 @@ namespace Envision.NET.Forms.Schedule
 
             lv.Data = lvS.ScheduleNotParameter("OrderDept").Tables[0];//dtClinic;
             lv.Size = new Size(600, 400);
-            lv.ShowBox();
+            lv.ShowBox(patient.dtRefUnitVisit);
         }
         private void departmentLookup_ValueUpdated(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)
         {
@@ -2660,7 +2660,9 @@ namespace Envision.NET.Forms.Schedule
         {
             if (!string.IsNullOrEmpty(patient.Allergies))
             {
-                frmAllergy2 Allergy = new frmAllergy2();
+                frmAllergy2 Allergy = new frmAllergy2(patient.Reg_UID);
+                Allergy.TopLevel = true;
+                Allergy.StartPosition = FormStartPosition.CenterScreen;
                 Allergy.ShowDialog();
             }
         }
@@ -3398,7 +3400,7 @@ namespace Envision.NET.Forms.Schedule
         {
             SpinEdit spe = new SpinEdit();
             spe = (SpinEdit)sender;
-            DataRow dr = viewExam.GetDataRow(view1.FocusedRowHandle);
+            DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
             int sp = Convert.ToInt32(spe.Value.ToString());
             if (sp > 0)
             {
@@ -3558,6 +3560,7 @@ namespace Envision.NET.Forms.Schedule
         }
         private void updateRadiologist(string strSearch)
         {
+            if (string.IsNullOrEmpty(strSearch)) return;
             dttExam = (DataTable)grdExam.DataSource;
             DataTable dtRad = dttRadiologist.Copy();
             DataRow[] rows = dtRad.Select("EMP_ID = " + strSearch);
@@ -3788,63 +3791,125 @@ namespace Envision.NET.Forms.Schedule
             }
             if (e.KeyCode == Keys.Delete)
             {
-                DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
-                dr["EMP_ID"] = DBNull.Value;
-                LookUpEdit edit = sender as LookUpEdit;
-                edit.EditValue = null;
-                
+                //DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
+                //dr["EMP_ID"] = DBNull.Value;
+                //LookUpEdit edit = sender as LookUpEdit;
+                //edit.EditValue = null;
+                rpsRadio_Popup(sender, "delete");
             }
         }
         private void rpsRadio_EditValueChanged(object sender, EventArgs e)
         {
+            
+            rpsRadio_Popup(sender, "");
+        }
+
+        private void rpsRadio_Popup(object sender, string key)
+        {
             if (viewExam.FocusedRowHandle < 0) return;
             DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
-            if (dr != null)
+            if (dr["EXAM_ID"] == null) return;
+            if (dr == null) return;
+            if (!string.IsNullOrEmpty(strMsgChangeRad)) return;
+
+            bool flag = true;
+            bool delete = false;
+            DataView dvHistory = dsHistorySchedule.Tables[0].Copy().DefaultView;
+            DataView dvHistoryDtl = dsHistorySchedule.Tables[1].Copy().DefaultView;
+            if (dvHistory.Count == 0)
             {
-                if (string.IsNullOrEmpty(strMsgChangeRad))
+                if (key == "delete")
+                    delete = true;
+                else
+                    return;
+            }
+            if (dvHistoryDtl.Count == 0)
+            {
+                if (key == "delete")
+                    delete = true;
+                else
+                    return;
+            } 
+
+            DevExpress.XtraEditors.LookUpEdit empEdit = (DevExpress.XtraEditors.LookUpEdit)sender;
+            if (empEdit.EditValue == null) return;
+
+            dvHistory.Sort = "SCHEDULELOG_ID";
+            if (dvHistory[dvHistory.Count - 1]["LOGS_DESC"].ToString().ToLower().Contains("online"))
+            {
+                dvHistoryDtl.RowFilter = "SCHEDULELOG_ID=" + dvHistory[dvHistory.Count - 1]["SCHEDULELOG_ID"].ToString() + " and EXAM_ID=" + dr["EXAM_ID"].ToString();
+                DataTable dtHistoryDtl = dvHistoryDtl.ToTable();
+
+                if (dtHistoryDtl.Rows.Count == 0)
                 {
-                    bool flag = true;
-                    DataView dvHistory = dsHistorySchedule.Tables[0].Copy().DefaultView;
-                    DataView dvHistoryDtl = dsHistorySchedule.Tables[1].Copy().DefaultView;
+                    if (key == "delete")
+                        delete = true;
+                    else
+                        return;
+                }
 
-                    if (dvHistory.Count > 0 && dvHistoryDtl.Count > 0)
+                if (!delete)
+                {
+                    if (string.IsNullOrEmpty(dtHistoryDtl.Rows[0]["RAD_ID"].ToString()))
                     {
-                        dvHistory.Sort = "SCHEDULELOG_ID";
-                        if (dvHistory[dvHistory.Count - 1]["LOGS_DESC"].ToString().ToLower().Contains("online"))
-                        {
-                            dvHistoryDtl.RowFilter = "SCHEDULELOG_ID=" + dvHistory[dvHistory.Count - 1]["SCHEDULELOG_ID"].ToString() + " and EXAM_ID=" + dr["EXAM_ID"].ToString();
-                            DataTable dtHistoryDtl = dvHistoryDtl.ToTable();
-
-                            if (dtHistoryDtl.Rows.Count > 0)
-                            {
-                                if (!string.IsNullOrEmpty(dtHistoryDtl.Rows[0]["RAD_ID"].ToString()))
-                                {
-                                    DevExpress.XtraEditors.LookUpEdit empEdit = (DevExpress.XtraEditors.LookUpEdit)sender;
-                                    if (empEdit.EditValue.ToString() != dtHistoryDtl.Rows[0]["RAD_ID"].ToString())
-                                    {
-                                        flag = false;
-                                        MyMessageBox msg = new MyMessageBox();
-                                        strMsgChangeRad = msg.ShowAlert("UID1048", new GBLEnvVariable().CurrentLanguageID);
-                                        if (strMsgChangeRad == "1")
-                                        {
-                                            empEdit.EditValue = string.IsNullOrEmpty(dr["EMP_ID"].ToString()) ? 0 : Convert.ToInt32(dr["EMP_ID"]);
-                                        }
-                                        else if (strMsgChangeRad == "2") flag = true;
-                                    }
-                                }
-                            }
-                        }
+                        if (key == "delete")
+                            delete = true;
+                        else
+                            return;
                     }
 
-                    if (flag)
+                    string value = key == "delete" ? "" : (empEdit.EditValue == null ? "" : empEdit.EditValue.ToString());
+                    MyMessageBox msg = new MyMessageBox();
+
+                    if (value != dtHistoryDtl.Rows[0]["RAD_ID"].ToString())
                     {
-                        DevExpress.XtraEditors.LookUpEdit empEdit = (DevExpress.XtraEditors.LookUpEdit)sender;
-                        updateRadiologist(empEdit.EditValue.ToString());
-                        viewExam.FocusedColumn = viewExam.VisibleColumns[0];
-                        viewExam.MoveNext();
+                        flag = false;
+                        strMsgChangeRad = msg.ShowAlert("UID1048", new GBLEnvVariable().CurrentLanguageID);
+
+                        if (strMsgChangeRad == "1")
+                        {
+                            //if (string.IsNullOrEmpty(dr["EMP_ID"].ToString()))
+                            //    empEdit.EditValue = string.IsNullOrEmpty(dtHistoryDtl.Rows[0]["RAD_ID"].ToString()) ? 0 : Convert.ToInt32(dtHistoryDtl.Rows[0]["RAD_ID"].ToString());
+                            //else
+                            try
+                            {
+                                empEdit.EditValue = string.IsNullOrEmpty(dr["EMP_ID"].ToString()) ? 0 : Convert.ToInt32(dr["EMP_ID"]);
+                            }
+                            catch
+                            {
+                                empEdit.EditValue = string.IsNullOrEmpty(dtHistoryDtl.Rows[0]["RAD_ID"].ToString()) ? 0 : Convert.ToInt32(dtHistoryDtl.Rows[0]["RAD_ID"].ToString());
+                            }
+                        }
+                        else if (strMsgChangeRad == "2")
+                        {
+                            if (key == "delete")
+                                delete = true;
+                            else
+                                flag = true;
+                        }
                     }
                 }
             }
+            else if (key == "delete")
+                delete = true;
+
+            if (flag)
+            {
+                if (empEdit.EditValue != null)
+                {
+                    updateRadiologist(empEdit.EditValue == null ? "0" : empEdit.EditValue.ToString());
+                    viewExam.FocusedColumn = viewExam.VisibleColumns[0];
+                    viewExam.MoveNext();
+                }
+            }
+
+            if (delete)
+            {
+                dr["EMP_ID"] = DBNull.Value;
+                empEdit.EditValue = null;
+            }
+
+            delete = false;
             strMsgChangeRad = string.Empty;
         }
 
@@ -4006,6 +4071,33 @@ namespace Envision.NET.Forms.Schedule
                 e.Cancel = true;
         }
 
+        private void viewExam_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                string strqty = viewExam.FocusedColumn.FieldName;
+                if (viewExam.FocusedRowHandle > -1)
+                {
+                    DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
+                    if (dr["EXAM_UID"].ToString() != string.Empty)
+                    {
+                        if (strqty == "QTY")
+                        {
+                            DataRow[] drbp = dttBpview.Copy().Select("BPVIEW_ID =" + dr["BPVIEW_ID"].ToString());
+                            if (drbp[0]["BPVIEW_NAME"].ToString() == "Other")
+                            {
+                                viewExam.Columns["QTY"].OptionsColumn.ReadOnly = false;
+                            }
+                            else
+                            {
+                                viewExam.Columns["QTY"].OptionsColumn.ReadOnly = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch { }
+        }
         private void viewExam_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
         {
             try
@@ -4013,12 +4105,13 @@ namespace Envision.NET.Forms.Schedule
                 string strqty = e.FocusedColumn.FieldName;
                 if (viewExam.FocusedRowHandle > -1)
                 {
-                    DataRow dr = viewExam.GetDataRow(view1.FocusedRowHandle);
+                    DataRow dr = viewExam.GetDataRow(viewExam.FocusedRowHandle);
                     if (dr["EXAM_UID"].ToString() != string.Empty)
                     {
                         if (strqty == "QTY")
                         {
-                            DataRow[] drbp = dttBpview.Copy().Select("BPVIEW_ID =" + dr["BPVIEW_ID"].ToString());
+                            string _bpview_id = string.IsNullOrEmpty(dr["BPVIEW_ID"].ToString()) ? "5" : dr["BPVIEW_ID"].ToString();
+                            DataRow[] drbp = dttBpview.Copy().Select("BPVIEW_ID =" + _bpview_id);
                             if (drbp[0]["BPVIEW_NAME"].ToString() == "Other")
                             {
                                 viewExam.Columns["QTY"].OptionsColumn.ReadOnly = false;
@@ -4434,6 +4527,8 @@ namespace Envision.NET.Forms.Schedule
                 dtEnd.DateTime = new DateTime(resultDate.Year, resultDate.Month, resultDate.Day, dtEnd.DateTime.Hour, dtEnd.DateTime.Minute, dtEnd.DateTime.Second);
             }
         }
+
+
 
     }
 }   

@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.paramUrl += '&userName=' + params['userName'];
       this.paramUrl += '&orgId=' + params['orgId'];
 
+      if(params['filterStatus'] != null){
+        this.paramUrl += '&filterStatus=' + params['filterStatus'];
+      }
       console.log('this.paramUrl', this.paramUrl);
       console.log('menuName', params['menuName']);
       if (params['menuName'] === 'review') {

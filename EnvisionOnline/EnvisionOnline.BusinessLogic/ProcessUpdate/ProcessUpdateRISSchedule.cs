@@ -31,5 +31,12 @@ namespace EnvisionOnline.BusinessLogic.ProcessUpdate
             _proc.RIS_SCHEDULE = RIS_SCHEDULE;
             _proc.UpdateIsConsentForm();
         }
+
+        public void UpdateBusy()
+        {
+            RISScheduleUpdateData _proc = new RISScheduleUpdateData();
+            _proc.RIS_SCHEDULE = RIS_SCHEDULE;
+            _proc.UpdateBusy();
+        }
     }
 }

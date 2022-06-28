@@ -73,7 +73,7 @@ namespace EnvisionOnline.Operational
                 if (unit_uid.Substring(0, 3) == "SDP")
                     str_clinic = "PM";
                 if (unit_uid.Substring(0, 3) == "SDI")
-                    if (unit_uid != "SDIPD85" && unit_uid != "SDIPD81")
+                    if (unit_uid != "SDIPD81")
                         str_clinic = "PM";
             }
             #endregion

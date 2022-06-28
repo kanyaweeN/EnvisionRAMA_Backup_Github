@@ -10,6 +10,7 @@ using Envision.BusinessLogic.ProcessRead;
 using Envision.Common;
 using Envision.NET.Forms.Dialog;
 using Envision.BusinessLogic;
+using Envision.Operational.PACS;
 
 namespace Envision.NET.Forms.ResultEntry.ResultDialog
 {
@@ -243,22 +244,27 @@ namespace Envision.NET.Forms.ResultEntry.ResultDialog
         }
         private string openPACS(string AccessionNumber)
         {
-            string str = env.PacsUrl + AccessionNumber;
+            //string str = env.PacsUrl + AccessionNumber;
+            ////Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
+            ////ieCom.OpenSynapseAccession(AccessionNumber);
+            //if (env.LoginType == "W")
+            //{
+            //    str = env.PacsUrl;
+            //    str = str.Replace("http://", string.Empty);
+            //    str = "http://radiology%5C" + env.UserName + ":" + env.PasswordAD + "@" + str + AccessionNumber;
+            //}
+
+
             //Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-            //ieCom.OpenSynapseAccession(AccessionNumber);
-            if (env.LoginType == "W")
-            {
-                str = env.PacsUrl;
-                str = str.Replace("http://", string.Empty);
-                str = "http://radiology%5C" + env.UserName + ":" + env.PasswordAD + "@" + str + AccessionNumber;
-            }
+            //if (!ieCom.OpenSynapseLink(str))
+            //    msg.ShowAlert("UID4053", env.CurrentLanguageID);
+
+            //return str;
 
 
-            Miracle.PACS.IECompatible ieCom = new Miracle.PACS.IECompatible();
-            if (!ieCom.OpenSynapseLink(str))
-                msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            // UpdatePacs
+            return new OpenPACS(env.PacsUrl).OpenIEAccession(AccessionNumber, env.UserName, env.PasswordAD, "", env.LoginType);
 
-            return str;
         }
 
         private void barbtnSave_ItemClick(object sender, ItemClickEventArgs e)

@@ -138,6 +138,15 @@ public partial class frmEnvisionOrderNW {
     protected global::Telerik.Web.UI.RadWindow windowCovid;
     
     /// <summary>
+    /// windowClinicalIndicationWithParam control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadWindow windowClinicalIndicationWithParam;
+    
+    /// <summary>
     /// windowCancelReason control.
     /// </summary>
     /// <remarks>

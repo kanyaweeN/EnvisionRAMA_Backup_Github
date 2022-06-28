@@ -57,10 +57,17 @@ namespace EnvisionOnline.Forms.Dialogs
             //    {
             set_Patient_Data();
 
-            string url = @"../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=" + strXTRAFORM + "&IS_ONLINE=" + strIS_ONLINE + "&ORDER_ID=" + strORDER_ID + "&PRINTOR=" + printor;
-            ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "PrintAndClose('" + url + "');", true);
+            //string url = @"../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=" + strXTRAFORM + "&IS_ONLINE=" + strIS_ONLINE + "&ORDER_ID=" + strORDER_ID + "&PRINTOR=" + printor;
+            //ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "PrintAndClose('" + url + "');", true);
             //    }
             //} 
+            Session["XTRAFORM"] = strXTRAFORM;
+            Session["IS_ONLINE"] = strIS_ONLINE;
+            Session["ORDER_ID"] = strORDER_ID;
+            Session["REG_ID"] = reg_id;
+            Session["PRINTOR"] = printor;
+
+            ClientScript.RegisterStartupScript(Page.GetType(), "mykey", "CloseAndRebind('OnlineAlertPatientPhone');", true);
         }
 
         private void set_Patient_Data()

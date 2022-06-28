@@ -88,6 +88,7 @@
     <Compile Include="Insert\XrayreqdtlInsertData.cs" />
     <Compile Include="Insert\XrayreqInsertData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Select\XRAYREQSelectData.cs" />
     <Compile Include="Select\HolidaySelectData.cs" />
     <Compile Include="Select\ONLDirectlyOrderSelectData.cs" />
     <Compile Include="Select\ONLExamCNMISelectData.cs" />

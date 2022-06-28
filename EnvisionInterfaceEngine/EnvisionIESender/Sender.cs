@@ -60,7 +60,7 @@ namespace EnvisionIESender
                     initializeORMBidirectionalByAccessionNoQueue();
                     initializeORMMergeByAccessionNoQueue();
                     initializeORUByAccessionNoQueue();
-                    //sendORUByAccessionNo(0, "181018OERCT030", 1);
+                    //sendORUByAccessionNo(0, "220420OERCR044", 1);
                 }
 
 

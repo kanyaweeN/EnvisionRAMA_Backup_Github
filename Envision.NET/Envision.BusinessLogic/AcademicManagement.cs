@@ -239,6 +239,31 @@ namespace Envision.BusinessLogic
             }
             return 0;
         }
+        public static int AddAssignment(int empId, int assignedTo, string accessionNo, int orgId, int createdBy, string status)
+        {
+            //Check enrollment
+            DataSet empEnrollDataSet = SelectEnrollForAssignment(empId);
+            if (empEnrollDataSet != null)
+            {
+                if (empEnrollDataSet.Tables.Count > 0)
+                {
+                    if (empEnrollDataSet.Tables[0].Rows.Count > 0)
+                    {
+                        AC_ASSIGNMENT.ENROLL_ID = Convert.ToInt32(empEnrollDataSet.Tables[0].Rows[0]["ENROLL_ID"].ToString());
+                        AC_ASSIGNMENT.ASSIGNED_BY = assignedTo;
+                        AC_ASSIGNMENT.ASSIGNMENT_TYPE = "A";
+                        AC_ASSIGNMENT.ACCESSION_NO = accessionNo;
+                        AC_ASSIGNMENT.ORG_ID = orgId;
+                        AC_ASSIGNMENT.CREATED_BY = createdBy;
+                        AC_ASSIGNMENT.LAST_MODIFIED_BY = createdBy;
+                        AC_ASSIGNMENT.RESULT_STATUS = status;
+                        AddAssignment();
+                        return AC_ASSIGNMENT.ASSIGNEMENT_ID;
+                    }
+                }
+            }
+            return 0;
+        }
         /// <summary>
         /// This method use to delete assignment
         /// </summary>
@@ -291,6 +316,7 @@ namespace Envision.BusinessLogic
                         AC_ASSIGNMENT.REPORT_TEXT = report_text;
                         AC_ASSIGNMENT.ASSIGNEMENT_ID = 0;
                         AC_ASSIGNMENT.SEVERITY_ID = severityId;
+                        AC_ASSIGNMENT.RESULT_STATUS = status;
                         AddAssignment();
                         return AC_ASSIGNMENT.ASSIGNEMENT_ID;
                     }

@@ -52,6 +52,11 @@ namespace Envision.BusinessLogic.ProcessRead
             HRUnitSelectData _proc = new HRUnitSelectData();
             result = _proc.GetDataByID(unit_id);
         }
+        public void GetDataByUID(string unit_uid)
+        {
+            HRUnitSelectData _proc = new HRUnitSelectData();
+            result = _proc.GetDataByUID(unit_uid);
+        }
 	}
 }
 

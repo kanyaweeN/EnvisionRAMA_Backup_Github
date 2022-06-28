@@ -5,6 +5,10 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using EnvisionIESender;
 using EnvisionIEHelper;
+using System.Data.Common;
+using System.Data;
+using System.Data.SqlClient;
+using EnvisionInterfaceEngine.Connection;
 
 namespace ConsoleTestService
 {
@@ -38,10 +42,15 @@ namespace ConsoleTestService
 
             using (Sender service = new Sender())
                 service.Invoke();
-            //using (Helper service = new Helper())
-            //    service.Invoke();
+            ////using (Helper service = new Helper())
+            ////    service.Invoke();
 
-            while (Console.ReadKey().Key != ConsoleKey.Escape) ;
-        }
+            //while (Console.ReadKey().Key != ConsoleKey.Escape) ;
+
+            //string accessionNo = "220405OERCR051";
+
+            //RISConnection ris = new RISConnection();
+            //DataTable dtRadiologistGroup = ris.selectDataRadiologistGroup(accessionNo);
+        } 
     }
 }

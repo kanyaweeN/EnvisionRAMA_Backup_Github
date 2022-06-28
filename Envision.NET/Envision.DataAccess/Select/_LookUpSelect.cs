@@ -241,7 +241,7 @@ namespace Envision.DataAccess.Select
         public DataSet GetBillingMessage(string ACCESSION_NO)
         {
             ParameterList = buildParameterGetBillingMessage(ACCESSION_NO);
-            StoredProcedureName = StoredProcedure.Prc_RIS_BillingGenMessage;
+            StoredProcedureName = StoredProcedure.Prc_RIS_BillingGenMessageMulti;
             ds = new DataSet();
             ds = ExecuteDataSet();
             return ds;
@@ -381,6 +381,22 @@ namespace Envision.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
         }
+        public DataSet SelectSummaryDFNuero(DateTime FromDate, DateTime ToDate, int EmpID, int clinic_id, int modality_id)
+        {
+            ParameterList = new DbParameter[] { 
+                                          Parameter("@FromDate",FromDate),
+                                          Parameter("@ToDate",ToDate),
+                                          Parameter("@EMP_ID",EmpID),
+                                          Parameter("@CLINICAL_TYPE_ID",clinic_id),
+                                          Parameter("@MODALITY_ID",modality_id),
+                                       };
+
+            //StoredProcedureName = StoredProcedure.Prc_RIS_Rpt_Summary_DF_RateByRad_Premium;
+            StoredProcedureName = StoredProcedure.Prc_RIS_Rpt_Summary_DF_Nuero;
+            ds = new DataSet();
+            ds = ExecuteDataSet();
+            return ds;
+        }
         public DataSet SelectSummaryDFTechPremium(DateTime FromDate, DateTime ToDate, int EmpID, int clinic_id, int modality_id)
         {
             ParameterList = new DbParameter[] { 
@@ -441,6 +457,24 @@ namespace Envision.DataAccess.Select
         {
             StoredProcedureName = StoredProcedure.Prc_LookUp_RadStudyManagementICD_Select;
             ds = new DataSet();
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        public DataSet SelectReportChangeStatus(DateTime FromDate, DateTime ToDate)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_RPT_RESULTSTATUSCHANGELOG;
+
+            ds = new DataSet();
+            ParameterList = buildParameterReportChangeStatus(FromDate, ToDate);
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        public DataSet SelectReportER(DateTime FromDate, DateTime ToDate)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_Rpt_ReportER;
+
+            ds = new DataSet();
+            ParameterList = buildParameterReportER(FromDate, ToDate);
             ds = ExecuteDataSet();
             return ds;
         }
@@ -965,6 +999,61 @@ namespace Envision.DataAccess.Select
 
             ds = ExecuteDataSet();
             return ds;
+        }
+        public DataSet SelectContrastLot(int contrastId)
+        {
+            ds = new DataSet();
+            StoredProcedureName = StoredProcedure.Prc_LookUp_ContrastLot_Select;
+            ParameterList = new DbParameter[] 
+            { 
+                Parameter("@CONTRAST_ID",contrastId),
+            };
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        public DataSet SelectOrderIdByAccession(string accessionNo) {
+            ds = new DataSet();
+            StoredProcedureName = StoredProcedure.Prc_LookUp_OrderIdByAccession_Select;
+            ParameterList = new DbParameter[] 
+            { 
+                Parameter("@ACCESSION_NO",accessionNo),
+            };
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        public DataSet SelectRegIdByScheduleId(int scheduleId)
+        {
+            ds = new DataSet();
+            StoredProcedureName = StoredProcedure.Prc_LookUp_RegIdByScheduleId_Select;
+            ParameterList = new DbParameter[] 
+            { 
+                Parameter("@SCHEDULE_ID",scheduleId),
+            };
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        public DataSet SelectRptFindingAll()
+        {
+            ds = new DataSet();
+            StoredProcedureName = StoredProcedure.Prc_LookUp_RptFindingAll_Select;
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        private DbParameter[] buildParameterReportChangeStatus(DateTime FromDate, DateTime ToDate)
+        {
+            DbParameter[] parameters = { 
+                                          Parameter("@dateBegin",FromDate),
+                                          Parameter("@dateEnd",ToDate)
+                                       };
+            return parameters;
+        }
+        private DbParameter[] buildParameterReportER(DateTime FromDate, DateTime ToDate)
+        {
+            DbParameter[] parameters = { 
+                                          Parameter("@dateBegin",FromDate),
+                                          Parameter("@dateEnd",ToDate)
+                                       };
+            return parameters;
         }
     }
 }

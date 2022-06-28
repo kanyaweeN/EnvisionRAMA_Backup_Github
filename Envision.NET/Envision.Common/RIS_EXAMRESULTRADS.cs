@@ -23,5 +23,6 @@ namespace Envision.Common
         public int LAST_MODIFIED_BY { get; set; }
         public DateTime LAST_MODIFIED_ON { get; set; }
         public string MODE { get; set; }
+        public string IS_SHOW_PACS { get; set; }
     }
 }

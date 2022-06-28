@@ -82,3 +82,17 @@ D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngi
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.csprojResolveAssemblyReference.cache
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Connection.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Connection.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Common.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\NHapi.Model.V23.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\NRtfTree.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\NHapi.Base.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.WebService.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\bin\Debug\EnvisionInterfaceEngine.WebService.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Connection\obj\x86\Debug\EnvisionInterfaceEngine.Connection.pdb

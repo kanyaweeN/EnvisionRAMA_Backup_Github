@@ -11,6 +11,7 @@ using Envision.BusinessLogic;
 using Envision.BusinessLogic.ProcessRead;
 using Envision.BusinessLogic.ProcessUpdate;
 using Envision.NET.Forms.Dialog;
+using Envision.Operational.PACS;
 namespace Envision.NET.Forms.ResultEntry
 {
     public partial class frmWorkBookNew : Envision.NET.Forms.Main.MasterForm
@@ -153,10 +154,18 @@ namespace Envision.NET.Forms.ResultEntry
             //string str = env.PacsUrl + txtAcc.EditValue.ToString().Trim();
             //System.Diagnostics.Process.Start(str);
 
-            string str = env.PacsUrl + view1.GetFocusedDataRow()["ACCESSION_NO"].ToString();
-            Miracle.PACS.IECompatible ie = new Miracle.PACS.IECompatible();
-            if (!ie.OpenSynapseLink(str))
-                msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            //if (env.LoginType == "E")
+            //{
+                // UpdatePacs
+                new OpenPACS(env.PacsUrl).OpenIEAccession(view1.GetFocusedDataRow()["ACCESSION_NO"].ToString(), env.UserName, env.PasswordAD, "", env.LoginType);
+            //}
+            //else
+            //{
+            //    string str = env.PacsUrl + view1.GetFocusedDataRow()["ACCESSION_NO"].ToString();
+            //    Miracle.PACS.IECompatible ie = new Miracle.PACS.IECompatible();
+            //    if (!ie.OpenSynapseLink(str))
+            //        msg.ShowAlert("UID4053", env.CurrentLanguageID);
+            //}
         }
 
         private void rdoDate_CheckedChanged(object sender, EventArgs e)

@@ -1021,23 +1021,24 @@ namespace Envision.NET.Forms.Orders
                     string resultAlert = myMsg.ShowAlert("UID4054", gblEnvVariable.CurrentLanguageID);
                     if (resultAlert == "2")
                     {
-                        bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                            (int)drSelected["ORDER_ID"],
-                            (int)drSelected["SCHEDULE_ID"]);
+                        bool checkBusy = checkIsBusy(drSelected["IS_SCHEDULE"].ToString(), (int)drSelected["ORDER_ID"], (int)drSelected["SCHEDULE_ID"]);
+                        //bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                        //(int)drSelected["ORDER_ID"],
+                        //(int)drSelected["SCHEDULE_ID"]);
 
                         if (checkBusy)
                         {
-                            myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
+                            //myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
                             return;
                         }
-                        else
-                        {
-                            updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                                (int)drSelected["ORDER_ID"],
-                            (int)drSelected["SCHEDULE_ID"],
-                            "Y"
-                                );
-                        }
+                        //else
+                        //{
+                        //    updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                        //        (int)drSelected["ORDER_ID"],
+                        //    (int)drSelected["SCHEDULE_ID"],
+                        //    "Y"
+                        //        );
+                        //}
                         frmConfirmArrivalWorkList comfirmArrivalWorkList;
                         if (drSelected["IS_SCHEDULE"].ToString() == "N")
                             comfirmArrivalWorkList = new frmConfirmArrivalWorkList((int)drSelected["ORDER_ID"], 0, this.gblEnvVariable.OrgID);
@@ -1060,21 +1061,22 @@ namespace Envision.NET.Forms.Orders
                 }
                 else
                 {
-                    bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                            (int)drSelected["ORDER_ID"],
-                            (int)drSelected["SCHEDULE_ID"]);
+                    bool checkBusy = checkIsBusy(drSelected["IS_SCHEDULE"].ToString(), (int)drSelected["ORDER_ID"], (int)drSelected["SCHEDULE_ID"]);
+                    //bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                    //        (int)drSelected["ORDER_ID"],
+                    //        (int)drSelected["SCHEDULE_ID"]);
 
                     if (checkBusy)
                     {
-                        myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
+                        //myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
                         return;
                     }
                     else
                     {
-                        updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                        (int)drSelected["ORDER_ID"],
-                        (int)drSelected["SCHEDULE_ID"],
-                        "Y");
+                        //updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                        //(int)drSelected["ORDER_ID"],
+                        //(int)drSelected["SCHEDULE_ID"],
+                        //"Y");
 
                         if (DateTime.Compare(Convert.ToDateTime(drSelected["EXAM_DATETIME"]).Date, DateTime.Today.Date) == 0)
                         {
@@ -1132,23 +1134,24 @@ namespace Envision.NET.Forms.Orders
 
             if (result == "2")
             {
-                bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                          (int)drSelected["ORDER_ID"],
-                          (int)drSelected["SCHEDULE_ID"]);
+                bool checkBusy = checkIsBusy(drSelected["IS_SCHEDULE"].ToString(), (int)drSelected["ORDER_ID"], (int)drSelected["SCHEDULE_ID"]);
+                //bool checkBusy = getBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                //          (int)drSelected["ORDER_ID"],
+                //          (int)drSelected["SCHEDULE_ID"]);
 
                 if (checkBusy)
                 {
-                    myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
+                    //myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
                     return;
                 }
-                else
-                {
-                    updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
-                        (int)drSelected["ORDER_ID"],
-                    (int)drSelected["SCHEDULE_ID"],
-                    "Y"
-                        );
-                }
+                //else
+                //{
+                //    updateBusyCase(drSelected["IS_SCHEDULE"].ToString() == "N" ? "XRAYREQ" : "SCHEDULE",
+                //        (int)drSelected["ORDER_ID"],
+                //    (int)drSelected["SCHEDULE_ID"],
+                //    "Y"
+                //        );
+                //}
 
                 frmConfirmArrivalWorkList comfirmArrivalWorkList;
                 if (drSelected["IS_SCHEDULE"].ToString() == "N")
@@ -1506,9 +1509,48 @@ namespace Envision.NET.Forms.Orders
             }
         }
 
-        private bool getBusyCase(string mode, int orderId, int scheduleId)
+        private bool checkIsBusy(string isSchdule, int orderId, int scheduleId)
         {
-            bool flag = false;
+            string mode = isSchdule == "N" ? "XRAYREQ" : "SCHEDULE";
+            DataTable dtBusy = getBusyCase(mode, orderId, scheduleId);
+            if (!Utilities.IsHaveData(dtBusy)) return false;
+            if (dtBusy.Rows.Count == 0) return false;
+
+            bool flagIsBusy = false;
+            if (dtBusy.Rows[0]["IS_BUSY"].ToString() == "Y")
+            {
+                if (!string.IsNullOrEmpty(dtBusy.Rows[0]["BUSY_BY"].ToString()))
+                {
+                    if (dtBusy.Rows[0]["BUSY_BY"].ToString() != gblEnvVariable.UserID.ToString())
+                        flagIsBusy = true;
+                }
+                else
+                    flagIsBusy = true;
+            }
+
+            if (flagIsBusy)
+            {
+                string str = string.Empty;
+                str = "\r\n"
+                    + "Busy By : " + dtBusy.Rows[0]["BUSY_BY_NAME"].ToString() + "\r\n"
+                    + "Busy Date : " + Convert.ToDateTime(dtBusy.Rows[0]["BUSY_ON"]).ToString("dd/MM/yyyy HH:mm");
+
+                if (string.IsNullOrEmpty(str))
+                    myMsg.ShowAlert("UID1417", gblEnvVariable.CurrentLanguageID);
+                else
+                    myMsg.ShowAlertAndAddMessage("UID1417", gblEnvVariable.CurrentLanguageID, str);
+
+               return true;
+            }
+            else
+            {
+                updateBusyCase(mode, orderId, scheduleId, "Y");
+            }
+            return false;
+        }
+        private DataTable getBusyCase(string mode, int orderId, int scheduleId)
+        {
+            DataTable dt = new DataTable();
             switch (mode)
             {
                 case "SCHEDULE":
@@ -1516,18 +1558,16 @@ namespace Envision.NET.Forms.Orders
                     sch.RIS_SCHEDULE.SCHEDULE_ID = scheduleId;
                     DataTable dtSch = sch.GetBusyStatus();
                     if (Utilities.IsHaveData(dtSch))
-                        if (dtSch.Rows[0]["IS_BUSY"].ToString() == "Y" && dtSch.Rows[0]["BUSY_BY"].ToString() != gblEnvVariable.UserID.ToString())
-                            flag = true;
+                            dt = dtSch.Copy();
                     break;
                 case "XRAYREQ":
                     ProcessGetXRAYREQ xryReq = new ProcessGetXRAYREQ();
                     DataTable dtxryReq = xryReq.GetBusyCase(orderId);
                     if (Utilities.IsHaveData(dtxryReq))
-                        if (dtxryReq.Rows[0]["IS_BUSY"].ToString() == "Y" && dtxryReq.Rows[0]["BUSY_BY"].ToString() != gblEnvVariable.UserID.ToString())
-                            flag = true;
+                            dt = dtxryReq.Copy();
                     break;
             }
-            return flag;
+            return dt;
         }
         private void updateBusyCase(string mode,int orderId,int scheduleId, string busy)
         {
@@ -1545,7 +1585,6 @@ namespace Envision.NET.Forms.Orders
                     xryReq.updateLockCase(orderId, busy, gblEnvVariable.UserID);
                     break;
             }
-            
         }
     }
 }

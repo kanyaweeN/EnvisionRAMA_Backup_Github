@@ -12,7 +12,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'peerreview', component: PeerreviewComponent },
-      { path: 'scoring/:id/:userid/:username/:orgid', component: ScoringComponent },
+      { path: 'scoring/:id/:userid/:username/:orgid/:filterStatus', component: ScoringComponent },
       { path: 'studyassign', component: PeerreviewComponent },
       { path: 'reviewhistory', component: PeerreviewComponent }
     ]

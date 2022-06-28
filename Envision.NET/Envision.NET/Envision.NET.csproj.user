@@ -1,8 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>D:\MAT\Deploy\ProjectSites\EnvisionRama\Envision.Net\|D:\Works\Deploy\Envision.NetRAMA\|D:\Works\Deploy\Envision.NetRAM_Test\|E:\Projects\Deploy\RamaNet_Test%2820200612 v.58%29\|E:\Projects\Deploy\RamaNet_Test%2820200528 v.57%29\</PublishUrlHistory>
-    <InstallUrlHistory>http://miracle99/Envision.NET/|http://miracle99/Envision.NET_TEST/|http://miracle99/Envision.NET_Test/|http://localhost/Envision.NETRAMA/</InstallUrlHistory>
+    <PublishUrlHistory>
+    </PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
     <SupportUrlHistory>
     </SupportUrlHistory>
     <UpdateUrlHistory>
@@ -13,11 +14,5 @@
     </ErrorReportUrlHistory>
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
-    <ReferencePath>C:\Program Files\Business Objects\Common\2.8\managed\</ReferencePath>
-    <EnableSecurityDebugging>false</EnableSecurityDebugging>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <EnableSQLServerDebugging>false</EnableSQLServerDebugging>
   </PropertyGroup>
 </Project>

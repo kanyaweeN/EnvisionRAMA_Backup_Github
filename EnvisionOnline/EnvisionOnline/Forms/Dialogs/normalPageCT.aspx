@@ -369,8 +369,8 @@
                         <td colspan="2">
                             <table width="100%">
                                 <tr>
-                                    <td class="favoritStyle"><telerik:RadButton             ID="favCh_HRCT"     Text="" Width="5px" style="vertical-align:top;"          Value="XC58"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                                    <td class="textStyle" colspan="1"><telerik:RadButton    ID="chkCh_HRCT"     Text="HRCT"                 Value="XC58"    runat="server" ToggleType="CheckBox" ButtonType="ToggleButton" GroupName="groupCT" OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                                    <td class="favoritStyle"><telerik:RadButton             ID="favCh_HRCT"     Text="" Width="5px" style="vertical-align:top;"          Value="XC105"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                                    <td class="textStyle" colspan="1"><telerik:RadButton    ID="chkCh_HRCT"     Text="High resolotion CT chest (HRCT)"                 Value="XC105"    runat="server" ToggleType="CheckBox" ButtonType="ToggleButton" GroupName="groupCT" OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                                 </tr>
                             </table>
                         </td> 

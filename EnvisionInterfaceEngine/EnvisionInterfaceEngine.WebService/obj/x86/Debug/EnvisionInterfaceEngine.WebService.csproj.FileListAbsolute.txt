@@ -28,3 +28,8 @@ D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngi
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.csprojResolveAssemblyReference.cache
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\bin\Debug\EnvisionInterfaceEngine.WebService.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\bin\Debug\EnvisionInterfaceEngine.WebService.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.WebService\obj\x86\Debug\EnvisionInterfaceEngine.WebService.pdb

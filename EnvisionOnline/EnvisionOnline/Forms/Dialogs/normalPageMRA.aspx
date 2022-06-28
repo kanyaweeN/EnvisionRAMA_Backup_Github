@@ -221,8 +221,8 @@
             <td colspan="2">
                 <table width="100%">
                     <tr>
-                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyRenal"        Text="" Width="5px" style="vertical-align:top;"              Value="XM65"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyRenal"        Text="MRA Renal Artery"         Value="XM65"    runat="server" ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyRenal"        Text="" Width="5px" style="vertical-align:top;"              Value="XM109"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyRenal"        Text="MRA  renal artery (only)"         Value="XM109"    runat="server" ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
             
                     </tr>
                 </table>
@@ -242,8 +242,8 @@
             <td colspan="2">
                 <table width="100%">
                     <tr>
-                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyUpper"       Text="" Width="5px" style="vertical-align:top;"           Value="XM63"    runat="server"  ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyUpper"       Text="MRA Upper Abdomen"     Value="XM63"    runat="server"  ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyUpper"       Text="" Width="5px" style="vertical-align:top;"           Value="XM110"    runat="server"  ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyUpper"       Text="MRA Upper abdomen (only)"     Value="XM110"    runat="server"  ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>
@@ -254,8 +254,8 @@
             <td colspan="2">
                 <table width="100%">
                     <tr>
-                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyLower"       Text="" Width="5px" style="vertical-align:top;"               Value="XM64"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyLower"       Text="MRA Lower Abdomen"         Value="XM64"    runat="server" ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="favoritStyle"><telerik:RadButton ID="favMRABodyLower"       Text="" Width="5px" style="vertical-align:top;"               Value="XM104"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkMRABodyLower"       Text="MRA  Lower abdomen (only)"         Value="XM104"    runat="server" ButtonType="ToggleButton" GroupName="MRA"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
             
                     </tr>
                 </table>

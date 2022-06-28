@@ -27,6 +27,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
 using Envision.Common.Common;
 using Envision.BusinessLogic.ProcessUpdate;
+using DevExpress.XtraEditors.Controls;
 
 namespace Envision.NET.Forms.Technologist
 {
@@ -65,6 +66,8 @@ namespace Envision.NET.Forms.Technologist
         DataTable dtHisReg;
         DataView dvHisReg;
 
+        DataTable dtUnit;
+
         string mode = "";
 
         string HN = "";
@@ -88,10 +91,12 @@ namespace Envision.NET.Forms.Technologist
         List<int> selectModId = new List<int>();
 
         DataTable dtMemList = new DataTable("MemList");
+        DataTable dtRadList = new DataTable("RadList");
         int nowMemRows = 0;
         private DataTable dttExamFlag, dtExamFlagDTL;
         private DataSet dtClinicalindicationtype = new DataSet();
 
+        int radSlno = 1;
         public frmTechnologist()
         {
             InitializeComponent();
@@ -108,6 +113,10 @@ namespace Envision.NET.Forms.Technologist
         }
         private void frmTechnologist_Load(object sender, EventArgs e)
         {
+            ProcessGetHRUnit process = new ProcessGetHRUnit();
+            process.Invoke();
+            dtUnit = process.Result.Tables[0];
+
             #region start with NORMAL mode
             if (mode == "")
             {
@@ -185,8 +194,22 @@ namespace Envision.NET.Forms.Technologist
                             new DataColumn("id")
                             ,new DataColumn("fullname")
                             ,new DataColumn("unit")
+                            ,new DataColumn("fullnameTemp")
+                            ,new DataColumn("slno",typeof(int))
                         }
                     );
+                dtRadList.Columns.AddRange
+               (
+                   new DataColumn[]
+                        {
+                            new DataColumn("id")
+                            ,new DataColumn("fullname")
+                            ,new DataColumn("unit")
+                            ,new DataColumn("fullnameTemp")
+                            ,new DataColumn("slno",typeof(int))
+                             ,new DataColumn("del")
+                        }
+               );
                 #endregion
 
                 #region load user login
@@ -198,13 +221,7 @@ namespace Envision.NET.Forms.Technologist
                 bg.HR_EMP.AUTH_LEVEL_ID = 0;
                 bg.Invoke();
 
-                DataRow row = dtMemList.NewRow();
-                row["id"] = bg.Result.Tables[0].Rows[0]["EMP_ID"];
-                row["FullName"] = bg.Result.Tables[0].Rows[0]["FullName"];
-                row["Unit"] = bg.Result.Tables[0].Rows[0]["UNIT_NAME"];
-                dtMemList.Rows.Add(row);
-
-                ribbonUserMembers_DataShowing();
+                addMemList(bg.Result.Tables[0],false);
                 #endregion
 
                 modalityID = 0;
@@ -286,14 +303,28 @@ namespace Envision.NET.Forms.Technologist
 
                 #region initial usermember table
                 dtMemList.Columns.AddRange
-                    (
-                        new DataColumn[]
+                            (
+                                new DataColumn[]
                         {
                             new DataColumn("id")
-                            ,new DataColumn("FullName")
-                            ,new DataColumn("Unit")
+                            ,new DataColumn("fullname")
+                            ,new DataColumn("unit")
+                            ,new DataColumn("fullnameTemp")
+                            ,new DataColumn("slno",typeof(int))
                         }
-                    );
+                            );
+                dtRadList.Columns.AddRange
+            (
+                new DataColumn[]
+                        {
+                            new DataColumn("id")
+                            ,new DataColumn("fullname")
+                            ,new DataColumn("unit")
+                            ,new DataColumn("fullnameTemp")
+                            ,new DataColumn("slno",typeof(int))
+                            ,new DataColumn("del")
+                        }
+            );
                 #endregion
 
                 #region load user login
@@ -322,7 +353,11 @@ namespace Envision.NET.Forms.Technologist
             }
             #endregion
 
+ 
             setTrauma();
+
+            grdRadioSetup.DataSource = dtRadList;
+            setGridradioSetup();
 
             tmAutoRefresh.Start();
             txtComboModality.SelectedIndexChanged += new EventHandler(txtComboModality_SelectedIndexChanged);
@@ -365,7 +400,67 @@ namespace Envision.NET.Forms.Technologist
 
             dttExamFlag = prc.Result.Tables[0];
         }
+        private void setGridradioSetup()
+        {
+            for (int i = 0; i < viewSetup.Columns.Count; i++)
+            {
+                viewSetup.Columns[i].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+                viewSetup.Columns[i].Visible = false;
+            }
 
+            DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDel = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            btnDel.ButtonsStyle = BorderStyles.Office2003;
+            btnDel.Buttons[0].Kind = ButtonPredefines.Delete;
+            btnDel.TextEditStyle = TextEditStyles.HideTextEditor;
+            btnDel.ButtonClick += new ButtonPressedEventHandler(btnDel_ButtonClick);
+
+            viewSetup.Columns["slno"].Caption = "NO.";
+            viewSetup.Columns["slno"].Visible = true;
+            viewSetup.Columns["slno"].OptionsColumn.ReadOnly = true;
+            viewSetup.Columns["slno"].OptionsColumn.AllowEdit = false;
+            viewSetup.Columns["slno"].Width = 50;
+            viewSetup.Columns["slno"].ColVIndex = 1;
+
+            viewSetup.Columns["fullname"].Caption = "Name";
+            viewSetup.Columns["fullname"].Visible = true;
+            viewSetup.Columns["fullname"].OptionsColumn.ReadOnly = true;
+            viewSetup.Columns["fullname"].OptionsColumn.AllowEdit = false;
+            viewSetup.Columns["fullname"].Width = 180;
+            viewSetup.Columns["fullname"].ColVIndex = 2;
+
+            viewSetup.Columns["unit"].Caption = "Unit";
+            viewSetup.Columns["unit"].Visible = true;
+            viewSetup.Columns["unit"].OptionsColumn.ReadOnly = true;
+            viewSetup.Columns["unit"].OptionsColumn.AllowEdit = false;
+            viewSetup.Columns["unit"].Width = 100;
+            viewSetup.Columns["unit"].ColVIndex = 3;
+
+            viewSetup.Columns["del"].Caption = " ";
+            viewSetup.Columns["del"].Visible = true;
+            viewSetup.Columns["del"].OptionsColumn.ReadOnly = false;
+            viewSetup.Columns["del"].OptionsColumn.AllowEdit = true;
+            viewSetup.Columns["del"].Width = 23;
+            viewSetup.Columns["del"].ColumnEdit = btnDel;
+            viewSetup.Columns["del"].ColVIndex = 4;
+
+        }
+        private void btnDel_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            DataRow dr = viewSetup.GetDataRow(viewSetup.FocusedRowHandle);
+
+            if (env.UserID == Convert.ToInt32(dr["id"])) return;
+            int selectedRadId = Convert.ToInt32(dr["id"]);
+            
+            if (env.UserID == Convert.ToInt32(dr["id"])) return;
+            dtRadList.Rows[viewSetup.FocusedRowHandle].Delete();
+            dtRadList.AcceptChanges();
+            for (int i = 0; i < dtRadList.Rows.Count; i++)
+                dtRadList.Rows[i]["slno"] = i + 1;
+            dtRadList.AcceptChanges();
+            grdRadioSetup.DataSource = dtRadList;
+            setGridradioSetup();
+        }
+        
         private void btnOK_Click(object sender, EventArgs e)
         {
             ReloadModality();
@@ -983,7 +1078,15 @@ namespace Envision.NET.Forms.Technologist
 
         private void repComment_Click(object sender, EventArgs e)
         {
+            if (gridView2.FocusedRowHandle < 0) return;
+            tmAutoRefresh.Stop();
+            DataRow rowHandle = gridView2.GetDataRow(gridView2.FocusedRowHandle);
+            frmMessageConversation frm = new frmMessageConversation(rowHandle["ACCESSION_NO"].ToString());
+            frm.ShowDialog();
+            frm.Dispose();
 
+            Refreshing();
+            tmAutoRefresh.Start();
         }
         private void ReloadWorkload()
         {
@@ -1331,19 +1434,6 @@ namespace Envision.NET.Forms.Technologist
 
             Refreshing();
             tmAutoRefresh.Start();
-
-
-            //if (gridView2.FocusedRowHandle < 0) return;
-            //DataRow rowHandle = gridView2.GetDataRow(gridView2.FocusedRowHandle);
-            //if (rowHandle["HAS_COMMENT"].ToString() == "Y")
-            //{
-            //    string hn = rowHandle["HN"].ToString();
-            //    int orderId = Convert.ToInt32(rowHandle["ORDER_ID"].ToString());
-            //    Envision.NET.Forms.Comment.frmComment frm = new Envision.NET.Forms.Comment.frmComment(hn, orderId, Envision.NET.Forms.Comment.QueryFromMode.Order);
-            //    frm.StartPosition = FormStartPosition.CenterParent;
-            //    frm.ShowDialog();
-            //    frm.Dispose();
-            //}
         }
         private void ReloadReject()
         {
@@ -1404,33 +1494,7 @@ namespace Envision.NET.Forms.Technologist
             DataRow row = gridView2.GetDataRow(gridView2.FocusedRowHandle);
             if (row != null)
             {
-                RIS_TECHWORK tech = new RIS_TECHWORK();
-                tech.ACCESSION_ON = row["ACCESSION_NO"].ToString();
-                tech.START_TIME = dttStart;
-                tech.END_TIME = dttEnd;
-                tech.ORG_ID = env.OrgID;
-                tech.CREATED_BY = cabUserBy;
-                ProcessAddRISTechworks process = new ProcessAddRISTechworks(tech);
-                process.Invoke();
-
-                //update status
-                //ProcessUpdateRISOrderdtl processUpdate = new ProcessUpdateRISOrderdtl();
-                //processUpdate.RISOrderdtl.ACCESSION_NO = row["ACCESSION_NO"].ToString();
-                //processUpdate.RISOrderdtl.STATUS = "S";
-                //processUpdate.RISOrderdtl.CREATED_BY = cabUserBy;
-                //processUpdate.UpdateStatus();
-                //searchByCapture();
-
-                //insert ris_techwork detail
-                foreach (DataRow dr in dtMemList.Rows)
-                {
-                    ProcessAddRISTechworksdtl pad = new ProcessAddRISTechworksdtl();
-                    pad.RIS_TECHWORKSDTL.ACCESSION_NO = row["ACCESSION_NO"].ToString();
-                    pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
-                    pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
-                    pad.Invoke();
-                }
-
+                insertTechWork(row, "S");
                 ReloadWorkload();
             }
         }
@@ -1439,34 +1503,47 @@ namespace Envision.NET.Forms.Technologist
             DataRow row = gridView2.GetDataRow(gridView2.FocusedRowHandle);
             if (row != null)
             {
-                RIS_TECHWORK tech = new RIS_TECHWORK();
-                tech.ACCESSION_ON = row["ACCESSION_NO"].ToString();
-                tech.START_TIME = dttStart;
-                tech.END_TIME = dttEnd;
-                tech.ORG_ID = env.OrgID;
-                tech.CREATED_BY = env.UserID;
-                ProcessAddRISTechworks process = new ProcessAddRISTechworks(tech);
-                process.Invoke();
-
-                //update status
-                //ProcessUpdateRISOrderdtl processUpdate = new ProcessUpdateRISOrderdtl();
-                //processUpdate.RISOrderdtl.ACCESSION_NO = row["ACCESSION_NO"].ToString();
-                //processUpdate.RISOrderdtl.STATUS = "C";
-                //processUpdate.RISOrderdtl.CREATED_BY = cabUserBy;
-                //processUpdate.UpdateStatus();
-                //searchByCapture();
-
-                //insert ris_techwork detail
-                foreach (DataRow dr in dtMemList.Rows)
-                {
-                    ProcessAddRISTechworksdtl pad = new ProcessAddRISTechworksdtl();
-                    pad.RIS_TECHWORKSDTL.ACCESSION_NO = row["ACCESSION_NO"].ToString();
-                    pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
-                    pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
-                    pad.Invoke();
-                }
-
+                insertTechWork(row, "C");
                 ReloadWorkload();
+            }
+        }
+        private void insertTechWork(DataRow  row, string status)
+        {
+            RIS_TECHWORK tech = new RIS_TECHWORK();
+            tech.ACCESSION_ON = row["ACCESSION_NO"].ToString();
+            tech.START_TIME = dttStart;
+            tech.END_TIME = dttEnd;
+            tech.ORG_ID = env.OrgID;
+            tech.CREATED_BY = cabUserBy;
+            ProcessAddRISTechworks process = new ProcessAddRISTechworks(tech);
+            process.Invoke();
+
+            //update status
+            //ProcessUpdateRISOrderdtl processUpdate = new ProcessUpdateRISOrderdtl();
+            //processUpdate.RISOrderdtl.ACCESSION_NO = row["ACCESSION_NO"].ToString();
+            //processUpdate.RISOrderdtl.STATUS = status;
+            //processUpdate.RISOrderdtl.CREATED_BY = cabUserBy;
+            //processUpdate.UpdateStatus();
+            //searchByCapture();
+
+            //insert ris_techwork detail
+            foreach (DataRow dr in dtMemList.Rows)
+            {
+                ProcessAddRISTechworksdtl pad = new ProcessAddRISTechworksdtl();
+                pad.RIS_TECHWORKSDTL.ACCESSION_NO = row["ACCESSION_NO"].ToString();
+                pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
+                pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
+                pad.RIS_TECHWORKSDTL.RAD_SLNO = Convert.ToInt32(dr["slno"]);
+                pad.Invoke();
+            }
+            foreach (DataRow dr in dtRadList.Rows)
+            {
+                ProcessAddRISTechworksdtl pad = new ProcessAddRISTechworksdtl();
+                pad.RIS_TECHWORKSDTL.ACCESSION_NO = row["ACCESSION_NO"].ToString();
+                pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
+                pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
+                pad.RIS_TECHWORKSDTL.RAD_SLNO = Convert.ToInt32(dr["slno"]);
+                pad.AddRadGroup();
             }
         }
         private void yesEntry()
@@ -1732,7 +1809,7 @@ namespace Envision.NET.Forms.Technologist
             if (xtraTabControl2.SelectedTabPage == tabWorkload)
                 CommentsProcess();
             else if (xtraTabControl2.SelectedTabPage == tabRejectImage)
-                OrderSummaryProcessReject();
+                CommentsProcessReject();
         }
         private void btnOrderSummary_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -2712,6 +2789,22 @@ namespace Envision.NET.Forms.Technologist
                                     MessageBox.Show(ex.Message);
                                 }
                             }
+                            foreach (DataRow dr in dtRadList.Rows)
+                            {
+                                ProcessAddRISTechworksdtl pad = new ProcessAddRISTechworksdtl();
+                                pad.RIS_TECHWORKSDTL.ACCESSION_NO = accessionNo;
+                                pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
+                                pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
+                                pad.RIS_TECHWORKSDTL.RAD_SLNO = Convert.ToInt32(dr["slno"]);
+                                try
+                                {
+                                    pad.AddRadGroup();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+                            }
                         }
 
                         ReloadWorkload();
@@ -3525,6 +3618,7 @@ namespace Envision.NET.Forms.Technologist
                                 pad.RIS_TECHWORKSDTL.ACCESSION_NO = accessionNo;
                                 pad.RIS_TECHWORKSDTL.TECHNOLOGIST_ID = Convert.ToInt32(dr["id"]);
                                 pad.RIS_TECHWORKSDTL.CREATED_BY = env.UserID;
+                                pad.RIS_TECHWORKSDTL.RAD_SLNO = Convert.ToInt32(dr["slno"]);
                                 try
                                 {
                                     pad.Invoke();
@@ -3889,11 +3983,9 @@ namespace Envision.NET.Forms.Technologist
                 //result.RISExamresult.EMP_ID = env.UserID;
                 //DataSet ds = result.GetCaseAmount();
                 //txtDash_Assg.EditValue = "Today : " + ds.Tables[1].Rows[0][0].ToString() + " | All : " + ds.Tables[0].Rows[0][0].ToString();
-
-                ProcessGetHRUnit process = new ProcessGetHRUnit();
-                process.Invoke();
-                DataTable dtt = process.Result.Tables[0];
-                DataRow[] drs = dtt.Select("UNIT_ID=" + dr["UNIT_ID"]);
+               
+                string _unitId = dr["UNIT_ID"].ToString() == "" ? "1" : dr["UNIT_ID"].ToString();
+                DataRow[] drs = dtUnit.Select("UNIT_ID=" + _unitId);
                 if (drs.Length > 0)
                 {
                     txtDash_Dept.EditValue = drs[0]["UNIT_NAME"].ToString();
@@ -4071,6 +4163,7 @@ namespace Envision.NET.Forms.Technologist
 
         private void ribbonControl1_SelectedPageChanging(object sender, DevExpress.XtraBars.Ribbon.RibbonPageChangingEventArgs e)
         {
+            grdRadioSetup.Visible = false;
             if (e.Page == ribPageWorkload && onCapture == false)
                 xtraTabControl1.SelectedTabPage = pageWorkload;
             else if (e.Page == ribPageDemographic && onCapture == true)
@@ -4079,6 +4172,8 @@ namespace Envision.NET.Forms.Technologist
             //    xtraTabControl1.SelectedTabPage = pageCapture;
             else if (e.Page == ribPageTechnologist && onCapture == true)
                 xtraTabControl1.SelectedTabPage = pageCaptureChangeExam;
+            else if (e.Page == ribbonRads)
+                grdRadioSetup.Visible = true;
         }
         private void btnRibItemWorklist_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -4192,33 +4287,67 @@ namespace Envision.NET.Forms.Technologist
                 bg.HR_EMP.AUTH_LEVEL_ID = 0;
                 bg.Invoke();
 
-                #region check duplicate user
-                foreach (DataRow dr in dtMemList.Rows)
-                {
-                    if (dr["id"] == bg.Result.Tables[0].Rows[0]["EMP_ID"] || dr["id"].ToString().Trim() == bg.Result.Tables[0].Rows[0]["EMP_ID"].ToString().Trim())
-                    {
-                        msg.ShowAlert("UID2060", env.CurrentLanguageID);
-                        return;
-                    }
-                }
-                #endregion
-
-                DataRow row = dtMemList.NewRow();
-                row["id"] = bg.Result.Tables[0].Rows[0]["EMP_ID"];
-                row["fullname"] = bg.Result.Tables[0].Rows[0]["FullName"];
-                row["unit"] = bg.Result.Tables[0].Rows[0]["UNIT_NAME"];
-                dtMemList.Rows.Add(row);
-
-                ribbonUserMembers_DataShowing();
+                addMemList(bg.Result.Tables[0],false);
             }
             else
                 return;
         }
+        private void barBtnAddRads_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LookUpSelect lvS = new LookUpSelect();
+
+            Envision.NET.Forms.Dialog.LookupData lv = new Envision.NET.Forms.Dialog.LookupData();
+            lv.ValueUpdated += new Envision.NET.Forms.Dialog.ValueUpdatedEventHandler(find_Physician);
+            lv.AddColumn("EMP_ID", "Doctor ID", false, true);
+            lv.AddColumn("EMP_UID", "Doctor Code", true, true);
+            lv.AddColumn("RadioName", "Doctor Name", true, true);
+            lv.Text = "Doctor Search";
+
+            lv.Data = lvS.SelectOrderFrom("Physician").Tables[0];
+            lv.Size = new Size(600, 400);
+            lv.ShowBox();
+        }
+        private void find_Physician(object sender, Envision.NET.Forms.Dialog.ValueUpdatedEventArgs e)
+        {
+            string[] retValue = e.NewValue.Split(new Char[] { '^' });
+            ProcessGetHREmp bg = new ProcessGetHREmp();
+            bg.HR_EMP.MODE = "EmpId";
+            bg.HR_EMP.EMP_ID = Convert.ToInt32(retValue[0]);
+            bg.HR_EMP.USER_NAME = "";
+            bg.HR_EMP.UNIT_ID = 0;
+            bg.HR_EMP.AUTH_LEVEL_ID = 0;
+            bg.Invoke();
+
+            DataTable dt = bg.Result.Tables[0];
+            
+            #region check duplicate user
+            foreach (DataRow dr in dtRadList.Rows)
+            {
+                if (dr["id"] == retValue[0] || dr["id"].ToString().Trim() == retValue[0].Trim())
+                {
+                    msg.ShowAlert("UID2060", env.CurrentLanguageID);
+                    return;
+                }
+            }
+            #endregion
+            int slno = dtRadList.Rows.Count;
+            
+            DataRow row = dtRadList.NewRow();
+            row["id"] = retValue[0];
+            row["fullname"] = dt.Rows[0]["FullName"] + "(" + dt.Rows[0]["JOB_TITLE_DESC"] + ")";
+            row["unit"] = dt.Rows[0]["UNIT_NAME"];
+            row["fullnameTemp"] = dt.Rows[0]["FullName"] + "(" + dt.Rows[0]["JOB_TITLE_DESC"] + ")";
+            row["slno"] = slno+1;
+            dtRadList.Rows.Add(row);
+            setGridradioSetup();
+        }
+
         private void barBtnDelete1_ItemPress(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (dtMemList.Rows.Count == 1) return;
             try
             {
+                refreshRadSlno(nowMemRows);
                 dtMemList.Rows.RemoveAt(nowMemRows);
                 ribbonUserMembers_DataShowing();
             }
@@ -4229,6 +4358,7 @@ namespace Envision.NET.Forms.Technologist
             if (dtMemList.Rows.Count == 1) return;
             try
             {
+                refreshRadSlno(nowMemRows + 1);
                 dtMemList.Rows.RemoveAt(nowMemRows + 1);
                 ribbonUserMembers_DataShowing();
             }
@@ -4239,10 +4369,50 @@ namespace Envision.NET.Forms.Technologist
             if (dtMemList.Rows.Count == 1) return;
             try
             {
+                refreshRadSlno(nowMemRows + 2);
                 dtMemList.Rows.RemoveAt(nowMemRows + 2);
                 ribbonUserMembers_DataShowing();
             }
             catch { }
+        }
+        private void addMemList(DataTable dt,bool isRad)
+        {
+            #region check duplicate user
+            foreach (DataRow dr in dtMemList.Rows)
+            {
+                if (dr["id"] == dt.Rows[0]["EMP_ID"] || dr["id"].ToString().Trim() == dt.Rows[0]["EMP_ID"].ToString().Trim())
+                {
+                    msg.ShowAlert("UID2060", env.CurrentLanguageID);
+                    return;
+                }
+            }
+            #endregion
+            string _slno = "";
+            int slno = 0;
+
+            DataRow row = dtMemList.NewRow();
+            row["id"] = dt.Rows[0]["EMP_ID"];
+            row["fullname"] = _slno + dt.Rows[0]["FullName"] + "(" + dt.Rows[0]["JOB_TITLE_DESC"] + ")";
+            row["unit"] = dt.Rows[0]["UNIT_NAME"];
+            row["fullnameTemp"] = dt.Rows[0]["FullName"] + "(" + dt.Rows[0]["JOB_TITLE_DESC"] + ")";
+            row["slno"] = slno;
+            dtMemList.Rows.Add(row);
+
+            ribbonUserMembers_DataShowing();
+        }
+        private void refreshRadSlno(int rowIndex)
+        {
+            DataRow row = dtMemList.Rows[rowIndex];
+            if(!string.IsNullOrEmpty( row["slno"].ToString()))
+                if (Convert.ToInt32(row["slno"]) > 0)
+                {
+                    DataRow[] rows = dtMemList.Select("slno > 0");
+                    foreach (DataRow rowRefresh in rows)
+                    {
+                        rowRefresh["slno"] = Convert.ToInt32(rowRefresh["slno"]) - 1;
+                        rowRefresh["fullname"] = "[" + rowRefresh["slno"].ToString() + "]" + rowRefresh["FullNameTemp"];
+                    }
+                }
         }
         #endregion User Members
 
@@ -4501,7 +4671,7 @@ namespace Envision.NET.Forms.Technologist
             }
             else
             {
-                DataRow rowHandle = gridViewReject.GetDataRow(gridView2.FocusedRowHandle);
+                DataRow rowHandle = gridViewReject.GetDataRow(gridViewReject.FocusedRowHandle);
                 string hn = rowHandle["HN"].ToString();
                 int orderId = Convert.ToInt32(rowHandle["ORDER_ID"].ToString());
                 frm = new Envision.NET.Forms.Comment.frmComment(hn, orderId, Envision.NET.Forms.Comment.QueryFromMode.Order);

@@ -345,6 +345,10 @@ namespace EnvisionOnline.ReportViewer.Data {
             
             private global::System.Data.DataColumn columnINS_5;
             
+            private global::System.Data.DataColumn columnINS_6;
+            
+            private global::System.Data.DataColumn columnINS_7;
+            
             private global::System.Data.DataColumn columnHEADER_CONTACT;
             
             private global::System.Data.DataColumn columnFOOTER_CONTACT;
@@ -648,6 +652,22 @@ namespace EnvisionOnline.ReportViewer.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn INS_6Column {
+                get {
+                    return this.columnINS_6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn INS_7Column {
+                get {
+                    return this.columnINS_7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn HEADER_CONTACTColumn {
                 get {
                     return this.columnHEADER_CONTACT;
@@ -733,6 +753,8 @@ namespace EnvisionOnline.ReportViewer.Data {
                         string INS_3, 
                         string INS_4, 
                         string INS_5, 
+                        string INS_6, 
+                        string INS_7, 
                         string HEADER_CONTACT, 
                         string FOOTER_CONTACT) {
                 Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1Row rowPrc_RIS_SCHEDULE_XRPTREPORT_AIMC1Row = ((Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1Row)(this.NewRow()));
@@ -770,6 +792,8 @@ namespace EnvisionOnline.ReportViewer.Data {
                         INS_3,
                         INS_4,
                         INS_5,
+                        INS_6,
+                        INS_7,
                         HEADER_CONTACT,
                         FOOTER_CONTACT};
                 rowPrc_RIS_SCHEDULE_XRPTREPORT_AIMC1Row.ItemArray = columnValuesArray;
@@ -827,6 +851,8 @@ namespace EnvisionOnline.ReportViewer.Data {
                 this.columnINS_3 = base.Columns["INS_3"];
                 this.columnINS_4 = base.Columns["INS_4"];
                 this.columnINS_5 = base.Columns["INS_5"];
+                this.columnINS_6 = base.Columns["INS_6"];
+                this.columnINS_7 = base.Columns["INS_7"];
                 this.columnHEADER_CONTACT = base.Columns["HEADER_CONTACT"];
                 this.columnFOOTER_CONTACT = base.Columns["FOOTER_CONTACT"];
             }
@@ -900,6 +926,10 @@ namespace EnvisionOnline.ReportViewer.Data {
                 base.Columns.Add(this.columnINS_4);
                 this.columnINS_5 = new global::System.Data.DataColumn("INS_5", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnINS_5);
+                this.columnINS_6 = new global::System.Data.DataColumn("INS_6", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnINS_6);
+                this.columnINS_7 = new global::System.Data.DataColumn("INS_7", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnINS_7);
                 this.columnHEADER_CONTACT = new global::System.Data.DataColumn("HEADER_CONTACT", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHEADER_CONTACT);
                 this.columnFOOTER_CONTACT = new global::System.Data.DataColumn("FOOTER_CONTACT", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1607,6 +1637,40 @@ namespace EnvisionOnline.ReportViewer.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string INS_6 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'INS_6\' in table \'Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string INS_7 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'INS_7\' in table \'Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string HEADER_CONTACT {
                 get {
                     try {
@@ -2033,6 +2097,30 @@ namespace EnvisionOnline.ReportViewer.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetINS_5Null() {
                 this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsINS_6Null() {
+                return this.IsNull(this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetINS_6Null() {
+                this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsINS_7Null() {
+                return this.IsNull(this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetINS_7Null() {
+                this[this.tablePrc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_7Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

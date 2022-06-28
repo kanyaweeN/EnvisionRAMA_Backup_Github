@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision5API3rdPartyServices", "Envision5API3rdPartyServices\Envision5API3rdPartyServices.csproj", "{1EAF4E98-6E4B-47D0-81C4-A38E6318EE14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Envision5API3rdPartyServices", "Envision5API3rdPartyServices\Envision5API3rdPartyServices.csproj", "{1EAF4E98-6E4B-47D0-81C4-A38E6318EE14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.BusinessLogic", "Envision.BusinessLogic\Envision.BusinessLogic.csproj", "{4C9DC1DA-1F0E-4D07-9EED-10E2B6751F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Envision.BusinessLogic", "Envision.BusinessLogic\Envision.BusinessLogic.csproj", "{4C9DC1DA-1F0E-4D07-9EED-10E2B6751F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Database", "Envision.Database\Envision.Database.csproj", "{5C09CD13-9D80-4EED-BCE5-2605E2D66E35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Envision.Database", "Envision.Database\Envision.Database.csproj", "{5C09CD13-9D80-4EED-BCE5-2605E2D66E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Entity", "Envision.Entity\Envision.Entity.csproj", "{76F7AEEA-016E-4998-8295-51DEB7EC70B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Envision.Entity", "Envision.Entity\Envision.Entity.csproj", "{76F7AEEA-016E-4998-8295-51DEB7EC70B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envision.Operational", "Envision.Operational\Envision.Operational.csproj", "{FE07A88A-5BA1-4AB2-B667-76785486565C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{76F7AEEA-016E-4998-8295-51DEB7EC70B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76F7AEEA-016E-4998-8295-51DEB7EC70B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76F7AEEA-016E-4998-8295-51DEB7EC70B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE07A88A-5BA1-4AB2-B667-76785486565C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE07A88A-5BA1-4AB2-B667-76785486565C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE07A88A-5BA1-4AB2-B667-76785486565C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE07A88A-5BA1-4AB2-B667-76785486565C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

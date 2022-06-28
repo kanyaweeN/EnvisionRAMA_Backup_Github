@@ -32,5 +32,10 @@ namespace EnvisionOnline.BusinessLogic.ProcessUpdate
             _proc.XRAYREQ = this.XRAYREQ;
             _proc.Delete();
         }
+        public void updateLockCase(int order_id, string is_busy, int busy_by)
+        {
+            XRAYREQUpdateData _proc = new XRAYREQUpdateData();
+            _proc.updateLockCase(order_id, is_busy, busy_by);
+        }
     }
 }

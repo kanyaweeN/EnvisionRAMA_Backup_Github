@@ -183,6 +183,22 @@ namespace EnvisionOnline.DataAccess.Update
                                         };
             return parameters;
         }
-        
+
+        public void UpdateBusy()
+        {
+            DataSet ds = new DataSet();
+            StoredProcedureName = StoredProcedure.Prc_RIS_SCHEDULE_UpdateBusy;
+            ParameterList = buildParameterUpdateBusy();
+            ds = ExecuteDataSet();
+        }
+        private DbParameter[] buildParameterUpdateBusy()
+        {
+            DbParameter[] parameters ={
+                Parameter("@SCHEDULE_ID",RIS_SCHEDULE.SCHEDULE_ID)
+                ,Parameter("@IS_BUSY",RIS_SCHEDULE.IS_BUSY)
+                ,Parameter("@LAST_MODIFIED_BY",RIS_SCHEDULE.LAST_MODIFIED_BY)
+                                      };
+            return parameters;
+        }
     }
 }

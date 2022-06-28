@@ -22,7 +22,13 @@ namespace Envision.BusinessLogic.ProcessUpdate
             RISOrderUpdateDataEncounter update = new RISOrderUpdateDataEncounter();
             update.RIS_ORDER = this.RIS_ORDER;
             update.Update();
+        }
 
+        public void InvokeRefUnit()
+        {
+            RISOrderUpdateDataEncounter update = new RISOrderUpdateDataEncounter();
+            update.RIS_ORDER = this.RIS_ORDER;
+            update.UpdateRefUnit();
         }
 
         public void Invoke_ADMISSION_NO()

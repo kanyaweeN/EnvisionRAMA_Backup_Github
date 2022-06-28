@@ -549,7 +549,6 @@ public partial class normalPageAllExamGroup : System.Web.UI.Page
         dtMod_ID = Utilities.filterModalityByClinic(dtMod_ID, param.ENC_CLINIC);
 
         dr["MODALITY_ID"] = dtMod_ID.Rows.Count > 0 ? dtMod_ID.Rows[0][0] : 0;
-        dr["EXAM_NAME"] += " 6[" + dr["MODALITY_ID"].ToString() + "]";
         param.dtMod_ID = dtMod_ID;
 
         if (panelExam.ToString() != "0")
@@ -560,7 +559,6 @@ public partial class normalPageAllExamGroup : System.Web.UI.Page
                 dr["ORDER_DT"] = rowFillPanel[0]["ORDER_DT"];
                 dr["EXAM_DT"] = rowFillPanel[0]["EXAM_DT"];
                 dr["MODALITY_ID"] = Convert.ToBoolean(rowFillPanel[0]["SCHEDULE_FLAG"]) ? rowFillPanel[0]["MODALITY_ID"] : dr["MODALITY_ID"];
-                dr["EXAM_NAME"] += " 7[" + dr["MODALITY_ID"].ToString() + "]";
                 dr["SESSION_ID"] = rowFillPanel[0]["SESSION_ID"];
                 dr["AVG_INV_TIME"] = rowFillPanel[0]["AVG_INV_TIME"];
                 dr["START_DATETIME"] = rowFillPanel[0]["START_DATETIME"];

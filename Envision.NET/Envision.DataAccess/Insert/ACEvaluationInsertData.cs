@@ -15,7 +15,7 @@ namespace Envision.DataAccess.Insert
         public ACEvaluationInsertData()
 		{
             AC_EVALUATION = new AC_EVALUATION();
-            StoredProcedureName = StoredProcedure.Prc_AC_EVALUATION_Insert;
+            StoredProcedureName = StoredProcedure.Prc_AC_EVALUATION_Insert_New;
 		}
 		public void Add()
 		{
@@ -63,6 +63,7 @@ _EVALUATION_ID
 //,Parameter("@LAST_MODIFIED_ON",AC_CLASS.LAST_MODIFIED_ON)
 ,Parameter("@LANGUAGE_OF_REPORT",AC_EVALUATION.LANGUAGE_OF_REPORT)
 ,Parameter("@LANGUAGE_OF_REPORT_COMMENTS",AC_EVALUATION.LANGUAGE_OF_REPORT_COMMENTS)
+,Parameter("@RESULT_STATUS",AC_EVALUATION.RESULT_STATUS)
             };
             return parameters;
         }

@@ -5,8 +5,8 @@ import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
-    private APIUrl = 'https://localhost:44300/';
-    // private APIUrl = 'http://miracleonline/PeerReviewService/';
+    // private APIUrl = 'https://localhost:44300/';
+    private APIUrl = 'http://miracleonline/PeerReviewService/';
 
     constructor(private http: HttpClient) { }
 

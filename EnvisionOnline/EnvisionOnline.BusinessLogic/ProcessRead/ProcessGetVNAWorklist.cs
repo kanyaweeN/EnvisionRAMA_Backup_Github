@@ -27,5 +27,10 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             _proc.VNA_WORKLIST = VNA_WORKLIST;
             result = _proc.getData();
         }
+        public DataSet getDataVna(string hn, int unit_id, bool is_today,bool all_dept)
+        {
+            VNAWorklistSelectData _proc = new VNAWorklistSelectData();
+            return _proc.getDataVna(hn, unit_id, is_today, all_dept);
+        }
     }
 }

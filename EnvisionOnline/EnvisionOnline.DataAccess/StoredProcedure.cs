@@ -493,6 +493,7 @@ namespace EnvisionOnline.DataAccess
         Prc_XREGIST_SelectByID,
         Prc_XREGIST_SelectByHN,
         Prc_XREGIST_GetSREQ,
+        Prc_XRAYREQ_UpdateBusyCase,
 
         Prc_RIS_EXAMRESULTRADS_Select,
 
@@ -588,6 +589,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_SCHEDULE_AppointmentCount,
         Prc_RIS_SCHEDULE_SelectTest,
         Prc_Holiday_Select,
+        Prc_VNAV_WORKLIST_Select,
 
         #region Envision Online
         Prc_RIS_CLINICALINDICATION_Select2,
@@ -649,6 +651,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_ORDERICD_Insert,
         Prc_RIS_ORDER_SelectOrderReport,
         Prc_XRAYREQ_SelectOrderReport,
+        Prc_XRAYREQ_SelectBusyCase,
 
         Prc_RIS_SCHEDULE_Online_Insert,
         Prc_RIS_SCHEDULE_Online_Insert2,
@@ -731,6 +734,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_RISKINCIDENTS_DELETEbyXrayreqID,
         Prc_RIS_SCHEDULELOGS_Insert,
         Prc_RIS_SCHEDULE_OnlineIsConsentForm_Update,
+        Prc_RIS_SCHEDULE_UpdateBusy,
 
         Prc_RIS_LABCREATININE_Select,
         Prc_RIS_LABCREATININE_Insert,
@@ -775,6 +779,7 @@ namespace EnvisionOnline.DataAccess
         Prc_ONL_EXAMMAPCLINIC_Select,
         Prc_HR_UNIT_SelectCovid,
         Prc_RIS_ORDER_InsertDirectOnline,
+        Prc_RIS_CLINICALINDICATIONTYPE_SelectWithParam,
         #endregion
     }
 }

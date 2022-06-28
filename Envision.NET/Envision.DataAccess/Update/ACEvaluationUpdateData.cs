@@ -16,7 +16,7 @@ namespace Envision.DataAccess.Update
                 public ACEvaluationUpdateData()
 		{
             AC_EVALUATION = new AC_EVALUATION();
-            StoredProcedureName = StoredProcedure.Prc_AC_EVALUATION_Update;
+            StoredProcedureName = StoredProcedure.Prc_AC_EVALUATION_Update_New;
 		}
 		public void Update()
 		{
@@ -41,6 +41,7 @@ Parameter("@ASSIGNMENT_ID",AC_EVALUATION.ASSIGNMENT_ID)
 ,Parameter("@LAST_MODIFIED_BY",AC_EVALUATION.LAST_MODIFIED_BY)
 ,Parameter("@LANGUAGE_OF_REPORT",AC_EVALUATION.LANGUAGE_OF_REPORT)
 ,Parameter("@LANGUAGE_OF_REPORT_COMMENTS",AC_EVALUATION.LANGUAGE_OF_REPORT_COMMENTS)
+,Parameter("@RESULT_STATUS",AC_EVALUATION.RESULT_STATUS)
                                       };
             return parameters;
         }

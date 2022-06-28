@@ -70,3 +70,15 @@ D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngi
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.csprojResolveAssemblyReference.cache
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.Common.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.WebService.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\NHapi.Base.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\NHapi.Model.V23.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\NRtfTree.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\bin\Debug\EnvisionInterfaceEngine.WebService.pdb
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA\EnvisionInterfaceEngine\EnvisionInterfaceEngine.Operational\obj\x86\Debug\EnvisionInterfaceEngine.Operational.pdb

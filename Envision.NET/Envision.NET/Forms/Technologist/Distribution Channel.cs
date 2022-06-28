@@ -38,6 +38,7 @@ namespace Envision.NET.Forms.Technologist
         private DataTable dtgDrag;
         private DataTable KeepAcc;
         private DataTable dtAssignTo;
+        private DataTable dttExamFlag, dtExamFlagDTL;
         bool ItemFlag = false;
         private Graphics Grp;
         private Rectangle Rta;
@@ -58,6 +59,7 @@ namespace Envision.NET.Forms.Technologist
 
         private void Distribution_Channel_Load(object sender, EventArgs e)
         {
+            setTrauma();
             txtAssignSearch.Enabled = false;
             SetShowGrid("All");
             SetNullGrid();
@@ -591,7 +593,6 @@ namespace Envision.NET.Forms.Technologist
             advBandedGridView1.Columns["Accession No."].OptionsColumn.ReadOnly = true;
             advBandedGridView1.Columns["Accession No."].Width = 80;
 
-
             DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox imCmb = new RepositoryItemImageComboBox();
             imCmb.SmallImages = this.imgWL;
             imCmb.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
@@ -609,13 +610,35 @@ namespace Envision.NET.Forms.Technologist
             advBandedGridView1.Columns["Priority"].OptionsColumn.ReadOnly = true;
             advBandedGridView1.Columns["Priority"].Width = 10;
 
+            DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repFlag = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            repFlag.AutoHeight = false;
+            foreach (DataRow rowFlag in dtExamFlagDTL.Rows)
+            {
+                repFlag.Items.Add(new DevExpress.XtraEditors.Controls.ImageComboBoxItem(
+                    rowFlag["GEN_TEXT"].ToString()
+                    , Convert.ToInt32(rowFlag["SL_NO"].ToString())
+                    , Convert.ToInt32(rowFlag["SL_NO"].ToString()) - 1
+                    ));
+            }
+            repFlag.Name = "repFlag";
+            repFlag.SmallImages = this.img16;
+            repFlag.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            repFlag.Buttons[0].Visible = false;
+
+            advBandedGridView1.Columns["FLAG_ICON"].ColVIndex = 2;
+            advBandedGridView1.Columns["FLAG_ICON"].Caption = " ";
+            advBandedGridView1.Columns["FLAG_ICON"].Width = -1;
+            advBandedGridView1.Columns["FLAG_ICON"].ColumnEdit = repFlag;
+            advBandedGridView1.Columns["FLAG_ICON"].OptionsColumn.ReadOnly = true;
+            advBandedGridView1.Columns["FLAG_ICON"].OptionsColumn.AllowEdit = false;
+            advBandedGridView1.Columns["FLAG_ICON"].OptionsFilter.AllowFilter = false;
+
             advBandedGridView1.Columns["PATIENT_ID_LABEL"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
             advBandedGridView1.Columns["PATIENT_ID_LABEL"].Visible = true;
             advBandedGridView1.Columns["PATIENT_ID_LABEL"].Caption = " ";
-            advBandedGridView1.Columns["PATIENT_ID_LABEL"].ColVIndex = 2;
+            advBandedGridView1.Columns["PATIENT_ID_LABEL"].ColVIndex = 3;
             advBandedGridView1.Columns["PATIENT_ID_LABEL"].OptionsColumn.ReadOnly = true;
             advBandedGridView1.Columns["PATIENT_ID_LABEL"].Width = 30;
-
 
             advBandedGridView1.Columns["Result Status"].AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
             advBandedGridView1.Columns["Result Status"].Visible = true;
@@ -744,7 +767,32 @@ namespace Envision.NET.Forms.Technologist
             advBandedGridView1.Columns["AppointmentDatetime"].OptionsColumn.ReadOnly = false;
             advBandedGridView1.Columns["AppointmentDatetime"].Width = 50;
         }
+        private void setTrauma()
+        {
+            ProcessGetRISOrderexamflag prc = new ProcessGetRISOrderexamflag();
+            prc.RIS_ORDEREXAMFLAG.ORDER_ID = -1;
+            prc.Invoke();
+            dttExamFlag = prc.Result.Tables[0]; //Set template table.
+            dtExamFlagDTL = prc.resultDetail();
 
+            //contextcmb.Items.Clear();
+            //contextcmbSchedule.Items.Clear();
+            //System.Windows.Forms.ComboBox.ObjectCollection colls = contextcmb.Items;
+            //System.Windows.Forms.ComboBox.ObjectCollection collSch = contextcmbSchedule.Items;
+            //try
+            //{
+            //    foreach (DataRow row in dtExamFlagDTL.Rows)
+            //    {
+            //        colls.Add(new TraumaItems(Convert.ToInt32(row["GEN_DTL_ID"]), row["GEN_TEXT"].ToString(), Convert.ToInt32(row["SL_NO"])));
+            //        collSch.Add(new TraumaItems(Convert.ToInt32(row["GEN_DTL_ID"]), row["GEN_TEXT"].ToString(), Convert.ToInt32(row["SL_NO"])));
+            //    }
+            //}
+            //finally
+            //{
+            //}
+            //contextcmb.SelectedIndex = 0;
+            //contextcmbSchedule.SelectedIndex = 0;
+        }
         private void dtRequestResult_CloseUp(object sender, CloseUpEventArgs e)
         {
             if (e.AcceptValue)

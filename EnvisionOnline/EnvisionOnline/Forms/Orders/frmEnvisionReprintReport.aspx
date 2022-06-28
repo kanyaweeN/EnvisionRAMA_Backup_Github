@@ -51,9 +51,15 @@
             }
             var popupWin;
             function showNewWindows(args) {
-                popupWin = window.open("http://miracleonline/SynapseManageLink/AccessionNOpacsurl.html?AccessionNo=" + args, "name");
+                popupWin = window.open("http://localhost:9090?QueryMode=AN&Value=" + args, "name");
                 popupWin.focus();
                 return false;
+            }
+            function httpGet(theUrl) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", theUrl, false); // false for synchronous request
+                xmlHttp.send(null);
+                return xmlHttp.responseText;
             }
             function showNormalAlert(args) {
                 switch (args) {

@@ -85,7 +85,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(366, 284);
+            this.layoutControl1.Size = new System.Drawing.Size(577, 284);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -93,7 +93,7 @@
             // 
             this.btnCancel.Location = new System.Drawing.Point(7, 251);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(353, 22);
+            this.btnCancel.Size = new System.Drawing.Size(564, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
@@ -102,7 +102,7 @@
             // txtReason
             // 
             this.txtReason.EditValue = "";
-            this.txtReason.Location = new System.Drawing.Point(108, 57);
+            this.txtReason.Location = new System.Drawing.Point(155, 57);
             this.txtReason.Name = "txtReason";
             this.txtReason.Properties.AllowFocused = false;
             this.txtReason.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -110,7 +110,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete)});
             this.txtReason.Properties.NullText = "";
             this.txtReason.Properties.View = this.txtReasonView;
-            this.txtReason.Size = new System.Drawing.Size(249, 20);
+            this.txtReason.Size = new System.Drawing.Size(413, 20);
             this.txtReason.StyleController = this.layoutControl1;
             this.txtReason.TabIndex = 3;
             this.txtReason.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtReason_ButtonPressed);
@@ -124,19 +124,19 @@
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(108, 94);
+            this.txtComment.Location = new System.Drawing.Point(155, 94);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtComment.Size = new System.Drawing.Size(249, 55);
+            this.txtComment.Size = new System.Drawing.Size(413, 55);
             this.txtComment.TabIndex = 1;
             // 
             // txtPhoneBack
             // 
-            this.txtPhoneBack.Location = new System.Drawing.Point(108, 166);
+            this.txtPhoneBack.Location = new System.Drawing.Point(155, 166);
             this.txtPhoneBack.Name = "txtPhoneBack";
             this.txtPhoneBack.Properties.Mask.EditMask = "(\\(\\d\\d\\d\\))?\\d{1,3}-\\d\\d-\\d\\d";
-            this.txtPhoneBack.Size = new System.Drawing.Size(249, 20);
+            this.txtPhoneBack.Size = new System.Drawing.Size(413, 20);
             this.txtPhoneBack.StyleController = this.layoutControl1;
             this.txtPhoneBack.TabIndex = 9;
             // 
@@ -144,7 +144,7 @@
             // 
             this.btnSaveAndBack.Location = new System.Drawing.Point(7, 228);
             this.btnSaveAndBack.Name = "btnSaveAndBack";
-            this.btnSaveAndBack.Size = new System.Drawing.Size(353, 22);
+            this.btnSaveAndBack.Size = new System.Drawing.Size(564, 22);
             this.btnSaveAndBack.StyleController = this.layoutControl1;
             this.btnSaveAndBack.TabIndex = 11;
             this.btnSaveAndBack.Text = "Save and back to Worklist";
@@ -152,11 +152,11 @@
             // 
             // txtPhoneOfModality
             // 
-            this.txtPhoneOfModality.Location = new System.Drawing.Point(108, 20);
+            this.txtPhoneOfModality.Location = new System.Drawing.Point(155, 20);
             this.txtPhoneOfModality.Name = "txtPhoneOfModality";
             this.txtPhoneOfModality.Properties.Mask.EditMask = "(\\(\\d\\d\\d\\))?\\d{1,3}-\\d\\d-\\d\\d";
             this.txtPhoneOfModality.Properties.ReadOnly = true;
-            this.txtPhoneOfModality.Size = new System.Drawing.Size(249, 20);
+            this.txtPhoneOfModality.Size = new System.Drawing.Size(413, 20);
             this.txtPhoneOfModality.StyleController = this.layoutControl1;
             this.txtPhoneOfModality.TabIndex = 4;
             // 
@@ -164,7 +164,7 @@
             // 
             this.btnOK.Location = new System.Drawing.Point(7, 205);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(353, 22);
+            this.btnOK.Size = new System.Drawing.Size(564, 22);
             this.btnOK.StyleController = this.layoutControl1;
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "Save";
@@ -186,7 +186,7 @@
             this.emptySpaceItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(366, 284);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(577, 284);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
@@ -198,18 +198,18 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 10);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlItem1.Size = new System.Drawing.Size(364, 37);
+            this.layoutControlItem1.Size = new System.Drawing.Size(575, 37);
             this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem1.Text = "Phone of modality :";
+            this.layoutControlItem1.Text = "Contact Number :";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(140, 13);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(364, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(575, 10);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -220,7 +220,7 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 203);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.layoutControlItem3.Size = new System.Drawing.Size(364, 23);
+            this.layoutControlItem3.Size = new System.Drawing.Size(575, 23);
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -234,18 +234,18 @@
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 156);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlItem7.Size = new System.Drawing.Size(364, 37);
+            this.layoutControlItem7.Size = new System.Drawing.Size(575, 37);
             this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlItem7.Text = "Phone back :";
+            this.layoutControlItem7.Text = "Radiologist Contact Number :";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(140, 13);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 193);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(364, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(575, 10);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -256,11 +256,11 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 84);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlItem2.Size = new System.Drawing.Size(364, 72);
+            this.layoutControlItem2.Size = new System.Drawing.Size(575, 72);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem2.Text = "Comments :";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(140, 13);
             // 
             // layoutControlItem5
             // 
@@ -269,11 +269,11 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 47);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutControlItem5.Size = new System.Drawing.Size(364, 37);
+            this.layoutControlItem5.Size = new System.Drawing.Size(575, 37);
             this.layoutControlItem5.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlItem5.Text = "Reason :";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(93, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(140, 13);
             // 
             // layoutControlItem6
             // 
@@ -282,7 +282,7 @@
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 249);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.layoutControlItem6.Size = new System.Drawing.Size(364, 23);
+            this.layoutControlItem6.Size = new System.Drawing.Size(575, 23);
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -296,7 +296,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 226);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.layoutControlItem4.Size = new System.Drawing.Size(364, 23);
+            this.layoutControlItem4.Size = new System.Drawing.Size(575, 23);
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -308,7 +308,7 @@
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 272);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(364, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(575, 10);
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -316,12 +316,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 284);
+            this.ClientSize = new System.Drawing.Size(577, 284);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRejectPacsImage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reject";
+            this.Text = "Feedback Image";
             this.Load += new System.EventHandler(this.frmRejectPacsImage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

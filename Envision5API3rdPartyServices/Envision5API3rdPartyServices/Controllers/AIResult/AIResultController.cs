@@ -15,8 +15,8 @@ namespace Envision5API3rdPartyServices.Controllers.AIResult
     public class AIResultController : ControllerBase
     {
         [HttpPost]
-        [Route("TestAIDetail")]
-        public AIResponse TestAIDetail(DetectData detectData, string paraString)
+        [Route("AIDetail_Insert")]
+        public AIResponse AIDetail(DetectData detectData, string paraString,string aiVendor)
         {
             if (string.IsNullOrEmpty(detectData.hn))
             {
@@ -42,6 +42,7 @@ namespace Envision5API3rdPartyServices.Controllers.AIResult
                 aIResult.Item.Hn = detectData.hn;
                 aIResult.Item.AccessionNo = detectData.accession_no;
                 aIResult.Item.DetectValues = detectData.detectos_value;
+                aIResult.Item.AiVendor = aiVendor;
                 aIResult.Item.Remark = paraString;
                 RisAIDetail aIDetail = aIResult.GetByAccession();
 
@@ -73,7 +74,21 @@ namespace Envision5API3rdPartyServices.Controllers.AIResult
         public AIResponse SetAIDetail([FromBody] dynamic para)
         {
             var detectData = JsonConvert.DeserializeObject<DetectData>(para.ToString());
-            return this.TestAIDetail(detectData, para.ToString());
+            return this.AIDetail(detectData, para.ToString(),"Detectos");
+        }
+        [HttpPost]
+        [Route("SetRAMAIDetail")]
+        public AIResponse SetRAMAIDetail([FromBody] dynamic para)
+        {
+            var detectData = JsonConvert.DeserializeObject<DetectData>(para.ToString());
+            return this.AIDetail(detectData, para.ToString(),"RAMAAI");
+        }
+        [HttpPost]
+        [Route("SetAIHandDetail")]
+        public AIResponse SetAIHandDetail([FromBody] dynamic para)
+        {
+            var detectData = JsonConvert.DeserializeObject<DetectData>(para.ToString());
+            return this.AIDetail(detectData, para.ToString(), "AIHand");
         }
     }
 }

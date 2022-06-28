@@ -197,6 +197,8 @@
                     <telerik:AjaxUpdatedControl ControlID="favOTHERS" /> 
                     <telerik:AjaxUpdatedControl ControlID="favMRAHeart"/>
                     <telerik:AjaxUpdatedControl ControlID="chkMRAHeart" />
+                    <telerik:AjaxUpdatedControl ControlID="favContouring"/>
+                    <telerik:AjaxUpdatedControl ControlID="chkContouring"/>
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="chkMRI">
@@ -466,6 +468,12 @@
                 </table>
             </td>     
             <td colspan="2">
+            <table width="100%">
+                    <tr>
+                        <td class="favoritStyle"><telerik:RadButton ID="favContouring"           Text="" Width="5px" style="vertical-align:top;"                      Value="XM113"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkContouring"    Text="Contouring prostate MRI for guided biopsy" Value="XM113" runat="server" ToggleType="CheckBox" ButtonType="ToggleButton" GroupName="lbMrEvaluated" OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                    </tr>
+                </table>
             </td>
             <td colspan="2">
                 <%--<table width="100%">

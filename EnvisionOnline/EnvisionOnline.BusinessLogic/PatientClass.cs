@@ -42,7 +42,7 @@ namespace EnvisionOnline.BusinessLogic
         {
             HIS_REGISTRATION = new HIS_REGISTRATION();
         }
-        public bool get_Patient_NonResident(string _hn, out bool _isTeleMed, out int _encId)
+        public bool get_Patient_NonResident(string _hn,string encType,string sdlocId, out bool _isTeleMed, out int _encId)
         {
             _isTeleMed = false;
             _encId = 0;
@@ -73,6 +73,18 @@ namespace EnvisionOnline.BusinessLogic
                     _encId = string.IsNullOrEmpty(dsCheckNonResident.Tables[0].Rows[0]["enc_id"].ToString()) ? 0 : Convert.ToInt32(dsCheckNonResident.Tables[0].Rows[0]["enc_id"].ToString());
 
                 }
+                else
+                {
+                    DataSet dsEl = proxy.GetEligibilityInsuranceDetail(_hn
+                        , encType
+                        , ""
+                        , sdlocId
+                        , DateTime.Now.ToString("dd/MM/yyyy")
+                        , "RGL");
+                    if (dsEl.Tables[0].Rows.Count > 0)
+                        flag = dsEl.Tables[0].Rows[0]["detail"].ToString() == "non-resident(v)" ? true : false;
+                }
+
             }
             catch (Exception ex)
             {

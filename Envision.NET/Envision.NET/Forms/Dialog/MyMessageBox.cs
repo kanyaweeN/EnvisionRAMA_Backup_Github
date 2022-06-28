@@ -179,6 +179,52 @@ namespace Envision.NET.Forms.Dialog
             return btn;
 
         }
+
+        public string ShowAlertAndAddMessage(string UID, int LANGID, string addMessage)
+        {
+            string btn = "";
+            string txtMessage = "", txtTitle = "", noOfButton = "", defaultbtn = "", timesec = "", cap1 = "", cap2 = "", cap3 = "", alttype = "";
+            ProcessGetGlobalAlert gblprocess = new ProcessGetGlobalAlert();
+            GBL_ALERT galert = new GBL_ALERT();
+            galert.ALT_UID = UID;
+            galert.LangID = LANGID;
+            gblprocess.GBL_ALERT = galert;
+
+            try
+            {
+                gblprocess.Invoke();
+                DataTable dt = gblprocess.ResultSet.Tables[0];
+                int i = 0;
+                while (i < dt.Rows.Count)
+                {
+                    txtMessage = dt.Rows[i]["ALT_TEXT"].ToString();
+                    txtTitle = dt.Rows[i]["ALT_TITLE"].ToString();
+                    noOfButton = dt.Rows[i]["ALT_BUTTON"].ToString();
+                    defaultbtn = dt.Rows[i]["DEFAULT_BTN"].ToString();
+                    timesec = dt.Rows[i]["TIME_SEC"].ToString();
+                    cap1 = dt.Rows[i]["CAPTION_BTN1"].ToString();
+                    cap2 = dt.Rows[i]["CAPTION_BTN2"].ToString();
+                    cap3 = dt.Rows[i]["CAPTION_BTN3"].ToString();
+                    alttype = dt.Rows[i]["ALT_TYPE"].ToString();
+
+                    i++;
+                }
+                if (!string.IsNullOrEmpty(addMessage))
+                    txtMessage += addMessage;
+
+                if (dt.Rows.Count > 0)
+                {
+                    btn = ShowBox(txtMessage, txtTitle, noOfButton, defaultbtn, timesec, cap1, cap2, cap3, alttype);
+                }
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+
+            return btn;
+        }
         public static string ShowBox(string txtMessage, string txtTitle,string noOfButton,string defaultbtn, string timesec, string cap1, string cap2, string cap3, string alttype)
         {
             

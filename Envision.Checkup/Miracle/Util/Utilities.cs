@@ -5,6 +5,7 @@ using System.Web;
 using System.IO;
 using System.Net;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace Miracle.Util
 {
@@ -67,6 +68,25 @@ namespace Miracle.Util
         {
             string strHostName = Dns.GetHostName();
             return strHostName;
+        }
+
+        public static string EncryptText(string input, string key)
+        {
+            String encData = null;
+            System.Text.UTF8Encoding UTF8 = new System.Text.UTF8Encoding();
+            AesManaged tdes = new AesManaged();
+            byte[] keys = UTF8.GetBytes(key);
+            Array.Resize(ref keys, 16);
+            tdes.Key = keys;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform crypt = tdes.CreateEncryptor();
+
+            byte[] plain = Encoding.UTF8.GetBytes(input);
+            byte[] cipher = crypt.TransformFinalBlock(plain, 0, plain.Length);
+            encData = Convert.ToBase64String(cipher);
+
+            return encData;
         }
 
         public static string FormatText(string text, bool allow)

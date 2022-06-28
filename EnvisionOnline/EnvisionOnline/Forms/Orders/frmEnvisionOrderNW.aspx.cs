@@ -19,6 +19,7 @@ using System.Text;
 using EnvisionOnline.Common;
 using EnvisionOnline.BusinessLogic.ProcessRead;
 using EnvisionOnline.BusinessLogic.ProcessDelete;
+using EnvisionOnline.BusinessLogic.ProcessUpdate;
 
 public partial class frmEnvisionOrderNW : System.Web.UI.Page
 {
@@ -126,7 +127,10 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             try
             {
                 lblDOB.Text = Utilities.ToStringDatetimeTH("d MMM yyyy", Convert.ToDateTime(dr["DOB"]));
-                param.IS_CHILDEN = (DateTime.Now.Year - Convert.ToDateTime(dr["DOB"]).Year) < 15 ? true : false;
+                //int index = lblAge.Text.IndexOf(' ');
+                //string resultAge = lblAge.Text.Substring(0, index + 1);
+                //param.IS_CHILDEN = Convert.ToInt32(resultAge) <= 15 ? true : false;
+                param.IS_CHILDEN = (DateTime.Now.Year - Convert.ToDateTime(dr["DOB"]).Year) <= 15 ? true : false; 
             }
             catch (Exception ex)
             {
@@ -196,6 +200,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     }
     private void setPageMain()
     {
+        updateBusy();
         Response.Redirect(@"../../Forms/Orders/frmEnvisionOrderWL.aspx");
     }
     private DataTable setOrderTemplate()
@@ -709,60 +714,45 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         }
 
         if (flag)
-        {
-            ProcessGetHoliday checkHoliday = new ProcessGetHoliday();
-            DataTable dtholiday = checkHoliday.get().Tables[0];
-
-            if (dtholiday.Rows.Count > 0)
-            {
-                foreach (DataRow drholiday in dtholiday.Rows)
-                {
-                    DateTime holiday = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drholiday["DATE"].ToString()).Month, Convert.ToDateTime(drholiday["DATE"].ToString()).Day, 0, 0, 0);
-                    foreach (DataRow drr in dt.Rows)
-                    {
-                        if (drr["strEXAM_DT"].ToString().IndexOf("Pending") < 0 || drr["strEXAM_DT"].ToString().IndexOf("Waiting") < 0)
-                        {
-                            DateTime examdt = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Month, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Day, 0, 0, 0);
-                            if (holiday == examdt)
-                            {
-                                flag = false;
-                                showOnlineMessageBox("Holiday");
-                                break;
-                            }
-                        }
-                    }
-                    if(!flag)
-                        break;
-                }
-            }
-        }
+            flag = checkParameterInsert_Holiday();
 
         if (flag)
             flag = checkParameterInsert_Covid();
-        //if (flag)
-        //{
-        //    flag = checkParameterInsert_RiskManagement();
-        //    //foreach (DataRow rowsCheckCTorMRI in dt.Rows)
-        //    //{
-        //    //    ProcessGetRISExam chkExam = new ProcessGetRISExam();
-        //    //    int exam_type = chkExam.GetExamtypeRiskManagement(Convert.ToInt32(rowsCheckCTorMRI["EXAM_ID"]));
-        //    //    if (exam_type == 1 || exam_type == 6)
-        //    //    {
-        //    //        flag = false;
-        //    //        showRiskManagement("tabMRI");
-        //    //        break;
-        //    //    }
-        //    //    else if (exam_type == 2)
-        //    //    {
-        //    //        flag = false;
-        //    //        showRiskManagement("tabCT");
-        //    //        break;
-        //    //    }
+        return flag;
+    }
+    private bool checkParameterInsert_Holiday()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
 
-        //    //}
-        //    //if (flag)
-        //        //set_SaveOrder();
-        //}
+        bool flag = true;
+        DataTable dt = param.dvGridDtl;
+
+        ProcessGetHoliday checkHoliday = new ProcessGetHoliday();
+        DataTable dtholiday = checkHoliday.get().Tables[0];
+
+        if (dtholiday.Rows.Count > 0)
+        {
+            foreach (DataRow drholiday in dtholiday.Rows)
+            {
+                DateTime holiday = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drholiday["DATE"].ToString()).Month, Convert.ToDateTime(drholiday["DATE"].ToString()).Day, 0, 0, 0);
+                foreach (DataRow drr in dt.Rows)
+                {
+                    if (drr["strEXAM_DT"].ToString().IndexOf("Pending") < 0 || drr["strEXAM_DT"].ToString().IndexOf("Waiting") < 0)
+                    {
+                        DateTime examdt = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Month, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Day, 0, 0, 0);
+                        if (holiday == examdt)
+                        {
+                            flag = false;
+                            showOnlineMessageBox("Holiday");
+                            break;
+                        }
+                    }
+                }
+                if (!flag)
+                    break;
+            }
+        }
+
         return flag;
     }
     private bool checkParameterInsert_Covid()
@@ -776,6 +766,21 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
 
         if (ds.Tables[0].Rows.Count > 0)
             showCovid();
+        else
+            checkParameterInsert_MRPC();
+
+        return flag;
+    }
+    private bool checkParameterInsert_MRPC()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        param.REF_DOC_INSTRUCTION = txtEditor.Text;
+        bool flag = true;
+
+        DataRow[] rowChk = param.dvGridDtl.Select("EXAM_UID = 'XM113'");
+
+        if (rowChk.Length > 0)
+            showClinicalIndicationWithParameter("MRPC");
         else
             checkParameterInsert_RiskManagement();
 
@@ -2269,6 +2274,10 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     private void showCovid()
     {
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showCovid", "showCovid();", true);
+    }
+    private void showClinicalIndicationWithParameter(string param)
+    {
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showClinicalIndicationWithParams", "showClinicalIndicationWithParams('"+param+"');", true);
     }
     #endregion
     #region Appointment page
@@ -4728,6 +4737,41 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         for (int i = 0; i < radGridData.Columns.Count; i++)
             radGridData.Columns[i].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
     }
+    #region Update Busy
+    private void updateBusy()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        string strorder_id = param.ORDER_ID == null ? "0" : param.ORDER_ID;
+        string strschedule_id = param.SCHEDULE_ID == null ? "0" : param.SCHEDULE_ID;
+
+        if (!(strorder_id == "0" && strschedule_id == "0"))
+        {
+            updateBusyCase(strorder_id != "0" ? "XRAYREQ" : "SCHEDULE",
+                        Convert.ToInt32(strorder_id),
+                        Convert.ToInt32(strschedule_id),
+                        "N"
+                        );
+        }
+    }
+    private void updateBusyCase(string mode, int orderId, int scheduleId, string busy)
+    {
+        GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
+        switch (mode)
+        {
+            case "SCHEDULE":
+                ProcessUpdateRISSchedule proc = new ProcessUpdateRISSchedule();
+                proc.RIS_SCHEDULE.SCHEDULE_ID = scheduleId;
+                proc.RIS_SCHEDULE.IS_BUSY = busy;
+                proc.RIS_SCHEDULE.LAST_MODIFIED_BY = env.UserID;
+                proc.UpdateBusy();
+                break;
+            case "XRAYREQ":
+                ProcessUpdateXRAYREQ xryReq = new ProcessUpdateXRAYREQ();
+                xryReq.updateLockCase(orderId, busy, env.UserID);
+                break;
+        }
+    }
+    #endregion
     protected void RadAjaxManager1_AjaxRequest(object sender, AjaxRequestEventArgs e)
     {
         GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
@@ -4810,6 +4854,10 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                 set_SaveOrder();
                 break;
             case "COVID":
+                txtEditor.Text = param.REF_DOC_INSTRUCTION;
+                checkParameterInsert_RiskManagement();
+                break;
+            case "ClinicalIndicationWithParam":
                 txtEditor.Text = param.REF_DOC_INSTRUCTION;
                 checkParameterInsert_RiskManagement();
                 break;

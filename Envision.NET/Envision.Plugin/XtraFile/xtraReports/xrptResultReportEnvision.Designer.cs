@@ -31,10 +31,10 @@ namespace Envision.Plugin.XtraFile.xtraReports
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xrptResultReportEnvision));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrLabel19 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblOrderDT = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblFinalizedOn = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
@@ -69,11 +69,13 @@ namespace Envision.Plugin.XtraFile.xtraReports
             this.xrLine6 = new DevExpress.XtraReports.UI.XRLine();
             this.txtAddendum = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.rtCovidCategory = new DevExpress.XtraReports.UI.XRRichText();
+            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
-            this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsReport1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtCovidCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -87,10 +89,10 @@ namespace Envision.Plugin.XtraFile.xtraReports
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel19,
+            this.lblOrderDT,
             this.xrLabel18,
             this.xrLabel16,
-            this.xrLabel15,
+            this.lblFinalizedOn,
             this.xrLabel14,
             this.xrLabel13,
             this.xrLabel12,
@@ -113,18 +115,16 @@ namespace Envision.Plugin.XtraFile.xtraReports
             this.PageHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.PageHeader.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.PageHeader_BeforePrint);
             // 
-            // xrLabel19
+            // lblOrderDT
             // 
-            this.xrLabel19.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_ReportExamResult.ORDER_DT", "")});
-            this.xrLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel19.Location = new System.Drawing.Point(442, 92);
-            this.xrLabel19.Multiline = true;
-            this.xrLabel19.Name = "xrLabel19";
-            this.xrLabel19.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel19.Size = new System.Drawing.Size(208, 17);
-            this.xrLabel19.StylePriority.UseFont = false;
-            this.xrLabel19.Text = "xrLabel19";
+            this.lblOrderDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDT.Location = new System.Drawing.Point(442, 92);
+            this.lblOrderDT.Multiline = true;
+            this.lblOrderDT.Name = "lblOrderDT";
+            this.lblOrderDT.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblOrderDT.Size = new System.Drawing.Size(208, 17);
+            this.lblOrderDT.StylePriority.UseFont = false;
+            this.lblOrderDT.Text = "lblOrderDT";
             // 
             // xrLabel18
             // 
@@ -151,18 +151,16 @@ namespace Envision.Plugin.XtraFile.xtraReports
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.Text = "xrLabel16";
             // 
-            // xrLabel15
+            // lblFinalizedOn
             // 
-            this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_ReportExamResult.FINALIZED_ON", "")});
-            this.xrLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel15.Location = new System.Drawing.Point(442, 109);
-            this.xrLabel15.Multiline = true;
-            this.xrLabel15.Name = "xrLabel15";
-            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.Size = new System.Drawing.Size(208, 17);
-            this.xrLabel15.StylePriority.UseFont = false;
-            this.xrLabel15.Text = "xrLabel15";
+            this.lblFinalizedOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFinalizedOn.Location = new System.Drawing.Point(442, 109);
+            this.lblFinalizedOn.Multiline = true;
+            this.lblFinalizedOn.Name = "lblFinalizedOn";
+            this.lblFinalizedOn.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblFinalizedOn.Size = new System.Drawing.Size(208, 17);
+            this.lblFinalizedOn.StylePriority.UseFont = false;
+            this.lblFinalizedOn.Text = "lblFinalizedOn";
             // 
             // xrLabel14
             // 
@@ -519,14 +517,54 @@ namespace Envision.Plugin.XtraFile.xtraReports
             // GroupFooter2
             // 
             this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.rtCovidCategory,
             this.xrLabel21,
             this.xrLabel22,
             this.xrLabel4,
             this.xrRichText1});
-            this.GroupFooter2.Height = 90;
             this.GroupFooter2.Level = 1;
             this.GroupFooter2.Name = "GroupFooter2";
             this.GroupFooter2.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.GroupFooter2_BeforePrint);
+            // 
+            // rtCovidCategory
+            // 
+            this.rtCovidCategory.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+            this.rtCovidCategory.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            this.rtCovidCategory.Location = new System.Drawing.Point(8, 92);
+            this.rtCovidCategory.Name = "rtCovidCategory";
+            this.rtCovidCategory.Padding = new DevExpress.XtraPrinting.PaddingInfo(4, 4, 4, 4, 100F);
+            this.rtCovidCategory.SerializableRtfString = resources.GetString("rtCovidCategory.SerializableRtfString");
+            this.rtCovidCategory.Size = new System.Drawing.Size(642, 8);
+            this.rtCovidCategory.StylePriority.UseBorders = false;
+            this.rtCovidCategory.StylePriority.UseFont = false;
+            this.rtCovidCategory.StylePriority.UsePadding = false;
+            this.rtCovidCategory.Visible = false;
+            // 
+            // xrLabel21
+            // 
+            this.xrLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrLabel21.Location = new System.Drawing.Point(8, 67);
+            this.xrLabel21.Name = "xrLabel21";
+            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel21.Size = new System.Drawing.Size(117, 23);
+            this.xrLabel21.StylePriority.UseFont = false;
+            this.xrLabel21.StylePriority.UseTextAlignment = false;
+            this.xrLabel21.Text = "Report Severity: ";
+            this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel22
+            // 
+            this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_ReportExamResult.severity_label", "")});
+            this.xrLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.xrLabel22.Location = new System.Drawing.Point(125, 67);
+            this.xrLabel22.Name = "xrLabel22";
+            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel22.Size = new System.Drawing.Size(525, 23);
+            this.xrLabel22.StylePriority.UseFont = false;
+            this.xrLabel22.StylePriority.UseTextAlignment = false;
+            this.xrLabel22.Text = "xrLabel21";
+            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel4
             // 
@@ -546,32 +584,6 @@ namespace Envision.Plugin.XtraFile.xtraReports
             this.xrRichText1.Name = "xrRichText1";
             this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
             this.xrRichText1.Size = new System.Drawing.Size(642, 25);
-            // 
-            // xrLabel22
-            // 
-            this.xrLabel22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_ReportExamResult.severity_label", "")});
-            this.xrLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.xrLabel22.Location = new System.Drawing.Point(125, 67);
-            this.xrLabel22.Name = "xrLabel22";
-            this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel22.Size = new System.Drawing.Size(525, 23);
-            this.xrLabel22.StylePriority.UseFont = false;
-            this.xrLabel22.StylePriority.UseTextAlignment = false;
-            this.xrLabel22.Text = "xrLabel21";
-            this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel21
-            // 
-            this.xrLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel21.Location = new System.Drawing.Point(8, 67);
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel21.Size = new System.Drawing.Size(117, 23);
-            this.xrLabel21.StylePriority.UseFont = false;
-            this.xrLabel21.StylePriority.UseTextAlignment = false;
-            this.xrLabel21.Text = "Report Severity: ";
-            this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrptResultReportEnvision
             // 
@@ -596,6 +608,7 @@ namespace Envision.Plugin.XtraFile.xtraReports
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Version = "9.1";
             ((System.ComponentModel.ISupportInitialize)(this.dsReport1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rtCovidCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -626,7 +639,7 @@ namespace Envision.Plugin.XtraFile.xtraReports
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel16;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel15;
+        private DevExpress.XtraReports.UI.XRLabel lblFinalizedOn;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRCrossBandBox xrCrossBandBox2;
@@ -641,11 +654,12 @@ namespace Envision.Plugin.XtraFile.xtraReports
         private DevExpress.XtraReports.UI.XRLine xrLine6;
         private DevExpress.XtraReports.UI.XRLabel lblRadiologist;
         private DevExpress.XtraReports.UI.XRRichText xrRichText1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel19;
+        private DevExpress.XtraReports.UI.XRLabel lblOrderDT;
         private DevExpress.XtraReports.UI.XRLabel xrLabel18;
         private DevExpress.XtraReports.UI.XRLabel xrLabel20;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;
+        private DevExpress.XtraReports.UI.XRRichText rtCovidCategory;
     }
 }

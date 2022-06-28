@@ -100,11 +100,16 @@ D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnl
 D:\Works\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.pdb
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.pdb
-D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.csprojResolveAssemblyReference.cache
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.pdb
+D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.csprojResolveAssemblyReference.cache
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.dll
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.pdb
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.csprojResolveAssemblyReference.cache
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.dll
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\bin\Debug\EnvisionOnline.Common.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.csprojResolveAssemblyReference.cache
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Common\obj\Debug\EnvisionOnline.Common.pdb

@@ -90,6 +90,7 @@ namespace Envision.BusinessLogic
         private string non_residence;
         private string patientIDLabel;
         private string patientIDDetail;
+        private DataTable refUnitVisitData;
         #endregion
 
         #region IPatientDemographic Members
@@ -611,6 +612,17 @@ namespace Envision.BusinessLogic
             get { return ref_unit; }
             set { ref_unit = value; }
         }
+        public DataTable dtRefUnitVisit
+        {
+            get
+            {
+                return refUnitVisitData;
+            }
+            set
+            {
+                refUnitVisitData = value;
+            }
+        }
         public string Department_Name
         {
             get { return department_name; }
@@ -834,6 +846,7 @@ namespace Envision.BusinessLogic
                                 dateEntry = Convert.ToDateTime(dsRet.Tables[dsRet.Tables.IndexOf("ipd_detail")].Rows[0]["admission_date"]);
 
                             dsCheckNonResident = p.GetEncounterDetailByMRNDATE(hn, dateEntry.ToString("dd/MM/yyyy"));
+                            //dsCheckNonResident = p.GetEncounterDetailByMRNENCTYPE(hn, "ALL");
                             dsRet.Tables.Add(dsCheckNonResident.Tables[0].Copy());
                             dsRet.AcceptChanges();
 
@@ -850,7 +863,6 @@ namespace Envision.BusinessLogic
                         DataSet dsInsurance = new DataSet();
                         //Check Non-Resident
 
-                        dsRet.Tables[0].Rows[0]["is_foreign"] = dsRet.Tables[0].Rows[0]["nonresidence"].ToString() == "non-resident(v)" ? "Y" : "N";
                         if (Utilities.IsHaveData(dsCheckNonResident))
                         {
                             DataView view = dsCheckNonResident.Tables[0].DefaultView;
@@ -866,12 +878,34 @@ namespace Envision.BusinessLogic
                         }
                         else
                         {
-                            dsInsurance = p.GetEligibilityInsuranceDetail(hn
-                                , ""
-                                , ""
-                                , ""
-                                , ""
-                                , "RGL");
+                           
+                            dsCheckNonResident = p.GetEncounterDetailByMRNENCTYPE(hn, "ALL");
+                            if (Utilities.IsHaveData(dsCheckNonResident))
+                            {
+                                DateTime dt = DateTime.ParseExact(dsCheckNonResident.Tables[0].Rows[0]["effectivestartdate"].ToString(), "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+                                dsInsurance = p.GetEligibilityInsuranceDetail(hn
+                                   , dsCheckNonResident.Tables[0].Rows[0]["enc_type"].ToString()
+                                   , dsCheckNonResident.Tables[0].Rows[0]["enc_id"].ToString()
+                                   , dsCheckNonResident.Tables[0].Rows[0]["sdloc_id"].ToString()
+                                   , dt.ToString("dd/MM/yyyy")
+                                   , "RGL");
+                            }
+                            else
+                            {
+                                dsInsurance = p.GetEligibilityInsuranceDetail(hn
+                                    , ""
+                                    , ""
+                                    , ""
+                                    , ""
+                                    , "RGL");
+                            }
+                        }
+                        if(dsRet.Tables[0].Rows[0]["nonresidence"].ToString() == "non-resident(v)")
+                        {
+                            if(dsInsurance.Tables[0].Rows[0]["insurance_name"].ToString() == "")
+                                dsRet.Tables[0].Rows[0]["is_foreign"] = "Y";
+                            else
+                                dsRet.Tables[0].Rows[0]["is_foreign"] = "N";
                         }
 
                         #region Insurance Type.
@@ -884,18 +918,24 @@ namespace Envision.BusinessLogic
                                     dttInsurance = dsInsurance.Tables[0].Copy();
                                     DataTable dttTmp = RISBaseData.Ris_InsuranceType();
                                     //DataRow[] row = dttTmp.Select("INSURANCE_TYPE_UID ='" + dttInsurance.Rows[0]["policy_no"].ToString() + "'");
-                                    DataRow[] row = dttTmp.Select("INSURANCE_TYPE_UID ='" + dttInsurance.Rows[0]["insurance"].ToString() + "'");
+                                    DataRow[] row = dttTmp.Select("INSURANCE_TYPE_UID ='" + dttInsurance.Rows[0]["insurance"].ToString().Trim() + "' and INSURANCE_TYPE_DESC = '" + dttInsurance.Rows[0]["insurance_name"].ToString().Trim() + "'");
                                     if (row.Length == 0)
                                     {
                                         //insert
                                         ProcessAddRISInsurancetype procINS = new ProcessAddRISInsurancetype();
                                         procINS.RIS_INSURANCETYPE.CREATED_BY = new GBLEnvVariable().UserID;
-                                        procINS.RIS_INSURANCETYPE.INSURANCE_TYPE_DESC = dttInsurance.Rows[0]["first_contact_organization"].ToString();
-                                        procINS.RIS_INSURANCETYPE.INSURANCE_TYPE_UID = dttInsurance.Rows[0]["policy_no"].ToString();
+                                        procINS.RIS_INSURANCETYPE.INSURANCE_TYPE_DESC = dttInsurance.Rows[0]["insurance_name"].ToString();
+                                        procINS.RIS_INSURANCETYPE.INSURANCE_TYPE_UID = dttInsurance.Rows[0]["insurance"].ToString();
                                         procINS.RIS_INSURANCETYPE.ORG_ID = new GBLEnvVariable().OrgID;
                                         procINS.Invoke();
                                         //
+                                        dttTmp = RISBaseData.Ris_InsuranceType();
+                                        row = dttTmp.Select("INSURANCE_TYPE_UID ='" + dttInsurance.Rows[0]["insurance"].ToString().Trim() + "' and INSURANCE_TYPE_DESC = '" + dttInsurance.Rows[0]["insurance_name"].ToString().Trim() + "'");
+                                        if (row.Length > 0)
+                                            insuranceID = Convert.ToInt32(row[0]["INSURANCE_TYPE_ID"]);
                                     }
+                                    else
+                                        insuranceID = Convert.ToInt32(row[0]["INSURANCE_TYPE_ID"]);
                                 }
                             dsRet.Tables.Add(dttInsurance.Copy());
                             dsRet.AcceptChanges();
@@ -1341,6 +1381,8 @@ namespace Envision.BusinessLogic
                             else
                                 insertHR_UNIT(ds.Tables[id].Rows[i]["appt_doc_dept_code"].ToString());
 
+                            setapptdocdeptcode(ds.Tables[id]);
+                            
                             ProcessGetHISDoctor processDoctor = new ProcessGetHISDoctor();
                             processDoctor.Invoke();
                             dttDept = processDoctor.Result.Tables[0].Copy();
@@ -1424,6 +1466,18 @@ namespace Envision.BusinessLogic
             }
             
             else hasHN = false;
+        }
+        private void setapptdocdeptcode(DataTable dtt)
+        {
+            refUnitVisitData = new DataTable();
+            refUnitVisitData.Columns.Add("UNIT_UID");
+
+            foreach (DataRow dr in dtt.Rows)
+            {
+                refUnitVisitData.Rows.Add(dr["appt_doc_dept_code"].ToString());
+            }
+            refUnitVisitData = refUnitVisitData.DefaultView.ToTable(true, "UNIT_UID");
+            refUnitVisitData.AcceptChanges();
         }
         private void setUnitDoctorByIPD(DataTable dtt)
         {
@@ -1592,6 +1646,11 @@ namespace Envision.BusinessLogic
         {
             return proxy.Get_ipd_detail(hn.Trim());
 
+        }
+
+        public DataSet searchAdrByMrnAndCode(string hn, string contrast_uid)
+        {
+            return proxy.searchAdrByMrnAndCode(hn.Trim(), contrast_uid);
         }
 
         //public DataSet Get_appointment(string hn)

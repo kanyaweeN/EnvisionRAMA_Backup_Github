@@ -38,5 +38,21 @@ namespace EnvisionOnline.DataAccess.Select
             ds = ExecuteDataSetVNA();
             return ds;
         }
+        public DataSet getDataVna(string hn, int unit_id, bool is_today, bool all_dept)
+        {
+            DataSet ds = new DataSet();
+
+            StoredProcedureName = StoredProcedure.Prc_VNAV_WORKLIST_Select;
+            DbParameter[] parameters ={		
+                                            Parameter( "@HN", hn ) ,
+                                            Parameter( "@UNIT_ID", unit_id ) ,
+                                            Parameter( "@IS_TODAY", is_today ? 'N':'Y' ) ,
+                                            Parameter( "@IS_ALLDEPT", all_dept ? 'Y':'N' ) ,
+
+			};
+            ParameterList = parameters;
+            ds = ExecuteDataSetVNA();
+            return ds;
+        }
     }
 }

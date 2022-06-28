@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7AEE619E-1A74-4E34-8A88-B55CC4DCDB92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Envision.Plugin</RootNamespace>
+    <AssemblyName>Envision.Plugin</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="DevExpress.Charts.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v9.1.Core, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v9.1, Version=9.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CRFile\rptScheduleReportSDMC.cs">
+      <DependentUpon>rptScheduleReportSDMC.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRFile\rptScheduleReportER.cs">
+      <DependentUpon>rptScheduleReportER.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRFile\rptAppoint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAppoint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptAppointAIMC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAppointAIMC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptBiopsyLoca.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBiopsyLoca.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptBiospy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBiospy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptCancelation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCancelation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptComparing1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptComparing1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptComparing2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptComparing2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptDuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDuration.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptInvStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvStock.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptModalityExam.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptModalityExam.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOpNoteTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOpNoteTemplate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderAllAIMC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderAllAIMC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderDTL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderDTL.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderReportA4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderReportA4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptOrderReportAIMC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOrderReportAIMC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptPatientFlow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPatientFlow.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptPOreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPOreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptPRreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPRreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptQAWorks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptQAWorks.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptResultEntry.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptResultEntry.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptResultEntryA4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptResultEntryA4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptScheduleReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScheduleReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptScheduleReportA4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScheduleReportA4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptScheduleReportAIMC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScheduleReportAIMC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptScheduleReportIntervention.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScheduleReportIntervention.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptService.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSticker.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSticker.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptStickerExam.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptStickerExam.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryDF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryDF.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryDFAimc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryDFAimc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryDFTech.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryDFTech.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryIncome.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryIncome.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryOrderByExam.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryOrderByExam.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryOrderByExamType.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryOrderByExamType.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryOrderByRefUnit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryOrderByRefUnit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryResultClinic.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryResultClinic.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummarySchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummarySchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptSummaryScheduleByModality.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummaryScheduleByModality.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRFile\rptWorkLoad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptWorkLoad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DirectPrint\dialogMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectPrint\dialogMessage.designer.cs">
+      <DependentUpon>dialogMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectPrint\dialogPrintersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectPrint\dialogPrintersList.designer.cs">
+      <DependentUpon>dialogPrintersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectPrint\DirectPrint.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportManager\ReportMangager.cs" />
+    <Compile Include="XtraFile\xtraData\dsAppointReport.cs">
+      <DependentUpon>dsAppointReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsAppointReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAppointReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsScheduleReport.cs">
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsScheduleReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsScheduleReportAIMC.cs">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsScheduleReportAIMC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsScheduleReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsScheduleReports.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptAIMCDailyReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptAIMCDailyReport.Designer.cs">
+      <DependentUpon>xrptAIMCDailyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportAIMC.designer.cs">
+      <DependentUpon>xrptOrderReportAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.Designer.cs">
+      <DependentUpon>xrptOrderReportClinicalIndicationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportAIMCNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportAIMCNew.Designer.cs">
+      <DependentUpon>xrptScheduleReportAIMCNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSDMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSDMC.designer.cs">
+      <DependentUpon>xrptScheduleReportSDMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportAIMC.designer.cs">
+      <DependentUpon>xrptScheduleReportAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportSticker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportSticker.designer.cs">
+      <DependentUpon>xrptOrderReportSticker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsReport.cs">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraData\dsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptAngiogramWithAngioplasty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptAngiogramWithAngioplasty.designer.cs">
+      <DependentUpon>xrptAngiogramWithAngioplasty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptAngiography.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptAngiography.designer.cs">
+      <DependentUpon>xrptAngiography.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptBiopsy.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptBiopsy.designer.cs">
+      <DependentUpon>xrptBiopsy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptRFA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptRFA.designer.cs">
+      <DependentUpon>xrptRFA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptTACE.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\InterventionDocument\xrptTACE.designer.cs">
+      <DependentUpon>xrptTACE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptRadiologistWorkload.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptRadiologistWorkload.Designer.cs">
+      <DependentUpon>xrptRadiologistWorkload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptModalityWorkload.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptModalityWorkload.Designer.cs">
+      <DependentUpon>xrptModalityWorkload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvisionSDMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvisionSDMC.Designer.cs">
+      <DependentUpon>xrptResultReportEnvisionSDMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptACBodySystemReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptACBodySystemReport.Designer.cs">
+      <DependentUpon>xrptACBodySystemReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptACAcademicReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptACAcademicReport.Designer.cs">
+      <DependentUpon>xrptACAcademicReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReport.designer.cs">
+      <DependentUpon>xrptOrderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\Exam2SubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\Exam2SubReport.designer.cs">
+      <DependentUpon>Exam2SubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\ExamSubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\ExamSubReport.designer.cs">
+      <DependentUpon>ExamSubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\OrderExamParameters.cs" />
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\OrderReportParameters.cs" />
+    <Compile Include="XtraFile\xtraReports\xrptOrderReportComponent\PatientDemographicParameters.cs" />
+    <Compile Include="XtraFile\xtraReports\xrptResultReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReport.Designer.cs">
+      <DependentUpon>xrptResultReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvision.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvision.Designer.cs">
+      <DependentUpon>xrptResultReportEnvision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvisionAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptResultReportEnvisionAIMC.Designer.cs">
+      <DependentUpon>xrptResultReportEnvisionAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleCountAppoint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleCountAppoint.Designer.cs">
+      <DependentUpon>xrptScheduleCountAppoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReport.designer.cs">
+      <DependentUpon>xrptScheduleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSubExam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSubExam.designer.cs">
+      <DependentUpon>xrptScheduleReportSubExam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSubIns.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptScheduleReportSubIns.designer.cs">
+      <DependentUpon>xrptScheduleReportSubIns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDF.Designer.cs">
+      <DependentUpon>xrptSummaryDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDFByTech.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDFByTech.designer.cs">
+      <DependentUpon>xrptSummaryDFByTech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDFRadWithModalityUnitID.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryDFRadWithModalityUnitID.designer.cs">
+      <DependentUpon>xrptSummaryDFRadWithModalityUnitID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryPatientAppointment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryPatientAppointment.designer.cs">
+      <DependentUpon>xrptSummaryPatientAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryPayment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryPayment.designer.cs">
+      <DependentUpon>xrptSummaryPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryReportDFAIMC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptSummaryReportDFAIMC.Designer.cs">
+      <DependentUpon>xrptSummaryReportDFAIMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraMTNSchedule.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraMTNSchedule.designer.cs">
+      <DependentUpon>XtraMTNSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptAIMCFinancialInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\xrptAIMCFinancialInvoice.Designer.cs">
+      <DependentUpon>xrptAIMCFinancialInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskDetailReport.designer.cs">
+      <DependentUpon>XtraRiskDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskDetailSubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskDetailSubReport.designer.cs">
+      <DependentUpon>XtraRiskDetailSubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskStatisticReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskStatisticReport.designer.cs">
+      <DependentUpon>XtraRiskStatisticReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraRiskSummaryReport.designer.cs">
+      <DependentUpon>XtraRiskSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraTopNAnalysisReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XtraFile\xtraReports\XtraTopNAnalysisReport.designer.cs">
+      <DependentUpon>XtraTopNAnalysisReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CRFile\rptScheduleReportSDMC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReportSDMC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptScheduleReportER.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReportER.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptAppoint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAppoint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptAppointAIMC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAppointAIMC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptBiopsyLoca.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBiopsyLoca.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptBiospy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBiospy.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptCancelation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCancelation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptComparing1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptComparing1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptComparing2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptComparing2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptDuration.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDuration.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptInvStock.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptModalityExam.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptModalityExam.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOpNoteTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOpNoteTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderAllAIMC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderAllAIMC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderDTL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderDTL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderReportA4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderReportA4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptOrderReportAIMC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOrderReportAIMC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptPatientFlow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPatientFlow.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptPOreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPOreport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptPRreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPRreport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptQAWorks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptQAWorks.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptResultEntry.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptResultEntry.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptResultEntryA4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptResultEntryA4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptScheduleReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptScheduleReportA4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReportA4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptScheduleReportAIMC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReportAIMC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptScheduleReportIntervention.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleReportIntervention.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptService.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptService.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSticker.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSticker.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptStickerExam.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStickerExam.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryDF.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryDF.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryDFAimc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryDFAimc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryDFTech.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryDFTech.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryIncome.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryIncome.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryOrderByExam.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryOrderByExam.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryOrderByExamType.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryOrderByExamType.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryOrderByRefUnit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryOrderByRefUnit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryResultClinic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryResultClinic.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummarySchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummarySchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptSummaryScheduleByModality.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummaryScheduleByModality.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRFile\rptWorkLoad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWorkLoad.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectPrint\dialogMessage.resx">
+      <DependentUpon>dialogMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectPrint\dialogPrintersList.resx">
+      <DependentUpon>dialogPrintersList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptAIMCDailyReport.resx">
+      <DependentUpon>xrptAIMCDailyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportAIMC.resx">
+      <DependentUpon>xrptOrderReportAIMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportClinicalIndicationPage.resx">
+      <DependentUpon>xrptOrderReportClinicalIndicationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportAIMCNew.resx">
+      <DependentUpon>xrptScheduleReportAIMCNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportSDMC.resx">
+      <DependentUpon>xrptScheduleReportSDMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportAIMC.resx">
+      <DependentUpon>xrptScheduleReportAIMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportSticker.resx">
+      <DependentUpon>xrptOrderReportSticker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\InterventionDocument\xrptAngiogramWithAngioplasty.resx">
+      <DependentUpon>xrptAngiogramWithAngioplasty.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\InterventionDocument\xrptAngiography.resx">
+      <DependentUpon>xrptAngiography.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\InterventionDocument\xrptBiopsy.resx">
+      <DependentUpon>xrptBiopsy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\InterventionDocument\xrptRFA.resx">
+      <DependentUpon>xrptRFA.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\InterventionDocument\xrptTACE.resx">
+      <DependentUpon>xrptTACE.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptRadiologistWorkload.resx">
+      <DependentUpon>xrptRadiologistWorkload.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptModalityWorkload.resx">
+      <DependentUpon>xrptModalityWorkload.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptResultReportEnvisionSDMC.resx">
+      <DependentUpon>xrptResultReportEnvisionSDMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptACBodySystemReport.resx">
+      <DependentUpon>xrptACBodySystemReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptACAcademicReport.resx">
+      <DependentUpon>xrptACAcademicReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReport.resx">
+      <DependentUpon>xrptOrderReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptAIMCFinancialInvoice.resx">
+      <DependentUpon>xrptAIMCFinancialInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportComponent\Exam2SubReport.resx">
+      <DependentUpon>Exam2SubReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptOrderReportComponent\ExamSubReport.resx">
+      <DependentUpon>ExamSubReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptResultReport.resx">
+      <DependentUpon>xrptResultReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptResultReportEnvision.resx">
+      <DependentUpon>xrptResultReportEnvision.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptResultReportEnvisionAIMC.resx">
+      <DependentUpon>xrptResultReportEnvisionAIMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleCountAppoint.resx">
+      <DependentUpon>xrptScheduleCountAppoint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReport.resx">
+      <DependentUpon>xrptScheduleReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportSubExam.resx">
+      <DependentUpon>xrptScheduleReportSubExam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptScheduleReportSubIns.resx">
+      <DependentUpon>xrptScheduleReportSubIns.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryDF.resx">
+      <DependentUpon>xrptSummaryDF.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryDFByTech.resx">
+      <DependentUpon>xrptSummaryDFByTech.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryDFRadWithModalityUnitID.resx">
+      <DependentUpon>xrptSummaryDFRadWithModalityUnitID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryPatientAppointment.resx">
+      <DependentUpon>xrptSummaryPatientAppointment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryPayment.resx">
+      <DependentUpon>xrptSummaryPayment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\xrptSummaryReportDFAIMC.resx">
+      <DependentUpon>xrptSummaryReportDFAIMC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraMTNSchedule.resx">
+      <DependentUpon>XtraMTNSchedule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraRiskDetailReport.resx">
+      <DependentUpon>XtraRiskDetailReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraRiskDetailSubReport.resx">
+      <DependentUpon>XtraRiskDetailSubReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraRiskStatisticReport.resx">
+      <DependentUpon>XtraRiskStatisticReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraRiskSummaryReport.resx">
+      <DependentUpon>XtraRiskSummaryReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFile\xtraReports\XtraTopNAnalysisReport.resx">
+      <DependentUpon>XtraTopNAnalysisReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportManager\FRE3OF9X.TTF" />
+    <None Include="XtraFile\xtraData\dsAppointReport.xsc">
+      <DependentUpon>dsAppointReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsAppointReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAppointReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsAppointReport.xss">
+      <DependentUpon>dsAppointReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport.xsc">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsReport.xss">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReport.xsc">
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReport.xss">
+      <DependentUpon>dsScheduleReport.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReportAIMC.xsc">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReportAIMC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleReportAIMC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReportAIMC.xss">
+      <DependentUpon>dsScheduleReportAIMC.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReports.xsc">
+      <DependentUpon>dsScheduleReports.xsd</DependentUpon>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReports.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsScheduleReports.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="XtraFile\xtraData\dsScheduleReports.xss">
+      <DependentUpon>dsScheduleReports.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Envision.BusinessLogic\Envision.BusinessLogic.csproj">
+      <Project>{55D7CD05-F615-45A1-A469-F30ADA257E7F}</Project>
+      <Name>Envision.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.Common\Envision.Common.csproj">
+      <Project>{7646549E-3644-4690-AEC4-8D20FDD157C3}</Project>
+      <Name>Envision.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Envision.WebService\Envision.WebService.csproj">
+      <Project>{AEAA3524-2432-47D6-B379-6F5BA644099A}</Project>
+      <Name>Envision.WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Miracle\Miracle.csproj">
+      <Project>{5FFBCAFF-41D9-4F1D-94DA-16A0125B9FCA}</Project>
+      <Name>Miracle %28Miracle\Miracle%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CRFile\_backup\" />
+    <Folder Include="XtraFile\xtraReports\_backup\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

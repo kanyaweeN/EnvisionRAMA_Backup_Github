@@ -26,6 +26,7 @@ using System.Security;
 using System.Diagnostics;
 using Envision.Operational.Translator;
 using DevExpress.XtraBars.Alerter;
+using Envision.Operational.PACS;
 namespace Envision.NET.Forms.Main
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -45,6 +46,8 @@ namespace Envision.NET.Forms.Main
         private DataTable dataComments;
         private MyMessageBox msg;
 
+        OpenPACS authPacs = new OpenPACS();
+
         public frmMain()
         {
             InitializeComponent();
@@ -56,33 +59,37 @@ namespace Envision.NET.Forms.Main
             initializeHomeForm();
             msg = new MyMessageBox();
         }
-        
-        public void SetDefaultLookAndFeel() {
+
+        public void SetDefaultLookAndFeel()
+        {
             myDefaultLookAndFeel.LookAndFeel.SetSkinStyle("Office 2007 Blue");
 
         }
-        public void DisplayHome() {
+        public void DisplayHome()
+        {
             for (int i = 0; i < mdiMain.Pages.Count; i++)
             {
-              
-                if (mdiMain.Pages[i].Text=="Home")
+
+                if (mdiMain.Pages[i].Text == "Home")
                 {
                     mdiMain.SelectedPage = mdiMain.Pages[i];
                     return;
                 }
             }
         }
-        public bool FormIsAlive(int SubmenuID) {
+        public bool FormIsAlive(int SubmenuID)
+        {
             bool flag = false;
             for (int i = 0; i < mdiMain.Pages.Count; i++)
             {
                 Envision.NET.Forms.Main.MasterForm form = (Envision.NET.Forms.Main.MasterForm)mdiMain.Pages[i].MdiChild;
-                if (form.Submenu_ID == SubmenuID) {
+                if (form.Submenu_ID == SubmenuID)
+                {
                     flag = true;
                     mdiMain.SelectedPage = mdiMain.Pages[i];
                     break;
                 }
-            
+
             }
             return flag;
         }
@@ -90,7 +97,7 @@ namespace Envision.NET.Forms.Main
         private void frmMain_Load(object sender, EventArgs e)
         {
             rbMain.Visible = false;
- 	        env = new GBLEnvVariable();
+            env = new GBLEnvVariable();
             alertNewComment();
 
             bgMsg.RunWorkerAsync();
@@ -115,6 +122,7 @@ namespace Envision.NET.Forms.Main
             {
                 MessageBox.Show(err.Message);
             }
+            authPacs.LogoutPACS();
             Application.Exit();
         }
 
@@ -158,6 +166,7 @@ namespace Envision.NET.Forms.Main
 
         private void btnLogOff_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            authPacs.LogoutPACS();
             Application.Restart();
         }
         private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -210,7 +219,7 @@ namespace Envision.NET.Forms.Main
         }
         private void bgPort_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            
+
         }
         private void bgPort_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -253,7 +262,7 @@ namespace Envision.NET.Forms.Main
             else
                 bgPort.RunWorkerAsync("RIS");
         }
-              
+
         private void bgMsg_DoWork(object sender, DoWorkEventArgs e)
         {
             DataTable dtt = getMessage();
@@ -286,11 +295,11 @@ namespace Envision.NET.Forms.Main
         #endregion
 
         #region Initialize Control.
-        private void createChildForm(string name,DataRow row)
+        private void createChildForm(string name, DataRow row)
         {
             for (int i = 0; i < mdiMain.Pages.Count; i++)
             {
-                Envision.NET.Forms.Main.MasterForm mas = (Envision.NET.Forms.Main.MasterForm) mdiMain.Pages[i].MdiChild;
+                Envision.NET.Forms.Main.MasterForm mas = (Envision.NET.Forms.Main.MasterForm)mdiMain.Pages[i].MdiChild;
                 if (mas.Submenu_ID.ToString() == row["SUBMENU_ID"].ToString())
                 {
                     mdiMain.SelectedPage = mdiMain.Pages[i];
@@ -321,12 +330,13 @@ namespace Envision.NET.Forms.Main
                 form.Menu_Name_Class = row["SUBMENU_CLASS_NAME"].ToString();
                 form.Menu_Name_User = row["SUBMENU_NAME_USER"].ToString();
                 form.Menu_Namespace = row["MENU_NAMESPACE"].ToString();
-                form.ReportingSerivce_URL =  row["SUBMENU_REPORTINGSERVICE_URL"].ToString();
+                form.ReportingSerivce_URL = row["SUBMENU_REPORTINGSERVICE_URL"].ToString();
                 form.Menu_FullNamespace = form.Menu_Namespace + "." + form.Menu_Name_Class;
                 form.Text = form.Menu_Name_User;
                 form.ISOpenwebOutside = row["IS_OPENWEBOUTSIDE"].ToString();
 
-                if (form.Submenu_ID.ToString()==resultID) {
+                if (form.Submenu_ID.ToString() == resultID)
+                {
                     if (env.USED_MENUBAR == "Y")
                     {
                         navBarMain.OptionsNavPane.NavPaneState = DevExpress.XtraNavBar.NavPaneState.Collapsed;
@@ -355,7 +365,8 @@ namespace Envision.NET.Forms.Main
                     //else
                     Process.Start("chrome", form.ReportingSerivce_URL);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 if (form != null)
                 {
@@ -372,21 +383,24 @@ namespace Envision.NET.Forms.Main
             }
         }
 
-        private  void initializeRadiologistBar() {
+        private void initializeRadiologistBar()
+        {
             ProcessGetGBLMenu process = new ProcessGetGBLMenu();
             DataSet menu = process.GetMenuEMP(env.UserID);
             if (Utilities.IsHaveData(menu) == false) return;
             DataTable dtt = menu.Tables[1];
             DevExpress.XtraBars.BarButtonItem[] listItem = new DevExpress.XtraBars.BarButtonItem[dtt.Rows.Count];
-            for (int i = 0; i < dtt.Rows.Count; i++) {
+            for (int i = 0; i < dtt.Rows.Count; i++)
+            {
                 listItem[i] = new DevExpress.XtraBars.BarButtonItem();
                 listItem[i].Name = dtt.Rows[i]["MENU_NAMESPACE"].ToString() + "." + dtt.Rows[i]["SUBMENU_CLASS_NAME"].ToString();
                 listItem[i].Caption = dtt.Rows[i]["SUBMENU_NAME_USER"].ToString();
-                listItem[i].Tag = dtt.Rows[i]   ;
+                listItem[i].Tag = dtt.Rows[i];
                 listItem[i].ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(frmMain_ItemClick);
             }
             dtt = menu.Tables[0];
-            foreach (DataRow row in dtt.Rows) {
+            foreach (DataRow row in dtt.Rows)
+            {
                 DevExpress.XtraBars.Ribbon.RibbonPage page = new DevExpress.XtraBars.Ribbon.RibbonPage(row["MENU_NAME"].ToString());
                 rbMain.Pages.Add(page);
                 DataRow[] rows = menu.Tables[1].Select("MENU_ID=" + row["MENU_ID"].ToString());
@@ -413,21 +427,23 @@ namespace Envision.NET.Forms.Main
                 }
             }
         }
-        private  void frmMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void frmMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DataRow row = (DataRow)e.Item.Tag;
             createChildForm(row[2].ToString() + "." + row[0].ToString(), row);
         }
 
-        public   void initializeNavigatorBar() {
+        public void initializeNavigatorBar()
+        {
 
             ProcessGetGBLMenu process = new ProcessGetGBLMenu();
             DataSet menu = process.GetMenuEMP(env.UserID);
-            if (Utilities.IsHaveData(menu)==false) return;
+            if (Utilities.IsHaveData(menu) == false) return;
             DataTable dtt = menu.Tables[0];
-            foreach (DataRow row in dtt.Rows) {
+            foreach (DataRow row in dtt.Rows)
+            {
                 DevExpress.XtraNavBar.NavBarGroup group = new DevExpress.XtraNavBar.NavBarGroup(row["MENU_NAME"].ToString());
-              
+
                 #region Add Icon to GroupNavbar.
                 switch (row["MENU_ID"].ToString())
                 {
@@ -593,14 +609,14 @@ namespace Envision.NET.Forms.Main
                             chkDup.Add(dr["SUBMENU_ID"].ToString());
                         }
                     }
-                } 
+                }
                 #endregion
                 navBarMain.Groups.Add(group);
             }
             //navBarMain.NavigationPaneMaxVisibleGroups = 6; //set show max.
             LastMouseClicked = DateTime.Now;
         }
-        private  void navBarMain_DoubleClick(object sender, EventArgs e)
+        private void navBarMain_DoubleClick(object sender, EventArgs e)
         {
             DevExpress.XtraNavBar.NavBarControl nav = (DevExpress.XtraNavBar.NavBarControl)sender;
             if (nav == null) return;
@@ -644,9 +660,9 @@ namespace Envision.NET.Forms.Main
 
             createChildForm(nav.PressedLink.ItemName, (DataRow)nav.PressedLink.Item.Tag);
             myDefaultLookAndFeel.LookAndFeel.SetSkinStyle("Office 2007 Blue");
-        } 
+        }
 
-        private  void loadLanguage()
+        private void loadLanguage()
         {
             EnvisionDataContext db = new EnvisionDataContext();
             IQueryable<GBL_LANGUAGE> langs = from g in db.GBL_LANGUAGEs select g;
@@ -655,7 +671,7 @@ namespace Envision.NET.Forms.Main
             currentLang = new GBL_LANGUAGE();
             currentLang.LANG_ID = env.CurrentLanguageID;
         }
-        private  void setLanguage()
+        private void setLanguage()
         {
             cmbLanguage.Items.Clear();
             env.OrgID = 1;
@@ -678,11 +694,11 @@ namespace Envision.NET.Forms.Main
                 }
             }
         }
-        private  void refreshControlByLanguage()
+        private void refreshControlByLanguage()
         {
-           
+
         }
-        private  void changeLanguage()
+        private void changeLanguage()
         {
             string langName = cmbLanguage.Text;
             foreach (GBL_LANGUAGE lng in langList)
@@ -695,7 +711,7 @@ namespace Envision.NET.Forms.Main
                 }
             refreshControlByLanguage();
         }
-        private  void setUserInformation() 
+        private void setUserInformation()
         {
 
             lblHosName.Text = env.OrgaizationName;
@@ -703,27 +719,30 @@ namespace Envision.NET.Forms.Main
             lblUserName.Text = env.FirstName + " " + env.LastName;
         }
 
-        private void initializeControl() {
+        private void initializeControl()
+        {
             initializeNavigatorBar();
             loadLanguage();
             setLanguage();
             setUserInformation();
             initializeRadiologistBar();
             lblVersion.Text = string.Empty;
-            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) 
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
             {
-                System.Deployment.Application.ApplicationDeployment ad =System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
+                System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
                 lblVersion.Text = "(version " + ad.CurrentVersion.ToString() + ")";
             }
         }
-        private void initBackgroudWorker() {
+        private void initBackgroudWorker()
+        {
             initPortSocket();
             bgPort.RunWorkerAsync("RIS");
         }
         #endregion
 
         #region Initialize Home.
-        private void initializeHomeForm() {
+        private void initializeHomeForm()
+        {
             if (rowHome == null) return;
             frmHome form = new frmHome();
             form.MdiParent = this;
@@ -740,16 +759,19 @@ namespace Envision.NET.Forms.Main
         }
         #endregion
 
-        public void UpdateHospitalName() {
+        public void UpdateHospitalName()
+        {
             lblHosName.Text = new GBLEnvVariable().OrgaizationName;
         }
-        public void UpdateUserName() {
+        public void UpdateUserName()
+        {
             GBLEnvVariable env = new GBLEnvVariable();
             lblUserName.Text = env.FirstName + " " + env.LastName;
             loadLanguage();
             setLanguage();
         }
-        public void UpdateMenu() {
+        public void UpdateMenu()
+        {
             navBarMain.Items.Clear();
             navBarMain.Groups.Clear();
             navBarMain.Update();
@@ -769,7 +791,7 @@ namespace Envision.NET.Forms.Main
         private void frmMain_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized || WindowState == FormWindowState.Normal)
-                this.Show(); 
+                this.Show();
         }
 
         private void barNotePad_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -874,9 +896,13 @@ namespace Envision.NET.Forms.Main
         {
             ShowWaitDialog();
 
+            ProcessGetHREmp _emp = new ProcessGetHREmp();
+            _emp.HR_EMP.ORG_ID = env.OrgID;
+            _emp.HR_EMP.EMP_ID = env.UserID;
+            DataTable dt = _emp.GetEmployee();
             string ip1 = "sfxray"; //"10.6.4.181"; "192.168.5.181";
             string user_name = env.UserName;//@"radiology\jfps028";
-            string pass_word = env.PasswordAD;//"20758213";
+            string pass_word = Utilities.Decrypt(dt.Rows[0]["PWD"].ToString().Trim());//"20758213";
             string folder_name = env.UserName;//"jfps028";
             string folderPath = @"";
             string drive_letter = "r";
@@ -977,7 +1003,7 @@ namespace Envision.NET.Forms.Main
                     string noOfAlert = string.Empty;
                     noOfAlert = "You have New Message.";
                     DevExpress.XtraBars.Alerter.AlertInfo info = new DevExpress.XtraBars.Alerter.AlertInfo(noOfAlert, "");
-                    alertComment.Show(this, info); 
+                    alertComment.Show(this, info);
                 }
             }
         }
@@ -985,18 +1011,19 @@ namespace Envision.NET.Forms.Main
         {
             if (dataComments.Rows.Count == 1)
             {
-                if (dsComments.Tables[0].Rows.Count > 0) {
+                if (dsComments.Tables[0].Rows.Count > 0)
+                {
                     frmMessageConversation frm = new frmMessageConversation(dsComments.Tables[0].Rows[0]["ACCESSION_NO"].ToString());
                     frm.ShowDialog();
                 }
-                else if(dsComments.Tables[1].Rows.Count>0)
+                else if (dsComments.Tables[1].Rows.Count > 0)
                 {
                     frmMessageConversation frm = new frmMessageConversation(Convert.ToInt32(dsComments.Tables[1].Rows[0]["SCHEDULE_ID"].ToString()));
                     frm.ShowDialog();
                 }
                 else if (dsComments.Tables[2].Rows.Count > 0)
                 {
-                    frmMessageConversation frm = new frmMessageConversation(Convert.ToInt32(dsComments.Tables[2].Rows[0]["XRAYREQ_ID"].ToString()),true);
+                    frmMessageConversation frm = new frmMessageConversation(Convert.ToInt32(dsComments.Tables[2].Rows[0]["XRAYREQ_ID"].ToString()), true);
                     frm.ShowDialog();
                 }
             }
@@ -1051,7 +1078,7 @@ namespace Envision.NET.Forms.Main
 
         private void barCareLink_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            System.Diagnostics.Process.Start("chrome","https://care.rama.mahidol.ac.th/");
+            System.Diagnostics.Process.Start("chrome", "https://care.rama.mahidol.ac.th/");
         }
     }
 }

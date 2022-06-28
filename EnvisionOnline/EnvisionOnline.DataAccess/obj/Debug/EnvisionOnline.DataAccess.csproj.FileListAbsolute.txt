@@ -149,7 +149,6 @@ D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.pdb
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.pdb
-D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.csprojResolveAssemblyReference.cache
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.dll
 D:\Works\Git_Projects\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.pdb
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.dll
@@ -159,3 +158,10 @@ D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\En
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.csprojResolveAssemblyReference.cache
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.dll
 D:\MAT\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.pdb
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.csprojResolveAssemblyReference.cache
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.dll
+C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.pdb

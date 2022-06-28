@@ -30,10 +30,13 @@ using System.Deployment.Application;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Miracle.Util;
+using RIS.Operational.PACS;
 namespace RIS
 {
     public partial class Form1 : Form
     {
+        private GBLEnvVariable env;
+
         //--Create object of dbConnection class for database interaction--\\
         dbConnection dc = new dbConnection();
         DBUtility du = new DBUtility();
@@ -393,6 +396,7 @@ namespace RIS
                 env.CurrencyName = dtenv.Rows[j]["LOCAL_CURRENCY_NAME"].ToString();
                 env.CurrencySymbol = dtenv.Rows[j]["LOCAL_CURRENCY_SYMBOL"].ToString();
                 env.CurrencyFormat = dtenv.Rows[j]["CURRENCY_FMT"].ToString();
+                env.PacsDomain = dtenv.Rows[j]["PACS_DOMAIN"].ToString();
                 env.PacsIp = dtenv.Rows[j]["PACS_IP"].ToString();
                 env.PacsPort = dtenv.Rows[j]["PACS_PORT"].ToString();
                 env.PacsUrl = dtenv.Rows[j]["PACS_URL1"].ToString();
@@ -973,48 +977,60 @@ namespace RIS
                 string sql = "";
                 string useruid = "";
                 string username = "";
-                 
+                string passwordAD = "";
+
                 if (txtUser.Text == "")
                 {
                     //MessageBox.Show("Login ID field can not be blank");
-                    
+
                     string id = msg.ShowAlert("UID001", new GBLEnvVariable().CurrentLanguageID);
                     //MessageBox.Show(id);
                     txtUser.Focus();
                     return;
                 }
-                else if ((txtPassword.Text == "")&&(auth == "RIS Authentication"))
+                else if ((txtPassword.Text == "") && (auth == "RIS Authentication"))
                 {
-                   
+
                     string id = msg.ShowAlert("UID002", new GBLEnvVariable().CurrentLanguageID);
                     txtUser.Focus();
                     return;
                 }
                 else
                 {
-                   
-                    if (auth == "Windows Authentication")
+
+                    DataTable dt = new DataTable();
+
+                    switch (cmbAuth.SelectedIndex)
                     {
-                        string usr = txtUser.Text.Trim();
-                        char[] seps = { '\\'};
-                        string [] u= usr.Split(seps);
-                        ltype = "W";
-                        sql = "select *from HR_EMP where USER_NAME='" + u[1] + "' and IS_ACTIVE='Y'";
+                        case 0:
+                            ltype = "E";
+                            HIS_Patient pateintService = new HIS_Patient();
+                            DataSet ds = pateintService.Get_staff_detail(txtUser.Text.Trim(), txtPassword.Text.Trim());
+                            if (Utilities.IsHaveData(ds))
+                            {
+                                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["name"].ToString()))
+                                {
+                                    passwordAD = txtPassword.Text.Trim();
+
+                                    if (Regex.IsMatch(txtPassword.Text.Trim(), "Envision", RegexOptions.IgnoreCase))
+                                        txtPassword.Text = "envision";
+
+                                    sql = "select * from HR_EMP where USER_NAME='" + txtUser.Text.Trim() + "' and IS_ACTIVE='Y'";
+                                    dt = dc.SelectDs(sql);
+                                }
+                            }
+                            break;
+                        default:
+                            if (Regex.IsMatch(txtPassword.Text.Trim(), "Envision", RegexOptions.IgnoreCase))
+                                txtPassword.Text = "envision";
+                            ltype = "D";
+                            sql = "select * from HR_EMP where USER_NAME='" + txtUser.Text.Trim() + "' and PWD='" + Secure.Encrypt(txtPassword.Text.Trim()) + "' and IS_ACTIVE='Y'";
+                            dt = dc.SelectDs(sql);
+                            break;
                     }
-                    else
-                    {
-                        if (Regex.IsMatch(txtPassword.Text.Trim(), "Envision", RegexOptions.IgnoreCase))
-                            txtPassword.Text = "envision";
-                        ltype = "D";
-                        sql = "select *from HR_EMP where USER_NAME='" + txtUser.Text.Trim() + "' and PWD='" + Secure.Encrypt(txtPassword.Text.Trim()) + "' and IS_ACTIVE='Y'";
-                    }
-                    //--Check login id and password
-                    //string sql = "select *from HR_EMP where USER_NAME='" + txtUser.Text.Trim() + "' and PWD='" + txtPassword.Text.Trim() + "' and IS_ACTIVE='Y'";
-                    DataTable dt = new DataTable();                    
-                    dt = dc.SelectDs(sql);
 
                     if (dt.Rows.Count == 0)
-                    {                                     
+                    {
                         string id = msg.ShowAlert("UID003", new GBLEnvVariable().CurrentLanguageID);
                         txtUser.Focus();
                         return;
@@ -1049,145 +1065,103 @@ namespace RIS
                                 string kil = msg.ShowAlert("UID0041", new GBLEnvVariable().CurrentLanguageID);
                                 if (kil == "2")
                                 {
-                                    ProcessCheckSession killsession = new ProcessCheckSession();
-                                    killsession.Invoke(Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString()), 2);
-                                    DataTable dtkill = killsession.ResultSet.Tables[0];
-                                    if (dtkill.Rows.Count > 0)
-                                    {
+                                    ProcessCheckSession killedsession = new ProcessCheckSession();
+                                    killedsession.Invoke(Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString()), 3);
 
-                                        ProcessCheckSession killedsession = new ProcessCheckSession();
-                                        killedsession.Invoke(Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString()), 3);
-
-                                        KillSession(killip);
-
-
-                                        Remember();
-
-
-                                        //string userName = dt.Rows[0]["FNAME"].ToString() + " " + dt.Rows[0]["LNAME"].ToString();
-                                        frmMain mf = new frmMain();
-                                        //mainForm mf = new mainForm();
-                                        mf.LangName = cmbLanguage.Text;
-                                        mf.FirstName = dt.Rows[0]["FNAME"].ToString();
-                                        mf.LastName = dt.Rows[0]["LNAME"].ToString();
-                                        mf.OrgID = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
-                                        orgid = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
-                                        mf.userID = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
-                                        empid = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
-                                        useruid = dt.Rows[0]["EMP_UID"].ToString();
-                                        username = dt.Rows[0]["USER_NAME"].ToString();
-                                        int unitid = Convert.ToInt32(dt.Rows[0]["UNIT_ID"].ToString());
-                                        Utilities utl = new Utilities();
-                                        ProcessAddSession processsession = new ProcessAddSession();
-                                        GBLSession gblsession = new GBLSession();
-                                        GBLEnvVariable gbl = new GBLEnvVariable();
-                                        gbl.CurrentFormGUID = utl.GUID();
-                                        gblsession.SessionGUID = gbl.CurrentFormGUID;
-                                        gblsession.EmpID = empid;
-                                        gblsession.OrgID = orgid;
-                                        gblsession.IpAddress = utl.IPAddress();
-                                        gblsession.LogonType = ltype;
-                                        gblsession.LogonStatus = "A";
-                                        gbl.UserID = empid;
-                                        gbl.UnitID = unitid;
-                                        gbl.UserUID = useruid;
-                                        gbl.UserName = username;
-                                        gbl.TitleEng = dt.Rows[0]["TITLE_ENG"].ToString();
-                                        gbl.FirstNameEng = dt.Rows[0]["FNAME_ENG"].ToString();
-                                        gbl.LastNameEng = dt.Rows[0]["LNAME_ENG"].ToString();
-                                        gbl.AuthLevelID = dt.Rows[0]["AUTH_LEVEL_ID"].ToString();
-                                        processsession.GBLSession = gblsession;
-
-                                        try
-                                        {
-                                            processsession.Invoke();
-
-                                        }
-                                        catch (Exception err)
-                                        {
-                                            MessageBox.Show(err.Message);
-                                        }
-
-
-
-                                        this.Hide();
-                                        mf.Show();
-                                        return;
-                                    }
-                                    else
-                                    {
-                                        string kill = msg.ShowAlert("UID0042", new GBLEnvVariable().CurrentLanguageID);
-                                        return;
-                                    }
+                                    KillSession(killip);
                                 }
                                 else
                                 {
                                     return;
                                 }
                             }
-                            else
+
+                            Remember();
+
+
+                            //string userName = dt.Rows[0]["FNAME"].ToString() + " " + dt.Rows[0]["LNAME"].ToString();
+                            frmMain mf = new frmMain();
+                            //mainForm mf = new mainForm();
+                            mf.LangName = cmbLanguage.Text;
+                            mf.FirstName = dt.Rows[0]["FNAME"].ToString();
+                            mf.LastName = dt.Rows[0]["LNAME"].ToString();
+                            mf.OrgID = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
+                            orgid = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
+                            mf.userID = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
+                            empid = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
+                            useruid = dt.Rows[0]["EMP_UID"].ToString();
+                            username = dt.Rows[0]["USER_NAME"].ToString();
+                            int unitid = Convert.ToInt32(dt.Rows[0]["UNIT_ID"].ToString());
+                            Utilities utl = new Utilities();
+                            ProcessAddSession processsession = new ProcessAddSession();
+                            GBLSession gblsession = new GBLSession();
+                            GBLEnvVariable gbl = new GBLEnvVariable();
+                            gbl.CurrentFormGUID = utl.GUID();
+                            gblsession.SessionGUID = gbl.CurrentFormGUID;
+                            gblsession.EmpID = empid;
+                            gblsession.OrgID = orgid;
+                            gblsession.IpAddress = utl.IPAddress();
+                            gblsession.LogonType = ltype;
+                            gblsession.LogonStatus = "A";
+
+
+                            sql = "select * from GBL_ENV";
+                            DataTable dtEnv = dc.SelectDs(sql);
+
+                            gbl.PacsDomain = dtEnv.Rows[0]["PACS_DOMAIN"].ToString();
+                            gbl.LoginType = ltype;
+                            gbl.UserID = empid;
+                            gbl.UnitID = unitid;
+                            gbl.UserName = username;
+                            gbl.UserUID = useruid;
+                            gbl.PasswordAD = passwordAD;
+                            gbl.TitleEng = dt.Rows[0]["TITLE_ENG"].ToString();
+                            gbl.FirstNameEng = dt.Rows[0]["FNAME_ENG"].ToString();
+                            gbl.LastNameEng = dt.Rows[0]["LNAME_ENG"].ToString();
+                            gbl.AuthLevelID = dt.Rows[0]["AUTH_LEVEL_ID"].ToString();
+
+                            processsession.GBLSession = gblsession;
+
+                            try
                             {
-                                //string userName = dt.Rows[0]["FIRST_NAME"].ToString() + " " + dt.Rows[0]["LAST_NAME"].ToString();
-                                //testMainForm mf = new testMainForm();
-                                ////mainForm mf = new mainForm();
-                                //mf.userID = Convert.ToInt32(dt.Rows[0]["USER_NO"].ToString());
-                                //mf.Show();
-                                //this.Hide();
+                                processsession.Invoke();
 
-                                Remember();
-
-
-                                //string userName = dt.Rows[0]["FNAME"].ToString() + " " + dt.Rows[0]["LNAME"].ToString();
-                                frmMain mf = new frmMain();
-                                //mainForm mf = new mainForm();
-                                mf.LangName = cmbLanguage.Text;
-                                mf.FirstName = dt.Rows[0]["FNAME"].ToString();
-                                mf.LastName = dt.Rows[0]["LNAME"].ToString();
-                                mf.OrgID = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
-                                orgid = Convert.ToInt32(dt.Rows[0]["ORG_ID"].ToString());
-                                mf.userID = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
-                                empid = Convert.ToInt32(dt.Rows[0]["EMP_ID"].ToString());
-                                useruid = dt.Rows[0]["EMP_UID"].ToString();
-                                username = dt.Rows[0]["USER_NAME"].ToString();
-                                int unitid = Convert.ToInt32(dt.Rows[0]["UNIT_ID"].ToString());
-                                Utilities utl = new Utilities();
-                                ProcessAddSession processsession = new ProcessAddSession();
-                                GBLSession gblsession = new GBLSession();
-                                GBLEnvVariable gbl = new GBLEnvVariable();
-                                gbl.CurrentFormGUID = utl.GUID();
-                                gblsession.SessionGUID = gbl.CurrentFormGUID;
-                                gblsession.EmpID = empid;
-                                gblsession.OrgID = orgid;
-                                gblsession.IpAddress = utl.IPAddress();
-                                gblsession.LogonType = ltype;
-                                gblsession.LogonStatus = "A";
-                                gbl.UserID = empid;
-                                gbl.UnitID = unitid;
-                                gbl.UserName = username;
-                                gbl.UserUID = useruid;
-                                gbl.TitleEng = dt.Rows[0]["TITLE_ENG"].ToString();
-                                gbl.FirstNameEng = dt.Rows[0]["FNAME_ENG"].ToString();
-                                gbl.LastNameEng = dt.Rows[0]["LNAME_ENG"].ToString();
-                                gbl.AuthLevelID = dt.Rows[0]["AUTH_LEVEL_ID"].ToString();
-                                
-                                processsession.GBLSession = gblsession;
-
-                                try
-                                {
-                                    processsession.Invoke();
-
-                                }
-                                catch (Exception err)
-                                {
-                                    MessageBox.Show(err.Message);
-                                }
-
-                                this.Hide();
-                                mf.Show();
                             }
+                            catch (Exception err)
+                            {
+                                MessageBox.Show(err.Message);
+                            }
+
+                            GBLEnvVariable env = new GBLEnvVariable();
+                            env.ActiveDate = DateTime.Today;
+                            env.AuthLevelID = dt.Rows[0]["AUTH_LEVEL_ID"].ToString();
+
+                            env.TitleEng = dt.Rows[0]["TITLE_ENG"].ToString();
+                            env.FirstNameEng = dt.Rows[0]["FNAME_ENG"].ToString();
+                            env.LastNameEng = dt.Rows[0]["LNAME_ENG"].ToString();
+                            env.AuthLevelID = dt.Rows[0]["AUTH_LEVEL_ID"].ToString();
+
+                            env.FirstName = dt.Rows[0]["FNAME"].ToString();
+                            env.LastName = dt.Rows[0]["LNAME"].ToString();
+                            env.LoginType = ltype;
+                            env.CurrencyName = string.Empty;
+                            env.CurrencySymbol = string.Empty;
+
+                            env.PacsDomain = dtEnv.Rows[0]["PACS_DOMAIN"].ToString();
+
+                            #region AuthenPACS
+                            if (gbl.LoginType == "E")
+                            {
+                                OpenPACS authPacs = new OpenPACS();
+                                authPacs.AuthenPACS(txtUser.Text.Trim(), txtPassword.Text.Trim());
+                            }
+                            #endregion
+
+                            this.Hide();
+                            mf.Show();
                         }
                         else
-                        {                      
+                        {
                             string id = msg.ShowAlert("UID002", new GBLEnvVariable().CurrentLanguageID);
                             return;
                         }

@@ -22,6 +22,10 @@ namespace Envision.DataAccess
         Prc_RIS_ORDER_EditOrder_Select,
         Prc_LookUp_DateStatisticMode_Select,
         Prc_LookUp_DateStatistic_Select,
+        Prc_LookUp_ContrastLot_Select,
+        Prc_LookUp_OrderIdByAccession_Select,
+        Prc_LookUp_RegIdByScheduleId_Select,
+        Prc_LookUp_RptFindingAll_Select,
         #endregion
 
         #region rpt_Report
@@ -52,17 +56,19 @@ namespace Envision.DataAccess
         Prc_RIS_Rpt_SummaryDFAIMC,
         Prc_RIS_SCHEDULE_XRPTREPORT_AIMC,
         Prc_RIS_Rpt_RadiologistWorkload_AIMC,
+        Prc_RIS_RPT_RESULTSTATUSCHANGELOG,
+        Prc_RIS_Rpt_ReportER,
         #endregion
 
         #region Academic
-        Prc_AC_ASSIGNMENT_Insert,
+        Prc_AC_ASSIGNMENT_Insert_New,
         Prc_AC_ASSIGNMENT_Select,
         Prc_AC_ASSIGNMENT_SelectByAccessionNo,
         Prc_AC_ASSIGNMENT_SelectByAccessionWithRAD,
         Prc_AC_ASSIGNMENT_Delete,
 
-        Prc_AC_EVALUATION_Insert,
-        Prc_AC_EVALUATION_Update,
+        Prc_AC_EVALUATION_Insert_New,
+        Prc_AC_EVALUATION_Update_New,
         Prc_AC_EVALUATION_Select,
 
         Prc_AC_YEAR_Delete,
@@ -801,7 +807,7 @@ namespace Envision.DataAccess
         Prc_XREGIST_GetByHN,
         XREGIST_ExamInsert,
 
-        Prc_RIS_EXAMRESULTRADS_Insert,
+        Prc_RIS_EXAMRESULTRADS_Insert_IsShowPacs,
         Prc_RIS_EXAMRESULTRADS_Select,
         Prc_RIS_EXAMRESULTRADS_Update,
         Prc_RIS_EXAMRESULTRADS_Delete,
@@ -859,6 +865,7 @@ namespace Envision.DataAccess
         Prc_LookUp_ClinicalData_Select,
         Prc_RIS_BillingGenMessage,
         Prc_RIS_ORDER_UpdateEncounter,
+        Prc_RIS_ORDER_UpdateEncounterRefunit,
 
         Prc_RIS_SCHEDULE_InsertRecurrence,
         Prc_RIS_SCHEDULE_UpdateRecurrence,
@@ -1003,7 +1010,6 @@ namespace Envision.DataAccess
 
         //Waiting List
         Prc_RIS_SCHEDULE_SelectTest,
-        Prc_RIS_SCHEDULE_SelectBlock,
         Prc_RIS_SCHEDULE_WaitingList,
         Prc_RIS_SCHEDULE_UpdateWaitingList,
         //Prc_RIS_SCHEDULE_WaitingList2,
@@ -1012,6 +1018,7 @@ namespace Envision.DataAccess
         Prc_RIS_SCHEDULE_Busy2,
         Prc_RIS_SCHEDULE_SessionCount,
         Prc_RIS_SCHEDULE_AppointmentCount,
+        Prc_RIS_SCHEDULE_SelectBlock,
 
         Prc_RIS_SCHEDULECONFIG_Select,
         Prc_RIS_MODALITYEXAM_SelectByConfig,
@@ -1141,6 +1148,7 @@ namespace Envision.DataAccess
         Prc_RIS_Rpt_Summary_DF_RateByTech_Premium,
         Prc_RIS_Rpt_Summary_DF_RateByRad_Premium2,
         Prc_RIS_Rpt_Summary_DF_RateByTech_Premium2,
+        Prc_RIS_Rpt_Summary_DF_Nuero,
         Prc_LookUp_ExamConsultCase_Select,
 
         Prc_RIS_RADSTUDYGROUP_InsertUpdate,
@@ -1382,7 +1390,6 @@ namespace Envision.DataAccess
         //Prc_RIS_SCHEDULE_SelectWorklist,
         Prc_RIS_SCHEDULE_SelectWorklist3,
         Prc_RIS_EXAMPANELPORTABLE_Select,
-        Prc_RIS_SCHEDULELOGS_Select,
         Prc_RIS_SCHEDULELOGS_Select2,
         Prc_RIS_SCHEDULELOGS_Insert,
         Prc_RIS_SCHEDULELOGSDTL_Insert,
@@ -1407,6 +1414,7 @@ namespace Envision.DataAccess
         Prc_RIS_EXAMRESULT_Demographic,
         Prc_HR_EMP_SelectDoctorByID,
         Prc_HR_UNIT_SelectByID,
+        Prc_HR_UNIT_SelectByUID,
         Prc_RIS_SCHEDULE_SelectByXrayreqID,
         Prc_RIS_SCHEDULE_SelectByXrayreqAndModality,
 
@@ -1502,6 +1510,40 @@ namespace Envision.DataAccess
 
         Prc_LookUp_ContrastManagement_Select,
         Prc_GBL_QUICKTEXT_SelectFilterMode,
+        Prc_ContrastAcuteReaction_Select,
+        Prc_ContrastSymptom_Select,
+        Prc_RIS_Contrastdtl_Select,
+
+        Prc_RIS_CONTRASTDTL_Insert,
+        Prc_RIS_CONTRASTDTL_Insert2,
+        Prc_RIS_CONTRASTDTL_Update,
+        Prc_RIS_CONTRASTDTL_Update2,
+        Prc_RIS_CONTRASTDTL_UpdateArrival,
+        Prc_RIS_CONTRASTDTL_Delete,
+        Prc_RIS_CONTRASTDTL_Select,
+        Prc_RIS_CONTRASTDTL_SelectByDate,
+        Prc_RIS_CONTRASTDTL_SelectByOrderId,
+        Prc_RIS_CONTRASTDTL_SelectByScheduleId,
+        Prc_RIS_CONTRASTDTL_SelectByRegId,
+        Prc_RIS_CONTRASTDTL_SelectByHn,
+
+        Prc_RIS_CONTRASTLOT_Insert,
+        Prc_RIS_CONTRASTLOT_Update,
+        Prc_RIS_CONTRASTLOT_Select,
+
+        Prc_RIS_CONTRASTLOTMAPPING_Select,
+        Prc_RIS_CONTRASTLOTMAPPING_Insert,
+        Prc_RIS_CONTRASTLOTMAPPING_Delete,
+        Prc_RIS_EXAMRESULT_WorkListCovid,
+        Prc_RIS_EXAMRESULT_DTL_Insert,
+        Prc_RIS_TECHWORKSDTL_InsertWithRads,
+
+        Prc_RIS_EXAMMAPBILLING_Insert,
+        Prc_RIS_EXAMMAPBILLING_Select,
+        Prc_RIS_EXAMMAPBILLING_Delete,
+
+        Prc_RIS_BillingGenMessageMulti,
+        Prc_RIS_TECHWORKSDTLRAD_Insert,
 
         #region Preparing Change
 
@@ -1510,6 +1552,7 @@ namespace Envision.DataAccess
         Prc_CreateNewSession2,
         Prc_RIS_SCHEDULE_SelectWorklist2,
         Prc_ResultStatusChangeLog2,
+        Prc_XRAY_Schedule_GetArrivalWorkList_TEST,
         #endregion
     }
 }

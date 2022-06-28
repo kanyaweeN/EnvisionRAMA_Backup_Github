@@ -12,24 +12,32 @@ using Envision.NET.Forms.EMR;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Envision.BusinessLogic.ProcessRead;
 using Envision.BusinessLogic.ProcessCreate;
+using Envision.BusinessLogic.ProcessUpdate;
+using Miracle.Util;
+using Envision.BusinessLogic.ProcessDelete;
 
 namespace Envision.NET.Forms.Dialog
 {
-    public enum PagesModes
-    {
-        Order, Schedule, XrayReq
-    }
+
     public partial class frmMessageConversation : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private GBLEnvVariable env;
+        private HIS_Patient _hisPatientWebService;
         private MessageConversationManagement msgManagement;
+        private DevExpress.Utils.WaitDialogForm waitDialog;
+
         private int schedule_id, order_id, xrayreq_id;
+        private int reg_id;
         private int exam;
         private int comment;
         private string accession;
+        private string hn;
+        private DateTime caseDatetime;
         private DataSet dsData;
         private DataTable dataGroupDetail;
         private string formParent;
+        private Size expand = new Size(930, 600);
+        private Size collapse = new Size(505, 600);
         public PagesModes pageMode;
         public object objectCurrent;
 
@@ -43,6 +51,14 @@ namespace Envision.NET.Forms.Dialog
             accession = Accession_no;
             pageMode = PagesModes.Order;
             objectCurrent = Accession_no;
+            LookUpSelect sel = new LookUpSelect();
+            DataSet chkDs = sel.SelectOrderIdByAccession(Accession_no);
+            if (Utilities.IsHaveData(chkDs))
+            {
+                order_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["ORDER_ID"]);
+                reg_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["REG_ID"]);
+                hn = chkDs.Tables[0].Rows[0]["HN"].ToString();
+            }
         }
         public frmMessageConversation(int Schedule_id)
         {
@@ -50,7 +66,13 @@ namespace Envision.NET.Forms.Dialog
             schedule_id = Schedule_id;
             objectCurrent = Schedule_id;
             pageMode = PagesModes.Schedule;
-
+            LookUpSelect sel = new LookUpSelect();
+            DataSet chkDs = sel.SelectRegIdByScheduleId(Schedule_id);
+            if (Utilities.IsHaveData(chkDs))
+            {
+                reg_id = Convert.ToInt32(chkDs.Tables[0].Rows[0]["REG_ID"]);
+                hn = chkDs.Tables[0].Rows[0]["HN"].ToString();
+            }
         }
         public frmMessageConversation(int Xrayreq_id, bool is_online)
         {
@@ -67,28 +89,35 @@ namespace Envision.NET.Forms.Dialog
             dsData = new DataSet();
             env = new GBLEnvVariable();
             msgManagement = new MessageConversationManagement();
+            this._hisPatientWebService = new HIS_Patient();
 
             layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            this.Size = new Size(495, 595);
+            this.Size = collapse;
             dataGroupDetail = new DataTable();
             dataGroupDetail.Columns.Add("COMMENT_ID");
             dataGroupDetail.Columns.Add("READER_ID");
             dataGroupDetail.AcceptChanges();
+            showContrastDetail();
+            LoadAllergyData();
 
             switch (pageMode)
             {
                 case PagesModes.Order:
                     dtPatient = msgManagement.getPatientDetail(accession);
+                    loadRISRiskDataOrder(order_id);
                     break;
                 case PagesModes.Schedule:
                     dtPatient = msgManagement.getPatientDetailByScheduleId(schedule_id);
+                    loadRISRiskDataSchedule(schedule_id);
                     break;
                 case PagesModes.XrayReq:
                     dtPatient = msgManagement.getPatientDetailByXrayreq(xrayreq_id);
+                    loadRISRiskDataRequestXray(xrayreq_id);
                     break;
             }
             foreach (DataRow row in dtPatient.Rows)
             {
+                caseDatetime = Convert.ToDateTime(row["CASE_DATETIME"]);
                 lblHN.Text = row["HN"].ToString();
                 lblGender.Text = row["GENDER"].ToString();
                 lblName.Text = row["PATIENT_NAME"].ToString();
@@ -311,19 +340,19 @@ namespace Envision.NET.Forms.Dialog
             if (e.Column.FieldName == "OTHER")
                 e.Appearance.ForeColor = Color.Blue;
 
-            if (e.Column.FieldName == "TEXT_OTHER")            
-                e.Appearance.ForeColor = Color.Blue;             
-            
+            if (e.Column.FieldName == "TEXT_OTHER")
+                e.Appearance.ForeColor = Color.Blue;
+
             if (e.Column.FieldName == "ME")
                 e.Appearance.ForeColor = Color.Indigo;
 
-            if (e.Column.FieldName == "TEXT_ME")            
-                e.Appearance.ForeColor = Color.Indigo;               
+            if (e.Column.FieldName == "TEXT_ME")
+                e.Appearance.ForeColor = Color.Indigo;
 
             DataRow row = viewMessage.GetDataRow(e.RowHandle);
-            if (row["MSG_STATUS"].ToString() == "Del")            
+            if (row["MSG_STATUS"].ToString() == "Del")
                 e.Appearance.Font = new Font("Tahoma", 8, FontStyle.Strikeout);
-            
+
         }
         private void viewMessage_EndGrouping(object sender, EventArgs e)
         {
@@ -414,16 +443,24 @@ namespace Envision.NET.Forms.Dialog
         }
         private void getTemplateComment()
         {
+            getDataTemplate();
             if (layoutTemplate.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Never)
             {
+                tabPageControl.SelectedTabPage = tabTemplate;
                 layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                this.Size = new Size(747, 595);
-                getDataTemplate();
+                this.Size = expand;
             }
             else
             {
-                layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                this.Size = new Size(495, 595);
+                if (layoutTemplate.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Always && tabPageControl.SelectedTabPageIndex == 0)
+                {
+                    layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    this.Size = collapse;
+                }
+                else
+                {
+                    tabPageControl.SelectedTabPageIndex = 0;
+                }
             }
         }
         private void btnTemplate_Click(object sender, EventArgs e)
@@ -582,6 +619,8 @@ namespace Envision.NET.Forms.Dialog
         }
         private void formRefresh(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return;
             FormCollection fc = Application.OpenForms;
 
             foreach (Form frm in fc)
@@ -629,10 +668,10 @@ namespace Envision.NET.Forms.Dialog
 
                 DataRow row = viewMessage.GetDataRow(viewMessage.FocusedRowHandle);
                 msgManagement = new MessageConversationManagement();
-                msgManagement.updateMessageStatus(Convert.ToInt32(row["COMMENT_ID"]),"Del", env.UserID);
+                msgManagement.updateMessageStatus(Convert.ToInt32(row["COMMENT_ID"]), "Del", env.UserID);
                 string copyText = Convert.ToString(row["MSG_TEXT"]);
-                
-                
+
+
                 getData();
                 timer1.Start();
             }
@@ -654,8 +693,8 @@ namespace Envision.NET.Forms.Dialog
 
         private void menuMessage_Opening(object sender, CancelEventArgs e)
         {
-            
-            if (viewMessage.FocusedRowHandle >= 0 )
+
+            if (viewMessage.FocusedRowHandle >= 0)
             {
                 DataRow row = viewMessage.GetDataRow(viewMessage.FocusedRowHandle);
 
@@ -682,5 +721,752 @@ namespace Envision.NET.Forms.Dialog
             viewMessage.SelectRow(-1);
         }
 
+        #region Contrast
+        int _contrastDtl_id = 0;
+        DataSet _dsAcr;
+        DataSet _dsSymptom;
+        private void btnContrastDetail_Click(object sender, EventArgs e)
+        {
+            showContrastDetail();
+        }
+        private void showContrastDetail()
+        {
+            _contrastDtl_id = 0;
+            chkcmbAcuteReactions.Visible = false;
+            speContrastMediaExtravasation.Visible = lblValueTypeContrastMediaExtra.Visible = false;
+            
+            setDataReaction();
+            setDataSymptom();
+            setDataContrastDtl();
+            setDataRoute();
+            setDataContrast();
+            clearDataContrast();
+
+            if (layoutTemplate.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Never)
+            {
+                tabPageControl.SelectedTabPage = tabContrast;
+                layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                this.Size = expand;
+            }
+            else
+            {
+                if (layoutTemplate.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Always && tabPageControl.SelectedTabPageIndex == 1)
+                {
+                    layoutTemplate.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    this.Size = collapse;
+                }
+                else
+                    tabPageControl.SelectedTabPageIndex = 1;
+            }
+        }
+        private void setDataContrastDtl()
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            DataSet ds = new DataSet();
+            switch (pageMode)
+            {
+                case PagesModes.Order:
+                    ProcessGetRISContrastdtl _getOrd = new ProcessGetRISContrastdtl();
+                    _getOrd.RIS_CONTRASTDTL.ORDER_ID = order_id;
+                    ds = _getOrd.GetDataByOrderId();
+                    break;
+                case PagesModes.Schedule:
+                    ProcessGetRISContrastdtl _getSch = new ProcessGetRISContrastdtl();
+                    _getSch.RIS_CONTRASTDTL.SCHEDULE_ID = schedule_id;
+                    ds = _getSch.GetDataByScheduleId();
+                    break;
+                case PagesModes.XrayReq:
+                    break;
+                default:
+                    break;
+            }
+
+            if (ds != null)
+            {
+                if (ds.Tables.Count > 0)
+                {
+                    grdDataContrast.DataSource = ds.Tables[0];
+
+                    for (int i = 0; i < viewDataContrast.Columns.Count; i++)
+                    {
+                        viewDataContrast.Columns[i].Visible = false;
+                        viewDataContrast.Columns[i].OptionsColumn.ReadOnly = true;
+                        viewDataContrast.Columns[i].OptionsColumn.AllowEdit = false;
+                    }
+
+
+                    viewDataContrast.Columns["CONTRAST_TEXT"].ColVIndex = 1;
+                    viewDataContrast.Columns["CONTRAST_TEXT"].Caption = "Contrast Name";
+                    viewDataContrast.Columns["ROUTE_TEXT"].ColVIndex = 2;
+                    viewDataContrast.Columns["ROUTE_TEXT"].Caption = "Route";
+                    viewDataContrast.Columns["LOT_DISPLAY"].ColVIndex = 3;
+                    viewDataContrast.Columns["LOT_DISPLAY"].Caption = "Lot";
+                }
+                else
+                    grdDataContrast.DataSource = null;
+            }
+            else
+                grdDataContrast.DataSource = null;
+
+            ProcessGetRISContrastdtl _getContrastHis = new ProcessGetRISContrastdtl();
+            DataSet dsHis = _getContrastHis.GetDataByRegId(reg_id);
+            if (!dsHis.Tables[0].Columns.Contains("MEDIA_REACTION_DISPLAY"))
+                dsHis.Tables[0].Columns.Add("MEDIA_REACTION_DISPLAY");
+            foreach (DataRow rowHis in dsHis.Tables[0].Rows)
+            {
+                string _list = "0"; 
+                if(string.IsNullOrEmpty(rowHis["MEDIA_REACTION_LIST"].ToString()))
+                    _list = "0";
+                else if(rowHis["MEDIA_REACTION_LIST"].ToString() == "No")
+                    _list = "0";
+                else 
+                    _list = rowHis["MEDIA_REACTION_LIST"].ToString();
+                DataRow[] rowsAcr = _dsAcr.Tables[0].Select("ACR_ID in (" + _list + ")");
+                foreach (DataRow rowAcr in rowsAcr)
+                {
+                    rowHis["MEDIA_REACTION_DISPLAY"] += "[" + rowAcr["ACR_TYPE"].ToString() + "] " + rowAcr["ACR_TEXT"].ToString() + ";";
+                }
+            }
+
+            grdDataContrastHistory.DataSource = dsHis.Tables[0];
+
+            for (int i = 0; i < viewDataContrastHistory.Columns.Count; i++)
+            {
+                viewDataContrastHistory.Columns[i].Visible = false;
+                viewDataContrastHistory.Columns[i].OptionsColumn.ReadOnly = true;
+                viewDataContrastHistory.Columns[i].OptionsColumn.AllowEdit = false;
+            }
+
+            viewDataContrastHistory.Columns["CASE_DATETIME"].ColVIndex = 1;
+            viewDataContrastHistory.Columns["CASE_DATETIME"].Caption = "Datetime";
+            viewDataContrastHistory.Columns["CONTRAST_TEXT"].ColVIndex = 2;
+            viewDataContrastHistory.Columns["CONTRAST_TEXT"].Caption = "Contrast Name";
+            viewDataContrastHistory.Columns["ROUTE_TEXT"].ColVIndex = 3;
+            viewDataContrastHistory.Columns["ROUTE_TEXT"].Caption = "Route";
+            viewDataContrastHistory.Columns["LOT_DISPLAY"].ColVIndex = 4;
+            viewDataContrastHistory.Columns["LOT_DISPLAY"].Caption = "Lot";
+            viewDataContrastHistory.Columns["ACTUAL_QTY"].ColVIndex = 5;
+            viewDataContrastHistory.Columns["ACTUAL_QTY"].Caption = "Act. Qty";
+            viewDataContrastHistory.Columns["MEDIA_REACTION_DISPLAY"].ColVIndex = 6;
+            viewDataContrastHistory.Columns["MEDIA_REACTION_DISPLAY"].Caption = "Contrast Reaction";
+
+            dlg.Close();
+        }
+
+        private void setDataContrast()
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            LookUpSelect sel = new LookUpSelect();
+            DataSet ds = sel.SelectContrastManagement(3, DateTime.Now, DateTime.Now, "");
+
+            cmbContrastName.Properties.Items.Clear();
+            ComboBoxItemCollection colls = cmbContrastName.Properties.Items;
+            try
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    colls.Add(new contrastData(Convert.ToInt32(dr["ID"]), dr["CONTRAST_NAME"].ToString(), dr["CONTRAST_UID"].ToString()));
+                }
+            }
+            finally
+            {
+                colls.EndUpdate();
+            }
+            dlg.Close();
+
+        }
+        private void setDataRoute()
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            LookUpSelect sel = new LookUpSelect();
+            DataSet ds = sel.SelectContrastManagement(1, DateTime.Now, DateTime.Now, "");
+
+            cmbRoute.Properties.Items.Clear();
+            ComboBoxItemCollection colls = cmbRoute.Properties.Items;
+            try
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    colls.Add(new routeData(Convert.ToInt32(dr["ID"]), dr["RouteName"].ToString()));
+
+                }
+            }
+            finally
+            {
+                colls.EndUpdate();
+            }
+
+            dlg.Close();
+        }
+        private void setDataLot(int contrastId)
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            LookUpSelect sel = new LookUpSelect();
+            DataSet ds = sel.SelectContrastLot(contrastId);
+
+            cmbLot.Properties.Items.Clear();
+            ComboBoxItemCollection colls = cmbLot.Properties.Items;
+            try
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    colls.Add(new lotData(Convert.ToInt32(dr["LOT_ID"]), dr["LOT_DISPLAY"].ToString()));
+                }
+            }
+            finally
+            {
+                colls.EndUpdate();
+            }
+            dlg.Close();
+        }
+        private void setDataReaction()
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            ProcessGetRISContrastdtl _arcReaction = new ProcessGetRISContrastdtl();
+            _dsAcr = _arcReaction.GetReactionData();
+
+            chkcmbAcuteReactions.Properties.Items.Clear();
+            try
+            {
+                foreach (DataRow dr in _dsAcr.Tables[0].Rows)
+                {
+                    chkcmbAcuteReactions.Properties.Items.Add(Convert.ToInt32(dr["ACR_ID"]), dr["ACR_DISPLAY"].ToString(), System.Windows.Forms.CheckState.Unchecked, true);
+                }
+            }
+            finally
+            {
+            }
+            dlg.Close();
+
+        }
+        private void setDataSymptom()
+        {
+            Size s = new Size(250, 50);
+            DevExpress.Utils.WaitDialogForm dlg = new DevExpress.Utils.WaitDialogForm("Please wait...", "Preparing Data", s);
+
+            ProcessGetRISContrastdtl _getData = new ProcessGetRISContrastdtl();
+            _dsSymptom = _getData.GetSymptomData();
+
+            chkcmbSymptom.Properties.Items.Clear();
+            try
+            {
+                foreach (DataRow dr in _dsSymptom.Tables[0].Rows)
+                {
+                    chkcmbSymptom.Properties.Items.Add(Convert.ToInt32(dr["CONTRAST_SYMPTOM_ID"]), dr["SYMPTOM_DISPLAY"].ToString(), System.Windows.Forms.CheckState.Unchecked, true);
+                }
+            }
+            finally
+            {
+            }
+            dlg.Close();
+
+        }
+
+        private void calculateAutoCalculate()
+        {
+            try
+            {
+                decimal _autCalculate = speDose.Value * spePatientWeight.Value;
+                speAutoCalculate.Value = _autCalculate;
+            }
+            catch (Exception ex)
+            {
+                speAutoCalculate.Value = 0;
+            }
+
+        }
+        private void spePatientWeight_EditValueChanged(object sender, EventArgs e)
+        {
+            calculateAutoCalculate();
+        }
+        private void speDose_EditValueChanged(object sender, EventArgs e)
+        {
+            calculateAutoCalculate();
+        }
+        private void btnSaveContrast_Click(object sender, EventArgs e)
+        {
+            bool flag = true;
+            bool onlySym = false;
+            if (cmbContrastName.SelectedItem == null || cmbContrastName.EditValue.ToString() == ""
+                || cmbRoute.SelectedItem == null || cmbRoute.EditValue.ToString() == ""
+                || cmbLot.SelectedItem == null || cmbLot.EditValue.ToString() == "")
+                flag = false;
+
+
+            if (chkAcuteReactionYes.Checked)
+                if (string.IsNullOrEmpty(chkcmbAcuteReactions.EditValue.ToString()))
+                    flag = false;
+
+            if (!string.IsNullOrEmpty(chkcmbSymptom.EditValue.ToString()))
+            {
+                if (!flag)
+                    onlySym = true;
+                flag = true;
+            }
+            if (flag)
+            {
+                if (!onlySym)
+                {
+                    memoMessage.Text = "Study Datetime : " + caseDatetime.ToString("dd/MM/yyyy HH:mm") + "\r\n";
+                    memoMessage.Text += "Patient Weight : " + spePatientWeight.Value.ToString("#,###.00") + "\r\n";
+                    memoMessage.Text += "Contrast Name : " + cmbContrastName.EditValue.ToString() + "\r\n";
+                    memoMessage.Text += "Route : " + cmbRoute.EditValue.ToString() + "\r\n";
+                    memoMessage.Text += "Dose : " + speDose.Value.ToString("#,###.00 ml/kg.") + "\r\n";
+                    memoMessage.Text += "Actual Quanlity : " + speActualQuantity.Value.ToString("#,###.00 ml.") + "\r\n";
+                    memoMessage.Text += "Injection Rate : " + speSideEffect.Value.ToString("#,###.00 ml/sec") + "\r\n";
+                    memoMessage.Text += "Injection Time : " + timeInjectionTime.Time.ToString("HH:mm") + "\r\n";
+                    if (chkContrastMediaExtravasationYes.Checked)
+                        memoMessage.Text += "Contrast Media Extravasation : " + speContrastMediaExtravasation.Value.ToString("#,###.00 ml.") + "\r\n";
+
+                    if (chkAcuteReactionYes.Checked)
+                        memoMessage.Text += "Acute adverse reaction : " + chkcmbAcuteReactions.Text + "\r\n";
+                    if (!string.IsNullOrEmpty(speOnsetOfSymptom.Value.ToString()))
+                        if (speOnsetOfSymptom.Value != 0)
+                            memoMessage.Text += "Acute adverse On set of symptom : " + speOnsetOfSymptom.Value.ToString() + " " + cmbOnsetOfSymptom.EditValue.ToString() + "\r\n";
+                }
+                if (!string.IsNullOrEmpty(dtOnsetOfSymtom.Text))
+                    memoMessage.Text += "Delay adverse Onset of symptom : " + dtOnsetOfSymtom.DateTime.ToString("dd/MM/yyyy HH:mm") + "\r\n";
+                if (!string.IsNullOrEmpty(chkcmbSymptom.Text))
+                    memoMessage.Text += "Delay adverse Symptom : " + chkcmbSymptom.Text + "\r\n";
+
+                memoMessage.Text += "Comments : " + memComments.Text + "\r\n";
+
+                contrastData _contrastData = cmbContrastName.SelectedItem as contrastData;
+                routeData _routeData = cmbRoute.SelectedItem as routeData;
+                lotData _lotData = cmbLot.SelectedItem as lotData;
+
+                if (_contrastDtl_id == 0)
+                {
+                    ProcessAddRISContrastDtl _add = new ProcessAddRISContrastDtl();
+                    if (!onlySym)
+                    {
+                        _add.RIS_CONTRASTDTL.CONTRAST_ID = _contrastData.id();
+                        _add.RIS_CONTRASTDTL.PATIENT_WEIGHT = spePatientWeight.Value;
+                        _add.RIS_CONTRASTDTL.ROUTE_ID = _routeData.id();
+                        _add.RIS_CONTRASTDTL.LOT_ID = _lotData.id();
+                        _add.RIS_CONTRASTDTL.DOSE = speDose.Value;
+                        _add.RIS_CONTRASTDTL.ACTUAL_QTY = speActualQuantity.Value;
+                        _add.RIS_CONTRASTDTL.INJECTION_RATE = speSideEffect.Value;
+                        _add.RIS_CONTRASTDTL.INJECTION_TIME = timeInjectionTime.Time;
+                        if (chkAcuteReactionYes.Checked)
+                            _add.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = chkcmbAcuteReactions.EditValue.ToString();
+                        else if (chkAcuteReactionNo.Checked)
+                            _add.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = "No";
+                        else
+                            _add.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = "";
+                        if (chkContrastMediaExtravasationYes.Checked)
+                            _add.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = speContrastMediaExtravasation.Value;
+                        else if (chkContrastMediaExtravasationNo.Checked)
+                            _add.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = 0;
+                        else
+                            _add.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = -1;
+                    }
+                    _add.RIS_CONTRASTDTL.ONSET_SYMPTOM_DATETIME = new DateTime(dtOnsetOfSymtom.DateTime.Year, dtOnsetOfSymtom.DateTime.Month, dtOnsetOfSymtom.DateTime.Day, timeOnsetOfSymtom.Time.Hour, timeOnsetOfSymtom.Time.Minute, timeOnsetOfSymtom.Time.Second);
+                    _add.RIS_CONTRASTDTL.ONSET_SYMPTOM_LIST = chkcmbSymptom.EditValue.ToString();
+                    if (cmbOnsetOfSymptom.EditValue != null)
+                    {
+                        _add.RIS_CONTRASTDTL.ONSET_SYMPTOM_TYPE = cmbOnsetOfSymptom.EditValue.ToString();
+                        _add.RIS_CONTRASTDTL.ONSET_SYMPTOM_VALUE = speOnsetOfSymptom.Value;
+                    }
+
+                    _add.RIS_CONTRASTDTL.ORDER_ID = order_id;
+                    _add.RIS_CONTRASTDTL.SCHEDULE_ID = schedule_id;
+                    _add.RIS_CONTRASTDTL.XRAYREQ_ID = xrayreq_id;
+                    _add.RIS_CONTRASTDTL.COMMENTS = memComments.Text;
+                    _add.RIS_CONTRASTDTL.CREATED_BY = env.UserID;
+                    _add.Invoke();
+                }
+                else
+                {
+                    ProcessUpdateRISContrastDtl _update = new ProcessUpdateRISContrastDtl();
+                    _update.RIS_CONTRASTDTL.CONTRASTDTL_ID = _contrastDtl_id;
+                    if (!onlySym)
+                    {
+                        _update.RIS_CONTRASTDTL.CONTRAST_ID = _contrastData.id();
+                        _update.RIS_CONTRASTDTL.PATIENT_WEIGHT = spePatientWeight.Value;
+                        _update.RIS_CONTRASTDTL.ROUTE_ID = _routeData.id();
+                        _update.RIS_CONTRASTDTL.LOT_ID = _lotData.id();
+                        _update.RIS_CONTRASTDTL.DOSE = speDose.Value;
+                        _update.RIS_CONTRASTDTL.ACTUAL_QTY = speActualQuantity.Value;
+                        _update.RIS_CONTRASTDTL.INJECTION_RATE = speSideEffect.Value;
+                        _update.RIS_CONTRASTDTL.INJECTION_TIME = timeInjectionTime.Time;
+                        if (chkAcuteReactionYes.Checked)
+                            _update.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = chkcmbAcuteReactions.EditValue.ToString();
+                        else if (chkAcuteReactionNo.Checked)
+                            _update.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = "No";
+                        else
+                            _update.RIS_CONTRASTDTL.MEDIA_REACTION_LIST = "";
+                        if (chkContrastMediaExtravasationYes.Checked)
+                            _update.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = speContrastMediaExtravasation.Value;
+                        else if (chkContrastMediaExtravasationNo.Checked)
+                            _update.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = 0;
+                        else
+                            _update.RIS_CONTRASTDTL.MEDIA_EXTRAVASATION = -1;
+                    }
+                    _update.RIS_CONTRASTDTL.ONSET_SYMPTOM_DATETIME = new DateTime(dtOnsetOfSymtom.DateTime.Year, dtOnsetOfSymtom.DateTime.Month, dtOnsetOfSymtom.DateTime.Day, timeOnsetOfSymtom.Time.Hour, timeOnsetOfSymtom.Time.Minute, timeOnsetOfSymtom.Time.Second);
+                    _update.RIS_CONTRASTDTL.ONSET_SYMPTOM_LIST = chkcmbSymptom.EditValue.ToString();
+                    if (cmbOnsetOfSymptom.EditValue != null)
+                    {
+                        _update.RIS_CONTRASTDTL.ONSET_SYMPTOM_TYPE = cmbOnsetOfSymptom.EditValue.ToString();
+                        _update.RIS_CONTRASTDTL.ONSET_SYMPTOM_VALUE = speOnsetOfSymptom.Value;
+                    }
+                    _update.RIS_CONTRASTDTL.ORDER_ID = order_id;
+                    _update.RIS_CONTRASTDTL.SCHEDULE_ID = schedule_id;
+                    _update.RIS_CONTRASTDTL.XRAYREQ_ID = xrayreq_id;
+                    _update.RIS_CONTRASTDTL.COMMENTS = memComments.Text;
+                    _update.RIS_CONTRASTDTL.LAST_MODIFIED_BY = env.UserID;
+                    _update.Invoke();
+                }
+
+                setDataContrastDtl();
+                clearDataContrast();
+            }
+        }
+        #endregion
+
+        private void cmbContrastName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            contrastData _contrastSelected = cmbContrastName.SelectedItem as contrastData;
+            if (_contrastSelected != null)
+            {
+                checkContrastWithHIS();
+                setDataLot(_contrastSelected.id());
+
+            }
+
+        }
+        private void chkContrastMediaExtravasationYes_CheckedChanged(object sender, EventArgs e)
+        {
+            speContrastMediaExtravasation.Visible = lblValueTypeContrastMediaExtra.Visible = false;
+            if (chkContrastMediaExtravasationYes.Checked)
+            {
+                chkContrastMediaExtravasationNo.Checked = false;
+                speContrastMediaExtravasation.Visible = lblValueTypeContrastMediaExtra.Visible = true;
+            }
+        }
+        private void chkContrastMediaExtravasationNo_CheckedChanged(object sender, EventArgs e)
+        {
+            speContrastMediaExtravasation.Visible = lblValueTypeContrastMediaExtra.Visible = false;
+            if (chkContrastMediaExtravasationNo.Checked)
+            {
+                chkContrastMediaExtravasationYes.Checked = false;
+                speContrastMediaExtravasation.Visible = lblValueTypeContrastMediaExtra.Visible = false;
+            }
+        }
+
+        private void chkAcuteReactionYes_CheckedChanged(object sender, EventArgs e)
+        {
+            chkcmbAcuteReactions.Visible = false;
+            if (chkAcuteReactionYes.Checked)
+            {
+                chkAcuteReactionNo.Checked = false;
+                chkcmbAcuteReactions.Visible = true;
+            }
+        }
+        private void chkAcuteReactionNo_CheckedChanged(object sender, EventArgs e)
+        {
+            chkcmbAcuteReactions.Visible = false;
+            if (chkAcuteReactionNo.Checked)
+            {
+                chkAcuteReactionYes.Checked = false;
+                chkcmbAcuteReactions.Visible = false;
+            }
+        }
+        
+        private void clearDataContrast()
+        {
+            _contrastDtl_id = 0;
+            spePatientWeight.EditValue = 0;
+            cmbContrastName.EditValue = "";
+            cmbRoute.EditValue = "";
+            cmbLot.EditValue = "";
+            speDose.EditValue = 0;
+            speActualQuantity.EditValue = 0;
+            speSideEffect.EditValue = 0;
+            memComments.Text = "";
+            chkAcuteReactionYes.Checked = false;
+            chkAcuteReactionNo.Checked = false;
+            for (int i = 0; i < _dsAcr.Tables[0].Rows.Count; i++)
+            {
+                chkcmbAcuteReactions.Properties.Items[i].CheckState = CheckState.Unchecked;
+            }
+            for (int i = 0; i < _dsSymptom.Tables[0].Rows.Count; i++)
+            {
+                chkcmbSymptom.Properties.Items[i].CheckState = CheckState.Unchecked;
+            }
+            dtOnsetOfSymtom.EditValue = "";
+            timeOnsetOfSymtom.EditValue = "";
+            timeInjectionTime.EditValue = "";
+
+            chkContrastMediaExtravasationYes.Checked = false;
+            chkContrastMediaExtravasationNo.Checked = false;
+            speContrastMediaExtravasation.EditValue = 0;
+            cmbOnsetOfSymptom.SelectedIndex = 0;
+            speOnsetOfSymptom.EditValue = 0;
+        }
+        private void viewDataContrast_DoubleClick(object sender, EventArgs e)
+        {
+            if (viewDataContrast.FocusedRowHandle >= 0)
+            {
+                DataRow row = viewDataContrast.GetDataRow(viewDataContrast.FocusedRowHandle);
+                _contrastDtl_id = Convert.ToInt32(row["CONTRASTDTL_ID"]);
+
+                spePatientWeight.Value = Convert.ToDecimal(row["PATIENT_WEIGHT"]);
+                cmbContrastName.EditValue = new contrastData(Convert.ToInt32(row["CONTRAST_ID"]), row["CONTRAST_TEXT"].ToString());
+                cmbRoute.EditValue = new routeData(Convert.ToInt32(row["ROUTE_ID"]), row["ROUTE_TEXT"].ToString());
+                cmbLot.EditValue = new lotData(Convert.ToInt32(row["LOT_ID"]), row["LOT_DISPLAY"].ToString());
+                speDose.Value = Convert.ToDecimal(row["DOSE"]);
+                speActualQuantity.Value = Convert.ToDecimal(row["ACTUAL_QTY"]);
+                speSideEffect.Value = Convert.ToDecimal(row["INJECTION_RATE"]);
+
+                if (!string.IsNullOrEmpty(row["INJECTION_TIME"].ToString()))
+                {
+                    timeInjectionTime.Time = Convert.ToDateTime(row["INJECTION_TIME"]);
+                    timeInjectionTime.EditValue = Convert.ToDateTime(row["INJECTION_TIME"]).ToString("HH:mm");
+                }
+                if (!string.IsNullOrEmpty(row["ONSET_SYMPTOM_DATETIME"].ToString()))
+                {
+                    dtOnsetOfSymtom.DateTime = Convert.ToDateTime(row["ONSET_SYMPTOM_DATETIME"]);
+                    timeOnsetOfSymtom.EditValue = Convert.ToDateTime(row["ONSET_SYMPTOM_DATETIME"]).ToString("HH:mm");
+                }
+                chkcmbSymptom.EditValue = row["ONSET_SYMPTOM_LIST"].ToString();
+                chkcmbSymptom.RefreshEditValue();
+                speOnsetOfSymptom.Value = Convert.ToDecimal(row["ONSET_SYMPTOM_VALUE"]);
+                cmbOnsetOfSymptom.EditValue = row["ONSET_SYMPTOM_TYPE"].ToString();
+
+                chkAcuteReactionYes.Checked = false;
+                chkAcuteReactionNo.Checked = false;
+                if (row["MEDIA_REACTION_LIST"].ToString() == "")
+                {
+                    chkAcuteReactionYes.Checked = false;
+                    chkAcuteReactionNo.Checked = false;
+                }
+                else if (row["MEDIA_REACTION_LIST"].ToString() == "No")
+                {
+                    chkAcuteReactionNo.Checked = true;
+                }
+                else
+                {
+                    chkAcuteReactionYes.Checked = true;
+                    chkcmbAcuteReactions.EditValue = row["MEDIA_REACTION_LIST"].ToString();
+                    chkcmbAcuteReactions.RefreshEditValue();
+                }
+
+                chkContrastMediaExtravasationYes.Checked = false;
+                chkContrastMediaExtravasationNo.Checked = false;
+                if (row["MEDIA_EXTRAVASATION"].ToString() == "0.00")
+                {
+                    chkContrastMediaExtravasationNo.Checked = true;
+                }
+                else if (row["MEDIA_EXTRAVASATION"].ToString() == "-1.00")
+                {
+                    chkContrastMediaExtravasationYes.Checked = false;
+                    chkContrastMediaExtravasationNo.Checked = false;
+                }
+                else
+                {
+                    chkContrastMediaExtravasationYes.Checked = true;
+                    speContrastMediaExtravasation.Value = Convert.ToDecimal(row["MEDIA_EXTRAVASATION"]);
+                }
+                memComments.Text = row["COMMENTS"].ToString();
+            }
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (viewDataContrast.FocusedRowHandle >= 0)
+            {
+                DataRow row = viewDataContrast.GetDataRow(viewDataContrast.FocusedRowHandle);
+                _contrastDtl_id = Convert.ToInt32(row["CONTRASTDTL_ID"]);
+
+                ProcessDeleteRISContrastDtl _del = new ProcessDeleteRISContrastDtl();
+                _del.RIS_CONTRASTDTL.CONTRASTDTL_ID = _contrastDtl_id;
+                _del.Invoke();
+
+                setDataContrastDtl();
+            }
+        }
+        private void ShowLoadingDialog(string message, int width, int height)
+        {
+            this.waitDialog = new DevExpress.Utils.WaitDialogForm(message, "Dialog", new Size(width, height));
+        }
+
+        #region Risk
+        private void loadRISRiskDataOrder(int order_id)
+        {
+            DataTable dtIncident = new DataTable();
+            ProcessGetRisRiskIncidents incident = new ProcessGetRisRiskIncidents();
+            incident.RIS_RISKINCIDENTS.ORDER_ID = order_id;
+            dtIncident = incident.getDataByOrderID();
+
+            loadRiskIndicationData(dtIncident);
+        }
+        private void loadRISRiskDataSchedule(int schedule_id)
+        {
+            DataTable dtIncident = new DataTable();
+            ProcessGetRisRiskIncidents incident = new ProcessGetRisRiskIncidents();
+            incident.RIS_RISKINCIDENTS.SCHEDULE_ID = schedule_id;
+            dtIncident = incident.getDataByScheduleID();
+            loadRiskIndicationData(dtIncident);
+        }
+        private void loadRISRiskDataRequestXray(int xrayreq_id)
+        {
+            DataTable dtIncident = new DataTable();
+            ProcessGetRisRiskIncidents incident = new ProcessGetRisRiskIncidents();
+            incident.RIS_RISKINCIDENTS.XRAYREQ_ID = xrayreq_id;
+            dtIncident = incident.getDataByXrayReqID();
+            loadRiskIndicationData(dtIncident);
+        }
+        private void loadRiskIndicationData(DataTable dt)
+        {
+            DataRow[] rowUseContrast = dt.Select("RISK_CAT_ID=22");
+            if (rowUseContrast.Length > 0)
+            {
+                switch (rowUseContrast[0]["INCIDENT_CHOOSED"].ToString())
+                {
+                    case "N": lblShowContrast.Visible = true; lblShowContrast.Text = "Non-Contrast"; break;
+                    case "Y": lblShowContrast.Visible = true; lblShowContrast.Text = "With-Contrast"; break;
+                    default: lblShowContrast.Visible = false; lblShowContrast.Text = ""; break;
+                }
+            }
+            else
+            {
+                lblShowContrast.Visible = false; lblShowContrast.Text = "";
+            }
+        }
+
+        private void LoadAllergyData()
+        {
+            this.ShowLoadingDialog("Loading...", 150, 50);
+            try
+            {
+                DataSet ds = this._hisPatientWebService.Get_Adr(hn.Trim());
+                if (ds.Tables.Count > 0)
+                {
+                    this.gridAllergyControl.DataSource = ds.Tables[0];
+                }
+                this.waitDialog.Close();
+            }
+            catch (Exception ex)
+            {
+                #if DEBUG
+                //MessageBox.Show(ex.Message);
+                #endif
+
+                this.ResetAllergyData();
+                this.waitDialog.Close();
+            }
+        }
+        private void ResetAllergyData()
+        {
+            this.gridAllergyControl.DataSource = null;
+        }
+        #endregion
+
+        private void checkContrastWithHIS()
+        {
+            this.ShowLoadingDialog("Loading...", 150, 50);
+            try
+            {
+                contrastData _contrastSelected = cmbContrastName.SelectedItem as contrastData;
+                DataSet ds = this._hisPatientWebService.searchAdrByMrnAndCode(hn.Trim(), _contrastSelected.code());
+                if (ds.Tables.Count > 0)
+                {
+                    this.gridAllergyControl.DataSource = ds.Tables[0];
+                }
+                this.waitDialog.Close();
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                //MessageBox.Show(ex.Message);
+#endif
+
+                this.ResetAllergyData();
+                this.waitDialog.Close();
+            }
+        }
+
     }
+    public enum PagesModes
+    {
+        Order, Schedule, XrayReq
+    }
+    public class contrastData
+    {
+        private int _id;
+        private string _code;
+        private string _name;
+        public contrastData(int id, string name)
+        {
+            _id = id;
+            _name = name;
+        }
+        public contrastData(int id, string code, string name)
+        {
+            _id = id;
+            _code = code;
+            _name = name;
+        }
+        public override string ToString()
+        {
+            return _name;
+        }
+        public int id()
+        {
+            return _id;
+        }
+        public string code()
+        {
+            return _code;
+        }
+    }
+    public class routeData
+    {
+        private int _id;
+        private string _name;
+        public routeData(int id, string name)
+        {
+            _id = id;
+            _name = name;
+        }
+        public override string ToString()
+        {
+            return _name;
+        }
+        public int id()
+        {
+            return _id;
+        }
+    }
+    public class lotData
+    {
+        private int _id;
+        private string _name;
+        public lotData(int id, string name)
+        {
+            _id = id;
+            _name = name;
+        }
+        public override string ToString()
+        {
+            return _name;
+        }
+        public int id()
+        {
+            return _id;
+        }
+    }
+      
 }

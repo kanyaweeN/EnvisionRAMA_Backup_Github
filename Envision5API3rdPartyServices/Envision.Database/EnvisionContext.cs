@@ -3,6 +3,7 @@ using Envision.Entity;
 using Envision.Entity.AIResult;
 using Envision.Entity.Result;
 using Envision.Entity.Schedule;
+using Envision.Operational.Configs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Envision.Database
@@ -30,7 +31,8 @@ namespace Envision.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=10.6.34.51;database=RIS_RAMA;uid=sa;pwd=mira@@1");
+            optionsBuilder.UseSqlServer(EnvisionConfig.ConnectionString);
+            //optionsBuilder.UseSqlServer(@"server=10.6.34.51;database=RIS_RAMA;uid=sa;pwd=mira@@1");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -80,6 +80,7 @@
     <Compile Include="EmailManager.cs" />
     <Compile Include="ExternalFiles.cs" />
     <Compile Include="HostedApp.cs" />
+    <Compile Include="PACS\OpenPACS.cs" />
     <Compile Include="PACS\SendToPacs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secure.cs" />

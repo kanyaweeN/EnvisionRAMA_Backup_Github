@@ -67,12 +67,29 @@ namespace EnvisionOnline.ReportViewer.Reports
             slkp.getReportAIMC();
             ds = slkp.ResultSet;
             HasData = true;
-
-            bindingData(ds);
+            if (Utilities.IsHaveData(ds))
+                bindingData(ds);
         }
         private void bindingData(DataSet ds)
         {
             DataSource = ds.Tables[0];
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_1"].ToString()))
+                    xrRichText1.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_2"].ToString()))
+                    xrRichText2.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_3"].ToString()))
+                    xrRichText3.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_4"].ToString()))
+                    xrRichText4.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_5"].ToString()))
+                    xrRichText5.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_6"].ToString()))
+                    xrRichText6.Visible = true;
+                if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["INS_7"].ToString()))
+                    xrRichText7.Visible = true;
+            }
             lblPrintBy.Text = "ผู้ออกบัตรนัด : " + printor_name;
             lblPrintBy.Text += "ออกบัตรนัดวันที่ : " + ds.Tables[1].Rows[0]["SCH_PRINT_DATETIME"].ToString();
         }

@@ -29,20 +29,10 @@ namespace Envision.BusinessLogic
 
         }
 
-        public string GetBillingMessage(string ACCESSION_NO)
+        public DataSet GetBillingMessage(string ACCESSION_NO)
         {
-            string msg = "";
-
             LookUpSelect lk = new LookUpSelect();
-            DataSet ds = lk.GetBillingMessage(ACCESSION_NO);
-            if (ds != null)
-            {
-                DataTable dt = ds.Tables[0];
-                if (dt.Rows.Count > 0)
-                    msg = dt.Rows[0][0].ToString();
-            }
-
-            return msg;
+            return lk.GetBillingMessage(ACCESSION_NO);
         }
 
         public string Set_Billing(string billing_message)
@@ -308,6 +298,17 @@ namespace Envision.BusinessLogic
             update.Invoke();
         }
 
+
+        public void UpdateEncount(int ORDER_ID, string ENC_ID, string ENC_TYPE, int REF_UNIT)
+        {
+            ProcessUpdateRISOrderEncounter update = new ProcessUpdateRISOrderEncounter();
+            update.RIS_ORDER.ORDER_ID = ORDER_ID;
+            update.RIS_ORDER.ENC_ID = ENC_ID;
+            update.RIS_ORDER.ENC_TYPE = ENC_TYPE;
+            update.RIS_ORDER.REF_UNIT = REF_UNIT;
+            update.Invoke();
+        }
+
         public string LoadGetEligibilityInsuranceDetail(string HN, string ENC_ID, string ENC_TYPE, string SDLOC, string PerfDate, string CLINIC_TYPE)
         {
             HIS_Patient p = new HIS_Patient();
@@ -416,6 +417,24 @@ namespace Envision.BusinessLogic
             {
                 return false;
             }
+        }
+        public bool CheckIsSendBillingByHn(string hn)
+        {
+            bool flag = false;
+            try
+            {
+            HIS_Patient p = new HIS_Patient();
+            DataSet ds = p.Get_demographic_long(hn.Trim());
+            
+                if (ds != null)
+                    if (ds.Tables.Count > 0)
+                        flag = true;
+            }
+            catch (Exception ex)
+            {
+                flag = false;
+            }
+            return flag;
         }
     }
 }

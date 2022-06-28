@@ -9,8 +9,9 @@ namespace Envision.Entity.AIResult
         public int AiId { get; set; }
         public string Hn { get; set; }
         public string AccessionNo { get; set; }
-        public decimal DetectValues { get; set; }
+        public string DetectValues { get; set; }
         public string Remark { get; set; }
+        public string AiVendor { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? LastModifiedOn { get; set; }
     }

@@ -40,9 +40,7 @@ namespace Envision.BusinessLogic.ProcessRead
             _prc.HR_EMP = this.HR_EMP;
 
             return _prc.GetEmpData();
-        
         }
-
 	}
 }
 

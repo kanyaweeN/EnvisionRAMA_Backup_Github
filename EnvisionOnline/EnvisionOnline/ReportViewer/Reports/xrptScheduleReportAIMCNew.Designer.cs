@@ -76,12 +76,16 @@
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrRichText6 = new DevExpress.XtraReports.UI.XRRichText();
+            this.xrRichText7 = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsScheduleReportAIMC1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -426,6 +430,8 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrRichText7,
+            this.xrRichText6,
             this.xrLabel25,
             this.xrRichText4,
             this.xrRichText3,
@@ -434,7 +440,7 @@
             this.xrLabel26,
             this.xrRichText2,
             this.xrRichText1});
-            this.GroupFooter1.HeightF = 183F;
+            this.GroupFooter1.HeightF = 255.7083F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
             // xrLabel25
@@ -445,10 +451,10 @@
             this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.RATE")});
             this.xrLabel25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(449.9999F, 0F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(445.5F, 0F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel25.SizeF = new System.Drawing.SizeF(83F, 25F);
+            this.xrLabel25.SizeF = new System.Drawing.SizeF(87.5F, 37.5F);
             this.xrLabel25.StylePriority.UseBorders = false;
             this.xrLabel25.StylePriority.UseFont = false;
             this.xrLabel25.StylePriority.UseTextAlignment = false;
@@ -466,11 +472,14 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrRichText4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_4")});
-            this.xrRichText4.LocationFloat = new DevExpress.Utils.PointFloat(8F, 125F);
+            this.xrRichText4.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 115.75F);
             this.xrRichText4.Name = "xrRichText4";
+            this.xrRichText4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
             this.xrRichText4.SerializableRtfString = resources.GetString("xrRichText4.SerializableRtfString");
             this.xrRichText4.SizeF = new System.Drawing.SizeF(525F, 25F);
             this.xrRichText4.StylePriority.UseBorders = false;
+            this.xrRichText4.StylePriority.UsePadding = false;
+            this.xrRichText4.Visible = false;
             // 
             // xrRichText3
             // 
@@ -479,18 +488,21 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrRichText3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_3")});
-            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(267F, 92F);
+            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(262.4998F, 115.75F);
             this.xrRichText3.Name = "xrRichText3";
+            this.xrRichText3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
             this.xrRichText3.SerializableRtfString = resources.GetString("xrRichText3.SerializableRtfString");
             this.xrRichText3.SizeF = new System.Drawing.SizeF(267F, 25F);
             this.xrRichText3.StylePriority.UseBorders = false;
+            this.xrRichText3.StylePriority.UsePadding = false;
+            this.xrRichText3.Visible = false;
             // 
             // xrLabel10
             // 
             this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.FOOTER_CONTACT")});
             this.xrLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(8F, 25F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 50F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(525F, 25F);
@@ -504,11 +516,14 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrRichText5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_5")});
-            this.xrRichText5.LocationFloat = new DevExpress.Utils.PointFloat(8F, 158F);
+            this.xrRichText5.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 150F);
             this.xrRichText5.Name = "xrRichText5";
+            this.xrRichText5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
             this.xrRichText5.SerializableRtfString = resources.GetString("xrRichText5.SerializableRtfString");
             this.xrRichText5.SizeF = new System.Drawing.SizeF(525F, 25F);
             this.xrRichText5.StylePriority.UseBorders = false;
+            this.xrRichText5.StylePriority.UsePadding = false;
+            this.xrRichText5.Visible = false;
             // 
             // xrLabel26
             // 
@@ -516,15 +531,17 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(8F, 0F);
+            this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(7.999992F, 0F);
+            this.xrLabel26.Multiline = true;
             this.xrLabel26.Name = "xrLabel26";
             this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel26.SizeF = new System.Drawing.SizeF(442F, 25F);
+            this.xrLabel26.SizeF = new System.Drawing.SizeF(437.5F, 37.5F);
             this.xrLabel26.StylePriority.UseBorders = false;
             this.xrLabel26.StylePriority.UseFont = false;
             this.xrLabel26.StylePriority.UseTextAlignment = false;
             this.xrLabel26.Text = "ยอดรวม (ราคาโดยประมาณอาจเปลี่ยนแปลงได้และไม่มีค่าบริการทางการแพทย์ตลอด 24 ชั่วโมง" +
-    ")";
+    ")\r\nสิทธิข้าราชการอาจต้องชำระค่าตรวจเพิ่มบางรายการที่เบิกไม่ได้ประมาณ 1,000 – 5,0" +
+    "00 บาท";
             this.xrLabel26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrRichText2
@@ -534,11 +551,14 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrRichText2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_2")});
-            this.xrRichText2.LocationFloat = new DevExpress.Utils.PointFloat(8F, 92F);
+            this.xrRichText2.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 115.75F);
             this.xrRichText2.Name = "xrRichText2";
+            this.xrRichText2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
             this.xrRichText2.SerializableRtfString = resources.GetString("xrRichText2.SerializableRtfString");
             this.xrRichText2.SizeF = new System.Drawing.SizeF(250F, 25F);
             this.xrRichText2.StylePriority.UseBorders = false;
+            this.xrRichText2.StylePriority.UsePadding = false;
+            this.xrRichText2.Visible = false;
             // 
             // xrRichText1
             // 
@@ -547,11 +567,14 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_1")});
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(8F, 58F);
+            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 87.5F);
             this.xrRichText1.Name = "xrRichText1";
+            this.xrRichText1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
             this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
             this.xrRichText1.SizeF = new System.Drawing.SizeF(525F, 25F);
             this.xrRichText1.StylePriority.UseBorders = false;
+            this.xrRichText1.StylePriority.UsePadding = false;
+            this.xrRichText1.Visible = false;
             // 
             // dsScheduleReportAIMC1
             // 
@@ -648,6 +671,38 @@
             this.xrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel28.WordWrap = false;
             // 
+            // xrRichText6
+            // 
+            this.xrRichText6.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrRichText6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_6")});
+            this.xrRichText6.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 187.5F);
+            this.xrRichText6.Name = "xrRichText6";
+            this.xrRichText6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
+            this.xrRichText6.SerializableRtfString = resources.GetString("xrRichText6.SerializableRtfString");
+            this.xrRichText6.SizeF = new System.Drawing.SizeF(525F, 25F);
+            this.xrRichText6.StylePriority.UseBorders = false;
+            this.xrRichText6.StylePriority.UsePadding = false;
+            this.xrRichText6.Visible = false;
+            // 
+            // xrRichText7
+            // 
+            this.xrRichText7.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrRichText7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "Prc_RIS_SCHEDULE_XRPTREPORT_AIMC1.INS_7")});
+            this.xrRichText7.LocationFloat = new DevExpress.Utils.PointFloat(7.999865F, 225F);
+            this.xrRichText7.Name = "xrRichText7";
+            this.xrRichText7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 2, 2, 100F);
+            this.xrRichText7.SerializableRtfString = resources.GetString("xrRichText7.SerializableRtfString");
+            this.xrRichText7.SizeF = new System.Drawing.SizeF(525F, 25F);
+            this.xrRichText7.StylePriority.UseBorders = false;
+            this.xrRichText7.StylePriority.UsePadding = false;
+            this.xrRichText7.Visible = false;
+            // 
             // xrptScheduleReportAIMCNew
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -672,6 +727,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsScheduleReportAIMC1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -723,5 +780,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel30;
         private DevExpress.XtraReports.UI.XRLabel xrLabel27;
         private DevExpress.XtraReports.UI.XRLabel xrLabel28;
+        private DevExpress.XtraReports.UI.XRRichText xrRichText7;
+        private DevExpress.XtraReports.UI.XRRichText xrRichText6;
     }
 }

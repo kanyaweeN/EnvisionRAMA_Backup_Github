@@ -54,6 +54,7 @@ namespace Envision.NET.Forms.ResultEntry
             DevExpress.XtraSpellChecker.OptionsSpelling optionsSpelling18 = new DevExpress.XtraSpellChecker.OptionsSpelling();
             DevExpress.XtraSpellChecker.OptionsSpelling optionsSpelling19 = new DevExpress.XtraSpellChecker.OptionsSpelling();
             DevExpress.XtraSpellChecker.OptionsSpelling optionsSpelling20 = new DevExpress.XtraSpellChecker.OptionsSpelling();
+            DevExpress.XtraSpellChecker.OptionsSpelling optionsSpelling21 = new DevExpress.XtraSpellChecker.OptionsSpelling();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
@@ -165,7 +166,6 @@ namespace Envision.NET.Forms.ResultEntry
             this.repositoryItemRichEditFontSizeEdit5 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
             this.rtPadN = new DevExpress.XtraRichEdit.RichEditControl();
             this.spellChecker1 = new DevExpress.XtraSpellChecker.SpellChecker();
-            this.txtDashHN = new DevExpress.XtraEditors.TextEdit();
             this.txtDemo_Result = new System.Windows.Forms.RichTextBox();
             this.txtDemo_Priority = new DevExpress.XtraEditors.TextEdit();
             this.txtDemo_Status = new DevExpress.XtraEditors.TextEdit();
@@ -229,6 +229,8 @@ namespace Envision.NET.Forms.ResultEntry
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup12 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutStatReport = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtDashHN = new DevExpress.XtraEditors.TextEdit();
+            this.rtPreview = new DevExpress.XtraRichEdit.RichEditControl();
             this.changeFontColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontColorItem();
             this.changeFontBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontBackColorItem();
             this.toggleFontBoldItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontBoldItem();
@@ -421,9 +423,25 @@ namespace Envision.NET.Forms.ResultEntry
             this.rAMAAIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.view1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.tabCovidWorklist = new DevExpress.XtraTab.XtraTabPage();
+            this.grdCovid = new DevExpress.XtraGrid.GridControl();
+            this.viewCovid = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.xtraTabSearch = new DevExpress.XtraTab.XtraTabControl();
             this.wlpageFilter = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.rdoDashHN = new System.Windows.Forms.RadioButton();
+            this.rdoDashDate = new System.Windows.Forms.RadioButton();
+            this.panelHN = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.panelDate = new DevExpress.XtraEditors.PanelControl();
+            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtFromDT = new DevExpress.XtraEditors.DateEdit();
+            this.txtToDT = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl52 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl50 = new DevExpress.XtraEditors.LabelControl();
             this.cmbLocFilter = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl49 = new DevExpress.XtraEditors.LabelControl();
@@ -435,16 +453,6 @@ namespace Envision.NET.Forms.ResultEntry
             this.ccbExamType = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.wlpageSearch = new DevExpress.XtraTab.XtraTabPage();
             this.chkFinalizeSearch = new DevExpress.XtraEditors.CheckEdit();
-            this.panelHN = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.rdoDashDate = new System.Windows.Forms.RadioButton();
-            this.rdoDashHN = new System.Windows.Forms.RadioButton();
-            this.panelDate = new DevExpress.XtraEditors.PanelControl();
-            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtFromDT = new DevExpress.XtraEditors.DateEdit();
-            this.txtToDT = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -603,6 +611,26 @@ namespace Envision.NET.Forms.ResultEntry
             this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pageCovid = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+            this.lblSeverity = new DevExpress.XtraEditors.LabelControl();
+            this.btnSaveFinalized = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabResultControl = new DevExpress.XtraTab.XtraTabControl();
+            this.tabFinding = new DevExpress.XtraTab.XtraTabPage();
+            this.grdFindingDetail = new DevExpress.XtraGrid.GridControl();
+            this.viewFindingDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdFinding = new DevExpress.XtraGrid.GridControl();
+            this.viewFinding = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tabImpression = new DevExpress.XtraTab.XtraTabPage();
+            this.grdImpressionDetail = new DevExpress.XtraGrid.GridControl();
+            this.viewImpressionDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdImpression = new DevExpress.XtraGrid.GridControl();
+            this.viewImpression = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlGroup13 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.imgWL = new System.Windows.Forms.ImageList(this.components);
             this.tmWL = new System.Windows.Forms.Timer(this.components);
             this.imgHIS = new System.Windows.Forms.ImageList(this.components);
@@ -632,6 +660,10 @@ namespace Envision.NET.Forms.ResultEntry
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bgwRefreshGrid = new System.ComponentModel.BackgroundWorker();
             this.img16 = new DevExpress.Utils.ImageCollection(this.components);
+            this.menuWLCovid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.summaryCovidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripHisAllergyCovid = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripCommentsCovid = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSmall)).BeginInit();
@@ -655,7 +687,6 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDashHN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_Priority.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_Status.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_ExamName.Properties)).BeginInit();
@@ -699,6 +730,7 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutStatReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDashHN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
@@ -753,18 +785,16 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.grdWL)).BeginInit();
             this.menuWL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.view1)).BeginInit();
+            this.tabCovidWorklist.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCovid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCovid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabSearch)).BeginInit();
             this.xtraTabSearch.SuspendLayout();
             this.wlpageFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbLocFilter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdoAssignedCase.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbOrderingDept.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeFilter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbExamType.Properties)).BeginInit();
-            this.wlpageSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHN)).BeginInit();
             this.panelHN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDate)).BeginInit();
@@ -773,6 +803,13 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.txtFromDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToDT.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToDT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLocFilter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdoAssignedCase.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbOrderingDept.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeFilter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbExamType.Properties)).BeginInit();
+            this.wlpageSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -856,6 +893,26 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.pageCovid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
+            this.layoutControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabResultControl)).BeginInit();
+            this.xtraTabResultControl.SuspendLayout();
+            this.tabFinding.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFindingDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFindingDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFinding)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFinding)).BeginInit();
+            this.tabImpression.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdImpressionDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewImpressionDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdImpression)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewImpression)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -874,6 +931,7 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).BeginInit();
+            this.menuWLCovid.SuspendLayout();
             this.SuspendLayout();
             // 
             // popupControlContainer1
@@ -1916,16 +1974,6 @@ namespace Envision.NET.Forms.ResultEntry
             this.spellChecker1.Culture = new System.Globalization.CultureInfo("en-US");
             this.spellChecker1.ParentContainer = this.rtPadN;
             // 
-            // txtDashHN
-            // 
-            this.txtDashHN.Location = new System.Drawing.Point(45, 16);
-            this.txtDashHN.Name = "txtDashHN";
-            this.spellChecker1.SetShowSpellCheckMenu(this.txtDashHN, true);
-            this.txtDashHN.Size = new System.Drawing.Size(220, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDashHN, optionsSpelling2);
-            this.txtDashHN.TabIndex = 1;
-            this.txtDashHN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDashHN_KeyDown);
-            // 
             // txtDemo_Result
             // 
             this.txtDemo_Result.BackColor = System.Drawing.Color.LightCyan;
@@ -1934,7 +1982,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_Result.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_Result, false);
             this.txtDemo_Result.Size = new System.Drawing.Size(813, 116);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Result, optionsSpelling3);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Result, optionsSpelling2);
             this.txtDemo_Result.TabIndex = 17;
             this.txtDemo_Result.Text = "";
             // 
@@ -1945,7 +1993,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_Priority.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_Priority, true);
             this.txtDemo_Priority.Size = new System.Drawing.Size(100, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Priority, optionsSpelling4);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Priority, optionsSpelling3);
             this.txtDemo_Priority.TabIndex = 10;
             // 
             // txtDemo_Status
@@ -1955,7 +2003,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_Status.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_Status, true);
             this.txtDemo_Status.Size = new System.Drawing.Size(100, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Status, optionsSpelling5);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_Status, optionsSpelling4);
             this.txtDemo_Status.TabIndex = 9;
             // 
             // txtDemo_ExamName
@@ -1965,7 +2013,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_ExamName.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_ExamName, true);
             this.txtDemo_ExamName.Size = new System.Drawing.Size(266, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_ExamName, optionsSpelling6);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_ExamName, optionsSpelling5);
             this.txtDemo_ExamName.TabIndex = 13;
             // 
             // txtDemo_ExamCode
@@ -1975,7 +2023,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_ExamCode.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_ExamCode, true);
             this.txtDemo_ExamCode.Size = new System.Drawing.Size(100, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_ExamCode, optionsSpelling7);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_ExamCode, optionsSpelling6);
             this.txtDemo_ExamCode.TabIndex = 12;
             // 
             // txtDemo_AccNo
@@ -1985,7 +2033,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtDemo_AccNo.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtDemo_AccNo, true);
             this.txtDemo_AccNo.Size = new System.Drawing.Size(150, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_AccNo, optionsSpelling8);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDemo_AccNo, optionsSpelling7);
             this.txtDemo_AccNo.TabIndex = 11;
             // 
             // txtTechnique
@@ -1995,7 +2043,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtTechnique.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtTechnique, true);
             this.txtTechnique.Size = new System.Drawing.Size(235, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtTechnique, optionsSpelling9);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtTechnique, optionsSpelling8);
             this.txtTechnique.TabIndex = 5;
             // 
             // txtAssessment
@@ -2005,7 +2053,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtAssessment.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtAssessment, true);
             this.txtAssessment.Size = new System.Drawing.Size(235, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtAssessment, optionsSpelling10);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtAssessment, optionsSpelling9);
             this.txtAssessment.TabIndex = 4;
             // 
             // txtLesion
@@ -2015,7 +2063,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtLesion.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.txtLesion, true);
             this.txtLesion.Size = new System.Drawing.Size(235, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtLesion, optionsSpelling11);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtLesion, optionsSpelling10);
             this.txtLesion.TabIndex = 3;
             // 
             // rtbLAB2
@@ -2024,7 +2072,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.rtbLAB2.Name = "rtbLAB2";
             this.spellChecker1.SetShowSpellCheckMenu(this.rtbLAB2, false);
             this.rtbLAB2.Size = new System.Drawing.Size(362, 28);
-            this.spellChecker1.SetSpellCheckerOptions(this.rtbLAB2, optionsSpelling12);
+            this.spellChecker1.SetSpellCheckerOptions(this.rtbLAB2, optionsSpelling11);
             this.rtbLAB2.TabIndex = 50;
             this.rtbLAB2.Text = "";
             // 
@@ -2034,7 +2082,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.rtbLAB.Name = "rtbLAB";
             this.spellChecker1.SetShowSpellCheckMenu(this.rtbLAB, false);
             this.rtbLAB.Size = new System.Drawing.Size(362, 117);
-            this.spellChecker1.SetSpellCheckerOptions(this.rtbLAB, optionsSpelling13);
+            this.spellChecker1.SetSpellCheckerOptions(this.rtbLAB, optionsSpelling12);
             this.rtbLAB.TabIndex = 7;
             this.rtbLAB.Text = "";
             // 
@@ -2044,7 +2092,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtPhone.Name = "txtPhone";
             this.spellChecker1.SetShowSpellCheckMenu(this.txtPhone, true);
             this.txtPhone.Size = new System.Drawing.Size(161, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtPhone, optionsSpelling14);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtPhone, optionsSpelling13);
             this.txtPhone.TabIndex = 12;
             // 
             // txtAGE
@@ -2053,7 +2101,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtAGE.Name = "txtAGE";
             this.spellChecker1.SetShowSpellCheckMenu(this.txtAGE, true);
             this.txtAGE.Size = new System.Drawing.Size(100, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtAGE, optionsSpelling15);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtAGE, optionsSpelling14);
             this.txtAGE.TabIndex = 5;
             // 
             // txtName
@@ -2062,7 +2110,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtName.Name = "txtName";
             this.spellChecker1.SetShowSpellCheckMenu(this.txtName, true);
             this.txtName.Size = new System.Drawing.Size(310, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtName, optionsSpelling16);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtName, optionsSpelling15);
             this.txtName.TabIndex = 4;
             // 
             // txtHN
@@ -2071,7 +2119,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.txtHN.Name = "txtHN";
             this.spellChecker1.SetShowSpellCheckMenu(this.txtHN, true);
             this.txtHN.Size = new System.Drawing.Size(100, 20);
-            this.spellChecker1.SetSpellCheckerOptions(this.txtHN, optionsSpelling17);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtHN, optionsSpelling16);
             this.txtHN.TabIndex = 3;
             // 
             // memComment
@@ -2080,7 +2128,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.memComment.Name = "memComment";
             this.spellChecker1.SetShowSpellCheckMenu(this.memComment, true);
             this.memComment.Size = new System.Drawing.Size(241, 70);
-            this.spellChecker1.SetSpellCheckerOptions(this.memComment, optionsSpelling18);
+            this.spellChecker1.SetSpellCheckerOptions(this.memComment, optionsSpelling17);
             this.memComment.TabIndex = 6;
             this.memComment.TabStop = false;
             // 
@@ -2092,7 +2140,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.rdNoteN.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.rdNoteN, true);
             this.rdNoteN.Size = new System.Drawing.Size(819, 68);
-            this.spellChecker1.SetSpellCheckerOptions(this.rdNoteN, optionsSpelling19);
+            this.spellChecker1.SetSpellCheckerOptions(this.rdNoteN, optionsSpelling18);
             this.rdNoteN.StyleController = this.layoutControl5;
             this.rdNoteN.TabIndex = 16;
             this.rdNoteN.EditValueChanged += new System.EventHandler(this.rdNoteN_EditValueChanged);
@@ -2140,7 +2188,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.rdStatReport.Properties.ReadOnly = true;
             this.spellChecker1.SetShowSpellCheckMenu(this.rdStatReport, true);
             this.rdStatReport.Size = new System.Drawing.Size(813, 49);
-            this.spellChecker1.SetSpellCheckerOptions(this.rdStatReport, optionsSpelling20);
+            this.spellChecker1.SetSpellCheckerOptions(this.rdStatReport, optionsSpelling19);
             this.rdStatReport.StyleController = this.layoutControl5;
             this.rdStatReport.TabIndex = 21;
             // 
@@ -2687,6 +2735,28 @@ namespace Envision.NET.Forms.ResultEntry
             this.layoutStatReport.TextSize = new System.Drawing.Size(0, 0);
             this.layoutStatReport.TextToControlDistance = 0;
             this.layoutStatReport.TextVisible = false;
+            // 
+            // txtDashHN
+            // 
+            this.txtDashHN.Location = new System.Drawing.Point(33, 4);
+            this.txtDashHN.Name = "txtDashHN";
+            this.spellChecker1.SetShowSpellCheckMenu(this.txtDashHN, true);
+            this.txtDashHN.Size = new System.Drawing.Size(311, 20);
+            this.spellChecker1.SetSpellCheckerOptions(this.txtDashHN, optionsSpelling20);
+            this.txtDashHN.TabIndex = 1;
+            this.txtDashHN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDashHN_KeyDown);
+            // 
+            // rtPreview
+            // 
+            this.rtPreview.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.rtPreview.Location = new System.Drawing.Point(525, 52);
+            this.rtPreview.MenuManager = this.ribbonControl1;
+            this.rtPreview.Name = "rtPreview";
+            this.spellChecker1.SetShowSpellCheckMenu(this.rtPreview, false);
+            this.rtPreview.Size = new System.Drawing.Size(299, 330);
+            this.rtPreview.SpellChecker = this.spellChecker1;
+            this.spellChecker1.SetSpellCheckerOptions(this.rtPreview, optionsSpelling21);
+            this.rtPreview.TabIndex = 1;
             // 
             // changeFontColorItem1
             // 
@@ -3414,7 +3484,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // ibtnRejectPacsImage
             // 
-            this.ibtnRejectPacsImage.Caption = "Reject";
+            this.ibtnRejectPacsImage.Caption = "Feedback Image";
             this.ibtnRejectPacsImage.Id = 371;
             this.ibtnRejectPacsImage.LargeImageIndex = 26;
             this.ibtnRejectPacsImage.LargeWidth = 60;
@@ -3685,6 +3755,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.ribbonGroupRejectPacsImage.ItemLinks.Add(this.ibtnRejectPacsImage);
             this.ribbonGroupRejectPacsImage.Name = "ribbonGroupRejectPacsImage";
             this.ribbonGroupRejectPacsImage.ShowCaptionButton = false;
+            this.ribbonGroupRejectPacsImage.Visible = false;
             // 
             // rpageRegular2
             // 
@@ -4037,7 +4108,8 @@ namespace Envision.NET.Forms.ResultEntry
             this.pageHistory,
             this.pageBiopsy,
             this.pageEntry2,
-            this.pageStruct});
+            this.pageStruct,
+            this.pageCovid});
             this.tabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
             // 
             // pageWL
@@ -4082,7 +4154,8 @@ namespace Envision.NET.Forms.ResultEntry
             this.xtabGridWorklist.TabIndex = 19;
             this.xtabGridWorklist.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabResultworklist,
-            this.tabScheduleworklist});
+            this.tabScheduleworklist,
+            this.tabCovidWorklist});
             this.xtabGridWorklist.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtabGridWorklist_SelectedPageChanged);
             // 
             // tabScheduleworklist
@@ -4411,6 +4484,47 @@ namespace Envision.NET.Forms.ResultEntry
             this.gridBand1.Caption = "gridBand1";
             this.gridBand1.Name = "gridBand1";
             // 
+            // tabCovidWorklist
+            // 
+            this.tabCovidWorklist.Controls.Add(this.grdCovid);
+            this.tabCovidWorklist.Name = "tabCovidWorklist";
+            this.tabCovidWorklist.PageVisible = false;
+            this.tabCovidWorklist.Size = new System.Drawing.Size(820, 293);
+            this.tabCovidWorklist.Text = "Covid Worklist";
+            // 
+            // grdCovid
+            // 
+            this.grdCovid.ContextMenuStrip = this.menuWLSchedule;
+            this.grdCovid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdCovid.Location = new System.Drawing.Point(0, 0);
+            this.grdCovid.MainView = this.viewCovid;
+            this.grdCovid.Name = "grdCovid";
+            this.grdCovid.Size = new System.Drawing.Size(820, 293);
+            this.grdCovid.TabIndex = 1;
+            this.grdCovid.ToolTipController = this.toolTipController1;
+            this.grdCovid.UseEmbeddedNavigator = true;
+            this.grdCovid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewCovid});
+            // 
+            // viewCovid
+            // 
+            this.viewCovid.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand7});
+            this.viewCovid.GridControl = this.grdCovid;
+            this.viewCovid.Name = "viewCovid";
+            this.viewCovid.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.viewCovid.OptionsFilter.AllowFilterEditor = false;
+            this.viewCovid.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewCovid.OptionsView.ShowAutoFilterRow = true;
+            this.viewCovid.OptionsView.ShowBands = false;
+            this.viewCovid.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.viewCovid.DoubleClick += new System.EventHandler(this.viewCovid_DoubleClick);
+            // 
+            // gridBand7
+            // 
+            this.gridBand7.Caption = "gridBand6";
+            this.gridBand7.Name = "gridBand7";
+            // 
             // xtraTabSearch
             // 
             this.xtraTabSearch.Appearance.Options.UseTextOptions = true;
@@ -4420,6 +4534,7 @@ namespace Envision.NET.Forms.ResultEntry
             this.xtraTabSearch.Location = new System.Drawing.Point(1, 6);
             this.xtraTabSearch.Name = "xtraTabSearch";
             this.xtraTabSearch.SelectedTabPage = this.wlpageFilter;
+            this.xtraTabSearch.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
             this.xtraTabSearch.Size = new System.Drawing.Size(829, 93);
             this.xtraTabSearch.TabIndex = 18;
             this.xtraTabSearch.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
@@ -4434,12 +4549,14 @@ namespace Envision.NET.Forms.ResultEntry
             this.wlpageFilter.Appearance.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.wlpageFilter.Controls.Add(this.panelControl6);
             this.wlpageFilter.Name = "wlpageFilter";
-            this.wlpageFilter.Size = new System.Drawing.Size(820, 62);
+            this.wlpageFilter.Size = new System.Drawing.Size(820, 84);
             this.wlpageFilter.TabPageWidth = 60;
             this.wlpageFilter.Text = "Filter";
             // 
             // panelControl6
             // 
+            this.panelControl6.Controls.Add(this.panelControl7);
+            this.panelControl6.Controls.Add(this.labelControl52);
             this.panelControl6.Controls.Add(this.labelControl50);
             this.panelControl6.Controls.Add(this.cmbLocFilter);
             this.panelControl6.Controls.Add(this.labelControl49);
@@ -4452,12 +4569,142 @@ namespace Envision.NET.Forms.ResultEntry
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(820, 62);
+            this.panelControl6.Size = new System.Drawing.Size(820, 84);
             this.panelControl6.TabIndex = 17;
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.Controls.Add(this.rdoDashHN);
+            this.panelControl7.Controls.Add(this.rdoDashDate);
+            this.panelControl7.Controls.Add(this.panelHN);
+            this.panelControl7.Controls.Add(this.panelDate);
+            this.panelControl7.Location = new System.Drawing.Point(101, 5);
+            this.panelControl7.LookAndFeel.SkinName = "Lilian";
+            this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(500, 29);
+            this.panelControl7.TabIndex = 27;
+            // 
+            // rdoDashHN
+            // 
+            this.rdoDashHN.AutoSize = true;
+            this.rdoDashHN.Location = new System.Drawing.Point(59, 6);
+            this.rdoDashHN.Name = "rdoDashHN";
+            this.rdoDashHN.Size = new System.Drawing.Size(41, 17);
+            this.rdoDashHN.TabIndex = 24;
+            this.rdoDashHN.Text = "HN";
+            this.rdoDashHN.UseVisualStyleBackColor = true;
+            this.rdoDashHN.Click += new System.EventHandler(this.rdoDashHN_Click);
+            // 
+            // rdoDashDate
+            // 
+            this.rdoDashDate.AutoSize = true;
+            this.rdoDashDate.Checked = true;
+            this.rdoDashDate.Location = new System.Drawing.Point(5, 6);
+            this.rdoDashDate.Name = "rdoDashDate";
+            this.rdoDashDate.Size = new System.Drawing.Size(48, 17);
+            this.rdoDashDate.TabIndex = 23;
+            this.rdoDashDate.TabStop = true;
+            this.rdoDashDate.Text = "Date";
+            this.rdoDashDate.UseVisualStyleBackColor = true;
+            this.rdoDashDate.Click += new System.EventHandler(this.rdoDashDate_Click);
+            // 
+            // panelHN
+            // 
+            this.panelHN.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelHN.Controls.Add(this.labelControl10);
+            this.panelHN.Controls.Add(this.txtDashHN);
+            this.panelHN.Location = new System.Drawing.Point(150, 1);
+            this.panelHN.LookAndFeel.SkinName = "Lilian";
+            this.panelHN.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelHN.Name = "panelHN";
+            this.panelHN.Size = new System.Drawing.Size(347, 27);
+            this.panelHN.TabIndex = 22;
+            this.panelHN.Visible = false;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(3, 6);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(24, 13);
+            this.labelControl10.TabIndex = 20;
+            this.labelControl10.Text = "HN : ";
+            // 
+            // panelDate
+            // 
+            this.panelDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelDate.Controls.Add(this.btnSearch);
+            this.panelDate.Controls.Add(this.labelControl1);
+            this.panelDate.Controls.Add(this.txtFromDT);
+            this.panelDate.Controls.Add(this.txtToDT);
+            this.panelDate.Controls.Add(this.labelControl2);
+            this.panelDate.Location = new System.Drawing.Point(150, 1);
+            this.panelDate.LookAndFeel.SkinName = "Lilian";
+            this.panelDate.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelDate.Name = "panelDate";
+            this.panelDate.Size = new System.Drawing.Size(347, 27);
+            this.panelDate.TabIndex = 26;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(289, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(55, 23);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(24, 13);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "From";
+            // 
+            // txtFromDT
+            // 
+            this.txtFromDT.EditValue = new System.DateTime(2009, 3, 25, 0, 0, 0, 0);
+            this.txtFromDT.Location = new System.Drawing.Point(33, 4);
+            this.txtFromDT.Name = "txtFromDT";
+            this.txtFromDT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtFromDT.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtFromDT.Size = new System.Drawing.Size(108, 20);
+            this.txtFromDT.TabIndex = 3;
+            // 
+            // txtToDT
+            // 
+            this.txtToDT.EditValue = new System.DateTime(2009, 3, 25, 0, 0, 0, 0);
+            this.txtToDT.Location = new System.Drawing.Point(165, 4);
+            this.txtToDT.Name = "txtToDT";
+            this.txtToDT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtToDT.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtToDT.Size = new System.Drawing.Size(104, 20);
+            this.txtToDT.TabIndex = 4;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(147, 6);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(12, 13);
+            this.labelControl2.TabIndex = 9;
+            this.labelControl2.Text = "To";
+            // 
+            // labelControl52
+            // 
+            this.labelControl52.Location = new System.Drawing.Point(52, 14);
+            this.labelControl52.Name = "labelControl52";
+            this.labelControl52.Size = new System.Drawing.Size(43, 13);
+            this.labelControl52.TabIndex = 25;
+            this.labelControl52.Text = "Search : ";
             // 
             // labelControl50
             // 
-            this.labelControl50.Location = new System.Drawing.Point(300, 33);
+            this.labelControl50.Location = new System.Drawing.Point(300, 62);
             this.labelControl50.Name = "labelControl50";
             this.labelControl50.Size = new System.Drawing.Size(63, 13);
             this.labelControl50.TabIndex = 21;
@@ -4465,7 +4712,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // cmbLocFilter
             // 
-            this.cmbLocFilter.Location = new System.Drawing.Point(367, 30);
+            this.cmbLocFilter.Location = new System.Drawing.Point(367, 59);
             this.cmbLocFilter.MenuManager = this.ribbonControl1;
             this.cmbLocFilter.Name = "cmbLocFilter";
             this.cmbLocFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4477,7 +4724,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // labelControl49
             // 
-            this.labelControl49.Location = new System.Drawing.Point(251, 11);
+            this.labelControl49.Location = new System.Drawing.Point(251, 40);
             this.labelControl49.Name = "labelControl49";
             this.labelControl49.Size = new System.Drawing.Size(112, 13);
             this.labelControl49.TabIndex = 19;
@@ -4486,7 +4733,7 @@ namespace Envision.NET.Forms.ResultEntry
             // rdoAssignedCase
             // 
             this.rdoAssignedCase.AutoSizeInLayoutControl = true;
-            this.rdoAssignedCase.Location = new System.Drawing.Point(367, 6);
+            this.rdoAssignedCase.Location = new System.Drawing.Point(367, 35);
             this.rdoAssignedCase.MenuManager = this.ribbonControl1;
             this.rdoAssignedCase.Name = "rdoAssignedCase";
             this.rdoAssignedCase.Properties.Columns = 3;
@@ -4501,7 +4748,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // labelControl47
             // 
-            this.labelControl47.Location = new System.Drawing.Point(8, 33);
+            this.labelControl47.Location = new System.Drawing.Point(8, 62);
             this.labelControl47.Name = "labelControl47";
             this.labelControl47.Size = new System.Drawing.Size(87, 13);
             this.labelControl47.TabIndex = 18;
@@ -4509,7 +4756,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // ccbOrderingDept
             // 
-            this.ccbOrderingDept.Location = new System.Drawing.Point(101, 30);
+            this.ccbOrderingDept.Location = new System.Drawing.Point(101, 59);
             this.ccbOrderingDept.MenuManager = this.ribbonControl1;
             this.ccbOrderingDept.Name = "ccbOrderingDept";
             this.ccbOrderingDept.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4520,7 +4767,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // chkFinalizeFilter
             // 
-            this.chkFinalizeFilter.Location = new System.Drawing.Point(607, 8);
+            this.chkFinalizeFilter.Location = new System.Drawing.Point(607, 37);
             this.chkFinalizeFilter.Name = "chkFinalizeFilter";
             this.chkFinalizeFilter.Properties.Caption = "Show Finalized";
             this.chkFinalizeFilter.Size = new System.Drawing.Size(106, 19);
@@ -4529,7 +4776,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(32, 11);
+            this.labelControl14.Location = new System.Drawing.Point(32, 40);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(63, 13);
             this.labelControl14.TabIndex = 17;
@@ -4537,7 +4784,7 @@ namespace Envision.NET.Forms.ResultEntry
             // 
             // ccbExamType
             // 
-            this.ccbExamType.Location = new System.Drawing.Point(101, 8);
+            this.ccbExamType.Location = new System.Drawing.Point(101, 37);
             this.ccbExamType.MenuManager = this.ribbonControl1;
             this.ccbExamType.Name = "ccbExamType";
             this.ccbExamType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -4551,12 +4798,8 @@ namespace Envision.NET.Forms.ResultEntry
             this.wlpageSearch.Appearance.Header.Options.UseTextOptions = true;
             this.wlpageSearch.Appearance.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.wlpageSearch.Controls.Add(this.chkFinalizeSearch);
-            this.wlpageSearch.Controls.Add(this.panelHN);
-            this.wlpageSearch.Controls.Add(this.rdoDashDate);
-            this.wlpageSearch.Controls.Add(this.rdoDashHN);
-            this.wlpageSearch.Controls.Add(this.panelDate);
             this.wlpageSearch.Name = "wlpageSearch";
-            this.wlpageSearch.Size = new System.Drawing.Size(820, 62);
+            this.wlpageSearch.Size = new System.Drawing.Size(820, 84);
             this.wlpageSearch.TabPageWidth = 60;
             this.wlpageSearch.Text = "Search";
             // 
@@ -4569,119 +4812,6 @@ namespace Envision.NET.Forms.ResultEntry
             this.chkFinalizeSearch.Size = new System.Drawing.Size(106, 19);
             this.chkFinalizeSearch.TabIndex = 13;
             this.chkFinalizeSearch.CheckedChanged += new System.EventHandler(this.chkFinalize_CheckedChanged);
-            // 
-            // panelHN
-            // 
-            this.panelHN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panelHN.Controls.Add(this.txtDashHN);
-            this.panelHN.Controls.Add(this.labelControl10);
-            this.panelHN.Location = new System.Drawing.Point(239, 4);
-            this.panelHN.LookAndFeel.SkinName = "Lilian";
-            this.panelHN.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.panelHN.Name = "panelHN";
-            this.panelHN.Size = new System.Drawing.Size(298, 50);
-            this.panelHN.TabIndex = 9;
-            this.panelHN.Visible = false;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(25, 19);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(14, 13);
-            this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "HN";
-            // 
-            // rdoDashDate
-            // 
-            this.rdoDashDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.rdoDashDate.AutoSize = true;
-            this.rdoDashDate.Checked = true;
-            this.rdoDashDate.Location = new System.Drawing.Point(133, 10);
-            this.rdoDashDate.Name = "rdoDashDate";
-            this.rdoDashDate.Size = new System.Drawing.Size(100, 17);
-            this.rdoDashDate.TabIndex = 10;
-            this.rdoDashDate.TabStop = true;
-            this.rdoDashDate.Text = "Search By Date";
-            this.rdoDashDate.UseVisualStyleBackColor = true;
-            this.rdoDashDate.Click += new System.EventHandler(this.rdoDashDate_Click);
-            this.rdoDashDate.Validating += new System.ComponentModel.CancelEventHandler(this.rdoDashDate_Validating);
-            // 
-            // rdoDashHN
-            // 
-            this.rdoDashHN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.rdoDashHN.AutoSize = true;
-            this.rdoDashHN.Location = new System.Drawing.Point(133, 33);
-            this.rdoDashHN.Name = "rdoDashHN";
-            this.rdoDashHN.Size = new System.Drawing.Size(93, 17);
-            this.rdoDashHN.TabIndex = 11;
-            this.rdoDashHN.Text = "Search By HN";
-            this.rdoDashHN.UseVisualStyleBackColor = true;
-            this.rdoDashHN.Click += new System.EventHandler(this.rdoDashHN_Click);
-            this.rdoDashHN.Validating += new System.ComponentModel.CancelEventHandler(this.rdoDashHN_Validating);
-            // 
-            // panelDate
-            // 
-            this.panelDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panelDate.Controls.Add(this.btnSearch);
-            this.panelDate.Controls.Add(this.labelControl1);
-            this.panelDate.Controls.Add(this.txtFromDT);
-            this.panelDate.Controls.Add(this.txtToDT);
-            this.panelDate.Controls.Add(this.labelControl2);
-            this.panelDate.Location = new System.Drawing.Point(239, 4);
-            this.panelDate.LookAndFeel.SkinName = "Lilian";
-            this.panelDate.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.panelDate.Name = "panelDate";
-            this.panelDate.Size = new System.Drawing.Size(298, 50);
-            this.panelDate.TabIndex = 2;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(226, 13);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(55, 23);
-            this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 17);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(24, 13);
-            this.labelControl1.TabIndex = 8;
-            this.labelControl1.Text = "From";
-            // 
-            // txtFromDT
-            // 
-            this.txtFromDT.EditValue = new System.DateTime(2009, 3, 25, 0, 0, 0, 0);
-            this.txtFromDT.Location = new System.Drawing.Point(42, 15);
-            this.txtFromDT.Name = "txtFromDT";
-            this.txtFromDT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtFromDT.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtFromDT.Size = new System.Drawing.Size(79, 20);
-            this.txtFromDT.TabIndex = 3;
-            // 
-            // txtToDT
-            // 
-            this.txtToDT.EditValue = new System.DateTime(2009, 3, 25, 0, 0, 0, 0);
-            this.txtToDT.Location = new System.Drawing.Point(145, 14);
-            this.txtToDT.Name = "txtToDT";
-            this.txtToDT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtToDT.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtToDT.Size = new System.Drawing.Size(75, 20);
-            this.txtToDT.TabIndex = 4;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(127, 17);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(12, 13);
-            this.labelControl2.TabIndex = 9;
-            this.labelControl2.Text = "To";
             // 
             // layoutControlGroup1
             // 
@@ -6632,6 +6762,298 @@ namespace Envision.NET.Forms.ResultEntry
             this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
             // 
+            // pageCovid
+            // 
+            this.pageCovid.Controls.Add(this.layoutControl6);
+            this.pageCovid.Name = "pageCovid";
+            this.pageCovid.Size = new System.Drawing.Size(830, 424);
+            this.pageCovid.Text = "page covid";
+            // 
+            // layoutControl6
+            // 
+            this.layoutControl6.Appearance.DisabledLayoutGroupCaption.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl6.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
+            this.layoutControl6.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl6.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl6.Controls.Add(this.lblSeverity);
+            this.layoutControl6.Controls.Add(this.btnSaveFinalized);
+            this.layoutControl6.Controls.Add(this.rtPreview);
+            this.layoutControl6.Controls.Add(this.xtraTabResultControl);
+            this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl6.Name = "layoutControl6";
+            this.layoutControl6.Root = this.layoutControlGroup13;
+            this.layoutControl6.Size = new System.Drawing.Size(830, 424);
+            this.layoutControl6.TabIndex = 9;
+            this.layoutControl6.Text = "layoutControl6";
+            // 
+            // lblSeverity
+            // 
+            this.lblSeverity.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeverity.Appearance.Options.UseFont = true;
+            this.lblSeverity.Location = new System.Drawing.Point(525, 393);
+            this.lblSeverity.Name = "lblSeverity";
+            this.lblSeverity.Size = new System.Drawing.Size(299, 25);
+            this.lblSeverity.StyleController = this.layoutControl6;
+            this.lblSeverity.TabIndex = 6;
+            // 
+            // btnSaveFinalized
+            // 
+            this.btnSaveFinalized.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveFinalized.Appearance.Options.UseFont = true;
+            this.btnSaveFinalized.Location = new System.Drawing.Point(525, 7);
+            this.btnSaveFinalized.Name = "btnSaveFinalized";
+            this.btnSaveFinalized.Padding = new System.Windows.Forms.Padding(10);
+            this.btnSaveFinalized.Size = new System.Drawing.Size(299, 34);
+            this.btnSaveFinalized.StyleController = this.layoutControl6;
+            this.btnSaveFinalized.TabIndex = 4;
+            this.btnSaveFinalized.Text = "Save as Final";
+            this.btnSaveFinalized.Click += new System.EventHandler(this.btnSaveFinalized_Click);
+            // 
+            // xtraTabResultControl
+            // 
+            this.xtraTabResultControl.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.xtraTabResultControl.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.xtraTabResultControl.Appearance.Options.UseBackColor = true;
+            this.xtraTabResultControl.Location = new System.Drawing.Point(7, 7);
+            this.xtraTabResultControl.Name = "xtraTabResultControl";
+            this.xtraTabResultControl.SelectedTabPage = this.tabFinding;
+            this.xtraTabResultControl.Size = new System.Drawing.Size(507, 411);
+            this.xtraTabResultControl.TabIndex = 0;
+            this.xtraTabResultControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabFinding,
+            this.tabImpression});
+            // 
+            // tabFinding
+            // 
+            this.tabFinding.Appearance.PageClient.BackColor = System.Drawing.Color.White;
+            this.tabFinding.Appearance.PageClient.Options.UseBackColor = true;
+            this.tabFinding.Controls.Add(this.grdFindingDetail);
+            this.tabFinding.Controls.Add(this.grdFinding);
+            this.tabFinding.Name = "tabFinding";
+            this.tabFinding.Size = new System.Drawing.Size(498, 380);
+            this.tabFinding.Text = "Finding";
+            // 
+            // grdFindingDetail
+            // 
+            this.grdFindingDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdFindingDetail.Location = new System.Drawing.Point(188, 0);
+            this.grdFindingDetail.MainView = this.viewFindingDetail;
+            this.grdFindingDetail.Name = "grdFindingDetail";
+            this.grdFindingDetail.Size = new System.Drawing.Size(310, 380);
+            this.grdFindingDetail.TabIndex = 8;
+            this.grdFindingDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewFindingDetail});
+            // 
+            // viewFindingDetail
+            // 
+            this.viewFindingDetail.Appearance.GroupRow.Options.UseTextOptions = true;
+            this.viewFindingDetail.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.viewFindingDetail.GridControl = this.grdFindingDetail;
+            this.viewFindingDetail.GroupFormat = "{1} {2}";
+            this.viewFindingDetail.Name = "viewFindingDetail";
+            this.viewFindingDetail.OptionsCustomization.AllowFilter = false;
+            this.viewFindingDetail.OptionsLayout.Columns.AddNewColumns = false;
+            this.viewFindingDetail.OptionsLayout.Columns.RemoveOldColumns = false;
+            this.viewFindingDetail.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewFindingDetail.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.viewFindingDetail.OptionsView.RowAutoHeight = true;
+            this.viewFindingDetail.OptionsView.ShowColumnHeaders = false;
+            this.viewFindingDetail.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.viewFindingDetail.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.viewFindingDetail.OptionsView.ShowGroupPanel = false;
+            this.viewFindingDetail.OptionsView.ShowHorzLines = false;
+            this.viewFindingDetail.OptionsView.ShowIndicator = false;
+            this.viewFindingDetail.OptionsView.ShowPreviewLines = false;
+            this.viewFindingDetail.OptionsView.ShowVertLines = false;
+            this.viewFindingDetail.PaintStyleName = "Web";
+            this.viewFindingDetail.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.viewFindingDetail_CustomDrawGroupRow);
+            this.viewFindingDetail.GroupRowCollapsing += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.viewFindingDetail_GroupRowCollapsing);
+            this.viewFindingDetail.EndGrouping += new System.EventHandler(this.viewFindingDetail_EndGrouping);
+            // 
+            // grdFinding
+            // 
+            this.grdFinding.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grdFinding.Location = new System.Drawing.Point(0, 0);
+            this.grdFinding.MainView = this.viewFinding;
+            this.grdFinding.Name = "grdFinding";
+            this.grdFinding.Size = new System.Drawing.Size(188, 380);
+            this.grdFinding.TabIndex = 7;
+            this.grdFinding.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewFinding});
+            // 
+            // viewFinding
+            // 
+            this.viewFinding.Appearance.GroupRow.Options.UseTextOptions = true;
+            this.viewFinding.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.viewFinding.GridControl = this.grdFinding;
+            this.viewFinding.GroupFormat = "{1} {2}";
+            this.viewFinding.Name = "viewFinding";
+            this.viewFinding.OptionsCustomization.AllowFilter = false;
+            this.viewFinding.OptionsLayout.Columns.AddNewColumns = false;
+            this.viewFinding.OptionsLayout.Columns.RemoveOldColumns = false;
+            this.viewFinding.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewFinding.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.viewFinding.OptionsView.RowAutoHeight = true;
+            this.viewFinding.OptionsView.ShowColumnHeaders = false;
+            this.viewFinding.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.viewFinding.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.viewFinding.OptionsView.ShowGroupPanel = false;
+            this.viewFinding.OptionsView.ShowHorzLines = false;
+            this.viewFinding.OptionsView.ShowIndicator = false;
+            this.viewFinding.OptionsView.ShowPreviewLines = false;
+            this.viewFinding.OptionsView.ShowVertLines = false;
+            this.viewFinding.PaintStyleName = "Web";
+            // 
+            // tabImpression
+            // 
+            this.tabImpression.Controls.Add(this.grdImpressionDetail);
+            this.tabImpression.Controls.Add(this.grdImpression);
+            this.tabImpression.Name = "tabImpression";
+            this.tabImpression.Size = new System.Drawing.Size(498, 380);
+            this.tabImpression.Text = "Impression";
+            // 
+            // grdImpressionDetail
+            // 
+            this.grdImpressionDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdImpressionDetail.Location = new System.Drawing.Point(188, 0);
+            this.grdImpressionDetail.MainView = this.viewImpressionDetail;
+            this.grdImpressionDetail.Name = "grdImpressionDetail";
+            this.grdImpressionDetail.Size = new System.Drawing.Size(310, 380);
+            this.grdImpressionDetail.TabIndex = 10;
+            this.grdImpressionDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewImpressionDetail});
+            // 
+            // viewImpressionDetail
+            // 
+            this.viewImpressionDetail.Appearance.GroupRow.Options.UseTextOptions = true;
+            this.viewImpressionDetail.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.viewImpressionDetail.GridControl = this.grdImpressionDetail;
+            this.viewImpressionDetail.GroupFormat = "{1} {2}";
+            this.viewImpressionDetail.Name = "viewImpressionDetail";
+            this.viewImpressionDetail.OptionsCustomization.AllowFilter = false;
+            this.viewImpressionDetail.OptionsLayout.Columns.AddNewColumns = false;
+            this.viewImpressionDetail.OptionsLayout.Columns.RemoveOldColumns = false;
+            this.viewImpressionDetail.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewImpressionDetail.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.viewImpressionDetail.OptionsView.RowAutoHeight = true;
+            this.viewImpressionDetail.OptionsView.ShowColumnHeaders = false;
+            this.viewImpressionDetail.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.viewImpressionDetail.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.viewImpressionDetail.OptionsView.ShowGroupPanel = false;
+            this.viewImpressionDetail.OptionsView.ShowHorzLines = false;
+            this.viewImpressionDetail.OptionsView.ShowIndicator = false;
+            this.viewImpressionDetail.OptionsView.ShowPreviewLines = false;
+            this.viewImpressionDetail.OptionsView.ShowVertLines = false;
+            this.viewImpressionDetail.PaintStyleName = "Web";
+            this.viewImpressionDetail.CustomDrawGroupRow += new DevExpress.XtraGrid.Views.Base.RowObjectCustomDrawEventHandler(this.viewImpressionDetail_CustomDrawGroupRow);
+            this.viewImpressionDetail.GroupRowCollapsing += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.viewImpressionDetail_GroupRowCollapsing);
+            this.viewImpressionDetail.EndGrouping += new System.EventHandler(this.viewImpressionDetail_EndGrouping);
+            // 
+            // grdImpression
+            // 
+            this.grdImpression.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grdImpression.Location = new System.Drawing.Point(0, 0);
+            this.grdImpression.MainView = this.viewImpression;
+            this.grdImpression.Name = "grdImpression";
+            this.grdImpression.Size = new System.Drawing.Size(188, 380);
+            this.grdImpression.TabIndex = 9;
+            this.grdImpression.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewImpression});
+            // 
+            // viewImpression
+            // 
+            this.viewImpression.Appearance.GroupRow.Options.UseTextOptions = true;
+            this.viewImpression.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.viewImpression.GridControl = this.grdImpression;
+            this.viewImpression.GroupFormat = "{1} {2}";
+            this.viewImpression.Name = "viewImpression";
+            this.viewImpression.OptionsCustomization.AllowFilter = false;
+            this.viewImpression.OptionsLayout.Columns.AddNewColumns = false;
+            this.viewImpression.OptionsLayout.Columns.RemoveOldColumns = false;
+            this.viewImpression.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.viewImpression.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.viewImpression.OptionsView.RowAutoHeight = true;
+            this.viewImpression.OptionsView.ShowColumnHeaders = false;
+            this.viewImpression.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.viewImpression.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.viewImpression.OptionsView.ShowGroupPanel = false;
+            this.viewImpression.OptionsView.ShowHorzLines = false;
+            this.viewImpression.OptionsView.ShowIndicator = false;
+            this.viewImpression.OptionsView.ShowPreviewLines = false;
+            this.viewImpression.OptionsView.ShowVertLines = false;
+            this.viewImpression.PaintStyleName = "Web";
+            // 
+            // layoutControlGroup13
+            // 
+            this.layoutControlGroup13.CustomizationFormText = "Root";
+            this.layoutControlGroup13.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8,
+            this.layoutControlItem13,
+            this.layoutControlItem24,
+            this.layoutControlItem14});
+            this.layoutControlGroup13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup13.Name = "Root";
+            this.layoutControlGroup13.Size = new System.Drawing.Size(830, 424);
+            this.layoutControlGroup13.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup13.Text = "Root";
+            this.layoutControlGroup13.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.rtPreview;
+            this.layoutControlItem8.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem8.Location = new System.Drawing.Point(518, 45);
+            this.layoutControlItem8.MaxSize = new System.Drawing.Size(310, 0);
+            this.layoutControlItem8.MinSize = new System.Drawing.Size(310, 31);
+            this.layoutControlItem8.Name = "layoutControlItem2";
+            this.layoutControlItem8.Size = new System.Drawing.Size(310, 341);
+            this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem8.Text = "layoutControlItem2";
+            this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextToControlDistance = 0;
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.xtraTabResultControl;
+            this.layoutControlItem13.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem13.Name = "layoutControlItem1";
+            this.layoutControlItem13.Size = new System.Drawing.Size(518, 422);
+            this.layoutControlItem13.Text = "layoutControlItem1";
+            this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextToControlDistance = 0;
+            this.layoutControlItem13.TextVisible = false;
+            // 
+            // layoutControlItem24
+            // 
+            this.layoutControlItem24.Control = this.lblSeverity;
+            this.layoutControlItem24.CustomizationFormText = "layoutControlItem5";
+            this.layoutControlItem24.Location = new System.Drawing.Point(518, 386);
+            this.layoutControlItem24.Name = "layoutControlItem5";
+            this.layoutControlItem24.Size = new System.Drawing.Size(310, 36);
+            this.layoutControlItem24.Text = "layoutControlItem5";
+            this.layoutControlItem24.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem24.TextToControlDistance = 0;
+            this.layoutControlItem24.TextVisible = false;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.btnSaveFinalized;
+            this.layoutControlItem14.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem14.Location = new System.Drawing.Point(518, 0);
+            this.layoutControlItem14.Name = "layoutControlItem3";
+            this.layoutControlItem14.Size = new System.Drawing.Size(310, 45);
+            this.layoutControlItem14.Text = "layoutControlItem3";
+            this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextToControlDistance = 0;
+            this.layoutControlItem14.TextVisible = false;
+            // 
             // imgWL
             // 
             this.imgWL.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgWL.ImageStream")));
@@ -6714,6 +7136,10 @@ namespace Envision.NET.Forms.ResultEntry
             this.richEditBarController1.BarItems.Add(this.insertPictureItem1);
             this.richEditBarController1.BarItems.Add(this.insertPageBreakItem1);
             this.richEditBarController1.RichEditControl = this.rtPadN;
+            // 
+            // richEditBarController2
+            // 
+            this.richEditBarController2.RichEditControl = this.rtPreview;
             // 
             // dockManager1
             // 
@@ -6951,6 +7377,39 @@ namespace Envision.NET.Forms.ResultEntry
             this.img16.Images.SetKeyName(6, "flag-orange.png");
             this.img16.Images.SetKeyName(7, "flag-pink.png");
             // 
+            // menuWLCovid
+            // 
+            this.menuWLCovid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.summaryCovidToolStripMenuItem,
+            this.toolStripHisAllergyCovid,
+            this.toolStripCommentsCovid});
+            this.menuWLCovid.Name = "menuWLSchedule";
+            this.menuWLCovid.Size = new System.Drawing.Size(134, 70);
+            // 
+            // summaryCovidToolStripMenuItem
+            // 
+            this.summaryCovidToolStripMenuItem.Image = global::Envision.NET.Properties.Resources.order;
+            this.summaryCovidToolStripMenuItem.Name = "summaryCovidToolStripMenuItem";
+            this.summaryCovidToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.summaryCovidToolStripMenuItem.Text = "Summary";
+            this.summaryCovidToolStripMenuItem.Click += new System.EventHandler(this.summaryCovidToolStripMenuItem_Click);
+            // 
+            // toolStripHisAllergyCovid
+            // 
+            this.toolStripHisAllergyCovid.Image = global::Envision.NET.Properties.Resources.pill_bottle_allergy_16;
+            this.toolStripHisAllergyCovid.Name = "toolStripHisAllergyCovid";
+            this.toolStripHisAllergyCovid.Size = new System.Drawing.Size(133, 22);
+            this.toolStripHisAllergyCovid.Text = "HIS Allergy";
+            this.toolStripHisAllergyCovid.Click += new System.EventHandler(this.toolsHISAllergy_Click);
+            // 
+            // toolStripCommentsCovid
+            // 
+            this.toolStripCommentsCovid.Image = global::Envision.NET.Properties.Resources.Comment_add_icon16;
+            this.toolStripCommentsCovid.Name = "toolStripCommentsCovid";
+            this.toolStripCommentsCovid.Size = new System.Drawing.Size(133, 22);
+            this.toolStripCommentsCovid.Text = "Comments";
+            this.toolStripCommentsCovid.Click += new System.EventHandler(this.toolStripCommentsCovid_Click);
+            // 
             // frmResultEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6958,10 +7417,10 @@ namespace Envision.NET.Forms.ResultEntry
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1039, 573);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.grdRadioSetup);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.ribbonStatusBar1);
-            this.Controls.Add(this.grdRadioSetup);
             this.Name = "frmResultEntry";
             this.Text = "Reporting Management";
             this.Load += new System.EventHandler(this.frmResultEntry_Load);
@@ -6989,7 +7448,6 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDashHN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_Priority.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_Status.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDemo_ExamName.Properties)).EndInit();
@@ -7033,6 +7491,7 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutStatReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDashHN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
@@ -7087,20 +7546,18 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.grdWL)).EndInit();
             this.menuWL.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.view1)).EndInit();
+            this.tabCovidWorklist.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdCovid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCovid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabSearch)).EndInit();
             this.xtraTabSearch.ResumeLayout(false);
             this.wlpageFilter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbLocFilter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdoAssignedCase.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbOrderingDept.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeFilter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccbExamType.Properties)).EndInit();
-            this.wlpageSearch.ResumeLayout(false);
-            this.wlpageSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
+            this.panelControl7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHN)).EndInit();
             this.panelHN.ResumeLayout(false);
             this.panelHN.PerformLayout();
@@ -7111,6 +7568,13 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.txtFromDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToDT.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtToDT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLocFilter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdoAssignedCase.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbOrderingDept.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeFilter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccbExamType.Properties)).EndInit();
+            this.wlpageSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkFinalizeSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -7199,6 +7663,26 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.pageCovid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
+            this.layoutControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabResultControl)).EndInit();
+            this.xtraTabResultControl.ResumeLayout(false);
+            this.tabFinding.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdFindingDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFindingDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFinding)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewFinding)).EndInit();
+            this.tabImpression.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdImpressionDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewImpressionDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdImpression)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewImpression)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -7217,6 +7701,7 @@ namespace Envision.NET.Forms.ResultEntry
             ((System.ComponentModel.ISupportInitialize)(this.grdRadioSetup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSetup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.img16)).EndInit();
+            this.menuWLCovid.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7307,11 +7792,6 @@ namespace Envision.NET.Forms.ResultEntry
         private DevExpress.XtraTab.XtraTabControl tabControl;
         private DevExpress.XtraTab.XtraTabPage pageWL;
         private DevExpress.XtraBars.BarButtonItem barEmpty;
-        private DevExpress.XtraEditors.PanelControl panelDate;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit txtFromDT;
-        private DevExpress.XtraEditors.DateEdit txtToDT;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.GridControl grdWL;
         private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView view1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
@@ -7367,11 +7847,6 @@ namespace Envision.NET.Forms.ResultEntry
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolsHistory;
         private System.Windows.Forms.ToolStripMenuItem toolsBrowse;
-        private DevExpress.XtraEditors.PanelControl panelHN;
-        private DevExpress.XtraEditors.TextEdit txtDashHN;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private System.Windows.Forms.RadioButton rdoDashHN;
-        private System.Windows.Forms.RadioButton rdoDashDate;
         private DevExpress.XtraBars.BarButtonItem btnRefreshWL;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem iDashImageOrder;
@@ -7398,7 +7873,6 @@ namespace Envision.NET.Forms.ResultEntry
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
         private DevExpress.XtraBars.BarButtonItem barFavorite;
         private DevExpress.XtraBars.BarButtonItem barTeaching;
-        private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private System.Windows.Forms.RichTextBox txtDemo_Result;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
@@ -7794,5 +8268,47 @@ namespace Envision.NET.Forms.ResultEntry
         private DevExpress.XtraEditors.CheckedComboBoxEdit ccbQuicktextFilter;
         private DevExpress.XtraBars.BarButtonItem ibtnRejectPacsImage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonGroupRejectPacsImage;
+        private DevExpress.XtraTab.XtraTabPage pageCovid;
+        private DevExpress.XtraEditors.LabelControl labelControl52;
+        private DevExpress.XtraEditors.PanelControl panelHN;
+        private DevExpress.XtraEditors.TextEdit txtDashHN;
+        private System.Windows.Forms.RadioButton rdoDashDate;
+        private System.Windows.Forms.RadioButton rdoDashHN;
+        private DevExpress.XtraEditors.PanelControl panelDate;
+        private DevExpress.XtraEditors.SimpleButton btnSearch;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.DateEdit txtFromDT;
+        private DevExpress.XtraEditors.DateEdit txtToDT;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraTab.XtraTabPage tabCovidWorklist;
+        private DevExpress.XtraGrid.GridControl grdCovid;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView viewCovid;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private System.Windows.Forms.ContextMenuStrip menuWLCovid;
+        private System.Windows.Forms.ToolStripMenuItem summaryCovidToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripHisAllergyCovid;
+        private System.Windows.Forms.ToolStripMenuItem toolStripCommentsCovid;
+        private DevExpress.XtraRichEdit.RichEditControl rtPreview;
+        private DevExpress.XtraLayout.LayoutControl layoutControl6;
+        private DevExpress.XtraEditors.LabelControl lblSeverity;
+        private DevExpress.XtraEditors.SimpleButton btnSaveFinalized;
+        private DevExpress.XtraTab.XtraTabControl xtraTabResultControl;
+        private DevExpress.XtraTab.XtraTabPage tabFinding;
+        private DevExpress.XtraGrid.GridControl grdFindingDetail;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewFindingDetail;
+        private DevExpress.XtraGrid.GridControl grdFinding;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewFinding;
+        private DevExpress.XtraTab.XtraTabPage tabImpression;
+        private DevExpress.XtraGrid.GridControl grdImpressionDetail;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewImpressionDetail;
+        private DevExpress.XtraGrid.GridControl grdImpression;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewImpression;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }
