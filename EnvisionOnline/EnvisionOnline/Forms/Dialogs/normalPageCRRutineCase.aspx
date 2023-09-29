@@ -37,8 +37,8 @@
         .textStyle
         {
         	Font-Size:x-small;
-        	height:20px;
-        	width:100px;
+        	height:30px;
+        	width:120px;
             vertical-align:top;
         }
         .comboBoxWidth
@@ -47,7 +47,6 @@
         }
         .favoritStyle
         {
-        	height:20px;
         	width:0px;
             vertical-align:top;
         }
@@ -258,13 +257,13 @@
         </Windows>
     </telerik:RadWindowManager>
 	<div>
-    <table cellpadding="0" cellspacing="1" width="100%">
+    <table cellpadding="1" cellspacing="1" width="100%">
         <tr>
-            <td class="columnBold" style="width:120px;" colspan="2"><asp:Label  ID="Label40" runat="server" Text="Skull"></asp:Label></td>
-            <td class="columnBold" style="width:120px;" colspan="2"><asp:Label  ID="Label8" runat="server" Text="Chest"></asp:Label></td>
-            <td class="columnBold" style="width:120px;" colspan="2"><asp:Label  ID="Label5" runat="server" Text="Spine"></asp:Label></td>
-            <td class="columnBold" style="width:120px;" colspan="2"><asp:Label  ID="Label6" runat="server" Text="Bones"></asp:Label></td>
-            <td class="columnBold" style="width:150px;" colspan="2"><asp:Label  ID="Label7" runat="server" Text="Joints"></asp:Label></td>
+            <td class="columnBold" style="width:20%;" colspan="2"><asp:Label  ID="Label40" runat="server" Text="Skull"></asp:Label></td>
+            <td class="columnBold" style="width:20%;" colspan="2"><asp:Label  ID="Label8" runat="server" Text="Chest"></asp:Label></td>
+            <td class="columnBold" style="width:20%;" colspan="2"><asp:Label  ID="Label5" runat="server" Text="Spine"></asp:Label></td>
+            <td class="columnBold" style="width:20%;" colspan="2"><asp:Label  ID="Label6" runat="server" Text="Bones"></asp:Label></td>
+            <td class="columnBold" style="width:20%;" colspan="2"><asp:Label  ID="Label7" runat="server" Text="Joints"></asp:Label></td>
         </tr>
         <tr>
             <td class="textStyle" colspan="2">
@@ -275,7 +274,7 @@
                     </tr>
                 </table>
             </td>
-            <td class="textStyle" colspan="2">
+            <td class="textStyle"  colspan="2">
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton ID="favChestRoutine"    runat="server" ButtonType="ToggleButton" GroupName="FAV"    Text="" Width="5px" style="vertical-align:top;"          ToggleType="CustomToggle"   Value="XX31"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>

@@ -9,6 +9,7 @@ using EnvisionOnline.Operational;
 using System.Text;
 using System.Data;
 using EnvisionOnline.BusinessLogic;
+using EnvisionOnline.BusinessLogic.ProcessRead;
 
 namespace EnvisionOnline
 {
@@ -99,9 +100,45 @@ namespace EnvisionOnline
                 }
                 else
                 {
+                    bool newOnline = false;
+                    try
+                    {
+                        ProcessGetHRUnit process = new ProcessGetHRUnit();
+                        DataSet ds = process.checkNewOnlineUnit();
 
-                    Session["ONL_PARAMETER"] = param;
-                    Response.Redirect(@"Forms/Orders/frmEnvisionOrderWL.aspx", true);
+                        if (ds.Tables.Count > 0)
+                        {
+                            if (ds.Tables[0].Rows.Count > 0)
+                            {
+                                DataRow[] dr = ds.Tables[0].Select("UNIT_UID = '" + param.REF_UNIT_UID + "'");
+                                if (dr.Length > 0)
+                                {
+                                    newOnline = true;
+                                    string str = @"HN=" + param.HN
+                                        + "&USER_NAME=" + param.USER_NAME
+                                        + "&CLINIC=" + param.ENC_CLINIC
+                                        + "&UNIT=" + param.REF_UNIT_UID
+                                        + "&INSR=" + param.INSURANCE_TYPE_UID
+                                        + "&ROLE=" + param.ROLE
+                                        + "&ENC=" + param.ENCOUNTER_TYPE
+                                        + "&FORM=" + param.FORM;
+                                    //Response.Redirect(@"http://miracleonline/Envision6Online/#/OnlineRequestPage?" + str, true);
+                                    Response.Redirect(@"http://miracleonline/Envision6OnlineTest/#/OnlineRequestPage?" + str, true);
+                                    //Response.Redirect(@"http://127.0.0.1:8080/#/OnlineRequestPage?" + str, true);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        newOnline = false;
+                    }
+
+                    if (!newOnline)
+                    {
+                        Session["ONL_PARAMETER"] = param;
+                        Response.Redirect(@"Forms/Orders/frmEnvisionOrderWL.aspx", true);
+                    }
                 }
 
             }

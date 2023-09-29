@@ -264,7 +264,10 @@
                         break;
                     case 'Holiday':
                         window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args, "windowOnlineMessageBox");
-                        break;	
+                        break;
+                    case 'ExamSameDate':
+                        window.radopen("../../Forms/Dialogs/OnlineMessageBox.aspx?FROM=" + args + "&ALT_UID=ONL4026", "windowOnlineMessageBox");
+                        break;
                 }
             }
             function showHelp() {
@@ -297,6 +300,9 @@
             function showCovid() {
                 window.radopen("../../Forms/Dialogs/frmCovidDetail.aspx", "windowCovid");
             }
+            function showBodyInterventionPopup() {
+                window.radopen("../../Forms/Dialogs/frmBodyIntervention.aspx", "windowBodyInterventionPopup");
+            }
             function showClinicalIndicationWithParams(arg) {
                 window.radopen("../../Forms/Dialogs/frmClinicalIndicationTypeWithParameter.aspx?PARAM1=" + arg, "windowClinicalIndicationWithParam");
             }
@@ -320,6 +326,9 @@
             }
             function showNormalPageAllGroup(arg) {
                 window.radopen("../../Forms/Dialogs/normalPageAllExamGroup.aspx?GROUP_TEXT=" + arg, "windowNormalPage");
+            }
+            function showBodyInterventionPage() {
+                window.radopen("../../Forms/Dialogs/normalPageBodyIntervention.aspx", "windowBodyInterventionPage");
             }
         </script>
     </telerik:RadCodeBlock>
@@ -386,6 +395,7 @@
             <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="grdDetail" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="multiPageAppoint" LoadingPanelID="RadAjaxLoadingPanel1" />
                     <telerik:AjaxUpdatedControl ControlID="grdAppointment" LoadingPanelID="RadAjaxLoadingPanel1" />
                     <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" LoadingPanelID="RadAjaxLoadingPanel1" />
                     <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" LoadingPanelID="RadAjaxLoadingPanel1" />
@@ -564,6 +574,15 @@
                     <telerik:AjaxUpdatedControl ControlID="multiPageAppoint" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+             <telerik:AjaxSetting AjaxControlID="multiPageAppoint">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointment"  LoadingPanelID="RadAjaxLoadingPanel1"/>
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    
+                </UpdatedControls>
+            </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="grdAppointment">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="grdDetail" LoadingPanelID="RadAjaxLoadingPanel1" />
@@ -572,9 +591,9 @@
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationTypeView" />
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationView" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" LoadingPanelID="RadAjaxLoadingPanel1" />
                     
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -586,9 +605,9 @@
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationTypeView" />
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationView" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" LoadingPanelID="RadAjaxLoadingPanel1" />
                     
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -600,9 +619,9 @@
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationTypeView" />
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationView" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentCNMI" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="grdAppointmentCNMI">
@@ -613,9 +632,9 @@
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationTypeView" />
                     <telerik:AjaxUpdatedControl ControlID="treeIndicationView" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" />
-                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointment" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentSP" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    <telerik:AjaxUpdatedControl ControlID="grdAppointmentPM" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="rtbMainNW">
@@ -733,6 +752,11 @@
                     <telerik:AjaxUpdatedControl ControlID="btnOPD" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="BodyIntervention">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="BodyIntervention" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManager>
     <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" />
@@ -746,7 +770,7 @@
         </Windows>
         <Windows>
             <telerik:RadWindow ID="windowEditOrder" runat="server" Behaviors="Move" Modal="true" ReloadOnShow="true"
-                Width="400" Height="450" NavigateUrl="~/Forms/Dialogs/OnlineEditOrder.aspx" OnClientClose="OnClientClose">
+                Width="450" Height="600" NavigateUrl="~/Forms/Dialogs/OnlineEditOrder.aspx" OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
         <Windows>
@@ -794,7 +818,7 @@
         </Windows>
         <Windows>
             <telerik:RadWindow ID="windowNormalPage" runat="server" Behaviors="Close, Move" AutoSizeBehaviors="Height"
-                Modal="true" Width="900" Height="600"
+                Modal="true" Width="1100" Height="800"
              IconUrl="~/Resources/ICON/browse_16.png"
                 OnClientClose="OnClientClose">
             </telerik:RadWindow>
@@ -810,6 +834,17 @@
             <telerik:RadWindow ID="windowAlertExam" runat="server" Behaviors="Close" AutoSizeBehaviors="HeightProportional"
                 Modal="true" Width="800" Height="430" NavigateUrl="~/Forms/Dialogs/OnlineAlertExam.aspx"
                 OnClientClose="OnClientClose">
+            </telerik:RadWindow>
+        </Windows>
+         <Windows>
+            <telerik:RadWindow ID="windowBodyInterventionPage" runat="server" Behaviors="Close, Move" Modal="true"
+                Width="500" Height="150" IconUrl="~/Resources/ICON/browse_16.png" OnClientClose="OnClientClose">
+            </telerik:RadWindow>
+        </Windows>
+        
+         <Windows>
+            <telerik:RadWindow ID="windowBodyInterventionPopup" runat="server" Behaviors="Move" Modal="true"
+                Width="500" Height="520" IconUrl="~/Resources/ICON/browse_16.png" OnClientClose="OnClientClose">
             </telerik:RadWindow>
         </Windows>
     </telerik:RadWindowManager>
@@ -1221,12 +1256,96 @@
                                 </telerik:RadPageView>
                                 <telerik:RadPageView ID="pageExam" runat="server" Height="249px">
                                     <table cellspacing="0" cellpadding="0" width="100%" align="center">
+                                        <tr style="width:100%">
+                                            <td style="width:28%;">
+                                                <telerik:RadButton ID="btnCR" runat="server" Text="Plain Film"
+                                                     Font-Bold="true" Font-Size="Medium"
+                                                     Width="99%" Height="60px" 
+                                                     OnClick="btnCR_Click" style="top: 0px; left: 0px">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/CR48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td style="width:36%;">
+                                                <telerik:RadButton ID="btnUS" runat="server" Text="Ultrasonography"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="99%" Height="60px"
+                                                    OnClick="btnUS_Click">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/US_2_48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td style="width:36%;">
+                                                <telerik:RadButton ID="btnFlu" runat="server" Text="Fluorography"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="99%" Height="60px"
+                                                    OnClick="btnFLU_Click">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/CR48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <telerik:RadButton ID="btnCT" runat="server" Text="CT"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnCT_Click" style="top: 0px; left: 1px">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/CT48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="btnMAMMO" runat="server" Text="Mammography"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnMAMMO_Click" style="top: 0px; left: 0px">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/Mammo48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="btnBodyIntervention" runat="server" Text="Body Intervention"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnBodyIntervention_Click" style="top: 0px; left: 0px">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/1200px-Cath_Lab_-_The_Noun_Project50.svg.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                        </tr>
+                                        <tr> 
+                                            <td>
+                                                <telerik:RadButton ID="btnMR" runat="server" Text="MR"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnMR_Click">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/MR48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" SecondaryIconHeight="45px" SecondaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="btnOR" runat="server" Text="OR Imaging"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnOR_Click">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/knee-icon48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                </telerik:RadButton>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="btnOPD" runat="server" Text="OPD/IPD Imaging"
+                                                    Font-Bold="True" Font-Size="Medium"
+                                                    Width="98%" Height="60px"
+                                                    OnClick="btnOPD_Click">
+                                                    <Icon PrimaryIconUrl="../../Resources/ICON/patient_walking_opd48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="45px" PrimaryIconWidth="45px" />
+                                                 
+                                                </telerik:RadButton>
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                </telerik:RadPageView>
+                                <%--<telerik:RadPageView ID="pageExam" runat="server" Height="249px">
+                                    <table cellspacing="0" cellpadding="0" width="100%" align="center">
                                         <tr>
                                             <td>
                                                 <telerik:RadButton ID="btnCR" runat="server" Text="Plain Film"
                                                      Font-Bold="true" Font-Size="Larger"
                                                      Width="98%" Height="60px" 
-                                                     OnClick="btnCR_Click">
+                                                     OnClick="btnCR_Click" style="top: 0px; left: 0px">
                                                     <Icon PrimaryIconUrl="../../Resources/ICON/CR48.png"  PrimaryIconTop="2" PrimaryIconLeft="5" PrimaryIconHeight="50px" PrimaryIconWidth="50px" />
                                                 </telerik:RadButton>
                                             </td>
@@ -1294,7 +1413,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                </telerik:RadPageView>
+                                </telerik:RadPageView>--%>
                                 <telerik:RadPageView ID="viewAppoint" runat="server">
                                     <table width="100%" cellspacing="0">
                                         <tr>
@@ -1324,17 +1443,18 @@
                                             </td>
                                             <td colspan="1">
                                                 <telerik:RadButton ID="rdoIndicationDate4" ButtonType="ToggleButton" ToggleType="Radio"
-                                                    runat="server" Text="3mo." GroupName="Indication" OnCheckedChanged="rdoIndicationDate_CheckedChanged">
+                                                    runat="server" Text="3mo. (90 วัน)" GroupName="Indication" 
+                                                    OnCheckedChanged="rdoIndicationDate_CheckedChanged" style="top: 0px; left: 0px">
                                                 </telerik:RadButton>
                                             </td>
                                             <td colspan="1">
                                                 <telerik:RadButton ID="rdoIndicationDate5" ButtonType="ToggleButton" ToggleType="Radio"
-                                                    runat="server" Text="6mo." GroupName="Indication" OnCheckedChanged="rdoIndicationDate_CheckedChanged">
+                                                    runat="server" Text="6mo. (180 วัน)" GroupName="Indication" OnCheckedChanged="rdoIndicationDate_CheckedChanged">
                                                 </telerik:RadButton>
                                             </td>
                                             <td colspan="1">
                                                 <telerik:RadButton ID="rdoIndicationDate7" ButtonType="ToggleButton" ToggleType="Radio"
-                                                    runat="server" Text="1y." GroupName="Indication" OnCheckedChanged="rdoIndicationDate_CheckedChanged">
+                                                    runat="server" Text="1y. (365 วัน)" GroupName="Indication" OnCheckedChanged="rdoIndicationDate_CheckedChanged">
                                                 </telerik:RadButton>
                                             </td>
                                             <td colspan="1">
@@ -2025,9 +2145,9 @@
                                             </ItemTemplate>
                                         </telerik:GridTemplateColumn>
                                         <telerik:GridTemplateColumn UniqueName="cmbtempSide" HeaderText="Side" ItemStyle-BorderStyle="None">
-                                            <HeaderStyle Width="45px" />
+                                            <HeaderStyle Width="50px" />
                                             <ItemTemplate>
-                                                <telerik:RadComboBox runat="server" ID="cmbSide" Width="44px" ExpandDelay="10" BorderStyle="None" 
+                                                <telerik:RadComboBox runat="server" ID="cmbSide" Width="85px" ExpandDelay="10" BorderStyle="None" 
                                                 OnSelectedIndexChanged="cmbSide_SelectedIndexChanged" AutoPostBack="True">
                                                 </telerik:RadComboBox>
                                             </ItemTemplate>

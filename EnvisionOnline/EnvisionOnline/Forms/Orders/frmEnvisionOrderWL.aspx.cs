@@ -980,7 +980,7 @@ public partial class frmEnvisionOrderWL : System.Web.UI.Page
             switch (values["STATUS"].ToString())
             {
                 case "P":
-                    if (Utilities.IsHaveData(dsNav))
+                    if (Utilities.IsHaveData(dsNav) && values["SCHEDULE_ID"].ToString() != "0")
                     {
                         url += "../../ReportViewer/frmXtraReportViewer.aspx?XTRAFORM=xrptNavigatorApplication&IS_ONLINE=" + values["ONL_REQ"].ToString() +
                                                                                                                 "&ORDER_ID=" + values["SCHEDULE_ID"].ToString() +

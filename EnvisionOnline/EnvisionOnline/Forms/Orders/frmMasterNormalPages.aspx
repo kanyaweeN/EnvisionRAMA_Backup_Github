@@ -148,14 +148,14 @@
         </telerik:RadTabStrip>
         <telerik:RadMultiPage ID="multipageMain" runat="server" SelectedIndex="0" ScrollBars="Hidden">
             <telerik:RadPageView ID="viewBlank" runat="server"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewFavoriteExam"  runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageFavorit.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewGeneral"       runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPagePlainFilm.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewUS"            runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageUS.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewCT"            runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageMutiCT.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMR"            runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageMutiMR.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewFLU"           runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageFLU.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMammo"         runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageMammo.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewAllExam"       runat="server" Height="490" ContentUrl="~/Forms/Dialogs/normalPageAllExam.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewFavoriteExam"  runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageFavorit.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewGeneral"       runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPagePlainFilm.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewUS"            runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageUS.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewCT"            runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageMutiCT.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMR"            runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageMutiMR.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewFLU"           runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageFLU.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMammo"         runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageMammo.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewAllExam"       runat="server" Height="690" ContentUrl="~/Forms/Dialogs/normalPageAllExam.aspx"></telerik:RadPageView>
         </telerik:RadMultiPage>
 	</div>
         <telerik:RadToolBar ID="rtoolResult" runat="server" Width="100%" OnButtonClick="rtoolResult_ButtonClick">

@@ -264,6 +264,114 @@ public partial class frmRiskincedent {
     protected global::System.Web.UI.WebControls.Label Label4;
     
     /// <summary>
+    /// chkClaustrophobiaYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkClaustrophobiaYes;
+    
+    /// <summary>
+    /// chkClaustrophobiaNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkClaustrophobiaNo;
+    
+    /// <summary>
+    /// Label9 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label9;
+    
+    /// <summary>
+    /// txtClaustrophobia control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtClaustrophobia;
+    
+    /// <summary>
+    /// chkThreadLiftingYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkThreadLiftingYes;
+    
+    /// <summary>
+    /// chkThreadLiftingNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkThreadLiftingNo;
+    
+    /// <summary>
+    /// Label8 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label8;
+    
+    /// <summary>
+    /// txtThreadLifting control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtThreadLifting;
+    
+    /// <summary>
+    /// chkWearBracesYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkWearBracesYes;
+    
+    /// <summary>
+    /// chkWearBracesNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkWearBracesNo;
+    
+    /// <summary>
+    /// Label6 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label6;
+    
+    /// <summary>
+    /// txtWearBraces control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtWearBraces;
+    
+    /// <summary>
     /// chkWearingMetalEquipmentInTheBodyYes control.
     /// </summary>
     /// <remarks>
@@ -309,78 +417,6 @@ public partial class frmRiskincedent {
     protected global::Telerik.Web.UI.RadTextBox txtWearingMetalEquipmentInTheBody;
     
     /// <summary>
-    /// chkThreadLiftingYes control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkThreadLiftingYes;
-    
-    /// <summary>
-    /// chkThreadLiftingNo control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkThreadLiftingNo;
-    
-    /// <summary>
-    /// Label8 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label8;
-    
-    /// <summary>
-    /// txtThreadLifting control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadTextBox txtThreadLifting;
-    
-    /// <summary>
-    /// chkMetalInEyeYes control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkMetalInEyeYes;
-    
-    /// <summary>
-    /// chkMetalInEyeNo control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkMetalInEyeNo;
-    
-    /// <summary>
-    /// Label29 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label29;
-    
-    /// <summary>
-    /// txtMetalInEye control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadTextBox txtMetalInEye;
-    
-    /// <summary>
     /// chkInsertTheMetalTracheaTubeYes control.
     /// </summary>
     /// <remarks>
@@ -415,42 +451,6 @@ public partial class frmRiskincedent {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadTextBox txtInsertTheMetalTracheaTube;
-    
-    /// <summary>
-    /// chkWearBracesYes control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkWearBracesYes;
-    
-    /// <summary>
-    /// chkWearBracesNo control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkWearBracesNo;
-    
-    /// <summary>
-    /// Label6 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label6;
-    
-    /// <summary>
-    /// txtWearBraces control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadTextBox txtWearBraces;
     
     /// <summary>
     /// chkPermanentRadiationImplantationYes control.
@@ -489,42 +489,6 @@ public partial class frmRiskincedent {
     protected global::Telerik.Web.UI.RadTextBox txtPermanentRadiationImplantation;
     
     /// <summary>
-    /// chkClaustrophobiaYes control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkClaustrophobiaYes;
-    
-    /// <summary>
-    /// chkClaustrophobiaNo control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkClaustrophobiaNo;
-    
-    /// <summary>
-    /// Label9 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label9;
-    
-    /// <summary>
-    /// txtClaustrophobia control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadTextBox txtClaustrophobia;
-    
-    /// <summary>
     /// chkPregnantMRIYes control.
     /// </summary>
     /// <remarks>
@@ -559,6 +523,42 @@ public partial class frmRiskincedent {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadTextBox txtPregnantMRI;
+    
+    /// <summary>
+    /// chkMetalInEyeYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkMetalInEyeYes;
+    
+    /// <summary>
+    /// chkMetalInEyeNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkMetalInEyeNo;
+    
+    /// <summary>
+    /// Label29 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label29;
+    
+    /// <summary>
+    /// txtMetalInEye control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtMetalInEye;
     
     /// <summary>
     /// chkAllergicMRIContrastMediaYes control.
@@ -633,42 +633,6 @@ public partial class frmRiskincedent {
     protected global::System.Web.UI.WebControls.Label Label25;
     
     /// <summary>
-    /// chkIodineAllergyYes control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkIodineAllergyYes;
-    
-    /// <summary>
-    /// chkIodineAllergyNo control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkIodineAllergyNo;
-    
-    /// <summary>
-    /// Label2 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label2;
-    
-    /// <summary>
-    /// txtIodineAllergy control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadTextBox txtIodineAllergy;
-    
-    /// <summary>
     /// chkFoodAllergyYes control.
     /// </summary>
     /// <remarks>
@@ -705,6 +669,42 @@ public partial class frmRiskincedent {
     protected global::Telerik.Web.UI.RadTextBox txtFoodAllergy;
     
     /// <summary>
+    /// chkIodineAllergyYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkIodineAllergyYes;
+    
+    /// <summary>
+    /// chkIodineAllergyNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkIodineAllergyNo;
+    
+    /// <summary>
+    /// Label2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label2;
+    
+    /// <summary>
+    /// txtIodineAllergy control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtIodineAllergy;
+    
+    /// <summary>
     /// chkAsthmaYes control.
     /// </summary>
     /// <remarks>
@@ -739,6 +739,42 @@ public partial class frmRiskincedent {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadTextBox txtAsthma;
+    
+    /// <summary>
+    /// chkKidneydiseaseYes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkKidneydiseaseYes;
+    
+    /// <summary>
+    /// chkKidneydiseaseNo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton chkKidneydiseaseNo;
+    
+    /// <summary>
+    /// Label18 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label18;
+    
+    /// <summary>
+    /// txtKidneydisease control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtKidneydisease;
     
     /// <summary>
     /// chkKidneytransplantYes control.

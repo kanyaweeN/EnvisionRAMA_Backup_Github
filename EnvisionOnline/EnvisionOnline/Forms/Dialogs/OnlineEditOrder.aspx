@@ -77,6 +77,9 @@
                 else if (arg == 'ClinicalPopup') {
                     RefreshGridWorklist();
                 }
+                else if (arg == 'checkAppointment') {
+                    set_AjaxRequest("checkAppointment");
+                }
             }
             function OnClientClose() {
             }
@@ -88,11 +91,18 @@
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="rdoDischarge" />
                     <telerik:AjaxUpdatedControl ControlID="chkCNMI" />
+                    <telerik:AjaxUpdatedControl ControlID="cmbLocation" />
                     <telerik:AjaxUpdatedControl ControlID="lblNextApp" />
                     <telerik:AjaxUpdatedControl ControlID="dtNextAppoint" />
                     <telerik:AjaxUpdatedControl ControlID="btnNexAppoint" />
                     <telerik:AjaxUpdatedControl ControlID="btnAllNextAppoint" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
+
+                    <telerik:AjaxUpdatedControl ControlID="lblPhoneMain" />
+                    <telerik:AjaxUpdatedControl ControlID="txtPhone1" />
+                    <telerik:AjaxUpdatedControl ControlID="txtRelationship1" />
+                    <telerik:AjaxUpdatedControl ControlID="txtPhone2" />
+                    <telerik:AjaxUpdatedControl ControlID="txtRelationship2" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
             <telerik:AjaxSetting AjaxControlID="dtNextAppoint">
@@ -100,6 +110,11 @@
                     <telerik:AjaxUpdatedControl ControlID="dtNextAppoint" />
                     <telerik:AjaxUpdatedControl ControlID="btnAllNextAppoint" />
                     <telerik:AjaxUpdatedControl ControlID="txtEditor" />
+                    <telerik:AjaxUpdatedControl ControlID="lblPhoneMain" />
+                    <telerik:AjaxUpdatedControl ControlID="txtPhone1" />
+                    <telerik:AjaxUpdatedControl ControlID="txtRelationship1" />
+                    <telerik:AjaxUpdatedControl ControlID="txtPhone2" />
+                    <telerik:AjaxUpdatedControl ControlID="txtRelationship2" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
              <telerik:AjaxSetting AjaxControlID="chkCNMI">
@@ -110,6 +125,11 @@
             <telerik:AjaxSetting AjaxControlID="btnAllNextAppoint">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="btnAllNextAppoint" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="cmbLocation">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="txtEditor" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
@@ -154,18 +174,7 @@
 	         <td>
 	        </td>
 	    </tr>
-        <tr>
-	        <td>
-	        </td>
-	        <td>
-	            <telerik:RadButton ID="chkCNMI" ButtonType="ToggleButton" ToggleType="CheckBox"
-                                        runat="server" Text="ขอส่งผู้ป่วยไปนัดตรวจที่ รพ.รามาธิบดีจักรีนฤบดินทร์" OnCheckedChanged="chkCNMI_CheckedChanged"
-                                        Checked="false"/>
-	        </td>
-	         <td>
-	        </td>
-	    </tr>
-        <tr>
+         <tr>
 	        <td>
 	        </td>
 	        <td>
@@ -177,6 +186,42 @@
 	         <td>
 	        </td>
 	    </tr>
+   <%--     <tr>
+	        <td>
+	        </td>
+	        <td>
+	            <telerik:RadButton ID="chkCNMI" ButtonType="ToggleButton" ToggleType="CheckBox"
+                                        runat="server" Text="ขอส่งตรวจที่ รพ.รามาธิบดีจักรีนฤบดินทร์" OnCheckedChanged="chkCNMI_CheckedChanged"
+                                        Checked="false"/>
+	        </td>
+	         <td>
+	        </td>
+	    </tr>--%>
+     <%--  <tr style="height:40px;" valign="top">
+	        <td>
+	        </td>
+	        <td >
+	            <telerik:RadButton ID="chkRHS" ButtonType="ToggleButton" ToggleType="CheckBox"
+                                        runat="server" Text="ขอส่งตรวจที่ Rama Health Space สาขาโลตัส นอร์ธ ราชพฤกษ์"
+                                        Checked="false" 
+                    oncheckedchanged="chkRHS_CheckedChanged"/>
+	        </td>
+	         <td>
+	        </td>
+	    </tr>--%>
+        <tr>
+            <td>
+                <asp:Label ID="label1" runat="server" Text="สถานที่ส่งตรวจ : " Width="120px"></asp:Label>
+            </td>
+            <td>
+	            <telerik:RadComboBox ID="cmbLocation" runat="server" Height="170px" Width="100%"
+                ShowMoreResultsBox="True" EnableLoadOnDemand="True" AutoPostBack="true"
+                OnItemsRequested="cmbLocation_ItemsRequested"
+                OnSelectedIndexChanged="cmbLocation_SelectedIndexChanged" 
+                />
+	        </td>
+            <td></td>
+          </tr>
         <tr>
 	        <td>
 	            <asp:Label ID="lblNextApp" runat="server" Text="Next Appoint : " Width="120px" Visible="false"></asp:Label>
@@ -197,11 +242,36 @@
 	        </td>
             <td></td>
 	    </tr>
-	    <tr>
+        <tr>
 	        <td colspan="3">
-	            <asp:Label ID="labelComment" runat="server" Text="Comment : "></asp:Label>
+	            <asp:Label ID="lblPhoneMain" runat="server" ForeColor="Red" Text="กรุณาระบุเบอร์โทรศัพท์ที่ติดต่อได้ของผู้ป่วย และ/หรือ ญาติ 2 เบอร์" Visible="false"></asp:Label>
 	        </td>
 	    </tr>
+        <tr>
+            <td colspan="3">
+                <telerik:RadTextBox  ID="txtPhone1" runat="server" Label="1. เบอร์ * : " 
+                    Width="99%"  Visible="false">
+                </telerik:RadTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <telerik:RadTextBox  ID="txtRelationship1" runat="server" Label="   ความสัมพันธ์ * : " Width="99%"  Visible="false">
+                </telerik:RadTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" width="10px">
+                <telerik:RadTextBox  ID="txtPhone2" runat="server" Label="2. เบอร์ * : " Width="99%"  Visible="false">
+                </telerik:RadTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <telerik:RadTextBox  ID="txtRelationship2" runat="server" Label="   ความสัมพันธ์ * : " Width="99%"  Visible="false">
+                </telerik:RadTextBox>
+            </td>
+        </tr>
         <tr>
             <td colspan="3">
 	            <telerik:RadTextBox ID="txtEditor" runat="server" TextMode="MultiLine" Height="100px"

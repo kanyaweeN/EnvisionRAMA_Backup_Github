@@ -33,5 +33,10 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             _proc.HR_UNIT = this.HR_UNIT;
             return _proc.GetDataCovid(unitId);
         }
+        public DataSet checkNewOnlineUnit()
+        {
+            HRUnitSelectData _proc = new HRUnitSelectData();
+            return _proc.checkNewOnlineUnit();
+        }
     }
 }

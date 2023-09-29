@@ -60,6 +60,8 @@ namespace EnvisionOnline.Common
         private DataTable _dtOrderClinicalindicationtype;
         private DataTable _dtBasicData;
         private DataTable _dtKeepCNMICase;
+        private DataTable _dtKeepLocationSelect;
+        private DataSet _dsKeepLocationSelectModality;
 
         private DataSet _dsPatientData;
 
@@ -358,6 +360,16 @@ namespace EnvisionOnline.Common
         {
             get { return _dtKeepCNMICase; }
             set { _dtKeepCNMICase = value; }
+        }
+        public DataTable dtKeepLocationSelect
+        {
+            get { return _dtKeepLocationSelect; }
+            set { _dtKeepLocationSelect = value; }
+        }
+        public DataSet dsKeepLocationSelectModality
+        {
+            get { return _dsKeepLocationSelectModality; }
+            set { _dsKeepLocationSelectModality = value; }
         }
         #endregion
     }

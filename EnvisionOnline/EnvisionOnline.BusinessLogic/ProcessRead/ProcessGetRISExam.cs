@@ -110,6 +110,16 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
                 risk_mode = dt.Rows[0]["RISK_MODE"].ToString();
             return risk_mode;
         }
+        public DataTable GetExamRHS(int exam_id)
+        {
+            RISExamSelectData _proc = new RISExamSelectData();
+            return _proc.GetExamRHS(exam_id);
+        }
+        public DataTable GetExamLocation(int exam_id)
+        {
+            RISExamSelectData _proc = new RISExamSelectData();
+            return _proc.GetExamLocation(exam_id);
+        }
     }
 }
 

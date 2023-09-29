@@ -36,12 +36,12 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             switch (param.QUICKEXAM_MODE)
             {
                 case "REF_DOC":
-                    addExamDetail("AddExamAll", param.QUICKEXAM_ID);
+                    addExamDetail("AddExamAll", param.QUICKEXAM_ID, true);
                     cmbRefDoc.OpenDropDownOnLoad = true;
                     break;
                 case "SCHEDULE":
                 case "WAITING":
-                    addExamDetail("AddExamAll", param.QUICKEXAM_ID);
+                    addExamDetail("AddExamAll", param.QUICKEXAM_ID, true);
                     break;
             }
         }
@@ -130,7 +130,10 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                 //int index = lblAge.Text.IndexOf(' ');
                 //string resultAge = lblAge.Text.Substring(0, index + 1);
                 //param.IS_CHILDEN = Convert.ToInt32(resultAge) <= 15 ? true : false;
-                param.IS_CHILDEN = (DateTime.Now.Year - Convert.ToDateTime(dr["DOB"]).Year) <= 15 ? true : false; 
+                param.IS_CHILDEN = (DateTime.Now.Year - Convert.ToDateTime(dr["DOB"]).Year) <= 15 ? true : false;
+                if((DateTime.Now.Year - Convert.ToDateTime(dr["DOB"]).Year) == 15 )
+                    param.IS_CHILDEN = (DateTime.Now.Month - Convert.ToDateTime(dr["DOB"]).Month) < 1 ? true : false;
+
             }
             catch (Exception ex)
             {
@@ -198,9 +201,19 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
 
         Session["ONL_PARAMETER"] = param;
     }
+    private void clearData()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+
+        param.dtKeepLocationSelect = null;
+        param.dsKeepLocationSelectModality = null;
+
+        Session["ONL_PARAMETER"] = param;
+    }
     private void setPageMain()
     {
         updateBusy();
+        clearData();
         Response.Redirect(@"../../Forms/Orders/frmEnvisionOrderWL.aspx");
     }
     private DataTable setOrderTemplate()
@@ -332,6 +345,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         }
         ds.Tables.Add(dtSeparate.Copy());
         ds.AcceptChanges();
+
         for (int y = 0; y < ds.Tables.Count; y++)
         {
             ord_id = order.check_ONLOrder(ds.Tables[y], dtTemp, dtDelete, env);//chkData ? order.set_ONLOrder_Insert(dt, dtTemp, env) : order.set_ONLOrder_Update(dt, dtTemp, dtDelete, env);
@@ -672,6 +686,150 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         }
         catch { }
     }
+    private void setBodyIntervention(DataTable dtstr)
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        RISBaseClass risbase = new RISBaseClass();
+        DataTable dtAllExam = Application["ExamAllData"] as DataTable;
+        DataTable dtDept = Application["UnitData"] as DataTable;
+        DataTable dt = param.dvGridDtl;
+
+        if (Convert.ToInt32(dtstr.Rows[0]["QTY"]) > 1) //add exam เพิ่มตามจำนวน side ที่เลือก
+        {
+            //DataRow[] drFNA = dt.Select("EXAM_UID = 'XS133'");
+            //if (drFNA.Length > 0)
+            //{
+            //    DataRow[] rowsExam = dtAllExam.Select("EXAM_UID = 'XS133'");
+
+            //    if (rowsExam.Length > 0)
+            //    {
+            //        string _rate = checkExamRate(rowsExam[0], param.ENC_CLINIC, param.IS_NONRESIDENT);
+            //        double sumrate = Convert.ToDouble(_rate) * Convert.ToDouble(dtstr.Rows[0]["QTY"]);
+            //        drFNA[0]["TOTAL_RATE"] = sumrate.ToString("#.00");
+            //        drFNA[0]["RATE"] = _rate;
+            //        drFNA[0]["QTY"] = Convert.ToDouble(dtstr.Rows[0]["QTY"]);
+
+            //        dt.AcceptChanges();
+            //    }
+            //}
+
+            DataRow[] drFilter = dt.Select("EXAM_UID = 'XS133'");
+
+            DataRow[] getCol = dtAllExam.Select("EXAM_UID = 'XS133'");
+
+            for (int i = 1; i < Convert.ToInt32(dtstr.Rows[0]["QTY"]); i++)
+            {
+                if (getCol.Length > 0)
+                    addExamDetail("AddExamAll", getCol[0]["EXAM_ID"].ToString(), false);
+            }
+            param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+            dt = param.dvGridDtl;
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr["EXAM_UID"].ToString() == "XS133")
+                {
+                    dr["strEXAM_DT"] = drFilter[0]["strEXAM_DT"];
+                    dr["EXAM_DT"] = drFilter[0]["EXAM_DT"];
+
+                    dr["SESSION_ID"] = drFilter[0]["SESSION_ID"];
+                    dr["START_DATETIME"] = drFilter[0]["START_DATETIME"];
+                    dr["END_DATETIME"] = drFilter[0]["END_DATETIME"];
+                    dr["AVG_INV_TIME"] = drFilter[0]["AVG_INV_TIME"];
+                }
+            }
+
+            dt.AcceptChanges();
+        }
+
+        if (!string.IsNullOrEmpty(dtstr.Rows[0]["ExamPanel"].ToString()))  //add exam us
+        {
+            string[] strExamCode = dtstr.Rows[0]["ExamPanel"].ToString().Split(',');
+            foreach (string examcode in strExamCode)
+            {
+                DataRow[] getCol = dtAllExam.Select("EXAM_UID = '" + examcode.Trim() + "'");
+                if (getCol.Length > 0)
+                    addExamDetail("AddExamAll", getCol[0]["EXAM_ID"].ToString(), true);
+            }
+
+            param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+            dt = param.dvGridDtl;
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr["strEXAM_DT"] = "Waiting list";
+                dr["EXAM_DT"] = dr["ORDER_DT"];
+
+
+                if (dr["strEXAM_DT"].ToString().IndexOf("Pending") >= 0 || dr["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0)
+                {
+                    DataTable dtMod_id = risbase.get_ModalityID_With_PatDest(Convert.ToInt32(dr["EXAM_ID"]), Convert.ToInt32(dr["PAT_DEST_ID"]), SpecifyData.checkPatientType(param.IS_CHILDEN, dtDept, param.REF_UNIT_ID, param.ENC_CLINIC));
+                    dtMod_id = Utilities.filterModalityByClinic(dtMod_id, param.ENC_CLINIC);
+
+                    set_FillWaitingListData(dr, dtMod_id);
+                }
+                
+            }
+
+            dt.AcceptChanges();
+        } 
+
+
+        if (!string.IsNullOrEmpty(dtstr.Rows[0]["Comment"].ToString()))
+        {
+            string[] strSideHeadder = dtstr.Rows[0]["Side"].ToString().Split('|'); //แยก comment ของ side กับ header ของ side
+            string[] strSide = strSideHeadder[1].Split(',');//แยก comment ของ side เพราะว่าจะเอาไปใส่ ใน comment ของแต่ล่ะ exam //ประมาณว่า exam ล่ะ side
+            int indexSide = 0;
+
+            foreach (DataRow dr in dt.Rows)
+            //for(int i = 0 ;i<dt.Rows.Count;i++)
+            {
+                string oldComment = dr["COMMENTS"].ToString() + "\r\n";
+                string[] oldCommentspilt = oldComment.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                string[] commentheader = dtstr.Rows[0]["Header"].ToString().Split('|');
+
+                foreach (string old in oldCommentspilt)
+                {
+                    if (!string.IsNullOrEmpty(old))
+                        foreach (string herder in commentheader)
+                        {
+                            bool is_break = false;
+                            if (!string.IsNullOrEmpty(herder))
+                                if (old.Contains(herder))
+                                {
+                                    string str = old + "\r\n"; //ที่มี \r\n เพราะจะให้ตัดทั้งบรรทัดรวมถึง enter ด้วย
+
+                                    int _start = oldComment.IndexOf(str);
+                                    if (_start >= 0)
+                                    {
+                                        oldComment = oldComment.Remove(_start, str.Length);
+                                    }
+                                    is_break = true;
+                                    break;
+                                }
+
+                            if (is_break)
+                                break;
+                        }
+                }
+
+                if (!string.IsNullOrEmpty(oldComment))
+                    oldComment = oldComment.Trim() + "\r\n";
+
+                string strComment = string.Empty;
+                if (dr["EXAM_UID"].ToString() == "XS133")
+                {
+                    strComment = dtstr.Rows[0]["Comment"].ToString().Replace(strSideHeadder[0], strSideHeadder[0] + strSide[indexSide]); //ใส่ side ใน comment
+                    indexSide++;
+                }
+                else
+                    strComment = dtstr.Rows[0]["Comment"].ToString().Replace(strSideHeadder[0], strSideHeadder[0] + strSideHeadder[1]);
+
+                dr["COMMENTS"] = oldComment + strComment;
+            }
+        }
+        dt.AcceptChanges();
+        param.dvGridDtl = dt;
+        Session["ONL_PARAMETER"] = param;
+    }
     private bool checkParameterInsert()
     {
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
@@ -717,7 +875,23 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             flag = checkParameterInsert_Holiday();
 
         if (flag)
+            flag = checkParameterInsert_ExamSameDate();
+
+        if (flag)
             flag = checkParameterInsert_Covid();
+
+        //if (flag)
+        //    flag = checkParameterInsert_MRPC();
+
+        if (flag)
+            flag = checkParameterInsert_RiskManagement();
+
+        if (flag)
+            flag = checkParameterInsert_BodyIntervention();
+
+        if (flag)
+            set_SaveOrder();
+
         return flag;
     }
     private bool checkParameterInsert_Holiday()
@@ -734,25 +908,61 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         {
             foreach (DataRow drholiday in dtholiday.Rows)
             {
-                DateTime holiday = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drholiday["DATE"].ToString()).Month, Convert.ToDateTime(drholiday["DATE"].ToString()).Day, 0, 0, 0);
-                foreach (DataRow drr in dt.Rows)
+                try
                 {
-                    if (drr["strEXAM_DT"].ToString().IndexOf("Pending") < 0 || drr["strEXAM_DT"].ToString().IndexOf("Waiting") < 0)
+                    DateTime holiday = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drholiday["DATE"].ToString()).Month, Convert.ToDateTime(drholiday["DATE"].ToString()).Day, 0, 0, 0);
+                    foreach (DataRow drr in dt.Rows)
                     {
-                        DateTime examdt = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Month, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Day, 0, 0, 0);
-                        if (holiday == examdt)
+                        if (drr["strEXAM_DT"].ToString().IndexOf("Pending") < 0 && drr["strEXAM_DT"].ToString().IndexOf("Waiting") < 0)
                         {
-                            flag = false;
-                            showOnlineMessageBox("Holiday");
-                            break;
+                            DateTime examdt = new DateTime(DateTime.Now.Year, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Month, Convert.ToDateTime(drr["EXAM_DT"].ToString()).Day, 0, 0, 0);
+                            if (holiday == examdt)
+                            {
+                                flag = false;
+                                showOnlineMessageBox("Holiday");
+                                break;
+                            }
                         }
                     }
+                    if (!flag)
+                        break;
                 }
-                if (!flag)
-                    break;
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
+        return flag;
+    }
+    private bool checkParameterInsert_ExamSameDate()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+
+        bool flag = true;
+        DataTable dt = param.dvGridDtl;
+
+        foreach (DataRow drr in dt.Rows)
+        {
+            if (drr["strEXAM_DT"].ToString().IndexOf("Pending") < 0 && drr["strEXAM_DT"].ToString().IndexOf("Waiting") < 0)
+            {
+                ProcessGetXRAYREQ checkExamSameDate = new ProcessGetXRAYREQ();
+                checkExamSameDate.XRAYREQ.HN = dt.Rows[0]["HN"].ToString();
+                checkExamSameDate.XRAYREQ.EXAM_ID = Convert.ToInt32(dt.Rows[0]["EXAM_ID"]);
+                checkExamSameDate.XRAYREQ.EXAM_DT = Convert.ToDateTime(dt.Rows[0]["EXAM_DT"].ToString());
+
+                DataTable dtExamSameDate = checkExamSameDate.GetBusyExamSameDate();
+
+                if (dtExamSameDate.Rows.Count > 0)
+                {
+                    flag = false;
+                    showOnlineMessageBox("ExamSameDate");
+                    break;
+                }
+            }
+        }
+        
         return flag;
     }
     private bool checkParameterInsert_Covid()
@@ -765,25 +975,26 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         DataSet ds = getCovidUnit.checkCovidUnit(param.REF_UNIT_ID);
 
         if (ds.Tables[0].Rows.Count > 0)
+        {
+            flag = false;
             showCovid();
-        else
-            checkParameterInsert_MRPC();
+        }
 
         return flag;
     }
     private bool checkParameterInsert_MRPC()
     {
-        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
-        param.REF_DOC_INSTRUCTION = txtEditor.Text;
+        //ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        //param.REF_DOC_INSTRUCTION = txtEditor.Text;
         bool flag = true;
 
-        DataRow[] rowChk = param.dvGridDtl.Select("EXAM_UID = 'XM113'");
+        //DataRow[] rowChk = param.dvGridDtl.Select("EXAM_UID = 'XM113'");
 
-        if (rowChk.Length > 0)
-            showClinicalIndicationWithParameter("MRPC");
-        else
+        //if (rowChk.Length > 0)
+        //    showClinicalIndicationWithParameter("MRPC");
+        //else
             checkParameterInsert_RiskManagement();
-
+        
         return flag;
     }
     private bool checkParameterInsert_RiskManagement()
@@ -811,10 +1022,38 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             }
 
         }
+        return flag;
+    }
+    private bool checkParameterInsert_popup()
+    {
+        bool flag = true;
+
+        if (flag)
+            flag = checkParameterInsert_RiskManagement();
+
+        if (flag)
+            flag = checkParameterInsert_BodyIntervention();
 
         if (flag)
             set_SaveOrder();
 
+        return flag;
+    }
+    private bool checkParameterInsert_BodyIntervention()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+
+        bool flag = true;
+        DataTable dt = param.dvGridDtl;
+        foreach (DataRow rowsCheck in dt.Rows)
+        {
+            if (rowsCheck["EXAM_UID"].ToString().ToLower() == "xs133")
+            {
+                flag = false;
+                showBodyIntervention();
+                break;
+            }
+        }
         return flag;
     }
     private void set_SaveOrder()
@@ -1259,12 +1498,15 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
 
             cmbClinic.Enabled = true;
 
-            if (Convert.ToBoolean(dv.Row["SCHEDULE_FLAG"]))//&& dv.Row["PRIORITY"].ToString() != "S")
-                cmbClinic.Enabled = false;
-            if (param.IS_NONRESIDENT)
-                cmbClinic.Enabled = false;
-            if (dv.Row["IS_PORTABLE_VALUE"].ToString() == "D")
-                cmbClinic.Enabled = false;
+            if (!(dv.Row["strEXAM_DT"].ToString() == "Waiting list" || dv.Row["strEXAM_DT"].ToString() == "Pending.."))
+            {
+                if (Convert.ToBoolean(dv.Row["SCHEDULE_FLAG"]))//&& dv.Row["PRIORITY"].ToString() != "S")
+                    cmbClinic.Enabled = false;
+                if (param.IS_NONRESIDENT)
+                    cmbClinic.Enabled = false;
+                if (dv.Row["IS_PORTABLE_VALUE"].ToString() == "D")
+                    cmbClinic.Enabled = false;
+            }
             #endregion
         }
     }
@@ -1415,6 +1657,8 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     {
         if (string.IsNullOrEmpty(e.Text)) return;
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        DataTable dtDept = Application["UnitData"] as DataTable;
+        RISBaseClass baseMange = new RISBaseClass();
         DataTable dt = param.dvGridDtl;
         DataRow row = dt.Rows[((source as RadComboBox).NamingContainer as GridItem).DataSetIndex];
         row["CLINIC_TYPE"] = e.Value;
@@ -1441,7 +1685,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         if (row["IS_PORTABLE_VALUE"].ToString() == "Y")
         {
             DataTable dtPanelPortable = new DataTable();
-            RISBaseClass baseMange = new RISBaseClass();
+            //RISBaseClass baseMange = new RISBaseClass();
             dtPanelPortable = baseMange.get_ExamPortable_Panel(Convert.ToInt32(row["EXAM_ID"]));
             if (Utilities.IsHaveData(dtPanelPortable))
             {
@@ -1479,6 +1723,20 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                 }
             }
         }
+
+        DataTable dtPatDest = baseMange.get_PAT_DEST_ID(param.REF_UNIT_ID, Convert.ToInt32(e.Value));
+        if (Utilities.IsHaveData(dtPatDest))
+        {
+            row["PAT_DEST_ID"] = dtPatDest.Rows[0]["PAT_DEST_ID"].ToString();
+            row["PAT_DEST_DESC"] = dtPatDest.Rows[0]["LABEL"].ToString();
+        }
+
+        int pat_dest_id = string.IsNullOrEmpty(row["PAT_DEST_ID"].ToString()) ? 0 : Convert.ToInt32(row["PAT_DEST_ID"]);
+        DataTable dtMod_ID = baseMange.get_ModalityID_With_PatDest(Convert.ToInt32(rowsExam[0]["EXAM_ID"]), pat_dest_id, SpecifyData.checkPatientType(param.IS_CHILDEN, dtDept, param.REF_UNIT_ID, param.ENC_CLINIC));
+        dtMod_ID = Utilities.filterModalityByClinic(dtMod_ID, param.ENC_CLINIC);
+
+        row["MODALITY_ID"] = dtMod_ID.Rows.Count > 0 ? dtMod_ID.Rows[0][0] : 0;
+        param.dtMod_ID = dtMod_ID;
 
         param.dvGridDtl = dt;
         param.EXAM_ID = row["EXAM_ID"].ToString();
@@ -1569,7 +1827,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             Hashtable values = new Hashtable();
             item.ExtractValues(values);
             e.ExecuteCommand(values);
-            addExamDetail("AddExamFavorite", values["EXAM_ID"].ToString());
+            addExamDetail("AddExamFavorite", values["EXAM_ID"].ToString(), true);
         }
         else if (e.CommandName == "RemoveExamFavorite")
         {
@@ -1709,7 +1967,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             Hashtable values = new Hashtable();
             item.ExtractValues(values);
             e.ExecuteCommand(values);
-            addExamDetail("AddExamTop10", values["EXAM_ID"].ToString());
+            addExamDetail("AddExamTop10", values["EXAM_ID"].ToString(), true);
         }
         else if (e.CommandName == "AddFavoriteExam")
         {
@@ -1772,7 +2030,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         fillDataGrid_Filter(grdExamTop10, dt);
     }
 
-    private void addExamDetail(string dvExam, string values)
+    private void addExamDetail(string dvExam, string values, bool checkConflict)
     {
         RadComboBox cmbRefUnit = rtbDemographic.FindItemByValue("groupDemographic").FindControl("cmbRefUnit") as RadComboBox;
         if (string.IsNullOrEmpty(cmbRefUnit.Text) || cmbRefUnit.Text.LastIndexOf('*') > 0)
@@ -1815,7 +2073,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                     || param.FlagCTMR == true// Check can use online
                     )
                 {
-                    setInsertOrderDtl(dt, rowsExam, "0");
+                    setInsertOrderDtl(dt, rowsExam, "0", checkConflict);
                     if (rowsExam[0]["NEED_SCHEDULE"].ToString() == "N" || dt.Select("EXAM_ID=" + values)[0]["PRIORITY"].ToString() == "S")
                         addExamPanel(dtAllExam, rowsExam[0]["EXAM_ID"].ToString());
 
@@ -1843,7 +2101,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             DataRow[] chkRows = dt.Select("EXAM_ID=" + rows["AUTO_EXAM_ID"].ToString());
             DataRow[] rowsExam = dtExam.Select("EXAM_ID=" + rows["AUTO_EXAM_ID"].ToString());
             if (chkRows.Length <= 0)
-                setInsertOrderDtl(dt, rowsExam, exam_id);
+                setInsertOrderDtl(dt, rowsExam, exam_id,true);
         }
         param.dvGridDtl = dt;
         fillDataGrid_Filter(grdDetail, dt);
@@ -1885,32 +2143,35 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         }
     }
 
-    private void setInsertOrderDtl(DataTable dt, DataRow[] rowsExam, string panelExam)
+    private void setInsertOrderDtl(DataTable dt, DataRow[] rowsExam, string panelExam, bool checkConflict)
     {
         GBLEnvVariable env = Session["GBLEnvVariable"] as GBLEnvVariable;
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
         DataTable dtDept = Application["UnitData"] as DataTable;
 
         #region Check Conflict Exam
-        DataRow[] chkRows = dt.Select("EXAM_ID=" + rowsExam[0]["EXAM_ID"].ToString());
-        if (chkRows.Length > 0)
+        if (checkConflict)
         {
-            showOnlineMessageBox("ExamConflict");
-            return;
-        }
-        int reg_id = param.REG_ID;
-        OrderClass ord = new OrderClass();
-        ord.RIS_CONFLICTEXAMGROUP.REG_ID = reg_id;
-        ord.RIS_CONFLICTEXAMGROUP.EXAM_ID = Convert.ToInt32(rowsExam[0]["EXAM_ID"]);
-        DataSet dsConflict = ord.check_conflictExam();
-        if (Utilities.IsHaveData(dsConflict))
-        {
-            foreach (DataRow drConflict in dsConflict.Tables[0].Rows)
+            DataRow[] chkRows = dt.Select("EXAM_ID=" + rowsExam[0]["EXAM_ID"].ToString());
+            if (chkRows.Length > 0)
             {
-                if (Convert.ToInt32(drConflict["DATE_DIFF"]) <= Convert.ToInt32(drConflict["DURATION_MIN_AFTER"]))
+                showOnlineMessageBox("ExamConflict");
+                return;
+            }
+            int reg_id = param.REG_ID;
+            OrderClass ord = new OrderClass();
+            ord.RIS_CONFLICTEXAMGROUP.REG_ID = reg_id;
+            ord.RIS_CONFLICTEXAMGROUP.EXAM_ID = Convert.ToInt32(rowsExam[0]["EXAM_ID"]);
+            DataSet dsConflict = ord.check_conflictExam();
+            if (Utilities.IsHaveData(dsConflict))
+            {
+                foreach (DataRow drConflict in dsConflict.Tables[0].Rows)
                 {
-                    showOnlineMessageBox("ExamConflict");
-                    return;
+                    if (Convert.ToInt32(drConflict["DATE_DIFF"]) <= Convert.ToInt32(drConflict["DURATION_MIN_AFTER"]))
+                    {
+                        showOnlineMessageBox("ExamConflict");
+                        return;
+                    }
                 }
             }
         }
@@ -2095,7 +2356,6 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         dt.AcceptChanges();
         Session["ONL_PARAMETER"] = param;
     }
-
     private string checkExamRate(DataRow row_exam, string clinic, bool is_nonresident)
     {
         string rate = "0";
@@ -2134,6 +2394,30 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     private void checkAppointment(DataRow dr)
     {
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        DataTable dtKeepLocationSelect = param.dtKeepLocationSelect;
+
+        tabAppoint.Tabs[0].Visible = true;
+        tabAppoint.Tabs[1].Visible = true;
+        tabAppoint.Tabs[2].Visible = true;
+
+        tabAppoint.Tabs[0].Text = "Regular Clinic";
+        tabAppoint.Tabs[1].Text = "Special Clinic";
+        tabAppoint.Tabs[2].Text = "Premium Clinic";
+
+        if (Utilities.IsHaveData(dtKeepLocationSelect))
+        {
+            DataRow[] drLocsel = dtKeepLocationSelect.Select("EXAM_ID = " + Convert.ToInt32(dr["EXAM_ID"]));
+            if (drLocsel.Length > 0)
+            {
+                if (!string.IsNullOrEmpty(drLocsel[0]["CLINIC_TEXT"].ToString()))
+                {
+                    tabAppoint.Tabs[0].Text = drLocsel[0]["CLINIC_TEXT"].ToString() + " " + "Regular Clinic";
+                    tabAppoint.Tabs[1].Text = drLocsel[0]["CLINIC_TEXT"].ToString() + " " + "Special Clinic";
+                    tabAppoint.Tabs[2].Text = drLocsel[0]["CLINIC_TEXT"].ToString() + " " + "Premium Clinic";
+                }
+            }
+        }
+
         rdoIndicationDate1.Checked = false;
         rdoIndicationDate2.Checked = false;
         rdoIndicationDate3.Checked = false;
@@ -2168,25 +2452,40 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                 case "Normal": tabAppoint.Tabs[0].Enabled = true;
                     tabAppoint.Tabs[1].Enabled = true;
                     tabAppoint.Tabs[2].Enabled = true;
+
+                    bool openCNMI = false;
                     ProcessGetONLExamCNMI prc = new ProcessGetONLExamCNMI();
                     prc.Invoke(Convert.ToInt32(dr["EXAM_ID"]));
                     if (Utilities.IsHaveData(prc.Result))
                     {
                         tabAppoint.Tabs[3].Enabled = true;
                         tabAppoint.Tabs[3].Visible = true;
+
+                        ProcessGetRISModality mod = new ProcessGetRISModality();
+                        DataSet dsModChk = mod.GetDataID(Convert.ToInt32(dr["MODALITY_ID"]));
+                        if (dsModChk.Tables[0].Rows[0]["DEFAULT_SESSION"].ToString() == "C")
+                            openCNMI = true;
                     }
                     else
                         tabAppoint.Tabs[3].Visible = false;
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Regular');", true);
+
+                    if (openCNMI)
+                    {
+                        //tabAppoint.Tabs[3].Selected = true;
+                        tabAppoint.SelectedIndex = 3;
+                        //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('CNMI');", true);
+                    }
+                    //else
+                    //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Regular');", true);
                     break;
                 case "Special":
                     tabAppoint.Tabs[1].Enabled = true;
                     tabAppoint.Tabs[2].Enabled = true;
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Special');", true);
+                    //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Special');", true);
                     break;
                 case "VIP":
                     tabAppoint.Tabs[2].Enabled = true;
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('VIP');", true);
+                    //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('VIP');", true);
                     break;
             }
             grdAppointment.Enabled = true;
@@ -2270,6 +2569,10 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     private void showRiskManagement(string tab_name)
     {
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showRiskManagement", "showRiskManagement('" + tab_name + "');", true);
+    }
+    private void showBodyIntervention()
+    {
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showRiskBodyIntervention", "showBodyInterventionPopup();", true);
     }
     private void showCovid()
     {
@@ -3496,45 +3799,91 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         DataTable dt = param.dvGridDtl;
         DataRow dr = drOrddtl;
         DataTable dtt = new DataTable();
-        if (dr["PRIORITY"].ToString() != "S")
+
+        int tabSel = 0, modalityId = 0;
+
+        bool isSetAppoint = true;
+        if (dr["PRIORITY"].ToString() == "S")
+            isSetAppoint = false;
+        else if (dr["NEED_APPROVE"].ToString() == "Y")
+            isSetAppoint = false;
+        else if (!param.IS_CHILDEN)
+            isSetAppoint = checkModalitySetAppintmentByPatientType();
+
+        //if (dr["PRIORITY"].ToString() != "S")
+        //{
+        //    if (dr["NEED_APPROVE"].ToString() != "Y")
+        //    {
+        if (isSetAppoint)
         {
-            if (dr["NEED_APPROVE"].ToString() != "Y")
+            switch (param.CLINIC_TYPE)
             {
-                switch (param.CLINIC_TYPE)
-                {
-                    case "Normal":
-                        dttRG = set_AppointGridData(dttRG.Clone(), IS_Length, date, "Regular");
-                        dttSP = set_AppointGridData(dttSP.Clone(), IS_Length, date, "Special");
-                        dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
-                        dttCNMI = set_AppointGridData(dttCNMI.Clone(), IS_Length, date, "CNMI");
-                        dtt = dttRG;
-                        if (tabAppoint.SelectedIndex == 1)
-                            dtt = dttSP;
-                        else if (tabAppoint.SelectedIndex == 2)
-                            dtt = dttPM;
-                        if (Utilities.IsHaveData(dtt))
-                            if (!string.IsNullOrEmpty(dtt.Rows[0]["SCHEDULE_DESC_DATE"].ToString()))
-                            {
-                                set_FillAppointData(dr, dtt);
-                                if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_M"].ToString())
-                                    dtt.Rows[0]["IS_CHECKED_M"] = "Y";
-                                else
-                                    dtt.Rows[0]["IS_CHECKED_M"] = "N";
-                                if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_A"].ToString())
-                                    dtt.Rows[0]["IS_CHECKED_A"] = "Y";
-                                else
-                                    dtt.Rows[0]["IS_CHECKED_A"] = "N";
-                                if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_E"].ToString())
-                                    dtt.Rows[0]["IS_CHECKED_E"] = "Y";
-                                else
-                                    dtt.Rows[0]["IS_CHECKED_E"] = "N";
-                            }
+                case "Normal":
+                    dttRG = set_AppointGridData(dttRG.Clone(), IS_Length, date, "Regular");
+                    dttSP = set_AppointGridData(dttSP.Clone(), IS_Length, date, "Special");
+                    dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
+                    dttCNMI = set_AppointGridData(dttCNMI.Clone(), IS_Length, date, "CNMI");
+
+                    tabSel = 0;
+                    modalityId = 0;
+                    if (Convert.ToInt32(dttRG.Rows[0]["MODALITY_ID"]) != 0)
+                        modalityId = Convert.ToInt32(dttRG.Rows[0]["MODALITY_ID"]);
+                    else if (Convert.ToInt32(dttSP.Rows[0]["MODALITY_ID"]) != 0)
+                        modalityId = Convert.ToInt32(dttSP.Rows[0]["MODALITY_ID"]);
+                    else if (Convert.ToInt32(dttPM.Rows[0]["MODALITY_ID"]) != 0)
+                        modalityId = Convert.ToInt32(dttPM.Rows[0]["MODALITY_ID"]);
+
+                    if (modalityId != 0)
+                        tabSel = setHideAppiontmentClinicTab(modalityId);
+                    else
+                        tabSel = tabAppoint.SelectedIndex;
+
+                    dtt = dttRG;
+                    if (tabSel == 1)
+                        dtt = dttSP;
+                    else if (tabSel == 2)
+                        dtt = dttPM;
+                    else if (tabSel == 3)
+                        dtt = dttCNMI;
+                    if (Utilities.IsHaveData(dtt))
+                        if (!string.IsNullOrEmpty(dtt.Rows[0]["SCHEDULE_DESC_DATE"].ToString()))
+                        {
+                            set_FillAppointData(dr, dtt);
+                            if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_M"].ToString())
+                                dtt.Rows[0]["IS_CHECKED_M"] = "Y";
                             else
-                                dr["strEXAM_DT"] = dr["NEED_APPROVE"].ToString() == "Y" ? "Waiting list" : "Pending..";
-                        break;
-                    case "Special":
-                        dttSP = set_AppointGridData(dttSP.Clone(), IS_Length, date, "Special");
-                        dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
+                                dtt.Rows[0]["IS_CHECKED_M"] = "N";
+                            if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_A"].ToString())
+                                dtt.Rows[0]["IS_CHECKED_A"] = "Y";
+                            else
+                                dtt.Rows[0]["IS_CHECKED_A"] = "N";
+                            if (dtt.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dtt.Rows[0]["SCHEDULE_STARTDATE_E"].ToString())
+                                dtt.Rows[0]["IS_CHECKED_E"] = "Y";
+                            else
+                                dtt.Rows[0]["IS_CHECKED_E"] = "N";
+                        }
+                        else
+                            dr["strEXAM_DT"] = dr["NEED_APPROVE"].ToString() == "Y" ? "Waiting list" : "Pending..";
+                    break;
+                case "Special":
+                    dttSP = set_AppointGridData(dttSP.Clone(), IS_Length, date, "Special");
+                    dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
+
+                    tabSel = 1;
+                    modalityId = 0;
+
+                    if (Convert.ToInt32(dttSP.Rows[0]["MODALITY_ID"]) != 0)
+                        modalityId = Convert.ToInt32(dttSP.Rows[0]["MODALITY_ID"]);
+                    else if (Convert.ToInt32(dttPM.Rows[0]["MODALITY_ID"]) != 0)
+                        modalityId = Convert.ToInt32(dttPM.Rows[0]["MODALITY_ID"]);
+
+                    if (modalityId != 0)
+                        tabSel = setHideAppiontmentClinicTab(modalityId);
+                    else
+                        tabSel = 1;
+
+                    if (tabSel == 1)
+                    {
                         if (Utilities.IsHaveData(dttSP))
                             if (!string.IsNullOrEmpty(dttSP.Rows[0]["SCHEDULE_DESC_DATE"].ToString()))
                             {
@@ -3554,9 +3903,9 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                             }
                             else
                                 dr["strEXAM_DT"] = dr["NEED_APPROVE"].ToString() == "Y" ? "Waiting list" : "Pending..";
-                        break;
-                    case "VIP":
-                        dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
+                    }
+                    else if (tabSel == 2)
+                    {
                         if (Utilities.IsHaveData(dttPM))
                             if (!string.IsNullOrEmpty(dttPM.Rows[0]["SCHEDULE_DESC_DATE"].ToString()))
                             {
@@ -3576,25 +3925,57 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                             }
                             else
                                 dr["strEXAM_DT"] = dr["NEED_APPROVE"].ToString() == "Y" ? "Waiting list" : "Pending..";
-                        break;
-                }
-            }
-            else
-            {
-                dttRG = set_NullAppointData(dttRG.Clone(), "Regular", "W");
-                dttSP = set_NullAppointData(dttSP.Clone(), "Special", "W");
-                dttPM = set_NullAppointData(dttPM.Clone(), "Premium", "W");
+                    }
+                    break;
+                case "VIP":
+                    dttPM = set_AppointGridData(dttPM.Clone(), IS_Length, date, "Premium");
+                    if (Utilities.IsHaveData(dttPM))
+                        if (!string.IsNullOrEmpty(dttPM.Rows[0]["SCHEDULE_DESC_DATE"].ToString()))
+                        {
+                            set_FillAppointData(dr, dttPM.Rows[0]);
+                            if (dttPM.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dttPM.Rows[0]["SCHEDULE_STARTDATE_M"].ToString())
+                                dttPM.Rows[0]["IS_CHECKED_M"] = "Y";
+                            else
+                                dttPM.Rows[0]["IS_CHECKED_M"] = "N";
+                            if (dttPM.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dttPM.Rows[0]["SCHEDULE_STARTDATE_A"].ToString())
+                                dttPM.Rows[0]["IS_CHECKED_A"] = "Y";
+                            else
+                                dttPM.Rows[0]["IS_CHECKED_A"] = "N";
+                            if (dttPM.Rows[0]["SCHEDULE_STARTDATE"].ToString() == dttPM.Rows[0]["SCHEDULE_STARTDATE_E"].ToString())
+                                dttPM.Rows[0]["IS_CHECKED_E"] = "Y";
+                            else
+                                dttPM.Rows[0]["IS_CHECKED_E"] = "N";
+                        }
+                        else
+                            dr["strEXAM_DT"] = dr["NEED_APPROVE"].ToString() == "Y" ? "Waiting list" : "Pending..";
+                    break;
             }
         }
+        //    }
+        //    else
+        //    {
+        //        dttRG = set_NullAppointData(dttRG.Clone(), "Regular", "W");
+        //        dttSP = set_NullAppointData(dttSP.Clone(), "Special", "W");
+        //        dttPM = set_NullAppointData(dttPM.Clone(), "Premium", "W");
+        //    }
+        //}
+        //else
+        //{
+
+        //    dttRG = set_NullAppointData(dttRG.Clone(), "Regular", "W");
+        //    dttSP = set_NullAppointData(dttSP.Clone(), "Special", "W");
+        //    dttPM = set_NullAppointData(dttPM.Clone(), "Premium", "W");
+        //}
+
         else
         {
-
             dttRG = set_NullAppointData(dttRG.Clone(), "Regular", "W");
             dttSP = set_NullAppointData(dttSP.Clone(), "Special", "W");
             dttPM = set_NullAppointData(dttPM.Clone(), "Premium", "W");
         }
 
-        if (IS_Length) {
+        if (IS_Length)
+        {
             DataView dvdttRG = dttRG.DefaultView;
             dvdttRG.Sort = "SCHEDULE_STARTDATE desc";
             dttRG = dvdttRG.ToTable();
@@ -3900,6 +4281,8 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         string strSession = "";
         string strModality = "";
         string strModlaityFilter = "";
+        int avg_time = -1;
+
         ScheduleClass sche = new ScheduleClass();
         RISBaseClass risbase = new RISBaseClass();
         ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
@@ -3907,22 +4290,55 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         DataTable dtSession = Application["SessionType"] as DataTable;// risbase.get_CLINICSESSION_TYPE();
         DataTable dtClinicType = Application["ClinicTypeData"] as DataTable;
         DataTable dtDept = Application["UnitData"] as DataTable;
-
+        DataTable dtAllExam = Application["ExamAllData"] as DataTable;
+        DataSet dtKeepLocationSelectModality = param.dsKeepLocationSelectModality;
+        DataTable dtKeepLocationSelect = param.dtKeepLocationSelect;
+        DataTable dtModTemp = new DataTable();
         DataRow[] rowsession = dtSession.Select("SUBSTRING(session_uid,1,1)='" + enc_clinic.Substring(0, 1) + "'");//Fix CODE
+
+        if (Utilities.IsHaveData(dtKeepLocationSelectModality))
+            dtModTemp = dtKeepLocationSelectModality.Tables[param.EXAM_ID.ToString()];
+
+        if (Utilities.IsHaveData(dtModTemp))
+        {
+            ProcessGetRISClinicsession prcGetSession = new ProcessGetRISClinicsession();
+            prcGetSession.RIS_CLINICSESSION.MODALITY_ID = Convert.ToInt32(dtModTemp.Rows[0]["MODALITY_ID"]);
+            DataTable dtSessionByModality = prcGetSession.getSessionByModality().Tables[0];
+            if (Utilities.IsHaveData(dtSessionByModality))
+            {
+                DataRow[] drSession = dtSessionByModality.Select();
+                if (drSession.Length > 0)
+                    rowsession = drSession;
+            }
+        }
+        else
+        {
+            DataRow[] rowClinic = dtClinicType.Select("CLINIC_TYPE_ONLINEDESC like '" + enc_clinic + "%'");
+
+            DataTable dtPatDest = risbase.get_PAT_DEST_ID(param.REF_UNIT_ID, Convert.ToInt32(rowClinic[0]["CLINIC_TYPE_ID"]));
+            if (Utilities.IsHaveData(dtPatDest))
+            {
+                dtModTemp = risbase.get_ModalityID_With_PatDest(Convert.ToInt32(param.EXAM_ID), Convert.ToInt32(dtPatDest.Rows[0]["PAT_DEST_ID"]), SpecifyData.checkPatientType(param.IS_CHILDEN, dtDept, param.REF_UNIT_ID, enc_clinic));
+                string _enc = enc_clinic.Substring(0, 1) == "P" ? "VIP" : "RGL";
+                dtModTemp = Utilities.filterModalityByClinic(dtModTemp, _enc);
+
+            }
+        }
+
+        if (Utilities.IsHaveData(dtKeepLocationSelect))
+        {
+            DataRow[] drKeepLocationSelect = dtKeepLocationSelect.Select("EXAM_ID = " + param.EXAM_ID.ToString());
+            if (drKeepLocationSelect.Length > 0)
+                if (drKeepLocationSelect[0]["DEFAULT_SESSION"].ToString() == "A")
+                {
+                    DataRow[] examSelected = dtAllExam.Select("EXAM_ID = " + param.EXAM_ID.ToString());
+                    avg_time = string.IsNullOrEmpty(examSelected[0]["AVG_REQ_HRS"].ToString()) ? 0 : Convert.ToInt32(examSelected[0]["AVG_REQ_HRS"]);
+                }
+        }
+
         foreach (DataRow rowSe in rowsession)
             strSession += "," + rowSe["SESSION_ID"].ToString();
 
-        DataTable dtModTemp = new DataTable();
-        DataRow[] rowClinic = dtClinicType.Select("CLINIC_TYPE_ONLINEDESC like '" + enc_clinic + "%'");
-
-        DataTable dtPatDest = risbase.get_PAT_DEST_ID(param.REF_UNIT_ID, Convert.ToInt32(rowClinic[0]["CLINIC_TYPE_ID"]));
-        if (Utilities.IsHaveData(dtPatDest))
-        {
-            dtModTemp = risbase.get_ModalityID_With_PatDest(Convert.ToInt32(param.EXAM_ID), Convert.ToInt32(dtPatDest.Rows[0]["PAT_DEST_ID"]), SpecifyData.checkPatientType(param.IS_CHILDEN, dtDept, param.REF_UNIT_ID, enc_clinic));
-            string _enc = enc_clinic.Substring(0, 1) == "P" ? "VIP" : "RGL";
-            dtModTemp = Utilities.filterModalityByClinic(dtModTemp, _enc);
-
-        }
         foreach (DataRow rowModFilter in dtModTemp.Rows)
             strModlaityFilter += "," + rowModFilter["MODALITY_ID"].ToString();
 
@@ -3968,7 +4384,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                     DateTime dt_end = Convert.ToDateTime(drChk["APP_DATE"]);
                     DateTime dtF = new DateTime(dt_end.Year, dt_end.Month, dt_end.Day, sessionDS.Hour, sessionDS.Minute, sessionDS.Second);
                     DateTime dtT = new DateTime(dt_end.Year, dt_end.Month, dt_end.Day, sessionDE.Hour, sessionDE.Minute, sessionDE.Second);
-                    int avg_time = Convert.ToInt32(drChk["AVG_INV_TIME"]);
+                    avg_time = avg_time <= 0 ? Convert.ToInt32(drChk["AVG_INV_TIME"]) : avg_time;
 
                     DataTable dttCheckSch = sche.get_ScheduleApp(dtF, dtT, Convert.ToInt32(drChk["MODALITY_ID"]));
                     dttCheckSch.Rows.Add(dtF, dtF);
@@ -4066,7 +4482,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         DataRow[] rows = dt.Select("SCHEDULE_DESC = '" + dt_start.ToString("dd MMMM yyyy", CultureInfo.GetCultureInfo("th-TH").DateTimeFormat) + "'");
         if (rows.Length > 0)
         {
-            switch (Session_uid.Substring(1))
+            switch (Session_uid.Substring(1,1))
             {
                 case "M":
                     rows[0]["SCHEDULE_STARTDATE_M"] = dt_start;
@@ -4239,6 +4655,121 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
 
         }
         return dt;
+    }
+    private int setHideAppiontmentClinicTab(int modalityId)
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        int tabSelect = 0;
+
+        ProcessGetRISModality mod = new ProcessGetRISModality();
+        DataSet dsModChk = mod.GetDataID(Convert.ToInt32(modalityId));
+
+        if (Utilities.IsHaveData(dsModChk))
+        {
+            if (dsModChk.Tables[0].Rows[0]["DEFAULT_SESSION"].ToString() == "A")
+            {
+                ProcessGetRISClinicsession prcGetSession = new ProcessGetRISClinicsession();
+                prcGetSession.RIS_CLINICSESSION.MODALITY_ID = Convert.ToInt32(modalityId);
+                DataTable dtSessionByModality = prcGetSession.getSessionByModality().Tables[0];
+
+                DataTable dtrowsession = dtSessionByModality.Select("SESSION_NAME_ALIAS <> 'C' AND ISNULL(SESSION_NAME_ALIAS,'') <> ''").CopyToDataTable();
+
+                DataRow[] drSessionChkREG = dtrowsession.Select("SUBSTRING(SESSION_NAME_ALIAS,LEN(SESSION_NAME_ALIAS),LEN(SESSION_NAME_ALIAS)) = 'R'");
+                if (drSessionChkREG.Length == 0)
+                {
+                    tabAppoint.Tabs[0].Visible = false;
+                }
+
+                DataRow[] drSessionChkVIP = dtrowsession.Select("SUBSTRING(SESSION_NAME_ALIAS,LEN(SESSION_NAME_ALIAS),LEN(SESSION_NAME_ALIAS)) = 'S'");
+                if (drSessionChkVIP.Length == 0)
+                {
+                    tabAppoint.Tabs[1].Visible = false;
+                }
+
+                DataRow[] drSessionChkPRE = dtrowsession.Select("SUBSTRING(SESSION_NAME_ALIAS,LEN(SESSION_NAME_ALIAS),LEN(SESSION_NAME_ALIAS)) = 'P'");
+                if (drSessionChkPRE.Length == 0)
+                {
+                    tabAppoint.Tabs[2].Visible = false;
+                }
+
+
+                if (tabAppoint.Tabs[0].Enabled && tabAppoint.Tabs[0].Visible)
+                {
+                    tabAppoint.SelectedIndex = 0;
+                    multiPageAppoint.SelectedIndex = 0;
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Regular');", true);
+                }
+                else if (tabAppoint.Tabs[1].Enabled && tabAppoint.Tabs[1].Visible)
+                {
+                    tabAppoint.SelectedIndex = 1;
+                    multiPageAppoint.SelectedIndex = 1;
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Special');", true);
+                }
+                else if (tabAppoint.Tabs[2].Enabled && tabAppoint.Tabs[2].Visible)
+                {
+                    tabAppoint.SelectedIndex = 2;
+                    multiPageAppoint.SelectedIndex = 2;
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('VIP');", true);
+                }
+            }
+            else
+            {
+                switch (param.CLINIC_TYPE)
+                {
+                    case "Normal":
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Regular');", true);
+                        break;
+                    case "Special":
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('Special');", true);
+                        break;
+                    case "VIP":
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "SetTabAppoint('VIP');", true);
+                        break;
+                }
+            }
+        }
+
+        switch (param.CLINIC_TYPE)
+        {
+            case "Normal":
+                tabSelect = tabAppoint.SelectedIndex;
+                break;
+            case "Special":
+                tabSelect = 1;
+                break;
+            case "VIP":
+                tabSelect = 2;
+                break;
+        }
+
+        return tabSelect;
+    }
+    private bool checkModalitySetAppintmentByPatientType()
+    {
+        ONL_PARAMETER param = Session["ONL_PARAMETER"] as ONL_PARAMETER;
+        RISBaseClass risbase = new RISBaseClass();
+        DataTable dt = param.dvGridDtl;
+
+        bool isSetAppoint = true;
+        foreach (DataRow dr in dt.Rows)
+        {
+            if (dr["EXAM_ID"].ToString() == param.EXAM_ID)
+            {
+                DataTable modality = risbase.get_Ris_Modality_setAppintmentByPatientType(Convert.ToInt32(dr["MODALITY_ID"]));
+                if (Utilities.IsHaveData(modality))
+                {
+                    dr["strEXAM_DT"] = "Waiting list";
+                    isSetAppoint = false;
+                    dr.AcceptChanges();
+                    dt.AcceptChanges();
+                    param.dvGridDtl = dt;
+                    Session["ONL_PARAMETER"] = param;
+                    break;
+                }
+            }
+        }
+
+        return isSetAppoint;
     }
     #endregion
     #region Clinical Indication page
@@ -4656,14 +5187,18 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             //    i++;
             //}
 
-            RISBaseClass ord = new RISBaseClass();
-            DataTable dtCItype = param.dtCLINICALINDICATIONTYPE;
-            int ciid = ord.get_CITypeID_ClinicalIndicationType(data.FullPath);
+            try
+            {
+                RISBaseClass ord = new RISBaseClass();
+                DataTable dtCItype = param.dtCLINICALINDICATIONTYPE;
+                int ciid = ord.get_CITypeID_ClinicalIndicationType(data.FullPath);
 
-            DataRow[] rowCItype = dtCItype.Select("CI_TYPE_ID=" + ciid.ToString());
-            if (rowCItype.Length > 0)
-                if (!string.IsNullOrEmpty(rowCItype[0]["DEFAULT_TEXT"].ToString()))
-                    s = s + " : " + rowCItype[0]["DEFAULT_TEXT"].ToString();
+                DataRow[] rowCItype = dtCItype.Select("CI_TYPE_ID=" + ciid.ToString());
+                if (rowCItype.Length > 0)
+                    if (!string.IsNullOrEmpty(rowCItype[0]["DEFAULT_TEXT"].ToString()))
+                        s = s + " : " + rowCItype[0]["DEFAULT_TEXT"].ToString();
+            }
+            catch { }
 
             if (string.IsNullOrEmpty(txtEditor.Text))
                 txtEditor.Text = s + "  \r\n";
@@ -4705,6 +5240,11 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
     protected void btnOPD_Click(object sender, EventArgs e)
     {
         showNormalPageAllGroup("OPD");
+    }
+
+    protected void btnBodyIntervention_Click(object sender, EventArgs e)
+    {
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "openTab", "showBodyInterventionPage();", true);
     }
     #endregion
     private DataTable set_DistinctTable(DataTable dt, string[] column)
@@ -4782,6 +5322,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
         DataTable dtFav = new DataTable();
         DataTable dtTop10 = new DataTable();
         string str = "";
+
         switch (e.Argument)
         {
             #region Grid
@@ -4853,19 +5394,34 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             case "RiskManagement":
                 set_SaveOrder();
                 break;
+            case "BodyIntervention":
+                DataTable dataBodyIntervention = Session["dataBodyIntervention"] as DataTable;
+                if (Utilities.IsHaveData(dataBodyIntervention))
+                    setBodyIntervention(dataBodyIntervention);
+
+                setInsertOnline();
+                setPageMain();
+                break;
             case "COVID":
                 txtEditor.Text = param.REF_DOC_INSTRUCTION;
-                checkParameterInsert_RiskManagement();
+                checkParameterInsert_popup();
                 break;
             case "ClinicalIndicationWithParam":
                 txtEditor.Text = param.REF_DOC_INSTRUCTION;
-                checkParameterInsert_RiskManagement();
+                checkParameterInsert_popup();
                 break;
             case "Holiday":
                 str = Session["MessageBoxValue"] as string;
                 if (str == "2")
                 {
-                    checkParameterInsert_RiskManagement();
+                    checkParameterInsert_popup();
+                }
+                break;
+            case "ExamSameDate":
+                str = Session["MessageBoxValue"] as string;
+                if (str == "2")
+                {
+                    checkParameterInsert_popup();
                 }
                 break;
             case "AddFavoriteExam":
@@ -4887,8 +5443,11 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
             case "checkAppointCase":
                 str = Session["MessageBoxValue"] as string;
                 dt = param.dvGridDtl;
+                Session["savecheckAppointCase"] = "N";
+
                 if (str == "3")
                 {
+                    Session["savecheckAppointCase"] = "Y";
                     foreach (DataRow drr in dt.Rows)
                     {
                         if (drr["strEXAM_DT"].ToString().IndexOf("Pending") >= 0 || drr["strEXAM_DT"].ToString().IndexOf("Waiting") >= 0)
@@ -4916,11 +5475,12 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                                 showOnlineMessageBox("alertCannotInsertAppointment");
                         }
                     }
-                    setInsertOnline();
-                    setPageMain();
+                    //setInsertOnline();
+                    //setPageMain();
                 }
                 else if (str == "2")
                 {
+                    Session["savecheckAppointCase"] = "Y";
                     RISBaseClass risbase = new RISBaseClass();
                     foreach (DataRow drr in dt.Rows)
                     {
@@ -4932,6 +5492,14 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                             set_FillWaitingListData(drr, dtMod_id);
                         }
                     }
+                    //setInsertOnline();
+                    //setPageMain();
+                }
+
+                param.dvGridDtl = dt;
+                bool canSave = checkParameterInsert_BodyIntervention();
+                if (canSave)
+                {
                     setInsertOnline();
                     setPageMain();
                 }
@@ -4971,7 +5539,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                 List<string> clickedButton = Session["AddExam"] as List<string>;
                 if (Session["MessageBoxAlertexamValue"].ToString().ToLower() == "save")
                 {
-                    addExamDetail(clickedButton[0].ToString(), clickedButton[1].ToString());
+                    addExamDetail(clickedButton[0].ToString(), clickedButton[1].ToString(), true);
                 }
                 break;
             default:
@@ -5048,7 +5616,7 @@ public partial class frmEnvisionOrderNW : System.Web.UI.Page
                             break;
                         default:
                             param.EXAM_ID = strCheck[1].ToString();
-                            addExamDetail(strCheck[0].ToString(), strCheck[1].ToString()); break;
+                            addExamDetail(strCheck[0].ToString(), strCheck[1].ToString(),true); break;
                     }
 
                 }

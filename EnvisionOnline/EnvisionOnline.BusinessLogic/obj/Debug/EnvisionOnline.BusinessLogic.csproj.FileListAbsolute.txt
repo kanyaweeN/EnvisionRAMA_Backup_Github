@@ -262,3 +262,36 @@ C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\Env
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.dll
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.dll
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA_v168\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.dll
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA_deploy layout\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.dll
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\EnvisionRAMA\EnvisionOnline\EnvisionOnline.BusinessLogic\obj\Debug\EnvisionOnline.BusinessLogic.pdb

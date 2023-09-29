@@ -28,5 +28,12 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             XRAYREQSelectData _proc = new XRAYREQSelectData();
             return _proc.GetBusyCase(xrayreq_id);
         }
+
+        public DataTable GetBusyExamSameDate()
+        {
+            XRAYREQSelectData _proc = new XRAYREQSelectData();
+            _proc.XRAYREQ = XRAYREQ;
+            return _proc.GetBusyExamSameDate();
+        }
     }
 }

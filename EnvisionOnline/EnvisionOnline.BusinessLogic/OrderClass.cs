@@ -574,6 +574,7 @@ namespace EnvisionOnline.BusinessLogic
                 processAddRiskIncident.RIS_RISKINCIDENTS.COMMENT_ID = Convert.ToInt32(dr["COMMENT_ID"]);
                 processAddRiskIncident.RIS_RISKINCIDENTS.REG_ID = Convert.ToInt32(dr["REG_ID"]);
                 processAddRiskIncident.RIS_RISKINCIDENTS.XRAYREQ_ID = xrayreq_id;
+                processAddRiskIncident.RIS_RISKINCIDENTS.INCIDENT_CHOOSED = dr["INCIDENT_CHOOSED"].ToString(); 
                 processAddRiskIncident.Invoke();
             }
             return true;

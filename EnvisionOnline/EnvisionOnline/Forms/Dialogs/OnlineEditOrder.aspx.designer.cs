@@ -111,15 +111,6 @@ public partial class OnlineEditOrder {
     protected global::Telerik.Web.UI.RadButton rdoDischarge;
     
     /// <summary>
-    /// chkCNMI control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkCNMI;
-    
-    /// <summary>
     /// chkCT3D control.
     /// </summary>
     /// <remarks>
@@ -127,6 +118,24 @@ public partial class OnlineEditOrder {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadButton chkCT3D;
+    
+    /// <summary>
+    /// label1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label label1;
+    
+    /// <summary>
+    /// cmbLocation control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadComboBox cmbLocation;
     
     /// <summary>
     /// lblNextApp control.
@@ -156,13 +165,49 @@ public partial class OnlineEditOrder {
     protected global::Telerik.Web.UI.RadButton btnAllNextAppoint;
     
     /// <summary>
-    /// labelComment control.
+    /// lblPhoneMain control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label labelComment;
+    protected global::System.Web.UI.WebControls.Label lblPhoneMain;
+    
+    /// <summary>
+    /// txtPhone1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtPhone1;
+    
+    /// <summary>
+    /// txtRelationship1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtRelationship1;
+    
+    /// <summary>
+    /// txtPhone2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtPhone2;
+    
+    /// <summary>
+    /// txtRelationship2 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadTextBox txtRelationship2;
     
     /// <summary>
     /// txtEditor control.

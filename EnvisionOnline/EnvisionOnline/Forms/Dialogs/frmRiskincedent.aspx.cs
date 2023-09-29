@@ -100,6 +100,11 @@ public partial class frmRiskincedent : System.Web.UI.Page
         txtAsthma.Text = string.Empty;
         txtAsthma.Enabled = false;
 
+        chkKidneydiseaseYes.Checked = false;
+        chkKidneydiseaseNo.Checked = false;
+        txtKidneydisease.Text = string.Empty;
+        txtKidneydisease.Enabled = false;
+
         chkKidneytransplantYes.Checked = false;
         chkKidneytransplantNo.Checked = false;
         txtKidneytransplant.Text = string.Empty;
@@ -208,12 +213,26 @@ public partial class frmRiskincedent : System.Web.UI.Page
             lbCaution.Text = "";
         }
 
-        if (string.IsNullOrEmpty(param.SCHEDULE_ID)) return;
-        if (param.SCHEDULE_ID == "0") return;
+        if (string.IsNullOrEmpty(param.SCHEDULE_ID) && string.IsNullOrEmpty(param.ORDER_ID)) return;
+        if (param.SCHEDULE_ID == "0" && param.ORDER_ID == "0") return;
 
         ProcessGetRisRiskIncidents incident = new ProcessGetRisRiskIncidents();
-        incident.RIS_RISKINCIDENTS.SCHEDULE_ID = Convert.ToInt32(param.SCHEDULE_ID);
-        DataTable dtIncident = incident.getDataByScheduleID();
+        DataTable dtIncident = new DataTable();
+        if (param.SCHEDULE_ID != "0")
+        {
+            incident.RIS_RISKINCIDENTS.SCHEDULE_ID = Convert.ToInt32(param.SCHEDULE_ID);
+            dtIncident = incident.getDataByScheduleID();
+        }
+        else if (param.ORDER_ID != "0")
+        {
+            incident.RIS_RISKINCIDENTS.XRAYREQ_ID = Convert.ToInt32(param.ORDER_ID);
+            dtIncident = incident.getDataByXrayReqID();
+        }
+        else
+        {
+            incident.RIS_RISKINCIDENTS.SCHEDULE_ID = Convert.ToInt32(param.SCHEDULE_ID);
+            dtIncident = incident.getDataByScheduleID();
+        }
 
         foreach (DataRow rows in dtIncident.Rows)
         {
@@ -378,6 +397,19 @@ public partial class frmRiskincedent : System.Web.UI.Page
                     }
                     txtAsthma.Text = rows["INCIDENT_DESC"].ToString(); break;
                 //case "12": txtCreatinine.Text = rows["INCIDENT_DESC"].ToString(); break;
+                case "50":
+                    switch (rows["INCIDENT_CHOOSED"].ToString())
+                    {
+                        case "Y":
+                            chkKidneydiseaseYes.Checked = true;
+                            txtKidneydisease.Enabled = true;
+                            break;
+                        case "N":
+                            chkKidneydiseaseNo.Checked = true;
+                            txtKidneydisease.Enabled = false;
+                            break;
+                    }
+                    txtKidneydisease.Text = rows["INCIDENT_DESC"].ToString(); break;
                 case "17":
                     switch (rows["INCIDENT_CHOOSED"].ToString())
                     {
@@ -480,6 +512,7 @@ public partial class frmRiskincedent : System.Web.UI.Page
                 ((!chkIodineAllergyYes.Checked && !chkIodineAllergyNo.Checked) ||
                 (!chkFoodAllergyYes.Checked && !chkFoodAllergyNo.Checked) ||
                 (!chkAsthmaYes.Checked && !chkAsthmaNo.Checked) ||
+                (!chkKidneydiseaseYes.Checked && !chkKidneydiseaseNo.Checked) ||
                 (!chkKidneytransplantYes.Checked && !chkKidneytransplantNo.Checked)))
             {
                 return;
@@ -571,6 +604,11 @@ public partial class frmRiskincedent : System.Web.UI.Page
 
         if (!string.IsNullOrEmpty(txtCreatinine.Text))
             saveRiskIndication("Y", 12, "ALLERGIC", txtCreatinine.Text.Trim(), env.OrgID, env.UserID, param.REG_ID);
+
+        if (chkKidneydiseaseYes.Checked)
+            saveRiskIndication("Y", Convert.ToInt32(chkKidneydiseaseYes.Value), "RISK OF CT STUDY", txtKidneydisease.Text.Trim(), env.OrgID, env.UserID, param.REG_ID);
+        if (chkKidneydiseaseNo.Checked)
+            saveRiskIndication("N", Convert.ToInt32(chkKidneydiseaseNo.Value), "RISK OF CT STUDY", txtKidneydisease.Text.Trim(), env.OrgID, env.UserID, param.REG_ID);
 
         if (chkKidneytransplantYes.Checked)
             saveRiskIndication("Y", Convert.ToInt32(chkKidneytransplantYes.Value), "RISK OF CT STUDY", txtKidneytransplant.Text.Trim(), env.OrgID, env.UserID, param.REG_ID);
@@ -720,6 +758,9 @@ public partial class frmRiskincedent : System.Web.UI.Page
                 chkAsthmaYes.Enabled = true;
                 chkAsthmaNo.Enabled = true;
 
+                chkKidneydiseaseYes.Enabled = true;
+                chkKidneydiseaseNo.Enabled = true;
+
                 chkKidneytransplantYes.Enabled = true;
                 chkKidneytransplantNo.Enabled = true;
             }
@@ -754,6 +795,12 @@ public partial class frmRiskincedent : System.Web.UI.Page
                 chkAsthmaYes.Checked = false;
                 chkAsthmaNo.Checked = false;
                 txtAsthma.Enabled = false;
+
+                chkKidneydiseaseYes.Enabled = false;
+                chkKidneydiseaseNo.Enabled = false;
+                chkKidneydiseaseYes.Checked = false;
+                chkKidneydiseaseNo.Checked = false;
+                txtKidneydisease.Enabled = false;
 
                 chkKidneytransplantYes.Enabled = false;
                 chkKidneytransplantNo.Enabled = false;
@@ -848,6 +895,13 @@ public partial class frmRiskincedent : System.Web.UI.Page
             txtAsthma.Enabled = true;
         else
             txtAsthma.Enabled = false;
+    }
+    protected void chkKidneydisease_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chkKidneydiseaseYes.Checked)
+            txtKidneydisease.Enabled = true;
+        else
+            txtKidneydisease.Enabled = false;
     }
     protected void chkKidneytransplant_CheckedChanged(object sender, EventArgs e)
     {

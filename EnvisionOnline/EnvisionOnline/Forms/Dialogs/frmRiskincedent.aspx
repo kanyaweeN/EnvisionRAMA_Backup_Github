@@ -129,6 +129,10 @@
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaNo" />
                     <telerik:AjaxUpdatedControl ControlID="txtAsthma" />
 
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseYes" />
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseNo" />
+                    <telerik:AjaxUpdatedControl ControlID="txtKidneydisease" />
+
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantYes" />
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantNo" />
                     <telerik:AjaxUpdatedControl ControlID="txtKidneytransplant" />
@@ -158,6 +162,8 @@
                     <telerik:AjaxUpdatedControl ControlID="chkFoodAllergyNo" />
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaYes" />
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaNo" />
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseYes" />
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseNo" />
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantYes" />
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantNo" />
                 </UpdatedControls>
@@ -174,12 +180,15 @@
                     <telerik:AjaxUpdatedControl ControlID="chkFoodAllergyNo" />
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaYes" />
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaNo" />
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseYes" />
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseNo" />
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantYes" />
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantNo" />
                     <telerik:AjaxUpdatedControl ControlID="txtAllergicMRIContrastMedia" />
                     <telerik:AjaxUpdatedControl ControlID="txtIodineAllergy" />
                     <telerik:AjaxUpdatedControl ControlID="txtFoodAllergy" />
                     <telerik:AjaxUpdatedControl ControlID="txtAsthma" />
+                    <telerik:AjaxUpdatedControl ControlID="txtKidneydisease" />
                     <telerik:AjaxUpdatedControl ControlID="txtKidneytransplant" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -326,7 +335,19 @@
                     <telerik:AjaxUpdatedControl ControlID="chkAsthmaNo" />
                     <telerik:AjaxUpdatedControl ControlID="txtAsthma" />
                 </UpdatedControls>
-            </telerik:AjaxSetting>  
+            </telerik:AjaxSetting> 
+              <telerik:AjaxSetting AjaxControlID="chkKidneydiseaseYes">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseYes" />
+                    <telerik:AjaxUpdatedControl ControlID="txtKidneydisease" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>   
+            <telerik:AjaxSetting AjaxControlID="chkKidneydiseaseNo">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="chkKidneydiseaseNo" />
+                    <telerik:AjaxUpdatedControl ControlID="txtKidneydisease" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>    
             <telerik:AjaxSetting AjaxControlID="chkKidneytransplantYes">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="chkKidneytransplantYes" />
@@ -488,21 +509,20 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <telerik:RadButton ID="chkWearingMetalEquipmentInTheBodyYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkWearingMetalEquipmentInTheBody"
-                                                    Width="40px" Value="32"  OnCheckedChanged="chkWearingMetalEquipmentInTheBody_CheckedChanged"/>
+                                                <telerik:RadButton ID="chkClaustrophobiaYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkClaustrophobia"
+                                                    Width="40px" Value="23"  OnCheckedChanged="chkClaustrophobia_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <telerik:RadButton ID="chkWearingMetalEquipmentInTheBodyNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkWearingMetalEquipmentInTheBody"
-                                                    Width="40px" Value="32"  OnCheckedChanged="chkWearingMetalEquipmentInTheBody_CheckedChanged"/>
+                                                <telerik:RadButton ID="chkClaustrophobiaNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkClaustrophobia"
+                                                    Width="40px" Value="23"  OnCheckedChanged="chkClaustrophobia_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label5" runat="server" Text="1. มีโลหะหรือผ่าตัดใส่อุปกรณ์ในร่างกาย"></asp:Label>
-                                                <asp:Label ID="Label28" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                <asp:Label ID="Label9" runat="server" Text="Claustrophobia : กลัวที่แคบ"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
-                                                        <td><telerik:RadTextBox ID="txtWearingMetalEquipmentInTheBody" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                        <td><telerik:RadTextBox ID="txtClaustrophobia" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -517,52 +537,12 @@
                                                     Width="40px" Value="24"  OnCheckedChanged="chkThreadLifting_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label8" runat="server" Text="2. ศัลยกรรมร้อยไหมบนใบหน้า"></asp:Label>
+                                                <asp:Label ID="Label8" runat="server" Text="ศัลยกรรมร้อยไหมที่ใบหน้า"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
                                                         <td><telerik:RadTextBox ID="txtThreadLifting" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <telerik:RadButton ID="chkMetalInEyeYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkMetalInEye"
-                                                    Width="40px" Value="46"  OnCheckedChanged="chkMetalInEye_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <telerik:RadButton ID="chkMetalInEyeNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkMetalInEye"
-                                                    Width="40px" Value="46"  OnCheckedChanged="chkMetalInEye_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Label29" runat="server" Text="3. มีเศษโลหะฝังในตา"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td><telerik:RadTextBox ID="txtMetalInEye" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <telerik:RadButton ID="chkInsertTheMetalTracheaTubeYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkInsertTheMetalTracheaTube"
-                                                    Width="40px" Value="41"  OnCheckedChanged="chkInsertTheMetalTracheaTube_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <telerik:RadButton ID="chkInsertTheMetalTracheaTubeNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkInsertTheMetalTracheaTube"
-                                                    Width="40px" Value="41"  OnCheckedChanged="chkInsertTheMetalTracheaTube_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Label7" runat="server" Text="4. ใส่ท่อหลอดลมคอชนิดโลหะ"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td><telerik:RadTextBox ID="txtInsertTheMetalTracheaTube" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -577,12 +557,53 @@
                                                     Width="40px" Value="25"  OnCheckedChanged="chkWearBraces_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label6" runat="server" Text="5. ใส่โลหะจัดฟัน/ รากฟันเทียม/ ฟันปลอมชนิดยึดติดแน่น"></asp:Label>
+                                                <asp:Label ID="Label6" runat="server" Text="ใส่เหล็กจัดฟัน"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
                                                         <td><telerik:RadTextBox ID="txtWearBraces" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <telerik:RadButton ID="chkWearingMetalEquipmentInTheBodyYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkWearingMetalEquipmentInTheBody"
+                                                    Width="40px" Value="32"  OnCheckedChanged="chkWearingMetalEquipmentInTheBody_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="chkWearingMetalEquipmentInTheBodyNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkWearingMetalEquipmentInTheBody"
+                                                    Width="40px" Value="32"  OnCheckedChanged="chkWearingMetalEquipmentInTheBody_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label5" runat="server" Text="ผ่าตัดใส่อุปกรณ์โลหะในร่างกาย เช่น plate screwsยึดกระดูก ข้อเข่า ข้อสะโพกเทียม"></asp:Label>
+                                                <asp:Label ID="Label28" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><telerik:RadTextBox ID="txtWearingMetalEquipmentInTheBody" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                            <td>
+                                                <telerik:RadButton ID="chkInsertTheMetalTracheaTubeYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkInsertTheMetalTracheaTube"
+                                                    Width="40px" Value="41"  OnCheckedChanged="chkInsertTheMetalTracheaTube_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="chkInsertTheMetalTracheaTubeNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkInsertTheMetalTracheaTube"
+                                                    Width="40px" Value="41"  OnCheckedChanged="chkInsertTheMetalTracheaTube_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label7" runat="server" Text="ใส่ท่อหลอดลมคอชนิดโลหะ"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><telerik:RadTextBox ID="txtInsertTheMetalTracheaTube" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -597,32 +618,12 @@
                                                     Width="40px" Value="43"  OnCheckedChanged="chkPermanentRadiationImplantation_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label11" runat="server" Text="6. มีประวัติการรักษาแบบฝังสารกัมมันตรังสีแบบถาวร"></asp:Label>
+                                                <asp:Label ID="Label11" runat="server" Text="เคยรักษาแบบฝังสารกัมมันตรังสีแบบถาวรหรือไม่"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
                                                         <td><telerik:RadTextBox ID="txtPermanentRadiationImplantation" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <telerik:RadButton ID="chkClaustrophobiaYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkClaustrophobia"
-                                                    Width="40px" Value="23"  OnCheckedChanged="chkClaustrophobia_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <telerik:RadButton ID="chkClaustrophobiaNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkClaustrophobia"
-                                                    Width="40px" Value="23"  OnCheckedChanged="chkClaustrophobia_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Label9" runat="server" Text="7. กลัวที่แคบ"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td><telerik:RadTextBox ID="txtClaustrophobia" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -637,12 +638,31 @@
                                                     Width="40px" Value="44"  OnCheckedChanged="chkPregnantMRI_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label12" runat="server" Text="8. ตั้งครรภ์"></asp:Label>
+                                                <asp:Label ID="Label12" runat="server" Text="ตั้งครรภ์"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
                                                         <td><telerik:RadTextBox ID="txtPregnantMRI" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr><tr>
+                                            <td>
+                                                <telerik:RadButton ID="chkMetalInEyeYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkMetalInEye"
+                                                    Width="40px" Value="46"  OnCheckedChanged="chkMetalInEye_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="chkMetalInEyeNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkMetalInEye"
+                                                    Width="40px" Value="46"  OnCheckedChanged="chkMetalInEye_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label29" runat="server" Text="มีเศษโลหะฝังในตา"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><telerik:RadTextBox ID="txtMetalInEye" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -659,7 +679,7 @@
                                                     Value="47" OnCheckedChanged="chkAllergicMRIContrastMedia_CheckedChanged" />
                                             </td>
                                             <td>
-                                                <asp:Label ID="lblAllergicMRIContrastMedia" runat="server" Text="9. มีประวัติแพ้สาร MRI contrast media"></asp:Label>
+                                                <asp:Label ID="lblAllergicMRIContrastMedia" runat="server" Text="มีประวัติแพ้สาร MRI contrast media"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
@@ -683,35 +703,17 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <telerik:RadButton ID="chkIodineAllergyYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkIodineAllergy"
-                                                    Width="40px" Value="15"  OnCheckedChanged="chkIodineAllergy_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <telerik:RadButton ID="chkIodineAllergyNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkIodineAllergy"
-                                                    Width="40px" Value="15"  OnCheckedChanged="chkIodineAllergy_CheckedChanged"/>
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Label2" runat="server" Text="1. แพ้สารไอโอดีน/สารทึบรังสี"></asp:Label>
-                                            </td>
-                                            <td>
-                                                <table width="100%">
-                                                    <tr>
-                                                        <td><telerik:RadTextBox ID="txtIodineAllergy" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <telerik:RadButton ID="chkFoodAllergyYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkFoodAllergy"
-                                                    Width="40px" Value="13"  OnCheckedChanged="chkFoodAllergy_CheckedChanged"/>
+                                                <telerik:RadButton ID="chkFoodAllergyYes" runat="server"  
+                                                    ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkFoodAllergy" 
+                                                    Value="13"  OnCheckedChanged="chkFoodAllergy_CheckedChanged" 
+                                                    style="top: 0px; left: 0px; width: 40px"/>
                                             </td>
                                             <td>
                                                 <telerik:RadButton ID="chkFoodAllergyNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkFoodAllergy"
                                                     Width="40px" Value="13"  OnCheckedChanged="chkFoodAllergy_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label21" runat="server" Text="2. แพ้อาหาร/อาหารทะเล"></asp:Label>
+                                                <asp:Label ID="Label21" runat="server" Text="Food / Seafood Allergy (แพ้อาหาร / อาหารทะเล)"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
@@ -723,6 +725,27 @@
                                         </tr>
                                         <tr>
                                             <td>
+                                                <telerik:RadButton ID="chkIodineAllergyYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkIodineAllergy"
+                                                    Width="40px" Value="15"  OnCheckedChanged="chkIodineAllergy_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="chkIodineAllergyNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkIodineAllergy"
+                                                    Width="40px" Value="15"  OnCheckedChanged="chkIodineAllergy_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label2" runat="server" Text="Iodine / Contrast Allergy (แพ้สารไอโอดีน / สารทึบรังสี)"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><telerik:RadTextBox ID="txtIodineAllergy" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
                                                 <telerik:RadButton ID="chkAsthmaYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkAsthma"
                                                     Width="40px" Value="16"  OnCheckedChanged="chkAsthma_CheckedChanged"/>
                                             </td>
@@ -731,12 +754,32 @@
                                                     Width="40px" Value="16"  OnCheckedChanged="chkAsthma_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label1" runat="server" Text="3. เป็นโรคหอบหืด"></asp:Label>
+                                                <asp:Label ID="Label1" runat="server" Text="asthma (หอบหืด)"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
                                                     <tr>
                                                         <td><telerik:RadTextBox ID="txtAsthma" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <telerik:RadButton ID="chkKidneydiseaseYes" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkKidneydisease"
+                                                    Width="40px" Value="50"  OnCheckedChanged="chkKidneydisease_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <telerik:RadButton ID="chkKidneydiseaseNo" runat="server"  ButtonType="ToggleButton" ToggleType="Radio" GroupName="chkKidneydisease"
+                                                    Width="40px" Value="50"  OnCheckedChanged="chkKidneydisease_CheckedChanged"/>
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Label18" runat="server" Text="มีโรคไต"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><telerik:RadTextBox ID="txtKidneydisease" runat="server" TextMode="SingleLine" Width="99%" DisabledStyle-BackColor="LightBlue"></telerik:RadTextBox></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -751,7 +794,7 @@
                                                     Width="40px" Value="17"  OnCheckedChanged="chkKidneytransplant_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label15" runat="server" Text="4. เป็นโรคไต มีไตข้างเดียวหรือปลูกถ่ายไต"></asp:Label>
+                                                <asp:Label ID="Label15" runat="server" Text="Kidney transplant (มีไตข้างเดียว หรือเคยปลูกถ่ายไต)"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
@@ -771,7 +814,7 @@
                                                     Width="40px" Value="48"  OnCheckedChanged="chkPregnantCT_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label10" runat="server" Text="5. ตั้งครรภ์"></asp:Label>
+                                                <asp:Label ID="Label10" runat="server" Text="ตั้งครรภ์"></asp:Label>
                                             </td>
                                             <td>
                                                 <table width="100%">
@@ -791,8 +834,8 @@
                                                     Width="40px" Value="49"  OnCheckedChanged="chkAllergicCT_CheckedChanged"/>
                                             </td>
                                             <td>
-                                                <asp:Label ID="Label13" runat="server" Text="6. มีประวัติการรักษาแบบฝังสารกัมมันตรังสีแบบถาวร"></asp:Label>
-                                            </td>
+                                                <asp:Label ID="Label13" runat="server" Text="มีประวัติการรักษาแบบฝังสารกัมมันตรังสีแบบถาวร"></asp:Label>
+                                            </td>             
                                             <td>
                                                 <table width="100%">
                                                     <tr>

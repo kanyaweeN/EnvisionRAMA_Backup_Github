@@ -68,11 +68,25 @@ namespace EnvisionOnline.DataAccess.Select
             ParameterList = this.BuildParametersByScheduleID();
             return ExecuteDataTable();
         }
+        public DataTable getDataByXrayReqID()
+        {
+            this.StoredProcedureName = StoredProcedure.Prc_RIS_RISKINCIDENTS_SELECTbyXRAYREQID;
+            ParameterList = this.BuildParametersByXrayreqID();
+            return ExecuteDataTable();
+        }
         private DbParameter[] BuildParametersByScheduleID()
         {
 
             DbParameter[] parameters = {
                                            Parameter("@SCHEDULE_ID", RIS_RISKINCIDENTS.SCHEDULE_ID),
+                                       };
+            return parameters;
+        }
+        private DbParameter[] BuildParametersByXrayreqID()
+        {
+
+            DbParameter[] parameters = {
+                                           Parameter("@XRAYREQ_ID", RIS_RISKINCIDENTS.XRAYREQ_ID),
                                        };
             return parameters;
         }

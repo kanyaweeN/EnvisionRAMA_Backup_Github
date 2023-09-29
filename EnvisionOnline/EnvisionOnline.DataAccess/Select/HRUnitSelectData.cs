@@ -46,5 +46,12 @@ namespace EnvisionOnline.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
         }
+        public DataSet checkNewOnlineUnit()
+        {
+            StoredProcedureName = StoredProcedure.Prc_HR_UNIT_SelectNewOnline;
+            DataSet ds = new DataSet();
+            ds = ExecuteDataSet();
+            return ds;
+        }
     }
 }

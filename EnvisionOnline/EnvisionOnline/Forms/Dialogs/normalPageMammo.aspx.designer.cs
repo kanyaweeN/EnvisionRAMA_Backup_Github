@@ -318,24 +318,6 @@ public partial class normalPageMammo {
     protected global::Telerik.Web.UI.RadButton chkMammographyNeedlelocalizatio;
     
     /// <summary>
-    /// favDuctography control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton favDuctography;
-    
-    /// <summary>
-    /// chkDuctography control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton chkDuctography;
-    
-    /// <summary>
     /// favCoreNeedleBiopsywithMammotomeG11 control.
     /// </summary>
     /// <remarks>

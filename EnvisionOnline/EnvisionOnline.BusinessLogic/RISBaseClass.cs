@@ -160,6 +160,15 @@ namespace EnvisionOnline.BusinessLogic
             dtModality.TableName = "RIS_MODALITY";
             return dtModality;
         }
+        public DataTable get_Ris_Modality_setAppintmentByPatientType(int modalityId)
+        {
+            DataTable dtModality = new DataTable();
+            ProcessGetRISModality processModality = new ProcessGetRISModality();
+            processModality.getModalitysetAppintmentByPatientType(modalityId);
+            dtModality = processModality.Result.Tables[0].Copy();
+            dtModality.TableName = "RIS_MODALITY";
+            return dtModality;
+        }
         public DataTable get_Ris_ModalityType(bool is_online)
         {
             DataTable dtModalityType = new DataTable();

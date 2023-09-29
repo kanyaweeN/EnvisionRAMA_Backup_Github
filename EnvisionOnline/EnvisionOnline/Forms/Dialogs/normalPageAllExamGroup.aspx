@@ -146,7 +146,7 @@
             <tr>
                 <td valign="top">
                     <asp:Label ID="lblHeard" runat="server" Text="Group" Width="100%" CssClass="header"></asp:Label>
-                    <telerik:RadGrid ID="grdGroupType" runat="server" PageSize="15" Height="441px" ShowStatusBar="false"
+                    <telerik:RadGrid ID="grdGroupType" runat="server" PageSize="15" Height="661px" ShowStatusBar="false"
                         AllowSorting="false" AllowPaging="false" EnableAJAX="true" AllowFilteringByColumn="false"  
                         OnNeedDataSource="grdGroupType_NeedDataSource"
                         OnSelectedIndexChanged="grdGroupType_SelectedIndexChanged">
@@ -176,7 +176,7 @@
                 </td>
                 <td valign="top">
                     <asp:Label ID="Label1" runat="server" Text="Exam Name" Width="100%" CssClass="header"></asp:Label>
-                    <telerik:RadGrid ID="grdExam" runat="server" PageSize="16" Height="441px" ShowStatusBar="true"
+                    <telerik:RadGrid ID="grdExam" runat="server" PageSize="16" Height="641px" ShowStatusBar="true"
                         AllowSorting="True" AllowPaging="True" EnableAJAX="true" AllowFilteringByColumn="false" 
                         OnNeedDataSource="grdExam_NeedDataSource"
                         OnItemCommand="grdExam_ItemCommand"

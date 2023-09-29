@@ -148,6 +148,26 @@ namespace EnvisionOnline.DataAccess.Select
             dtt = ExecuteDataTable();
             return dtt;
         }
+        public DataTable GetExamRHS(int exam_id)
+        {
+            DataTable dtt = new DataTable();
+            StoredProcedureName = StoredProcedure.Prc_RIS_EXAM_Select_RHS;
+            ParameterList = new DbParameter[] {
+                Parameter("@EXAM_ID",exam_id)
+			};
+            dtt = ExecuteDataTable();
+            return dtt;
+        }
+        public DataTable GetExamLocation(int exam_id)
+        {
+            DataTable dtt = new DataTable();
+            StoredProcedureName = StoredProcedure.Prc_RIS_EXAM_Select_Location;
+            ParameterList = new DbParameter[] {
+                Parameter("@EXAM_ID",exam_id)
+			};
+            dtt = ExecuteDataTable();
+            return dtt;
+        }
     }
 }
 

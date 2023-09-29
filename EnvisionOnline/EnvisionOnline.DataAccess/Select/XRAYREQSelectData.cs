@@ -28,5 +28,17 @@ namespace EnvisionOnline.DataAccess.Select
             ds = ExecuteDataTable();
             return ds;
         }
+        public DataTable GetBusyExamSameDate()
+        {
+            StoredProcedureName = StoredProcedure.Prc_XRAYREQDTL_SelectExamSameDate;
+            DataTable ds = new DataTable();
+            ParameterList = new DbParameter[] { 
+                                                Parameter("@HN",XRAYREQ.HN),
+                                                Parameter("@EXAM_ID",XRAYREQ.EXAM_ID),
+                                                Parameter("@EXAM_DT",XRAYREQ.EXAM_DT)
+                                                };
+            ds = ExecuteDataTable();
+            return ds;
+        }
     }
 }

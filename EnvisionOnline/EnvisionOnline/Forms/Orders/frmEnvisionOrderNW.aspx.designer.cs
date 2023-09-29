@@ -210,6 +210,24 @@ public partial class frmEnvisionOrderNW {
     protected global::Telerik.Web.UI.RadWindow windowAlertExam;
     
     /// <summary>
+    /// windowBodyInterventionPage control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadWindow windowBodyInterventionPage;
+    
+    /// <summary>
+    /// windowBodyInterventionPopup control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadWindow windowBodyInterventionPopup;
+    
+    /// <summary>
     /// labelHead control.
     /// </summary>
     /// <remarks>
@@ -462,15 +480,6 @@ public partial class frmEnvisionOrderNW {
     protected global::Telerik.Web.UI.RadButton btnUS;
     
     /// <summary>
-    /// btnCT control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::Telerik.Web.UI.RadButton btnCT;
-    
-    /// <summary>
     /// btnFlu control.
     /// </summary>
     /// <remarks>
@@ -480,13 +489,13 @@ public partial class frmEnvisionOrderNW {
     protected global::Telerik.Web.UI.RadButton btnFlu;
     
     /// <summary>
-    /// btnMR control.
+    /// btnCT control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::Telerik.Web.UI.RadButton btnMR;
+    protected global::Telerik.Web.UI.RadButton btnCT;
     
     /// <summary>
     /// btnMAMMO control.
@@ -496,6 +505,24 @@ public partial class frmEnvisionOrderNW {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::Telerik.Web.UI.RadButton btnMAMMO;
+    
+    /// <summary>
+    /// btnBodyIntervention control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton btnBodyIntervention;
+    
+    /// <summary>
+    /// btnMR control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::Telerik.Web.UI.RadButton btnMR;
     
     /// <summary>
     /// btnOR control.

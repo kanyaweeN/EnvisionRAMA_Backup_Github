@@ -81,5 +81,11 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             _proc.RIS_CLINICSESSION = this.RIS_CLINICSESSION;
             return _proc.getScheduleCountInSession();
         }
+        public DataSet getSessionByModality()
+        {
+            RISClinicsessionSelectData _proc = new RISClinicsessionSelectData();
+            _proc.RIS_CLINICSESSION = this.RIS_CLINICSESSION;
+            return _proc.getSessionByModality();
+        }
     }
 }

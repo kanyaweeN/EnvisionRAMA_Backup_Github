@@ -54,6 +54,11 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             RISModalitySelectData _proc = new RISModalitySelectData();
             return _proc.GetDataID(modalityID);
         }
+        public void getModalitysetAppintmentByPatientType(int modalityId)
+        {
+            RISModalitySelectData _proc = new RISModalitySelectData();
+            result = _proc.getModalitysetAppintmentByPatientType(modalityId);
+        }
     }
 }
 

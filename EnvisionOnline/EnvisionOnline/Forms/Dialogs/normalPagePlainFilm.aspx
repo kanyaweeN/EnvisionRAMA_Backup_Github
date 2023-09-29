@@ -100,16 +100,16 @@
                 </td>
                 <td colspan="5" valign="top">
                     <telerik:RadMultiPage ID="multipageMain" runat="server" SelectedIndex="0">
-                        <telerik:RadPageView ID="viewRutine"    Height="460" Width="735" runat="server" ContentUrl="normalPageCRRutineCase.aspx" Selected="true"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewHead"      Height="460" Width="735" runat="server" ContentUrl="normalPageCRHeadAndNeck.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewChest"     Height="460" Width="735" runat="server" ContentUrl="normalPageCRChestAndAbdomen.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewSpine"     Height="460" Width="735" runat="server" ContentUrl="normalPageCRSpine.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewHip"       Height="460" Width="735" runat="server" ContentUrl="normalPageCRHipAndPelvis.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewShoulder"  Height="460" Width="735" runat="server" ContentUrl="normalPageCRShoulderAndClavicle.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewUpperEx"   Height="460" Width="735" runat="server" ContentUrl="normalPageCRUpperExtremity.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewLowerrEx"  Height="460" Width="735" runat="server" ContentUrl="normalPageCRLowerExtremity.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewBone"      Height="460" Width="735" runat="server" ContentUrl="normalPageCRBone.aspx"></telerik:RadPageView>
-                        <telerik:RadPageView ID="viewER"        Height="460" Width="735" runat="server" ContentUrl="normalPageCRERTraumaSeries.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewRutine"    Height="660" Width="935" runat="server" ContentUrl="normalPageCRRutineCase.aspx" Selected="true"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewHead"      Height="660" Width="935" runat="server" ContentUrl="normalPageCRHeadAndNeck.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewChest"     Height="660" Width="935" runat="server" ContentUrl="normalPageCRChestAndAbdomen.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewSpine"     Height="660" Width="935" runat="server" ContentUrl="normalPageCRSpine.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewHip"       Height="660" Width="935" runat="server" ContentUrl="normalPageCRHipAndPelvis.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewShoulder"  Height="660" Width="935" runat="server" ContentUrl="normalPageCRShoulderAndClavicle.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewUpperEx"   Height="660" Width="935" runat="server" ContentUrl="normalPageCRUpperExtremity.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewLowerrEx"  Height="660" Width="935" runat="server" ContentUrl="normalPageCRLowerExtremity.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewBone"      Height="660" Width="935" runat="server" ContentUrl="normalPageCRBone.aspx"></telerik:RadPageView>
+                        <telerik:RadPageView ID="viewER"        Height="660" Width="935" runat="server" ContentUrl="normalPageCRERTraumaSeries.aspx"></telerik:RadPageView>
                     </telerik:RadMultiPage>
                 </td>
             </tr>

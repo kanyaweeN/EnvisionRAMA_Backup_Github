@@ -120,11 +120,11 @@
             </Tabs>
         </telerik:RadTabStrip>
         <telerik:RadMultiPage  ID="MultipageMR" runat="server" SelectedIndex="1">
-            <telerik:RadPageView ID="viewMRIRequest" runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageMR.aspx" Selected="true"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMRI" runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageMRI.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMRA" runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageMRA.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMRV" runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageMRV.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewMRS" runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageMRS.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMRIRequest" runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageMR.aspx" Selected="true"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMRI" runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageMRI.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMRA" runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageMRA.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMRV" runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageMRV.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewMRS" runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageMRS.aspx"></telerik:RadPageView>
         </telerik:RadMultiPage>
 	</div>
 	</form>

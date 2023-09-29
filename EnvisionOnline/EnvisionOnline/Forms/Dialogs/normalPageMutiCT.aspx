@@ -120,10 +120,10 @@
             </Tabs>
         </telerik:RadTabStrip>
         <telerik:RadMultiPage  ID="MultipageCT" runat="server" SelectedIndex="1">
-            <telerik:RadPageView ID="viewCTOriginal"    runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageCT.aspx" Selected="true"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewCTMain"        runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageCTMain.aspx"></telerik:RadPageView>     
-            <telerik:RadPageView ID="viewCTA"           runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageCTA.aspx"></telerik:RadPageView>
-            <telerik:RadPageView ID="viewCTV"           runat="server" Height="460" ContentUrl="~/Forms/Dialogs/normalPageCTV.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewCTOriginal"    runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageCT.aspx" Selected="true"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewCTMain"        runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageCTMain.aspx"></telerik:RadPageView>     
+            <telerik:RadPageView ID="viewCTA"           runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageCTA.aspx"></telerik:RadPageView>
+            <telerik:RadPageView ID="viewCTV"           runat="server" Height="660" ContentUrl="~/Forms/Dialogs/normalPageCTV.aspx"></telerik:RadPageView>
         </telerik:RadMultiPage>
 	</div>
 	</form>

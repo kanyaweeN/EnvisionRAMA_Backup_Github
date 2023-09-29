@@ -130,6 +130,8 @@
     <Content Include="Forms\Admin\frmSetupCinicalIndicationWithUnit.aspx" />
     <Content Include="Forms\Admin\frmSetupDirectlyOrder.aspx" />
     <Content Include="Forms\Admin\frmSetupGroupExam.aspx" />
+    <Content Include="Forms\Dialogs\frmBodyIntervention.aspx" />
+    <Content Include="Forms\Dialogs\normalPageBodyIntervention.aspx" />
     <Content Include="Forms\Dialogs\OnlineMessageBoxBusy.aspx" />
     <Content Include="Forms\Dialogs\frmAllNextAppointment.aspx" />
     <Content Include="Forms\Dialogs\frmBasicClinicalIndication.aspx" />
@@ -202,8 +204,11 @@
     <Content Include="ReportViewer\frmPreviewReport.aspx" />
     <Content Include="ReportViewer\frmXtraReportViewer.aspx" />
     <Content Include="Resources\background.jpg" />
+    <Content Include="Resources\ICON\1200px-Cath_Lab_-_The_Noun_Project50.svg.png" />
     <Content Include="Resources\ICON\Comment-add-icon16.png" />
     <Content Include="Resources\ICON\Comment-add-icon16_gray.png" />
+    <Content Include="Resources\ICON\InvestingIcon.png" />
+    <Content Include="Resources\ICON\InvestingIcon50.png" />
     <Content Include="Resources\ICON\listicon.svg" />
     <Content Include="Resources\ICON\MessageBoxs\flag32.png" />
     <Content Include="Resources\ICON\MessageBoxs\warning.png" />
@@ -414,6 +419,20 @@
     </Compile>
     <Compile Include="Forms\Admin\masterAdmin.Master.designer.cs">
       <DependentUpon>masterAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmBodyIntervention.aspx.cs">
+      <DependentUpon>frmBodyIntervention.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\frmBodyIntervention.aspx.designer.cs">
+      <DependentUpon>frmBodyIntervention.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageBodyIntervention.aspx.cs">
+      <DependentUpon>normalPageBodyIntervention.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\normalPageBodyIntervention.aspx.designer.cs">
+      <DependentUpon>normalPageBodyIntervention.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dialogs\OnlineMessageBoxBusy.aspx.cs">
       <DependentUpon>OnlineMessageBoxBusy.aspx</DependentUpon>
@@ -1191,7 +1210,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>37503</DevelopmentServerPort>
+          <DevelopmentServerPort>5847</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
@@ -1202,7 +1221,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

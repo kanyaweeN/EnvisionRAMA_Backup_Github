@@ -45,6 +45,18 @@ public partial class normalPageMR : System.Web.UI.Page
                     else
                         chk.Checked = false;
 
+                    DataTable dtExamAll = Application["ExamAllData"] as DataTable;
+                    DataRow[] rows = dtExamAll.Select("EXAM_UID='" + _value + "'");
+                    if (rows.Length > 0)
+                    {
+                        if (((RadButton)childc).ID.Substring(0, 3) == "chk")
+                            ((RadButton)childc).Text = rows[0]["EXAM_NAME"].ToString();
+                    }
+                    else if (rows.Length == 0)
+                    {
+                        ((RadButton)childc).Visible = false;
+                    }
+
                     string _groupName = ((RadButton)childc).GroupName;
                     DataRow[] rowCheckFav = param.dvExamFavorite.Select("EXAM_UID='" + _value + "'");
                     if (rowCheckFav.Length > 0 && _groupName == "FAV")

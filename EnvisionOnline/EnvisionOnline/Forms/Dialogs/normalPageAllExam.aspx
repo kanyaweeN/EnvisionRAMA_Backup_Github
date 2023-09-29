@@ -130,7 +130,7 @@
             <tr>
                 <td colspan="1" rowspan="2" valign="top">
                     <asp:Label ID="lblHeard" runat="server" Text="Modality" Width="100%" CssClass="header"></asp:Label>
-                    <telerik:RadGrid ID="grdModality" runat="server" PageSize="15" Height="441px" ShowStatusBar="false"
+                    <telerik:RadGrid ID="grdModality" runat="server" PageSize="15" Height="645px" ShowStatusBar="false"
                         AllowSorting="false" AllowPaging="false" EnableAJAX="true" AllowFilteringByColumn="false"  
                         OnNeedDataSource="grdModality_NeedDataSource"
                         OnItemDataBound="grdModality_ItemDataBound"
@@ -171,7 +171,7 @@
             <tr>
                 <td colspan="1">
                     <asp:Label ID="Label1" runat="server" Text="Exam Name" Width="100%" CssClass="header"></asp:Label>
-                    <telerik:RadGrid ID="grdExam" runat="server" PageSize="16" Height="415px" ShowStatusBar="true"
+                    <telerik:RadGrid ID="grdExam" runat="server" PageSize="16" Height="615px" ShowStatusBar="true"
                         AllowSorting="True" AllowPaging="True" EnableAJAX="true" AllowFilteringByColumn="false" 
                         OnNeedDataSource="grdExam_NeedDataSource"
                         OnItemCommand="grdExam_ItemCommand"

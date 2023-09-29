@@ -271,7 +271,7 @@
                 </table>
             </td>
         </tr>
-        <tr>
+ <%--       <tr>
             <td class="textStyle" colspan="2">
                 <table width="100%">
                     <tr>
@@ -287,7 +287,7 @@
                     </tr>
                 </table>
             </td>  
-        </tr>
+        </tr>--%>
         <tr>
             <td class="textStyle" colspan="2">
                 <table width="100%">

@@ -491,7 +491,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favClavicleAcromioclavicularACjointBoth"            Text="" Width="4px" style="vertical-align:top;"                                                          Value="XX159"    runat="server"      ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle" colspan="3"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointBoth"            Text="Clavicle : Acromioclavicular: A-C joint (Both Stress AP view)"        Value="XX159"   runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="textStyle" colspan="1"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointBoth"            Text="Clavicle : Acromioclavicular: A-C joint (Both Stress AP view)"        Value="XX159"   runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>
@@ -502,7 +502,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favClavicleAcromioclavicularACjointWEIGHT"          Text="" Width="4px" style="vertical-align:top;"                                               Value="XP04"       runat="server"      ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle" colspan="3"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointWEIGHT"          Text="Clavicle : Acromioclavicular: A-C joint (Weight Bearing)"  Value="XP04"       runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointWEIGHT"          Text="Clavicle : Acromioclavicular: A-C joint (Weight Bearing)"  Value="XP04"       runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>
@@ -513,7 +513,7 @@
                 <table width="100%">
                     <tr>
                         <td class="favoritStyle"><telerik:RadButton             ID="favClavicleAcromioclavicularACjointZANCA"           Text="" Width="10px" style="vertical-align:top;"                                               Value="XX147"       runat="server"      ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                        <td class="textStyle" colspan="1"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointZANCA"           Text="Clavicle : Acromioclavicular: A-C joint (Zanca view)"      Value="XX147"      runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                        <td class="textStyle"><telerik:RadButton    ID="chkClavicleAcromioclavicularACjointZANCA"           Text="Clavicle : Acromioclavicular: A-C joint (Zanca view)"      Value="XX147"      runat="server"      ButtonType="ToggleButton" GroupName="CR"  ToggleType="CheckBox"  OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                     </tr>
                 </table>
             </td>

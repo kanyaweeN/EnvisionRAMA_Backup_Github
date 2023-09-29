@@ -241,15 +241,22 @@ namespace EnvisionOnline.ReportViewer.Reports
             if (_demographic.Result != null)
                 if (_demographic.Result.Tables[0].Rows.Count != 0)
                 {
+                    string PATIENT_ID_LABEL = "";
+                    if (!string.IsNullOrEmpty(_demographic.Result.Tables[0].Rows[0]["PATIENT_ID_LABEL"].ToString()))
+                        PATIENT_ID_LABEL = "["+ _demographic.Result.Tables[0].Rows[0]["PATIENT_ID_LABEL"].ToString()+"]";
+
                     _patientDemographic.Age = _demographic.Result.Tables[0].Rows[0]["AGE2"].ToString();
-                    _patientDemographic.EngName = string.Format("{0}{1} {2} {3}", ""
+                    _patientDemographic.EngName = string.Format("{0}{1} {2} {3}{4}", ""
                         , _demographic.Result.Tables[0].Rows[0]["FNAME_ENG"].ToString()
                         , _demographic.Result.Tables[0].Rows[0]["MNAME_ENG"].ToString()
-                        , _demographic.Result.Tables[0].Rows[0]["LNAME_ENG"].ToString());
-                    _patientDemographic.ThaiName = string.Format("{0}{1} {2} {3}", _demographic.Result.Tables[0].Rows[0]["TITLE"].ToString()
+                        , _demographic.Result.Tables[0].Rows[0]["LNAME_ENG"].ToString()
+                        , PATIENT_ID_LABEL);
+                    //_patientDemographic.ThaiName = string.Format("{0}{1} {2} {3}", _demographic.Result.Tables[0].Rows[0]["TITLE"].ToString() //old
+                    _patientDemographic.ThaiName = string.Format("{0}{1} {2} {3}{4}", ""
                         , _demographic.Result.Tables[0].Rows[0]["FNAME"].ToString()
                         , _demographic.Result.Tables[0].Rows[0]["MNAME"].ToString()
-                        , _demographic.Result.Tables[0].Rows[0]["LNAME"].ToString());
+                        , _demographic.Result.Tables[0].Rows[0]["LNAME"].ToString()
+                        , PATIENT_ID_LABEL);
 
                     _patientDemographic.HN = this.HN;
                     _patientDemographic.LMPDate = "-";

@@ -271,8 +271,8 @@
                         <td colspan="2">
                             <table width="100%">
                                 <tr>
-                                    <td class="favoritStyle"><telerik:RadButton ID="favHeadNeck_SS"         Text="" Width="5px" style="vertical-align:top;"          Value="XC06"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
-                                    <td class="textStyle"><telerik:RadButton    ID="chkHeadNeck_SS"         Text="CT Screening Sinuses"    Value="XC06"    runat="server" ToggleType="CheckBox" ButtonType="ToggleButton" GroupName="groupCT" OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
+                                    <td class="favoritStyle"><telerik:RadButton ID="favHeadNeck_SS"         Text="" Width="5px" style="vertical-align:top;"          Value="XC058"    runat="server"       ButtonType="ToggleButton" GroupName="FAV"  ToggleType="CustomToggle"   OnClick="Favorite_Click" ><Icon PrimaryIconUrl = "../../Resources/ICON/favorite_gray_12.png"  /></telerik:RadButton></td>
+                                    <td class="textStyle"><telerik:RadButton    ID="chkHeadNeck_SS"         Text="CT Sinuses without Contrast"    Value="XC058"    runat="server" ToggleType="CheckBox" ButtonType="ToggleButton" GroupName="groupCT" OnCheckedChanged="chekbox_CheckedChanged"></telerik:RadButton></td>
                                 </tr>
                             </table>
                         </td>

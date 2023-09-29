@@ -141,6 +141,8 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_EXAM_Update,
         Prc_RIS_EXAM_Delete,
         Prc_RIS_EXAM_SelectAll,
+        Prc_RIS_EXAM_Select_RHS,
+        Prc_RIS_EXAM_Select_Location,
         Prc_RIS_EXAMTYPE_Select,
 
         Prc_RIS_EXAMINSTRUCTIONS_Select,
@@ -652,6 +654,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_ORDER_SelectOrderReport,
         Prc_XRAYREQ_SelectOrderReport,
         Prc_XRAYREQ_SelectBusyCase,
+        Prc_XRAYREQDTL_SelectExamSameDate,
 
         Prc_RIS_SCHEDULE_Online_Insert,
         Prc_RIS_SCHEDULE_Online_Insert2,
@@ -722,6 +725,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_RISKCATEGORIES_SELECTbyCONTRAINDICATION,
         Prc_RIS_RISKINCIDENTS_SELECTbyREG_ID,
         Prc_RIS_RISKINCIDENTS_SELECTbyScheduleID,
+        Prc_RIS_RISKINCIDENTS_SELECTbyXRAYREQID,
         Prc_RIS_RISKINCIDENTS_SELECT,
         Prc_RIS_RISKINCIDENTS_DELETE,
         Prc_RIS_RISKINCIDENTS_DELETEbyREG_ID,
@@ -745,6 +749,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_ORDERDTL_Insert_v2,
         Prc_RIS_ONLORDERDIRECTLY_Delete,
         Prc_RIS_CLINICSESSION_SelectByAppointDate2,
+        Prc_RIS_CLINICSESSION_SelectByModality,
         Prc_ONL_DIRECTLYORDER_Select,
         Prc_ONL_DIRECTLYORDER_SelectByExamId,
         Prc_ONL_DIRECTLYORDER_SelectByUnitAndClinic,
@@ -768,6 +773,7 @@ namespace EnvisionOnline.DataAccess
         Prc_ONL_GROUPEXAM_SelectByGTypeID,
         Prc_ONL_EXAMCNMI_Select,
         Prc_RIS_MODALITY_SelectByID,
+        Prc_RIS_MODALITY_Select_forSetAppintmentByPatientType,
         Prc_RIS_MODALITYEXAM_ONL_SelectByExamIDCNMI,
         Prc_VNA_WORKLIST_InsertOrUpdate,
         Prc_HR_UNIT_Check,
@@ -778,6 +784,7 @@ namespace EnvisionOnline.DataAccess
         Prc_RIS_SCHEDULE_Online_SelectCheckDisplay,
         Prc_ONL_EXAMMAPCLINIC_Select,
         Prc_HR_UNIT_SelectCovid,
+        Prc_HR_UNIT_SelectNewOnline,
         Prc_RIS_ORDER_InsertDirectOnline,
         Prc_RIS_CLINICALINDICATIONTYPE_SelectWithParam,
         #endregion

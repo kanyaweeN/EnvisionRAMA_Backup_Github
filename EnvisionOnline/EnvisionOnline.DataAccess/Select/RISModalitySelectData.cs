@@ -44,6 +44,17 @@ namespace EnvisionOnline.DataAccess.Select
             ds = ExecuteDataSet();
             return ds;
         }
+        public DataSet getModalitysetAppintmentByPatientType(int modalityID)
+        {
+            StoredProcedureName = StoredProcedure.Prc_RIS_MODALITY_Select_forSetAppintmentByPatientType;
+            DbParameter[] parameters ={			
+                Parameter("@MODALITY_ID",modalityID)
+			};
+            ParameterList = parameters;
+            DataSet ds = new DataSet();
+            ds = ExecuteDataSet();
+            return ds;
+        }
     }
 }
 

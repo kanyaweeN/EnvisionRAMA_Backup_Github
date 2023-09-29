@@ -40,6 +40,12 @@ namespace EnvisionOnline.BusinessLogic.ProcessRead
             processor.RIS_RISKINCIDENTS = RIS_RISKINCIDENTS;
             return processor.getDataByScheduleID();
         }
+        public DataTable getDataByXrayReqID()
+        {
+            RisRiskIncidentsSelect processor = new RisRiskIncidentsSelect();
+            processor.RIS_RISKINCIDENTS = RIS_RISKINCIDENTS;
+            return processor.getDataByXrayReqID();
+        }
         #endregion
     }
 }

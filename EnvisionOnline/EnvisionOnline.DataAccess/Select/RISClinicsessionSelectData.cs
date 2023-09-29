@@ -180,5 +180,21 @@ namespace EnvisionOnline.DataAccess.Select
                                        };
             return parameters;
         }
+        public DataSet getSessionByModality()
+        {
+
+            StoredProcedureName = StoredProcedure.Prc_RIS_CLINICSESSION_SelectByModality;
+            DataSet ds = new DataSet();
+            ParameterList = buildParameterSessionByModality();
+            ds = ExecuteDataSet();
+            return ds;
+        }
+        private DbParameter[] buildParameterSessionByModality()
+        {
+            DbParameter[] parameters = { 
+                                          Parameter("@MODALITY_ID",RIS_CLINICSESSION.MODALITY_ID)
+                                       };
+            return parameters;
+        }
     }
 }
