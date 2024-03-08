@@ -292,3 +292,16 @@ C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\Envis
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Operational.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.BusinessLogic.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.Webservice.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.Operational\obj\Debug\EnvisionOnline.Operational.pdb

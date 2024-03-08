@@ -165,3 +165,10 @@ C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\Envisi
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.csprojResolveAssemblyReference.cache
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.dll
 C:\GitHub\EnvisionRAMA\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.DataAccess.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\bin\Debug\EnvisionOnline.Common.pdb
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.csprojResolveAssemblyReference.cache
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.dll
+D:\MAT\GitHub\EnvisionRAMA_Backup_Github\EnvisionOnline\EnvisionOnline.DataAccess\obj\Debug\EnvisionOnline.DataAccess.pdb
